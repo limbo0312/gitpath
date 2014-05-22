@@ -1,3 +1,6 @@
+
+
+
 @class GHAccount, GHUser, GHOrganization;
 
 @interface iOctocat : NSObject
@@ -16,4 +19,5 @@
 - (GHUser *)currentUser;
 - (GHUser *)userWithLogin:(NSString *)login;
 - (GHOrganization *)organizationWithLogin:(NSString *)login;
+
 @end

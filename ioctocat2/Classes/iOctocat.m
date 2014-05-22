@@ -57,7 +57,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     [self setupHockeySDK];
     [self setupAccounts];
     [self setupAvatarCache];
-    [self setupSlidingViewController];
+    [self setupSlidingViewController];//main VCHierarchy
     [self.window makeKeyAndVisible];
     // remote notifications
     NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -313,6 +313,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 	}
 }
 
+//main VCHierarchy
 - (void)setupSlidingViewController {
     self.slidingViewController.anchorRightRevealAmount = 230;
     self.slidingViewController.underLeftViewController = self.menuNavController;

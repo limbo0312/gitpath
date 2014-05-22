@@ -1088,6 +1088,15 @@
 		8C86E772190664E000E7224B /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C86E76C190664E000E7224B /* GTMStackTrace.m */; };
 		8C86E773190664E000E7224B /* innerConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C86E76F190664E000E7224B /* innerConsole.m */; };
 		8C86E774190664E000E7224B /* swizzOnNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C86E771190664E000E7224B /* swizzOnNSURLConnection.m */; };
+		8C8C1EAB192E32FC0001D221 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EA0192E32FC0001D221 /* RECommonFunctions.m */; };
+		8C8C1EAC192E32FC0001D221 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EA2192E32FC0001D221 /* REFrostedContainerViewController.m */; };
+		8C8C1EAD192E32FC0001D221 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EA4192E32FC0001D221 /* REFrostedViewController.m */; };
+		8C8C1EAE192E32FC0001D221 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EA6192E32FC0001D221 /* UIImage+REFrostedViewController.m */; };
+		8C8C1EAF192E32FC0001D221 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EA8192E32FC0001D221 /* UIView+REFrostedViewController.m */; };
+		8C8C1EB0192E32FC0001D221 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C1EAA192E32FC0001D221 /* UIViewController+REFrostedViewController.m */; };
+		8C8C1EB3192E34C90001D221 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB2192E34C90001D221 /* ImageIO.framework */; };
+		8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB4192E34EC0001D221 /* CoreImage.framework */; };
+		8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB6192E35900001D221 /* Accelerate.framework */; };
 		8CE686760FB8C56700A3D625 /* GHForks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE686720FB8C56700A3D625 /* GHForks.m */; };
 		8CFBCFB30FAB8A6300A2C37A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFBCFB20FAB8A6300A2C37A /* CFNetwork.framework */; };
 		A0C19D01131973C300045E04 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C19D00131973C300045E04 /* MessageUI.framework */; };
@@ -1753,6 +1762,21 @@
 		8C86E76F190664E000E7224B /* innerConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = innerConsole.m; sourceTree = "<group>"; };
 		8C86E770190664E000E7224B /* swizzOnNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swizzOnNSURLConnection.h; sourceTree = "<group>"; };
 		8C86E771190664E000E7224B /* swizzOnNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = swizzOnNSURLConnection.m; sourceTree = "<group>"; };
+		8C8C1E9F192E32FC0001D221 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		8C8C1EA0192E32FC0001D221 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		8C8C1EA1192E32FC0001D221 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		8C8C1EA2192E32FC0001D221 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		8C8C1EA3192E32FC0001D221 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		8C8C1EA4192E32FC0001D221 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		8C8C1EA5192E32FC0001D221 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		8C8C1EA6192E32FC0001D221 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		8C8C1EA7192E32FC0001D221 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		8C8C1EA8192E32FC0001D221 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		8C8C1EA9192E32FC0001D221 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		8C8C1EAA192E32FC0001D221 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		8C8C1EB2192E34C90001D221 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		8C8C1EB4192E34EC0001D221 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		8C8C1EB6192E35900001D221 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8CE686720FB8C56700A3D625 /* GHForks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GHForks.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8CE686730FB8C56700A3D625 /* GHForks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHForks.h; sourceTree = "<group>"; };
 		8CFBCFB20FAB8A6300A2C37A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1768,6 +1792,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */,
+				8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */,
+				6F5E9B6E1119AD5B00752560 /* QuartzCore.framework in Frameworks */,
+				8C8C1EB3192E34C90001D221 /* ImageIO.framework in Frameworks */,
 				36ED094917074A0400CCEFCD /* AudioToolbox.framework in Frameworks */,
 				6F3FD69A1675E80700E90A6E /* Security.framework in Frameworks */,
 				6F6F177411E316FE008B319F /* MobileCoreServices.framework in Frameworks */,
@@ -1776,7 +1804,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				8CFBCFB30FAB8A6300A2C37A /* CFNetwork.framework in Frameworks */,
 				6F5E9B631119AD2100752560 /* CoreGraphics.framework in Frameworks */,
-				6F5E9B6E1119AD5B00752560 /* QuartzCore.framework in Frameworks */,
 				6F6F177011E316F3008B319F /* SystemConfiguration.framework in Frameworks */,
 				A0C19D01131973C300045E04 /* MessageUI.framework in Frameworks */,
 				EF7248196E634C6AB69D25C9 /* libPods.a in Frameworks */,
@@ -1827,6 +1854,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8C8C1EB1192E33830001D221 /* EGS_HierarchyType */,
 				6F5E9A971119A96000752560 /* Extensions */,
 				6F5E9AA21119A96000752560 /* External */,
 				6F1DC4410F7E5A7E00FCD26D /* Domain */,
@@ -1895,6 +1923,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C8C1EB6192E35900001D221 /* Accelerate.framework */,
+				8C8C1EB4192E34EC0001D221 /* CoreImage.framework */,
+				8C8C1EB2192E34C90001D221 /* ImageIO.framework */,
 				01117CDB13E87CBF004F4E09 /* libz.dylib */,
 				67ECF03BCF254C88A027B814 /* libPods.a */,
 				6F3FD6991675E80700E90A6E /* Security.framework */,
@@ -2125,8 +2156,6 @@
 				6FECA89F1590A20200878A74 /* Repos */,
 				6FF1B77916BDB10C00045229 /* Issues */,
 				6FECA8A01590A23C00878A74 /* Misc */,
-				1D3623240D0F684500981E51 /* iOctocat.h */,
-				1D3623250D0F684500981E51 /* iOctocat.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2940,6 +2969,7 @@
 		8C86E768190664D500E7224B /* thirdPartyLib */ = {
 			isa = PBXGroup;
 			children = (
+				8C8C1E9E192E32FC0001D221 /* REFrostedViewController */,
 				8C86E769190664E000E7224B /* innerConsole */,
 			);
 			path = thirdPartyLib;
@@ -2972,6 +3002,34 @@
 				8C86E76F190664E000E7224B /* innerConsole.m */,
 			);
 			path = innerConsole;
+			sourceTree = "<group>";
+		};
+		8C8C1E9E192E32FC0001D221 /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C8C1E9F192E32FC0001D221 /* RECommonFunctions.h */,
+				8C8C1EA0192E32FC0001D221 /* RECommonFunctions.m */,
+				8C8C1EA1192E32FC0001D221 /* REFrostedContainerViewController.h */,
+				8C8C1EA2192E32FC0001D221 /* REFrostedContainerViewController.m */,
+				8C8C1EA3192E32FC0001D221 /* REFrostedViewController.h */,
+				8C8C1EA4192E32FC0001D221 /* REFrostedViewController.m */,
+				8C8C1EA5192E32FC0001D221 /* UIImage+REFrostedViewController.h */,
+				8C8C1EA6192E32FC0001D221 /* UIImage+REFrostedViewController.m */,
+				8C8C1EA7192E32FC0001D221 /* UIView+REFrostedViewController.h */,
+				8C8C1EA8192E32FC0001D221 /* UIView+REFrostedViewController.m */,
+				8C8C1EA9192E32FC0001D221 /* UIViewController+REFrostedViewController.h */,
+				8C8C1EAA192E32FC0001D221 /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
+			sourceTree = "<group>";
+		};
+		8C8C1EB1192E33830001D221 /* EGS_HierarchyType */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* iOctocat.h */,
+				1D3623250D0F684500981E51 /* iOctocat.m */,
+			);
+			name = EGS_HierarchyType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3839,9 +3897,11 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* iOctocat.m in Sources */,
+				8C8C1EAE192E32FC0001D221 /* UIImage+REFrostedViewController.m in Sources */,
 				6F1DC6740F7E8E1900FCD26D /* IOCWebController.m in Sources */,
 				6FCE4D880F7FE16A00451D6E /* IOCMyEventsController.m in Sources */,
 				6F35BD390F88B01900E978CD /* GHOrganization.m in Sources */,
+				8C8C1EAD192E32FC0001D221 /* REFrostedViewController.m in Sources */,
 				6F35BD540F88B06200E978CD /* GHRepository.m in Sources */,
 				6FC95F1F0F8905F500FC0968 /* IOCUserController.m in Sources */,
 				6FC9610C0F8935DC00FC0968 /* IOCLabeledCell.m in Sources */,
@@ -3878,6 +3938,7 @@
 				6FE7D2B511568951004B4D68 /* GHIssueComments.m in Sources */,
 				6FE7D35A1156AE16004B4D68 /* NSString_IOCExtensions.m in Sources */,
 				6FC0D42A115819E400511B7F /* IOCCommentController.m in Sources */,
+				8C8C1EAB192E32FC0001D221 /* RECommonFunctions.m in Sources */,
 				6F7961AE132EC90D00C9446E /* GHResource.m in Sources */,
 				6F7961AF132EC90D00C9446E /* GHUser.m in Sources */,
 				6F9DD87B1334B99C00D1E35E /* GHOrganizations.m in Sources */,
@@ -3912,6 +3973,7 @@
 				6FB1CF8E1649AEB200337EBE /* IOCEventsController.m in Sources */,
 				6FDD2150165194FF0017E8BA /* GHPullRequest.m in Sources */,
 				6FAE3439165B6FD300C3502A /* IOCApplication.m in Sources */,
+				8C8C1EAF192E32FC0001D221 /* UIView+REFrostedViewController.m in Sources */,
 				6F6399E416618E1E00BF2FF0 /* IOCTextField.m in Sources */,
 				6F76CDC116628FF500A2353E /* IOCCommitsController.m in Sources */,
 				6F98765A166FEC380031E31B /* IOCMenuController.m in Sources */,
@@ -3923,6 +3985,7 @@
 				6F536BCE167A24AE00B5FD53 /* IOCIssuesController.m in Sources */,
 				6FC40F68168A037E0035927E /* GHCommits.m in Sources */,
 				6FC40F7F168BA7FD0035927E /* GHFiles.m in Sources */,
+				8C8C1EB0192E32FC0001D221 /* UIViewController+REFrostedViewController.m in Sources */,
 				6FF4D9551698D4B900C235A0 /* IOCRepositoriesController.m in Sources */,
 				6F1F399316A034D200C9E01B /* GHNotifications.m in Sources */,
 				6F1F399816A034ED00C9E01B /* GHNotification.m in Sources */,
@@ -3934,6 +3997,7 @@
 				6FA3816016E28986003293BD /* IOCNotificationsController.m in Sources */,
 				6FA3816516E2899E003293BD /* IOCSearchController.m in Sources */,
 				6FA3817216E28A0E003293BD /* IOCBlobsController.m in Sources */,
+				8C8C1EAC192E32FC0001D221 /* REFrostedContainerViewController.m in Sources */,
 				6FA3817516E28A0E003293BD /* IOCCodeController.m in Sources */,
 				6FA3817816E28A0E003293BD /* IOCCommitCell.m in Sources */,
 				6FA3817B16E28A0E003293BD /* IOCGistCell.m in Sources */,
