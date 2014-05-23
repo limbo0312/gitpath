@@ -1558,15 +1558,15 @@
 		6FA381D816E28F24003293BD /* MenuOctocat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuOctocat@2x.png"; sourceTree = "<group>"; };
 		6FA381E116E28F24003293BD /* MenuPullRequests.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPullRequests.png; sourceTree = "<group>"; };
 		6FA381E216E28F24003293BD /* MenuPullRequests@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuPullRequests@2x.png"; sourceTree = "<group>"; };
-		6FA512F11332659000C16D95 /* IOCAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCAppConstants.h; sourceTree = "<group>"; };
+		6FA512F11332659000C16D95 /* IOCAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOCAppConstants.h; path = ../IOCAppConstants.h; sourceTree = "<group>"; };
 		6FA92AFD0FACD51A001B1D1D /* Issue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Issue.xib; path = IBFiles/Issue.xib; sourceTree = "<group>"; };
 		6FA92B1A0FACD648001B1D1D /* issue_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = issue_closed.png; path = Images/Icons/issue_closed.png; sourceTree = "<group>"; };
 		6FA92B1B0FACD648001B1D1D /* issue_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = issue_open.png; path = Images/Icons/issue_open.png; sourceTree = "<group>"; };
 		6FA97E4715B0BF64000004F1 /* ToolbarUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarUser@2x.png"; sourceTree = "<group>"; };
 		6FA97E4B15B0C257000004F1 /* ToolbarCommit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarCommit@2x.png"; sourceTree = "<group>"; };
 		6FA97E4F15B0C397000004F1 /* ToolbarUsers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarUsers@2x.png"; sourceTree = "<group>"; };
-		6FAE3437165B6FD300C3502A /* IOCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCApplication.h; sourceTree = "<group>"; };
-		6FAE3438165B6FD300C3502A /* IOCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOCApplication.m; sourceTree = "<group>"; };
+		6FAE3437165B6FD300C3502A /* IOCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOCApplication.h; path = ../IOCApplication.h; sourceTree = "<group>"; };
+		6FAE3438165B6FD300C3502A /* IOCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOCApplication.m; path = ../IOCApplication.m; sourceTree = "<group>"; };
 		6FAF876A165AD63900248E11 /* arta.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = arta.css; sourceTree = "<group>"; };
 		6FAF876B165AD63900248E11 /* ascetic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ascetic.css; sourceTree = "<group>"; };
 		6FAF876E165AD63900248E11 /* dark.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark.css; sourceTree = "<group>"; };
@@ -1855,12 +1855,7 @@
 			isa = PBXGroup;
 			children = (
 				8C8C1EB1192E33830001D221 /* EGS_HierarchyType */,
-				6F5E9A971119A96000752560 /* Extensions */,
-				6F5E9AA21119A96000752560 /* External */,
-				6F1DC4410F7E5A7E00FCD26D /* Domain */,
-				2E11E70416FB13080012ACDA /* Services */,
-				6F1DC4A30F7E5D2200FCD26D /* Controller */,
-				6F1DC52B0F7E725500FCD26D /* View */,
+				8C8C1EBA192F4D040001D221 /* appTtoolKit */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1894,10 +1889,10 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6FDB4DE41621ABAF00AB11C3 /* Assets */,
+				6FB7FE9F0F7E2C3800E8D702 /* Images */,
+				2E88193316F8F8B300ACA2EB /* Sounds */,
 				28A0AAE50D9B0CCF005BE974 /* iOctocat_Prefix.pch */,
-				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
-				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
-				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
 				6F7BC07C15C12E660012320A /* JLog.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -1907,10 +1902,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6FDB4DE41621ABAF00AB11C3 /* Assets */,
+				6FB3CBE813977E4000CB0EAE /* iPhone */,
+				6FB3CBE513977DBC00CB0EAE /* iPad */,
 				6FB7FEA60F7E2C7500E8D702 /* IBFiles */,
-				6FB7FE9F0F7E2C3800E8D702 /* Images */,
-				2E88193316F8F8B300ACA2EB /* Sounds */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				6F7DFBE3169A33BE00ED47B6 /* Info-Beta.plist */,
 				6F0B11201670A2BD00375136 /* Menu.plist */,
@@ -2145,7 +2139,7 @@
 			name = Domain;
 			sourceTree = "<group>";
 		};
-		6F1DC4A30F7E5D2200FCD26D /* Controller */ = {
+		6F1DC4A30F7E5D2200FCD26D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				6FAF9D2C15927A7A00997A28 /* Account */,
@@ -2157,10 +2151,10 @@
 				6FF1B77916BDB10C00045229 /* Issues */,
 				6FECA8A01590A23C00878A74 /* Misc */,
 			);
-			name = Controller;
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
-		6F1DC52B0F7E725500FCD26D /* View */ = {
+		6F1DC52B0F7E725500FCD26D /* View Snippet */ = {
 			isa = PBXGroup;
 			children = (
 				6FEDE46B16E2A29300459B5C /* IOCCommitCell.h */,
@@ -2204,7 +2198,7 @@
 				6FE440251673D53C00226F42 /* IOCMenuCell.h */,
 				6FE440261673D53C00226F42 /* IOCMenuCell.m */,
 			);
-			name = View;
+			name = "View Snippet";
 			sourceTree = "<group>";
 		};
 		6F1DC5BB0F7E7F3400FCD26D /* Icons */ = {
@@ -2660,8 +2654,6 @@
 		6FB7FEA60F7E2C7500E8D702 /* IBFiles */ = {
 			isa = PBXGroup;
 			children = (
-				6FB3CBE813977E4000CB0EAE /* iPhone */,
-				6FB3CBE513977DBC00CB0EAE /* iPad */,
 				6FED82980FACA2AE00BE5C81 /* Cells */,
 				6F27CD2215911E7E00E15B34 /* AccountForm.xib */,
 				6F987655166FEBE30031E31B /* Menu.xib */,
@@ -3026,10 +3018,26 @@
 		8C8C1EB1192E33830001D221 /* EGS_HierarchyType */ = {
 			isa = PBXGroup;
 			children = (
+				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
+				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
+				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
 				1D3623240D0F684500981E51 /* iOctocat.h */,
 				1D3623250D0F684500981E51 /* iOctocat.m */,
+				6F1DC4A30F7E5D2200FCD26D /* View Controller */,
+				6F1DC52B0F7E725500FCD26D /* View Snippet */,
 			);
 			name = EGS_HierarchyType;
+			sourceTree = "<group>";
+		};
+		8C8C1EBA192F4D040001D221 /* appTtoolKit */ = {
+			isa = PBXGroup;
+			children = (
+				2E11E70416FB13080012ACDA /* Services */,
+				6F1DC4410F7E5A7E00FCD26D /* Domain */,
+				6F5E9A971119A96000752560 /* Extensions */,
+				6F5E9AA21119A96000752560 /* External */,
+			);
+			name = appTtoolKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
