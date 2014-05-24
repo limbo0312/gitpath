@@ -1497,7 +1497,7 @@
 		6F95106A16961C1D0056DFE9 /* Icon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPad@2x.png"; sourceTree = "<group>"; };
 		6F95106B16961C1D0056DFE9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6F95106C16961C1D0056DFE9 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		6F987655166FEBE30031E31B /* Menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Menu.xib; path = IBFiles/Menu.xib; sourceTree = "<group>"; };
+		6F987655166FEBE30031E31B /* Menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Menu.xib; path = ../IBFiles/Menu.xib; sourceTree = "<group>"; };
 		6F987658166FEC2E0031E31B /* IOCMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCMenuController.h; sourceTree = "<group>"; };
 		6F987659166FEC380031E31B /* IOCMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOCMenuController.m; sourceTree = "<group>"; };
 		6F9DD8311334A5D000D1E35E /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "comment@2x.png"; path = "Images/Icons/comment@2x.png"; sourceTree = "<group>"; };
@@ -1851,12 +1851,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		080E96DDFE201D6D7F000001 /* Classes Group */ = {
 			isa = PBXGroup;
 			children = (
 				8C8C1EB1192E33830001D221 /* EGS_HierarchyType */,
 				8C8C1EBA192F4D040001D221 /* appTtoolKit */,
 			);
+			name = "Classes Group";
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1873,7 +1874,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
+				080E96DDFE201D6D7F000001 /* Classes Group */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				8C86E768190664D500E7224B /* thirdPartyLib */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -1902,7 +1903,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6FB3CBE813977E4000CB0EAE /* iPhone */,
 				6FB3CBE513977DBC00CB0EAE /* iPad */,
 				6FB7FEA60F7E2C7500E8D702 /* IBFiles */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -2103,7 +2103,7 @@
 			path = Images/Types;
 			sourceTree = "<group>";
 		};
-		6F182C84161C5E2500E705CF /* Gists */ = {
+		6F182C84161C5E2500E705CF /* Gists VC */ = {
 			isa = PBXGroup;
 			children = (
 				6F182C85161C5E3600E705CF /* IOCGistsController.h */,
@@ -2113,7 +2113,7 @@
 				6FA3816A16E28A0E003293BD /* IOCCodeController.h */,
 				6FA3816B16E28A0E003293BD /* IOCCodeController.m */,
 			);
-			name = Gists;
+			name = "Gists VC";
 			sourceTree = "<group>";
 		};
 		6F1DC4410F7E5A7E00FCD26D /* Domain */ = {
@@ -2142,13 +2142,14 @@
 		6F1DC4A30F7E5D2200FCD26D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6FAF9D2C15927A7A00997A28 /* Account */,
-				6FECA89E1590711F00878A74 /* Events */,
-				6FECA8A11590A27600878A74 /* Users and Orgs */,
+				8C8C1EBB192F54FD0001D221 /* menuLeft */,
+				6FAF9D2C15927A7A00997A28 /* Account VC */,
+				6FECA89E1590711F00878A74 /* Events VC */,
+				6FECA8A11590A27600878A74 /* Users and Orgs VC */,
+				6FECA89F1590A20200878A74 /* Repos VC */,
 				6FECA89C159070FE00878A74 /* Git */,
-				6F182C84161C5E2500E705CF /* Gists */,
-				6FECA89F1590A20200878A74 /* Repos */,
-				6FF1B77916BDB10C00045229 /* Issues */,
+				6F182C84161C5E2500E705CF /* Gists VC */,
+				6FF1B77916BDB10C00045229 /* Issues VC */,
 				6FECA8A01590A23C00878A74 /* Misc */,
 			);
 			name = "View Controller";
@@ -2598,7 +2599,7 @@
 			path = highlight.js/src/styles;
 			sourceTree = "<group>";
 		};
-		6FAF9D2C15927A7A00997A28 /* Account */ = {
+		6FAF9D2C15927A7A00997A28 /* Account VC */ = {
 			isa = PBXGroup;
 			children = (
 				6F27CD0E159113D900E15B34 /* IOCAccountsController.h */,
@@ -2606,7 +2607,7 @@
 				6F27CD1D15911E4700E15B34 /* IOCAccountFormController.h */,
 				6F27CD1E15911E4700E15B34 /* IOCAccountFormController.m */,
 			);
-			name = Account;
+			name = "Account VC";
 			sourceTree = "<group>";
 		};
 		6FB3CBE513977DBC00CB0EAE /* iPad */ = {
@@ -2623,7 +2624,7 @@
 				6FB3CBE913977E4000CB0EAE /* MainWindow-iphone.xib */,
 			);
 			name = iPhone;
-			path = IBFiles/iPhone;
+			path = ../IBFiles/iPhone;
 			sourceTree = "<group>";
 		};
 		6FB7FE9F0F7E2C3800E8D702 /* Images */ = {
@@ -2656,7 +2657,6 @@
 			children = (
 				6FED82980FACA2AE00BE5C81 /* Cells */,
 				6F27CD2215911E7E00E15B34 /* AccountForm.xib */,
-				6F987655166FEBE30031E31B /* Menu.xib */,
 				6F380915162A1553001017E2 /* Code.xib */,
 				6F5A40860F90B25F00427ED7 /* User.xib */,
 				6F182C8B161CB7A100E705CF /* Gist.xib */,
@@ -2821,7 +2821,7 @@
 			name = Git;
 			sourceTree = "<group>";
 		};
-		6FECA89E1590711F00878A74 /* Events */ = {
+		6FECA89E1590711F00878A74 /* Events VC */ = {
 			isa = PBXGroup;
 			children = (
 				6FA3815E16E28986003293BD /* IOCNotificationsController.h */,
@@ -2831,18 +2831,15 @@
 				6FCE4D860F7FE16A00451D6E /* IOCMyEventsController.h */,
 				6FCE4D870F7FE16A00451D6E /* IOCMyEventsController.m */,
 			);
-			name = Events;
+			name = "Events VC";
 			sourceTree = "<group>";
 		};
-		6FECA89F1590A20200878A74 /* Repos */ = {
+		6FECA89F1590A20200878A74 /* Repos VC */ = {
 			isa = PBXGroup;
 			children = (
-				6F5652DF0F99C85C001B6703 /* IOCMyRepositoriesController.h */,
-				6F5652E00F99C85C001B6703 /* IOCMyRepositoriesController.m */,
-				6FF4D9531698D47E00C235A0 /* IOCRepositoriesController.h */,
-				6FF4D9541698D4B900C235A0 /* IOCRepositoriesController.m */,
-				6F4CBD3016431D6300D587FB /* IOCOrganizationRepositoriesController.h */,
-				6F4CBD3116431D6300D587FB /* IOCOrganizationRepositoriesController.m */,
+				8C8C1EBC192F59760001D221 /* Personal */,
+				8C8C1EBD192F59860001D221 /* Organizations */,
+				8C8C1EBE192F59970001D221 /* Watched_Starred */,
 				6F5A41730F90C38300427ED7 /* IOCRepositoryController.h */,
 				6F5A41740F90C38300427ED7 /* IOCRepositoryController.m */,
 				2E1CCAFD1756885B009C0400 /* IOCTagsController.h */,
@@ -2852,7 +2849,7 @@
 				6F797C5B1110E2BE007E5A8D /* IOCCommitController.h */,
 				6F797C5C1110E2BE007E5A8D /* IOCCommitController.m */,
 			);
-			name = Repos;
+			name = "Repos VC";
 			sourceTree = "<group>";
 		};
 		6FECA8A01590A23C00878A74 /* Misc */ = {
@@ -2860,8 +2857,6 @@
 			children = (
 				6FA3816316E2899E003293BD /* IOCSearchController.h */,
 				6FA3816416E2899E003293BD /* IOCSearchController.m */,
-				6F987658166FEC2E0031E31B /* IOCMenuController.h */,
-				6F987659166FEC380031E31B /* IOCMenuController.m */,
 				6F1DC6720F7E8E1900FCD26D /* IOCWebController.h */,
 				6F1DC6730F7E8E1900FCD26D /* IOCWebController.m */,
 				6FC0D428115819E400511B7F /* IOCCommentController.h */,
@@ -2875,19 +2870,19 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
-		6FECA8A11590A27600878A74 /* Users and Orgs */ = {
+		6FECA8A11590A27600878A74 /* Users and Orgs VC */ = {
 			isa = PBXGroup;
 			children = (
-				6F9DD8961334E1AB00D1E35E /* IOCOrganizationsController.h */,
-				6F9DD8971334E1AF00D1E35E /* IOCOrganizationsController.m */,
 				8C53B4CE0FB0F20B00C3A8E0 /* IOCUsersController.h */,
 				8C53B4CF0FB0F20B00C3A8E0 /* IOCUsersController.m */,
 				6FC95F1D0F8905F500FC0968 /* IOCUserController.h */,
 				6FC95F1E0F8905F500FC0968 /* IOCUserController.m */,
 				6FB9CBE1133543FD00C8DE29 /* IOCOrganizationController.h */,
 				6FB9CBE2133543FD00C8DE29 /* IOCOrganizationController.m */,
+				6F9DD8961334E1AB00D1E35E /* IOCOrganizationsController.h */,
+				6F9DD8971334E1AF00D1E35E /* IOCOrganizationsController.m */,
 			);
-			name = "Users and Orgs";
+			name = "Users and Orgs VC";
 			sourceTree = "<group>";
 		};
 		6FED82980FACA2AE00BE5C81 /* Cells */ = {
@@ -2939,7 +2934,7 @@
 			path = Images/Repo;
 			sourceTree = "<group>";
 		};
-		6FF1B77916BDB10C00045229 /* Issues */ = {
+		6FF1B77916BDB10C00045229 /* Issues VC */ = {
 			isa = PBXGroup;
 			children = (
 				6FED82950FACA1E700BE5C81 /* IOCPullRequestsController.h */,
@@ -2955,7 +2950,7 @@
 				2EEE878E176F924C00C43A14 /* IOCAssigneeSelectionController.h */,
 				2EEE878F176F926600C43A14 /* IOCAssigneeSelectionController.m */,
 			);
-			name = Issues;
+			name = "Issues VC";
 			sourceTree = "<group>";
 		};
 		8C86E768190664D500E7224B /* thirdPartyLib */ = {
@@ -3018,6 +3013,7 @@
 		8C8C1EB1192E33830001D221 /* EGS_HierarchyType */ = {
 			isa = PBXGroup;
 			children = (
+				6FB3CBE813977E4000CB0EAE /* iPhone */,
 				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
 				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
 				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
@@ -3038,6 +3034,43 @@
 				6F5E9AA21119A96000752560 /* External */,
 			);
 			name = appTtoolKit;
+			sourceTree = "<group>";
+		};
+		8C8C1EBB192F54FD0001D221 /* menuLeft */ = {
+			isa = PBXGroup;
+			children = (
+				6F987658166FEC2E0031E31B /* IOCMenuController.h */,
+				6F987659166FEC380031E31B /* IOCMenuController.m */,
+				6F987655166FEBE30031E31B /* Menu.xib */,
+			);
+			name = menuLeft;
+			sourceTree = "<group>";
+		};
+		8C8C1EBC192F59760001D221 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				6F5652DF0F99C85C001B6703 /* IOCMyRepositoriesController.h */,
+				6F5652E00F99C85C001B6703 /* IOCMyRepositoriesController.m */,
+			);
+			name = Personal;
+			sourceTree = "<group>";
+		};
+		8C8C1EBD192F59860001D221 /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				6F4CBD3016431D6300D587FB /* IOCOrganizationRepositoriesController.h */,
+				6F4CBD3116431D6300D587FB /* IOCOrganizationRepositoriesController.m */,
+			);
+			name = Organizations;
+			sourceTree = "<group>";
+		};
+		8C8C1EBE192F59970001D221 /* Watched_Starred */ = {
+			isa = PBXGroup;
+			children = (
+				6FF4D9531698D47E00C235A0 /* IOCRepositoriesController.h */,
+				6FF4D9541698D4B900C235A0 /* IOCRepositoriesController.m */,
+			);
+			name = Watched_Starred;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

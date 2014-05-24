@@ -13,8 +13,9 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <customObject id="3" customClass="iOctocat">
             <connections>
+                <outlet property="frostBaseViewC" destination="TPq-eZ-D8I" id="Psj-mS-iRZ"/>
                 <outlet property="menuNavController" destination="137" id="185"/>
-                <outlet property="slidingViewController" destination="183" id="184"/>
+                <outlet property="slidingViewController" destination="183" id="KTn-oi-oCe"/>
                 <outlet property="window" destination="2" id="16"/>
             </connections>
         </customObject>
@@ -24,7 +25,7 @@
             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <connections>
-                <outlet property="rootViewController" destination="183" id="191"/>
+                <outlet property="rootViewController" destination="183" id="NQf-5a-cY6"/>
             </connections>
         </window>
         <viewController id="183" customClass="ECSlidingViewController">
@@ -77,5 +78,13 @@
                 </tableViewController>
             </viewControllers>
         </navigationController>
+        <viewController id="TPq-eZ-D8I" customClass="REFrostedViewController">
+            <extendedEdge key="edgesForExtendedLayout"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <nil key="simulatedDestinationMetrics"/>
+        </viewController>
     </objects>
 </document>

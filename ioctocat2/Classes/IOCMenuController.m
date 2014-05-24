@@ -84,6 +84,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     self.tableView.scrollsToTop = NO;
     // open first view controller
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight];
+    
+#warning mainVC on top（right ）111
     [self openViewController:self.initialViewController];
     // load resources
     if (![self.initialViewController isKindOfClass:IOCNotificationsController.class]) {
@@ -177,12 +179,18 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	navController.view.layer.shadowOpacity = 0.8f;
 	navController.view.layer.shadowRadius = 5;
 	navController.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
 	// give the root view controller the toggle bar button item
     [(UIViewController *)navController.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
+    
+#warning mainVC on top（right ）222
 	// set the navigation controller as the new top view and bring it on
     [self.slidingViewController setTopViewController:navController];
+    
 	self.slidingViewController.underLeftWidthLayout = ECFixedRevealWidth;
+    
 	[self.slidingViewController resetTopViewAnimateChange:2.0 animations:nil onComplete:nil];
+    
     [iOctocat.sharedInstance bringStatusViewToFront];
 }
 
@@ -227,6 +235,9 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 }
 
 - (void)toggleTopView {
+    
+#warning 左侧导航
+    //===>old
     self.slidingViewController.underLeftWidthLayout = ECFixedRevealWidth;
     if (self.slidingViewController.underLeftShowing) {
         // actually this does not get called when the top view screenshot is enabled
@@ -235,6 +246,9 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     } else {
         [self.slidingViewController anchorTopViewTo:ECRight animateChange:2.0 animations:nil onComplete:nil];
     }
+    
+    //===>new
+    
 }
 
 #pragma mark TableView

@@ -23,6 +23,7 @@
 #import "GHSystemStatusService.h"
 
 #import "innerConsole.h"
+#import "REFrostedViewController.h"
 
 @interface iOctocat () <UIApplicationDelegate, BITHockeyManagerDelegate, BITCrashManagerDelegate, BITUpdateManagerDelegate>
 @property(nonatomic,strong)NSMutableArray *accounts;
@@ -30,6 +31,8 @@
 @property(nonatomic,strong)UIWindow *statusWindow;
 @property(nonatomic,strong)IBOutlet UINavigationController *menuNavController;
 @property(nonatomic,strong)IBOutlet ECSlidingViewController *slidingViewController;
+
+@property(nonatomic,strong)IBOutlet REFrostedViewController *frostBaseViewC;
 @end
 
 

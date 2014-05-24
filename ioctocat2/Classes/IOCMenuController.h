@@ -1,3 +1,5 @@
+
+
 @class GHUser;
 
 @interface IOCMenuController : UITableViewController
@@ -7,4 +9,6 @@
 - (BOOL)openViewControllerForGitHubURL:(NSURL *)url;
 - (void)openNotificationsController;
 - (void)openNotificationControllerWithId:(NSInteger)notificationId url:(NSURL *)itemURL;
+
+
 @end
