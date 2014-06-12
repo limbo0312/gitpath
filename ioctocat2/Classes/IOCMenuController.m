@@ -22,8 +22,8 @@
 #import "iOctocat.h"
 #import "ECSlidingViewController.h"
 #import "IOCMenuCell.h"
-#import "BITHockeyManager.h"
-#import "BITFeedbackManager.h"
+//#import "BITHockeyManager.h"
+//#import "BITFeedbackManager.h"
 
 
 #define kSectionHeaderHeight 24.0f

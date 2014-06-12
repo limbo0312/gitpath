@@ -6,4 +6,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "IOCAppConstants.h"
 #import "JLog.h"
+
+
+#import "MacroDefinition.h"
 #endif

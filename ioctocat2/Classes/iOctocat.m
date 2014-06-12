@@ -1,5 +1,5 @@
 #import <AudioToolbox/AudioServices.h>
-#import <HockeySDK/HockeySDK.h>
+//#import <HockeySDK/HockeySDK.h>
 #import "iOctocat.h"
 #import "IOCApiClient.h"
 #import "IOCAvatarCache.h"
@@ -25,7 +25,7 @@
 #import "innerConsole.h"
 #import "REFrostedViewController.h"
 
-@interface iOctocat () <UIApplicationDelegate, BITHockeyManagerDelegate, BITCrashManagerDelegate, BITUpdateManagerDelegate>
+@interface iOctocat () <UIApplicationDelegate>
 @property(nonatomic,strong)NSMutableArray *accounts;
 @property(nonatomic,strong)UIView *statusView;
 @property(nonatomic,strong)UIWindow *statusWindow;
@@ -57,7 +57,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     [UIApplication.sharedApplication setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [self registerDefaultsFromSettingsBundle];
     [self deactivateURLCache];
-    [self setupHockeySDK];
+//    [self setupHockeySDK];
     [self setupAccounts];
     [self setupAvatarCache];
     [self setupSlidingViewController];//main VCHierarchy
@@ -475,37 +475,37 @@ void SystemSoundCallback(SystemSoundID ssID, void *clientData) {
 
 #pragma mark Hockey
 
-- (void)setupHockeySDK {
-#ifndef CONFIGURATION_Debug
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"HockeySDK" ofType:@"plist"];
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-	NSString *betaId = [dict ioc_valueForKey:@"beta_identifier" defaultsTo:nil];
-	NSString *liveId = [dict ioc_valueForKey:@"live_identifier" defaultsTo:nil];
-	if (betaId || liveId) {
-        [BITHockeyManager.sharedHockeyManager configureWithBetaIdentifier:betaId liveIdentifier:liveId delegate:self];
-        [BITHockeyManager.sharedHockeyManager startManager];
-        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserName = BITFeedbackUserDataElementRequired;
-        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserEmail = BITFeedbackUserDataElementRequired;
-	}
-#endif
-}
+//- (void)setupHockeySDK {
+//#ifndef CONFIGURATION_Debug
+//	NSString *path = [[NSBundle mainBundle] pathForResource:@"HockeySDK" ofType:@"plist"];
+//	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+//	NSString *betaId = [dict ioc_valueForKey:@"beta_identifier" defaultsTo:nil];
+//	NSString *liveId = [dict ioc_valueForKey:@"live_identifier" defaultsTo:nil];
+//	if (betaId || liveId) {
+//        [BITHockeyManager.sharedHockeyManager configureWithBetaIdentifier:betaId liveIdentifier:liveId delegate:self];
+//        [BITHockeyManager.sharedHockeyManager startManager];
+//        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserName = BITFeedbackUserDataElementRequired;
+//        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserEmail = BITFeedbackUserDataElementRequired;
+//	}
+//#endif
+//}
 
-- (NSString *)userNameForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
-    return self.currentUser.login;
-}
+//- (NSString *)userNameForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
+//    return self.currentUser.login;
+//}
+//
+//- (NSString *)userEmailForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
+//    return self.currentUser.email;
+//}
 
-- (NSString *)userEmailForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
-    return self.currentUser.email;
-}
-
-- (NSString *)customDeviceIdentifierForUpdateManager:(BITUpdateManager *)updateManager {
-#ifndef CONFIGURATION_Release
-	if ([[UIDevice currentDevice] respondsToSelector:@selector(uniqueIdentifier)]) {
-		return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
-	}
-#endif
-	return nil;
-}
+//- (NSString *)customDeviceIdentifierForUpdateManager:(BITUpdateManager *)updateManager {
+//#ifndef CONFIGURATION_Release
+//	if ([[UIDevice currentDevice] respondsToSelector:@selector(uniqueIdentifier)]) {
+//		return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+//	}
+//#endif
+//	return nil;
+//}
 
 #pragma mark Autorotation
 
