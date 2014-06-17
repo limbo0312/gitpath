@@ -3071,6 +3071,23 @@
 			name = "Issues VC";
 			sourceTree = "<group>";
 		};
+		8C33330E1950353E007D6BA4 /* baseObjSafely  */ = {
+			isa = PBXGroup;
+			children = (
+				8C3597B61949B02E0017DD39 /* NSArray+objectSavely.h */,
+				8C3597B71949B02E0017DD39 /* NSArray+objectSavely.m */,
+				8C3597BA1949B02E0017DD39 /* NSDictionary+safelyWay.h */,
+				8C3597BB1949B02E0017DD39 /* NSDictionary+safelyWay.m */,
+				8C3597BC1949B02E0017DD39 /* NSMutableDictionary+safelyWay.h */,
+				8C3597BD1949B02E0017DD39 /* NSMutableDictionary+safelyWay.m */,
+				8C3597BE1949B02E0017DD39 /* NSObject+safelyOrNil.h */,
+				8C3597BF1949B02E0017DD39 /* NSObject+safelyOrNil.m */,
+				8C3597C01949B02E0017DD39 /* NSObject+targetTypeValue.h */,
+				8C3597C11949B02E0017DD39 /* NSObject+targetTypeValue.m */,
+			);
+			name = "baseObjSafely ";
+			sourceTree = "<group>";
+		};
 		8C3597701949A2CC0017DD39 /* NewHierarchy */ = {
 			isa = PBXGroup;
 			children = (
@@ -3152,18 +3169,9 @@
 				8C3597981949B02E0017DD39 /* egsInsightToolKit */,
 				8C3597B21949B02E0017DD39 /* enhanceKit */,
 				8C3597B51949B02E0017DD39 /* MacroDefinition.h */,
-				8C3597B61949B02E0017DD39 /* NSArray+objectSavely.h */,
-				8C3597B71949B02E0017DD39 /* NSArray+objectSavely.m */,
+				8C33330E1950353E007D6BA4 /* baseObjSafely  */,
 				8C3597B81949B02E0017DD39 /* NSDate-Utilities.h */,
 				8C3597B91949B02E0017DD39 /* NSDate-Utilities.m */,
-				8C3597BA1949B02E0017DD39 /* NSDictionary+safelyWay.h */,
-				8C3597BB1949B02E0017DD39 /* NSDictionary+safelyWay.m */,
-				8C3597BC1949B02E0017DD39 /* NSMutableDictionary+safelyWay.h */,
-				8C3597BD1949B02E0017DD39 /* NSMutableDictionary+safelyWay.m */,
-				8C3597BE1949B02E0017DD39 /* NSObject+safelyOrNil.h */,
-				8C3597BF1949B02E0017DD39 /* NSObject+safelyOrNil.m */,
-				8C3597C01949B02E0017DD39 /* NSObject+targetTypeValue.h */,
-				8C3597C11949B02E0017DD39 /* NSObject+targetTypeValue.m */,
 				8C3597C21949B02E0017DD39 /* NSString+Extensions.h */,
 				8C3597C31949B02E0017DD39 /* NSString+Extensions.m */,
 				8C3597C41949B02E0017DD39 /* UIDevice+MemoryInfo.h */,
