@@ -1,6 +1,6 @@
 #import "GHMilestone.h"
 #import "GHRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSString+Emojize.h"
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
@@ -69,7 +69,7 @@
 
 - (void)setValues:(id)dict {
 	NSString *login = [dict ioc_stringForKeyPath:@"creator.login"];
-	self.creator = [iOctocat.sharedInstance userWithLogin:login];
+	self.creator = [iOctocatDelegate.sharedInstance userWithLogin:login];
 	self.number = [dict ioc_integerForKey:@"number"];
 	self.title = [dict ioc_stringForKey:@"title"];
 	self.state = [dict ioc_stringForKey:@"state"];

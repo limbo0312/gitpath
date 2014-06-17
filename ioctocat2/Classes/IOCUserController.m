@@ -11,7 +11,7 @@
 #import "IOCLabeledCell.h"
 #import "IOCRepositoryCell.h"
 #import "IOCUserObjectCell.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCUsersController.h"
 #import "IOCEventsController.h"
 #import "NSString_IOCExtensions.h"
@@ -123,7 +123,7 @@
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (BOOL)isProfile {

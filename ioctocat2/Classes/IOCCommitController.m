@@ -15,7 +15,7 @@
 #import "IOCWebController.h"
 #import "IOCFilesController.h"
 #import "IOCCommentController.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCResourceStatusCell.h"
 #import "IOCViewControllerFactory.h"
 #import "SVProgressHUD.h"
@@ -123,7 +123,7 @@ static NSString *const AuthorGravatarKeyPath = @"author.gravatar";
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (void)displayCommit {
@@ -164,7 +164,7 @@ static NSString *const AuthorGravatarKeyPath = @"author.gravatar";
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

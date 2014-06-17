@@ -4,7 +4,7 @@
 #import "GHTree.h"
 #import "GHBlob.h"
 #import "GHSubmodule.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "IOCResourceStatusCell.h"
 #import "NSString_IOCExtensions.h"

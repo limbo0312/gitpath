@@ -6,7 +6,7 @@
 #import "GHBranch.h"
 #import "GHFiles.h"
 #import "GHUser.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHFMarkdown.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString+Emojize.h"
@@ -93,7 +93,7 @@
 
 - (void)setValues:(id)dict {
 	NSString *login = [dict ioc_stringForKeyPath:@"user.login"];
-	self.user = [iOctocat.sharedInstance userWithLogin:login];
+	self.user = [iOctocatDelegate.sharedInstance userWithLogin:login];
 	self.createdAt = [dict ioc_dateForKey:@"created_at"];
 	self.updatedAt = [dict ioc_dateForKey:@"updated_at"];
 	self.mergedAt = [dict ioc_dateForKey:@"merged_at"];

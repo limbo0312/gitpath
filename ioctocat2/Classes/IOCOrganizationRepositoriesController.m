@@ -6,7 +6,7 @@
 #import "GHOrganizations.h"
 #import "GHOrganization.h"
 #import "IOCRepositoryCell.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "IOCResourceStatusCell.h"
 #import "IOCTableViewSectionHeader.h"
@@ -80,7 +80,7 @@
 }
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (GHRepositories *)repositoriesInSection:(NSInteger)section {

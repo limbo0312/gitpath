@@ -2,7 +2,7 @@
 #import "GHCommit.h"
 #import "GHRepository.h"
 #import "GHUser.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
@@ -34,7 +34,7 @@
 	NSString *authorLogin = [dict ioc_stringForKeyPath:@"author.login"];
 	if ([authorLogin ioc_isEmpty]) authorLogin = [dict ioc_stringForKeyPath:@"user.login"];
 	self.commit = [[GHCommit alloc] initWithRepository:self.repository andCommitID:sha];
-	self.author = [iOctocat.sharedInstance userWithLogin:authorLogin];
+	self.author = [iOctocatDelegate.sharedInstance userWithLogin:authorLogin];
 }
 
 @end

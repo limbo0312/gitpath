@@ -11,7 +11,7 @@
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
 #import "NSMutableArray_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCAuthenticationService.h"
 #import "IOCTableViewSectionHeader.h"
 #import "ECSlidingViewController.h"
@@ -26,12 +26,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuMovedOff) name:ECSlidingViewTopDidAnchorRight object:nil];
-    if (iOctocat.sharedInstance.currentAccount) {
-		iOctocat.sharedInstance.currentAccount = nil;
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(menuMovedOff)
+                                                 name:ECSlidingViewTopDidAnchorRight
+                                               object:nil];
+    
+    if (iOctocatDelegate.sharedInstance.currentAccount) {
+		iOctocatDelegate.sharedInstance.currentAccount = nil;
 	}
 	[self handleAccountsChange];
 	[self.tableView reloadData];
+    
+    
+    
     // create account if there is none, open account if there is only one
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -59,7 +66,7 @@
 }
 
 - (NSMutableArray *)accounts {
-    return iOctocat.sharedInstance.accounts;
+    return iOctocatDelegate.sharedInstance.accounts;
 }
 
 #pragma mark IOCAccountFormControllerDelegate
@@ -162,17 +169,26 @@
 	[self editAccountAtIndex:NSNotFound];
 }
 
+
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = self.accounts[idx];
-	iOctocat.sharedInstance.currentAccount = account;
-	[IOCAuthenticationService authenticateAccount:account success:^(GHAccount *account) {
-        iOctocat.sharedInstance.currentAccount = account;
-		IOCMenuController *menuController = [[IOCMenuController alloc] initWithUser:account.user];
-        [self.navigationController pushViewController:menuController animated:YES];
-    } failure:^(GHAccount *account) {
-        [iOctocat reportError:@"Authentication failed" with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
-		NSUInteger idx = [self.accounts indexOfObject:account];
-		[self editAccountAtIndex:idx];
+	iOctocatDelegate.sharedInstance.currentAccount = account;
+    
+	[IOCAuthenticationService authenticateAccount:account
+                                          success:^(GHAccount *account) {
+                                              
+                    iOctocatDelegate.sharedInstance.currentAccount = account;
+                    IOCMenuController *menuController = [[IOCMenuController alloc] initWithUser:account.user];
+                    [self.navigationController pushViewController:menuController animated:YES];
+    }
+                                          failure:^(GHAccount *account) {
+                                              
+                    [iOctocatDelegate reportError:@"Authentication failed"
+                                             with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
+                                                          
+                    NSUInteger idx = [self.accounts indexOfObject:account];
+                                                          
+                    [self editAccountAtIndex:idx];
     }];
 }
 

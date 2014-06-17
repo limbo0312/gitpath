@@ -11,7 +11,7 @@
 #import "IOCUserController.h"
 #import "IOCCommentController.h"
 #import "IOCCommentCell.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSDictionary_IOCExtensions.h"
 #import "NSDate_IOCExtensions.h"
 #import "SVProgressHUD.h"
@@ -102,7 +102,7 @@
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (void)displayGist {
@@ -139,7 +139,7 @@
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

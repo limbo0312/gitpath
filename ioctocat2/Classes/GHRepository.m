@@ -1,6 +1,6 @@
 #import "GHRepository.h"
 #import "GHResource.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHIssues.h"
 #import "GHPullRequests.h"
 #import "GHTags.h"
@@ -75,7 +75,7 @@
 }
 
 - (GHUser *)user {
-	return [iOctocat.sharedInstance userWithLogin:self.owner];
+	return [iOctocatDelegate.sharedInstance userWithLogin:self.owner];
 }
 
 #pragma mark Associations

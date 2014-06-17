@@ -19,11 +19,9 @@
 #import "GHNotifications.h"
 #import "GHNotification.h"
 #import "GHRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "ECSlidingViewController.h"
 #import "IOCMenuCell.h"
-//#import "BITHockeyManager.h"
-//#import "BITFeedbackManager.h"
 
 
 #define kSectionHeaderHeight 24.0f
@@ -102,7 +100,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
             NSIndexSet *sections = [NSIndexSet indexSetWithIndex:1];
             [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
         } failure:^(GHResource *instance, NSError *error) {
-            [iOctocat reportLoadingError:@"Could not load the organizations"];
+            [iOctocatDelegate reportLoadingError:@"Could not load the organizations"];
         }];
     } else {
         [self addOrganizationObservers];
@@ -114,7 +112,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     // view controller, because that is not the case we want to react to
     if (self.presentedViewController) return;
     [super viewWillDisappear:animated];
-    CGFloat width = UIInterfaceOrientationIsPortrait(self.navigationController.interfaceOrientation) ? iOctocat.sharedInstance.window.frame.size.width : iOctocat.sharedInstance.window.frame.size.height;
+    CGFloat width = UIInterfaceOrientationIsPortrait(self.navigationController.interfaceOrientation) ? iOctocatDelegate.sharedInstance.window.frame.size.width : iOctocatDelegate.sharedInstance.window.frame.size.height;
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animateChange:2 animations:^{
         CGRect viewFrame = self.navigationController.view.frame;
         viewFrame.size.width = width;
@@ -191,7 +189,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     
 	[self.slidingViewController resetTopViewAnimateChange:2.0 animations:nil onComplete:nil];
     
-    [iOctocat.sharedInstance bringStatusViewToFront];
+    [iOctocatDelegate.sharedInstance bringStatusViewToFront];
 }
 
 - (void)openNotificationsController {

@@ -12,7 +12,7 @@
 #import "GHPullRequest.h"
 #import "GHRepoComment.h"
 #import "GHIssueComment.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHFMarkdown.h"
 #import "NSString+Emojize.h"
 #import "NSString_IOCExtensions.h"
@@ -86,7 +86,7 @@
 
 	// User
 	if (![actorLogin ioc_isEmpty]) {
-		self.user = [iOctocat.sharedInstance userWithLogin:actorLogin];
+		self.user = [iOctocatDelegate.sharedInstance userWithLogin:actorLogin];
 		if (!self.user.gravatarURL) {
 			self.user.gravatarURL = [dict ioc_URLForKeyPath:@"actor.avatar_url"];
 		}
@@ -94,7 +94,7 @@
 
 	// Organization
 	if (![orgLogin ioc_isEmpty]) {
-		self.organization = [iOctocat.sharedInstance organizationWithLogin:orgLogin];
+		self.organization = [iOctocatDelegate.sharedInstance organizationWithLogin:orgLogin];
 		if (!self.organization.gravatarURL) {
 			self.organization.gravatarURL = [dict ioc_URLForKeyPath:@"org.avatar_url"];
 		}
@@ -112,7 +112,7 @@
 		otherUserLogin = [otherUserDict ioc_stringForKey:@"login"];
 	}
 	if (![otherUserLogin ioc_isEmpty]) {
-		self.otherUser = [iOctocat.sharedInstance userWithLogin:otherUserLogin];
+		self.otherUser = [iOctocatDelegate.sharedInstance userWithLogin:otherUserLogin];
 		if (!self.otherUser.gravatarURL) {
 			self.otherUser.gravatarURL = [otherUserDict ioc_URLForKeyPath:@"avatar_url"];
 		}

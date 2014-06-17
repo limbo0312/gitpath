@@ -2,7 +2,7 @@
 #import "IOCUtil.h"
 #import "GHBlob.h"
 #import "NSString_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 
 
@@ -89,7 +89,7 @@
             }
 		} failure:^(GHResource *instance, NSError *error) {
 			if (blob == self.blob) {
-				[iOctocat reportLoadingError:NSLocalizedString(@"Could not load the file", @"File loading error message")];
+				[iOctocatDelegate reportLoadingError:NSLocalizedString(@"Could not load the file", @"File loading error message")];
 			}
 		}];
 	}
@@ -142,7 +142,7 @@
 	} else {
 		NSURL *baseUrl = [NSURL fileURLWithPath:NSBundle.mainBundle.bundlePath];
 		NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Cannot display %@", @"File display error message with FILENAME"), filename];
-		[iOctocat reportError:NSLocalizedString(@"Unknown content", @"File display error title") with:message];
+		[iOctocatDelegate reportError:NSLocalizedString(@"Unknown content", @"File display error title") with:message];
 		[self.contentView loadHTMLString:@"" baseURL:baseUrl];
 	}
 }

@@ -38,13 +38,13 @@
 }
 
 - (void)testGhfmarkdownImagesAtStringBounds {
-    NSString *string = @"![Image at start](http://ioctocat.com/img/iOctocat.png) and an ![image at the end](http://ioctocat.com/img/iOctocat-GitHub_iOS.png)";
+    NSString *string = @"![Image at start](http://ioctocat.com/img/iOctocatDelegate.png) and an ![image at the end](http://ioctocat.com/img/iOctocat-GitHub_iOS.png)";
     NSArray *images = [string ghf_linksFromGHFMarkdownLinks];
     expect(images.count).to.equal(2);
     NSDictionary *img1 = images[0];
     NSDictionary *img2 = images[1];
     expect(img1[@"title"]).to.equal(@"Image at start");
-    expect(img1[@"url"]).to.equal([NSURL URLWithString:@"http://ioctocat.com/img/iOctocat.png"]);
+    expect(img1[@"url"]).to.equal([NSURL URLWithString:@"http://ioctocat.com/img/iOctocatDelegate.png"]);
     expect(img2[@"title"]).to.equal(@"image at the end");
     expect(img2[@"url"]).to.equal([NSURL URLWithString:@"http://ioctocat.com/img/iOctocat-GitHub_iOS.png"]);
 }

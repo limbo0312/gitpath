@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>inspiredSpace</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
@@ -57,12 +57,10 @@
 	<string>1.8.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-ipad</string>
+	<key>NSMainNibFile</key>
+	<string>MainWindow-iphone</string>
 	<key>SBUsesNetwork</key>
 	<true/>
-	<key>UIMainStoryboardFile</key>
-	<string>MainNew</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>

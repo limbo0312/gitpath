@@ -16,8 +16,8 @@
 #import "GTMStackTrace.h"
 #endif
 
-#import "iOctocat.h"
-#define DELEGATE_OF_APP  ((iOctocat *)[[UIApplication sharedApplication] delegate])
+#import "iOctocatDelegate.h"
+#define DELEGATE_OF_APP  ((iOctocatDelegate *)[[UIApplication sharedApplication] delegate])
 
 #define EDITFIELD_HEIGHT    28
 #define ACTION_BUTTON_WIDTH 28

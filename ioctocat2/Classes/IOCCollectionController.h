@@ -1,6 +1,9 @@
+
+
 @class GHCollection, GHUser, IOCResourceStatusCell;
 
 @interface IOCCollectionController : UITableViewController
+
 @property(nonatomic,strong)GHCollection *collection;
 @property(nonatomic,readonly)GHUser *currentUser;
 

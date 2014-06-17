@@ -12,7 +12,7 @@
 #import "GHCommit.h"
 #import "GHGist.h"
 #import "GHIssue.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSDate_IOCExtensions.h"
 #import "UIScrollView+SVPullToRefresh.h"
 

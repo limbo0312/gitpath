@@ -8,7 +8,7 @@
 #import "GHRepoComment.h"
 #import "GHAccount.h"
 #import "GHUserObjectsRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "MAXCompletion.h"
 #import "NSString+Emojize.h"
@@ -78,7 +78,7 @@
 - (void)setupCompletion {
     self.usernameCompletion = [[MAXCompletion alloc] init];
     self.usernameCompletion.textView = self.bodyView;
-    self.usernameCompletion.dataSource = iOctocat.sharedInstance.currentAccount.userObjects.users;
+    self.usernameCompletion.dataSource = iOctocatDelegate.sharedInstance.currentAccount.userObjects.users;
     self.emojiCompletion = [[MAXCompletion alloc] init];
     self.emojiCompletion.textView = self.bodyView;
     self.emojiCompletion.prefix = @":";
@@ -144,7 +144,7 @@
 
 - (IBAction)postComment:(id)sender {
 	if (!self.bodyView.text.length) {
-		[iOctocat reportError:@"Validation failed" with:@"Please enter a text"];
+		[iOctocatDelegate reportError:@"Validation failed" with:@"Please enter a text"];
 	} else {
 		[self.comments saveObject:self.comment params:self.fields start:^(GHResource *instance) {
 			[SVProgressHUD showWithStatus:@"Posting comment" maskType:SVProgressHUDMaskTypeGradient];

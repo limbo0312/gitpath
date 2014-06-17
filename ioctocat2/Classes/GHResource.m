@@ -1,7 +1,7 @@
 #import "GHResource.h"
 #import "GHAccount.h"
 #import "GHOAuthClient.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 
 
 @interface GHResource ()
@@ -31,11 +31,11 @@
 #pragma mark API
 
 - (GHAccount *)account {
-	return iOctocat.sharedInstance.currentAccount;
+	return iOctocatDelegate.sharedInstance.currentAccount;
 }
 
 - (GHOAuthClient *)apiClient {
-	return iOctocat.sharedInstance.currentAccount.apiClient;
+	return iOctocatDelegate.sharedInstance.currentAccount.apiClient;
 }
 
 - (NSString *)resourceContentType {

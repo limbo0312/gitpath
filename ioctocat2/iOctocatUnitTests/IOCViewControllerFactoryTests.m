@@ -103,13 +103,13 @@
 }
 
 - (void)testWithBlobURL {
-	NSURL *url = [NSURL URLWithString:@"https://github.com/dennisreimann/ioctocat/blob/master/Classes/iOctocat.m"];
+	NSURL *url = [NSURL URLWithString:@"https://github.com/dennisreimann/ioctocat/blob/master/Classes/iOctocatDelegate.m"];
     id viewController = [IOCViewControllerFactory viewControllerForURL:url];
 	expect(viewController).beKindOf(IOCBlobsController.class);
 }
 
 - (void)testWithRelativeURL {
-	NSURL *url = [NSURL URLWithString:@"/dennisreimann/ioctocat/blob/master/Classes/iOctocat.m"];
+	NSURL *url = [NSURL URLWithString:@"/dennisreimann/ioctocat/blob/master/Classes/iOctocatDelegate.m"];
     id viewController = [IOCViewControllerFactory viewControllerForURL:url];
 	expect(viewController).beKindOf(IOCBlobsController.class);
 }

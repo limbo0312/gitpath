@@ -4,7 +4,7 @@
 #import "GHRepository.h"
 #import "GHRepositories.h"
 #import "IOCRepositoryCell.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "IOCResourceStatusCell.h"
 #import "IOCTableViewSectionHeader.h"

@@ -13,7 +13,7 @@
 #import "GHIssueComment.h"
 #import "NSDate_IOCExtensions.h"
 #import "NSString_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHUser.h"
 #import "GHBranch.h"
 #import "GHPullRequest.h"
@@ -117,7 +117,7 @@
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (BOOL)pullRequestEditableByCurrentUser {
@@ -188,7 +188,7 @@
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

@@ -5,7 +5,7 @@
 #import "GHMilestone.h"
 #import "GHLabels.h"
 #import "GHUser.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHFMarkdown.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString+Emojize.h"
@@ -84,8 +84,8 @@
 - (void)setValues:(id)dict {
 	NSString *userLogin = [dict ioc_stringForKeyPath:@"user.login"];
 	NSString *assigneeLogin = [dict ioc_stringForKeyPath:@"assignee.login"];
-	self.user = [iOctocat.sharedInstance userWithLogin:userLogin];
-	self.assignee = [iOctocat.sharedInstance userWithLogin:assigneeLogin];
+	self.user = [iOctocatDelegate.sharedInstance userWithLogin:userLogin];
+	self.assignee = [iOctocatDelegate.sharedInstance userWithLogin:assigneeLogin];
 	self.createdAt = [dict ioc_dateForKey:@"created_at"];
 	self.updatedAt = [dict ioc_dateForKey:@"updated_at"];
 	self.closedAt = [dict ioc_dateForKey:@"closed_at"];

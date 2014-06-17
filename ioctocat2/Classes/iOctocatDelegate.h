@@ -3,11 +3,12 @@
 
 @class GHAccount, GHUser, GHOrganization;
 
-@interface iOctocat : NSObject
+@interface iOctocatDelegate : NSObject<UIApplicationDelegate>
 @property(nonatomic,strong)GHAccount *currentAccount;
 @property(nonatomic,strong)NSString *deviceToken;
 @property(nonatomic,strong)IBOutlet UIWindow *window;
-@property(nonatomic,readonly)NSMutableArray *accounts;
+
+@property(nonatomic,readonly)NSMutableArray *accounts;//账户名字
 
 + (instancetype)sharedInstance;
 + (void)reportWarning:(NSString *)title with:(NSString *)message;

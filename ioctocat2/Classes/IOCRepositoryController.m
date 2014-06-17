@@ -15,7 +15,7 @@
 #import "IOCUserController.h"
 #import "IOCUsersController.h"
 #import "IOCWebController.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCTagsController.h"
 #import "IOCCommitsController.h"
 #import "IOCIssueController.h"
@@ -129,7 +129,7 @@ static NSString *const BranchCellIdentifier = @"BranchCell";
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (void)displayRepository {

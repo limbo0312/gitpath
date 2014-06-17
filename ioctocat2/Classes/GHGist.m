@@ -4,7 +4,7 @@
 #import "GHGist.h"
 #import "GHFiles.h"
 #import "GHGistComments.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
@@ -59,7 +59,7 @@
     if (![dict isKindOfClass:NSDictionary.class]) return;
 	NSDictionary *userDict = [dict ioc_dictForKey:@"user"];
 	NSString *userLogin = [userDict ioc_stringForKey:@"login"];
-	self.user = [iOctocat.sharedInstance userWithLogin:userLogin];
+	self.user = [iOctocatDelegate.sharedInstance userWithLogin:userLogin];
 	self.gistId = [dict ioc_stringForKey:@"id"];
 	self.files = [[GHFiles alloc] init];
 	[self.files setValues:[[dict ioc_dictForKey:@"files"] allValues]];

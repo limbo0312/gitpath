@@ -19,7 +19,7 @@
 #import "GHRepository.h"
 #import "GHIssueComment.h"
 #import "GHIssueComments.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "GradientButton.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
@@ -115,7 +115,7 @@
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (void)setIsAssignee:(BOOL)isAssignee {
@@ -165,7 +165,7 @@
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

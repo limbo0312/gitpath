@@ -1,6 +1,10 @@
 @class GHOAuthClient, GHUserObjectsRepository, GHUser;
 
+/**
+ *  github 账户 dataObj
+ */
 @interface GHAccount : NSObject <NSCoding>
+
 @property(nonatomic,readonly)GHUserObjectsRepository *userObjects;
 @property(nonatomic,strong)GHOAuthClient *apiClient;
 @property(nonatomic,strong)GHUser *user;
@@ -12,4 +16,5 @@
 @property(nonatomic,readonly)BOOL isGitHub;
 
 - (id)initWithDict:(NSDictionary *)dict;
+
 @end

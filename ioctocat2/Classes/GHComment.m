@@ -4,7 +4,7 @@
 #import "GHFMarkdown.h"
 #import "NSString+Emojize.h"
 #import "NSDictionary_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 
 
 @implementation GHComment
@@ -14,7 +14,7 @@
 	self.body = [dict ioc_stringForKey:@"body"];
 	self.createdAt = [dict ioc_dateForKey:@"created_at"];
 	self.updatedAt = [dict ioc_dateForKey:@"updated_at"];
-	self.user = [iOctocat.sharedInstance userWithLogin:[dict ioc_stringForKeyPath:@"user.login"]];
+	self.user = [iOctocatDelegate.sharedInstance userWithLogin:[dict ioc_stringForKeyPath:@"user.login"]];
 	if (!self.user.gravatarURL) {
 		self.user.gravatarURL = [dict ioc_URLForKeyPath:@"user.avatar_url"];
 	}

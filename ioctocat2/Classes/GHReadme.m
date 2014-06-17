@@ -1,7 +1,7 @@
 #import "GHResource.h"
 #import "GHReadme.h"
 #import "GHRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 
 
 @implementation GHReadme

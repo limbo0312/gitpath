@@ -3,7 +3,7 @@
 #import "GHFiles.h"
 #import "GHRepository.h"
 #import "GHRepoComments.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHFMarkdown.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString+Emojize.h"
@@ -37,11 +37,11 @@
 	NSString *authorLogin = [authorDict ioc_stringForKey:@"login"];
 	NSString *committerLogin = [committerDict ioc_stringForKey:@"login"];
 	if (![authorLogin ioc_isEmpty]) {
-		self.author = [iOctocat.sharedInstance userWithLogin:authorLogin];
+		self.author = [iOctocatDelegate.sharedInstance userWithLogin:authorLogin];
 		if (self.author.isUnloaded) [self.author setValues:authorDict];
 	}
 	if (![committerLogin ioc_isEmpty]) {
-		self.committer = [iOctocat.sharedInstance userWithLogin:committerLogin];
+		self.committer = [iOctocatDelegate.sharedInstance userWithLogin:committerLogin];
 		if (self.committer.isUnloaded) [self.committer setValues:committerDict];
 	}
 	// info

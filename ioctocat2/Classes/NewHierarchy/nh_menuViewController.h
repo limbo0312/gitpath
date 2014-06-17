@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface nh_menuViewController : UIViewController
+
+
+@class GHUser;
+
+@interface nh_menuViewController : UITableViewController
+
+@property(nonatomic,strong)IBOutlet UIView *footerView;
+@property(nonatomic,weak)IBOutlet UILabel *versionLabel;
+
+@property(nonatomic,strong)UIViewController *initialViewController;
+
+- (id)initWithUser:(GHUser *)user;
+- (BOOL)openViewControllerForGitHubURL:(NSURL *)url;
+- (void)openNotificationsController;
+- (void)openNotificationControllerWithId:(NSInteger)notificationId url:(NSURL *)itemURL;
+
 
 @end

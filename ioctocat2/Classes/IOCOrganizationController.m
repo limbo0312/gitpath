@@ -13,7 +13,7 @@
 #import "IOCRepositoryCell.h"
 #import "IOCUserObjectCell.h"
 #import "NSString_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCResourceStatusCell.h"
 
 

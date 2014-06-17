@@ -16,34 +16,19 @@
 
 - (void)awakeFromNib
 {
-
-//    DebugLog(@"弃用  awakeFromNib这类 mMethod");
-    
+ 
     self.limitMenuViewSize = YES;
     
     self.contentViewController = [MainSB_New instantiateViewControllerWithIdentifier:@"contentController_fake4indeti"];
     
-    self.menuViewController = [MainSB_New instantiateViewControllerWithIdentifier:@"nh_menuController"];
+    self.menuViewController = [MainSB_New instantiateViewControllerWithIdentifier:@"nh_menuViewController"];
     [self setMenuViewSize:CGSizeMake(250, iheight_screen)];
     
     
-#warning TODO: 这里存在logic bug
-    
-    //    [self launchtImage];
+ 
    
 }
-
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+ 
 - (void)viewDidLoad
 {
     [super viewDidLoad];

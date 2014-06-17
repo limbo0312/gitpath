@@ -4,7 +4,7 @@
 #import "IOCNotificationsController.h"
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "GHPullRequest.h"
 #import "GHIssue.h"
 #import "GHCommit.h"
@@ -283,7 +283,7 @@
                 [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
             });
             NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Notifications currently can be reloaded every %d seconds", @"Notifications: Reload throttle message"), weakSelf.notifications.pollInterval];
-            [iOctocat reportWarning:NSLocalizedString(@"Please wait", @"Notifications: Reload throttle title") with:message];
+            [iOctocatDelegate reportWarning:NSLocalizedString(@"Please wait", @"Notifications: Reload throttle title") with:message];
         } else {
             [weakSelf.notifications loadWithParams:nil start:^(GHResource *instance) {
                 [weakSelf setupActions];
@@ -300,7 +300,7 @@
                     [weakSelf.tableView reloadData];
                     [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
                 });
-                [iOctocat reportLoadingError:error.localizedDescription];
+                [iOctocatDelegate reportLoadingError:error.localizedDescription];
             }];
         }
     }];

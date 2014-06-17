@@ -5,7 +5,7 @@
 #import "GHSearch.h"
 #import "IOCRepositoryCell.h"
 #import "IOCUserObjectCell.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "IOCResourceStatusCell.h"
 

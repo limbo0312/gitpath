@@ -28,7 +28,7 @@
 #import "GHNotifications.h"
 #import "GHNotification.h"
 #import "GHRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
 
@@ -56,7 +56,7 @@
         if (comps.count == 2) {
 			// Gists
             NSString *login = comps[1];
-            GHUser *user = [iOctocat.sharedInstance userWithLogin:login];
+            GHUser *user = [iOctocatDelegate.sharedInstance userWithLogin:login];
             viewController = [[IOCGistsController alloc] initWithGists:user.gists];
         } else if (comps.count == 3) {
 			// Gist
@@ -68,7 +68,7 @@
 	} else {
         BOOL isStatic = comps.count == 1 || (comps.count >= 2 && [staticPages containsObject:comps[1]]);
         if (!url.host) {
-            NSString *currentEndpoint = iOctocat.sharedInstance.currentAccount.endpoint;
+            NSString *currentEndpoint = iOctocatDelegate.sharedInstance.currentAccount.endpoint;
             NSString *fragment = url.fragment;
             url = [[NSURL URLWithString:currentEndpoint] URLByAppendingPathComponent:url.path];
             if (fragment) url = [url ioc_URLByAppendingFragment:fragment];
@@ -81,7 +81,7 @@
                 viewController = [[IOCSearchController alloc] init];
             } else {
                 // User (or Organization)
-                GHUser *user = [iOctocat.sharedInstance userWithLogin:component];
+                GHUser *user = [iOctocatDelegate.sharedInstance userWithLogin:component];
                 user.htmlURL = url;
                 viewController = [[IOCUserController alloc] initWithUser:user];
             }

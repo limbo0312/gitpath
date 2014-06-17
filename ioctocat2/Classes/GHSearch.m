@@ -2,7 +2,7 @@
 #import "GHUser.h"
 #import "GHRepository.h"
 #import "NSDictionary_IOCExtensions.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 
 
 @interface GHSearch ()
@@ -36,7 +36,7 @@
 		GHResource *resource = nil;
 		if (usersSearch) {
 			NSString *login = [dict ioc_stringForKey:@"login"];
-			resource = [iOctocat.sharedInstance userWithLogin:login];
+			resource = [iOctocatDelegate.sharedInstance userWithLogin:login];
 			[resource setValues:dict];
 		} else {
 			NSString *owner = [dict ioc_stringForKey:@"owner"];

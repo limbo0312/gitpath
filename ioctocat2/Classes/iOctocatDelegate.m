@@ -1,6 +1,6 @@
 #import <AudioToolbox/AudioServices.h>
 //#import <HockeySDK/HockeySDK.h>
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCApiClient.h"
 #import "IOCAvatarCache.h"
 #import "IOCDefaultsPersistence.h"
@@ -24,8 +24,9 @@
 
 #import "innerConsole.h"
 #import "REFrostedViewController.h"
+#import "CloudInsightSet.h"
 
-@interface iOctocat () <UIApplicationDelegate>
+@interface iOctocatDelegate () <UIApplicationDelegate>
 @property(nonatomic,strong)NSMutableArray *accounts;
 @property(nonatomic,strong)UIView *statusView;
 @property(nonatomic,strong)UIWindow *statusWindow;
@@ -36,35 +37,38 @@
 @end
 
 
-@implementation iOctocat
+@implementation iOctocatDelegate
 
 static NSString *const ClearAvatarCacheDefaultsKey = @"clearAvatarCache";
 static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 + (instancetype)sharedInstance {
-	return (iOctocat *)UIApplication.sharedApplication.delegate;
+	return (iOctocatDelegate *)UIApplication.sharedApplication.delegate;
 }
 
 #pragma mark Application Events
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [[innerConsole sharedConsole] enableConsoleMode];
-//    [[innerConsole sharedConsole] open_swizzURLConnection];
-    
+ 
+    [CloudInsightSet start_viewerHierarchy];
     
     self.deviceToken = @"";
     [UIApplication.sharedApplication setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [self registerDefaultsFromSettingsBundle];
     [self deactivateURLCache];
-//    [self setupHockeySDK];
-    [self setupAccounts];
+
+    [self setupAccounts];//初始化，已经登录的账户
+    
     [self setupAvatarCache];
+    
     [self setupSlidingViewController];//main VCHierarchy
     [self.window makeKeyAndVisible];
+    
     // remote notifications
     NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (remoteNotification) [self application:application didReceiveRemoteNotification:remoteNotification];
+    if (remoteNotification)
+        [self application:application didReceiveRemoteNotification:remoteNotification];
     
 
     
@@ -128,7 +132,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     // and this is a failed attempt of re-registration.
     if ([IOCDefaultsPersistence grantedRemoteNotificationsPermission]) return;
     NSString *message = [NSString stringWithFormat:@"Could not register for remote notifications: %@", error.localizedDescription];
-    [iOctocat reportError:@"Registration failed" with:message];
+    [iOctocatDelegate reportError:@"Registration failed" with:message];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)remoteNotification {
@@ -149,11 +153,11 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     NSString *message = [aps ioc_stringForKey:@"alert"];
     NSString *title = self.accounts.count > 1 ? login : @"New notification";
     if (!type) type = @"Notifications";
-    if (sound) [iOctocat playSound:sound];
+    if (sound) [iOctocatDelegate playSound:sound];
     NSString *imageName = [NSString stringWithFormat:@"Type%@On.png", type];
     UIImage *image = [UIImage imageNamed:imageName];
     // present dropdown
-    YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocat.sharedInstance.window title:title detail:message image:image animated:YES];
+    YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocatDelegate.sharedInstance.window title:title detail:message image:image animated:YES];
     dropdown.titleTextColor = dropdown.textColor = [UIColor whiteColor];
     dropdown.titleTextShadowColor = dropdown.textShadowColor = [UIColor darkGrayColor];
     dropdown.backgroundColors = @[
@@ -176,7 +180,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     if (!account) {
         NSString *host = [[NSURL ioc_smartURLFromString:endpoint] host];
         NSString *msg = [NSString stringWithFormat:@"Could not find account %@ for %@", login, host];
-        [iOctocat reportError:@"Missing account" with:msg];
+        [iOctocatDelegate reportError:@"Missing account" with:msg];
         return;
     }
     NSURL *url = [NSURL ioc_smartURLFromString:[ioc ioc_stringForKey:@"c"]];
@@ -206,7 +210,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
             }
             [self.menuNavController pushViewController:menuController animated:YES];
         } failure:^(GHAccount *account) {
-            [iOctocat reportError:@"Authentication failed" with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
+            [iOctocatDelegate reportError:@"Authentication failed" with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
         }];
     }
 }
@@ -300,6 +304,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 - (void)setupAccounts {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	id currentData = [defaults objectForKey:kAccountsDefaultsKey];
+    
 	if ([currentData isKindOfClass:NSData.class]) {
 		NSArray *currentAccounts = [NSKeyedUnarchiver unarchiveObjectWithData:currentData];
 		self.accounts = [NSMutableArray arrayWithArray:currentAccounts];
@@ -354,7 +359,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 + (void)reportError:(NSString *)title with:(NSString *)message {
 	UIImage *image = [UIImage imageNamed:@"DropdownError.png"];
-	YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocat.sharedInstance.window title:title detail:message image:image animated:YES];
+	YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocatDelegate.sharedInstance.window title:title detail:message image:image animated:YES];
 	dropdown.titleTextColor = dropdown.textColor = [UIColor whiteColor];
 	dropdown.backgroundColors = @[
                                [UIColor colorWithRed:0.243 green:0.020 blue:0.039 alpha:1.000],
@@ -368,7 +373,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 + (void)reportWarning:(NSString *)title with:(NSString *)message {
 	UIImage *image = [UIImage imageNamed:@"DropdownWarning.png"];
-	YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocat.sharedInstance.window title:title detail:message image:image animated:YES];
+	YRDropdownView *dropdown = [YRDropdownView dropdownInView:iOctocatDelegate.sharedInstance.window title:title detail:message image:image animated:YES];
     dropdown.titleTextColor = dropdown.textColor = [UIColor darkGrayColor];
     dropdown.backgroundColors = @[
                                   [UIColor colorWithRed:0.773 green:0.682 blue:0.000 alpha:1.000],
@@ -381,7 +386,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 }
 
 + (void)hideDropdown {
-    [YRDropdownView hideDropdownInView:iOctocat.sharedInstance.window];
+    [YRDropdownView hideDropdownInView:iOctocatDelegate.sharedInstance.window];
 }
 
 #pragma mark GitHub System Status
@@ -415,9 +420,9 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
             self.statusView.backgroundColor = [UIColor redColor];
             self.statusWindow.hidden = NO;
         }
-        if (report) [iOctocat reportError:@"GitHub System Error" with:message];
+        if (report) [iOctocatDelegate reportError:@"GitHub System Error" with:message];
     } minor:^(NSString *message) {
-        if (report) [iOctocat reportWarning:@"GitHub System Warning" with:message];
+        if (report) [iOctocatDelegate reportWarning:@"GitHub System Warning" with:message];
         if (isPhone) {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
             self.statusView.backgroundColor = [UIColor yellowColor];
@@ -445,7 +450,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 - (void)handleTapGesture:(UITapGestureRecognizer *)tapGesture {
     if (tapGesture.state == UIGestureRecognizerStateEnded) {
         if ([YRDropdownView isCurrentlyShowing]) {
-            [iOctocat hideDropdown];
+            [iOctocatDelegate hideDropdown];
         } else {
             [self checkGitHubSystemStatus:YES report:YES];
         }
@@ -473,39 +478,7 @@ void SystemSoundCallback(SystemSoundID ssID, void *clientData) {
     }
 }
 
-#pragma mark Hockey
 
-//- (void)setupHockeySDK {
-//#ifndef CONFIGURATION_Debug
-//	NSString *path = [[NSBundle mainBundle] pathForResource:@"HockeySDK" ofType:@"plist"];
-//	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-//	NSString *betaId = [dict ioc_valueForKey:@"beta_identifier" defaultsTo:nil];
-//	NSString *liveId = [dict ioc_valueForKey:@"live_identifier" defaultsTo:nil];
-//	if (betaId || liveId) {
-//        [BITHockeyManager.sharedHockeyManager configureWithBetaIdentifier:betaId liveIdentifier:liveId delegate:self];
-//        [BITHockeyManager.sharedHockeyManager startManager];
-//        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserName = BITFeedbackUserDataElementRequired;
-//        BITHockeyManager.sharedHockeyManager.feedbackManager.requireUserEmail = BITFeedbackUserDataElementRequired;
-//	}
-//#endif
-//}
-
-//- (NSString *)userNameForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
-//    return self.currentUser.login;
-//}
-//
-//- (NSString *)userEmailForHockeyManager:(BITHockeyManager *)hockeyManager componentManager:(BITHockeyBaseManager *)componentManager {
-//    return self.currentUser.email;
-//}
-
-//- (NSString *)customDeviceIdentifierForUpdateManager:(BITUpdateManager *)updateManager {
-//#ifndef CONFIGURATION_Release
-//	if ([[UIDevice currentDevice] respondsToSelector:@selector(uniqueIdentifier)]) {
-//		return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
-//	}
-//#endif
-//	return nil;
-//}
 
 #pragma mark Autorotation
 

@@ -6,7 +6,7 @@
 #import "GHIssues.h"
 #import "GHIssue.h"
 #import "GHUserObjectsRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "MAXCompletion.h"
 #import "NSString+Emojize.h"
@@ -90,7 +90,7 @@
 - (void)setupCompletion {
     self.usernameCompletion = [[MAXCompletion alloc] init];
     self.usernameCompletion.textView = self.bodyField;
-    self.usernameCompletion.dataSource = iOctocat.sharedInstance.currentAccount.userObjects.users;
+    self.usernameCompletion.dataSource = iOctocatDelegate.sharedInstance.currentAccount.userObjects.users;
     self.emojiCompletion = [[MAXCompletion alloc] init];
     self.emojiCompletion.textView = self.bodyField;
     self.emojiCompletion.prefix = @":";
@@ -156,7 +156,7 @@
 - (IBAction)saveIssue:(id)sender {
 	// validate
 	if (!self.titleField.text.length) {
-		[iOctocat reportError:@"Validation failed" with:@"Please enter a title"];
+		[iOctocatDelegate reportError:@"Validation failed" with:@"Please enter a title"];
 	} else {
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 		[self.resource saveWithParams:self.fields start:^(GHResource *instance) {

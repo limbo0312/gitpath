@@ -4,7 +4,7 @@
 #import "IOCTextField.h"
 #import "GHBasicClient.h"
 #import "GradientButton.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSString_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
@@ -72,12 +72,12 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [iOctocat.sharedInstance addObserver:self forKeyPath:DeviceTokenKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    [iOctocatDelegate.sharedInstance addObserver:self forKeyPath:DeviceTokenKeyPath options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [iOctocat.sharedInstance removeObserver:self forKeyPath:DeviceTokenKeyPath];
+    [iOctocatDelegate.sharedInstance removeObserver:self forKeyPath:DeviceTokenKeyPath];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -92,7 +92,7 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 }
 
 - (NSString *)deviceToken {
-    return iOctocat.sharedInstance.deviceToken;
+    return iOctocatDelegate.sharedInstance.deviceToken;
 }
 
 - (NSString *)loginValue {
@@ -206,10 +206,10 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 	NSString *password = self.passwordValue;
     NSUInteger accountIdx = self.delegate ? [self.delegate indexOfAccountWithLogin:login endpoint:endpoint] : NSNotFound;
 	if ([endpoint ioc_isEmpty] || [login ioc_isEmpty] || [password ioc_isEmpty]) {
-		[iOctocat reportError:@"Validation failed" with:@"Please enter the domain, your login and password"];
+		[iOctocatDelegate reportError:@"Validation failed" with:@"Please enter the domain, your login and password"];
 		return;
 	} else if (accountIdx != self.index) {
-        [iOctocat reportError:@"Duplicate account" with:@"This account already exists"];
+        [iOctocatDelegate reportError:@"Duplicate account" with:@"This account already exists"];
 		return;
     }
 	NSArray	*scopes = @[@"user", @"repo", @"gist", @"notifications"];
@@ -241,9 +241,9 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
             // in case there is no device token yet, we have to ask the
             // users permissions to receive remote notifications first
             self.wantsPushNeedsDeviceToken = YES;
-            [iOctocat.sharedInstance registerForRemoteNotifications];
+            [iOctocatDelegate.sharedInstance registerForRemoteNotifications];
         } else if ([self.loginValue ioc_isEmpty] || [self.passwordValue ioc_isEmpty]) {
-			[iOctocat reportError:@"Credentials required" with:@"Please enter your login and password"];
+			[iOctocatDelegate reportError:@"Credentials required" with:@"Please enter your login and password"];
 			[self.pushSwitch setOn:NO animated:YES];
 		} else {
 			[self enablePush];
@@ -266,7 +266,7 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
             } failure:^(NSError *error) {
-                [iOctocat reportError:@"Removing account failed" with:@"Could not unregister push notifications, therefore cannot remove the account. Please try again later."];
+                [iOctocatDelegate reportError:@"Removing account failed" with:@"Could not unregister push notifications, therefore cannot remove the account. Please try again later."];
 			}];
         } else {
             [self.delegate removeAccountAtIndex:self.index callback:^(NSUInteger idx) {
@@ -293,7 +293,7 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 			[self saveAccount];
 		} failure:^(NSError *error) {
 			[SVProgressHUD showErrorWithStatus:@"Enabling push notifications failed"];
-            [iOctocat reportError:@"Remote server error" with:error.localizedDescription];
+            [iOctocatDelegate reportError:@"Remote server error" with:error.localizedDescription];
 			[self.pushSwitch setOn:NO animated:YES];
 		}];
 	} failure:^(NSError *error) {

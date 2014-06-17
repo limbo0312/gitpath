@@ -5,7 +5,7 @@
 #import "GHMilestones.h"
 #import "GHMilestone.h"
 #import "GHIssue.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "SVProgressHUD.h"
 #import "UIViewController_IOCExtensions.h"
 

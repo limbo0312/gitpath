@@ -18,7 +18,7 @@
 #import "GHCommits.h"
 #import "GHGist.h"
 #import "GHPullRequest.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "IOCEventCell.h"
 #import "NSDate_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
@@ -151,7 +151,7 @@
             } failure:^(GHResource *instance, NSError *error) {
                 dispatch_async(dispatch_get_main_queue(),^ {
                     [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
-                    [iOctocat reportLoadingError:error.localizedDescription];
+                    [iOctocatDelegate reportLoadingError:error.localizedDescription];
                 });
             }];
         }
@@ -167,7 +167,7 @@
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

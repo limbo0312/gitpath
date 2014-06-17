@@ -3,7 +3,7 @@
 #import "GHTree.h"
 #import "GHCommit.h"
 #import "GHRepository.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "NSURL_IOCExtensions.h"
 #import "NSDictionary_IOCExtensions.h"
 

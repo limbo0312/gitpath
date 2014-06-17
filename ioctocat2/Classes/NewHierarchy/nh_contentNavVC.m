@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
+    self.navigationBar.tintColor = COLOR(124, 159, 20, 1);
 }
 
 - (void)didReceiveMemoryWarning

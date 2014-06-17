@@ -40,6 +40,8 @@
     
     //===试一试  模糊着色
     self.tabBar.barTintColor = COLOR(124, 159, 20, 1);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -2,7 +2,7 @@
 #import "IOCResourceStatusCell.h"
 #import "GHCollection.h"
 #import "SVProgressHUD.h"
-#import "iOctocat.h"
+#import "iOctocatDelegate.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
 
@@ -63,7 +63,7 @@
 #pragma mark Helpers
 
 - (GHUser *)currentUser {
-	return iOctocat.sharedInstance.currentUser;
+	return iOctocatDelegate.sharedInstance.currentUser;
 }
 
 - (void)displayCollection {
@@ -93,7 +93,7 @@
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
         } failure:^(GHResource *instance, NSError *error) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
-            [iOctocat reportLoadingError:error.localizedDescription];
+            [iOctocatDelegate reportLoadingError:error.localizedDescription];
         }];
 	}];
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		01117CDC13E87CBF004F4E09 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01117CDB13E87CBF004F4E09 /* libz.dylib */; };
 		01554A3514FBF02E00AE08EC /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 01554A3414FBF02E00AE08EC /* GradientButton.m */; };
-		1D3623260D0F684500981E51 /* iOctocat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocat.m */; };
+		1D3623260D0F684500981E51 /* iOctocatDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocatDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -413,7 +413,7 @@
 		6F612483167D0410001A3E05 /* IOCMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F987659166FEC380031E31B /* IOCMenuController.m */; };
 		6F612485167D0410001A3E05 /* IOCWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DC6730F7E8E1900FCD26D /* IOCWebController.m */; };
 		6F612486167D0410001A3E05 /* IOCCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0D429115819E400511B7F /* IOCCommentController.m */; };
-		6F612487167D0410001A3E05 /* iOctocat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocat.m */; };
+		6F612487167D0410001A3E05 /* iOctocatDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocatDelegate.m */; };
 		6F612488167D0410001A3E05 /* IOCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6399E316618E1E00BF2FF0 /* IOCTextField.m */; };
 		6F612489167D0410001A3E05 /* IOCUserObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C53B4D60FB0F32600C3A8E0 /* IOCUserObjectCell.m */; };
 		6F61248A167D0410001A3E05 /* IOCEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72FB2E0F9B53810069F092 /* IOCEventCell.m */; };
@@ -867,7 +867,7 @@
 		6FCAA42A167B52C800C816FA /* pull_request_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F536BBF16791F5000B5FD53 /* pull_request_open.png */; };
 		6FCAA42B167B52C800C816FA /* pull_request_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F536BC016791F5000B5FD53 /* pull_request_open@2x.png */; };
 		6FCAA42E167B52C800C816FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		6FCAA42F167B52C800C816FA /* iOctocat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocat.m */; };
+		6FCAA42F167B52C800C816FA /* iOctocatDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iOctocatDelegate.m */; };
 		6FCAA430167B52C800C816FA /* IOCWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DC6730F7E8E1900FCD26D /* IOCWebController.m */; };
 		6FCAA431167B52C800C816FA /* IOCMyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE4D870F7FE16A00451D6E /* IOCMyEventsController.m */; };
 		6FCAA432167B52C800C816FA /* GHOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F35BD380F88B01900E978CD /* GHOrganization.m */; };
@@ -1157,12 +1157,12 @@
 		01554A3414FBF02E00AE08EC /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		0356A753731743C6B44D0C91 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* iOctocat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOctocat.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* iOctocat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOctocat.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* iOctocatDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOctocatDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* iOctocatDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOctocatDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* iOctocat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOctocat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* iOctocat_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOctocat_Prefix.pch; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
 		2E1CCAF21756861C009C0400 /* tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tag.png; path = Images/Icons/tag.png; sourceTree = "<group>"; };
 		2E1CCAF31756861C009C0400 /* tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tag@2x.png"; path = "Images/Icons/tag@2x.png"; sourceTree = "<group>"; };
 		2E1CCAF817568786009C0400 /* GHTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTags.h; sourceTree = "<group>"; };
@@ -1634,7 +1634,7 @@
 		6FB1CF8C1649AEA200337EBE /* IOCEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCEventsController.h; sourceTree = "<group>"; };
 		6FB1CF8D1649AEB200337EBE /* IOCEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOCEventsController.m; sourceTree = "<group>"; };
 		6FB3CBE613977DBE00CB0EAE /* MainWindow-ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-ipad.xib"; path = "IBFiles/iPad/MainWindow-ipad.xib"; sourceTree = "<group>"; };
-		6FB3CBE913977E4000CB0EAE /* MainWindow-iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iphone.xib"; sourceTree = "<group>"; };
+		6FB3CBE913977E4000CB0EAE /* MainWindow-iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iphone.xib"; path = "../IBFiles/iPhone/MainWindow-iphone.xib"; sourceTree = "<group>"; };
 		6FB73AFB15FA50F10055A937 /* ToolbarStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarStar.png; sourceTree = "<group>"; };
 		6FB73AFC15FA50F10055A937 /* ToolbarStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarStar@2x.png"; sourceTree = "<group>"; };
 		6FB85B10164D9D4B00F6C90E /* IssuesClosedEvent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IssuesClosedEvent.png; path = Images/Icons/IssuesClosedEvent.png; sourceTree = "<group>"; };
@@ -1973,6 +1973,12 @@
 		080E96DDFE201D6D7F000001 /* Classes Group */ = {
 			isa = PBXGroup;
 			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
+				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
+				1D3623240D0F684500981E51 /* iOctocatDelegate.h */,
+				1D3623250D0F684500981E51 /* iOctocatDelegate.m */,
+				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
 				8C3597701949A2CC0017DD39 /* NewHierarchy */,
 				8C8C1EB1192E33830001D221 /* OldHierarchy */,
 				8C8C1EBA192F4D040001D221 /* appTtoolKit */,
@@ -2016,7 +2022,6 @@
 				2E88193316F8F8B300ACA2EB /* Sounds */,
 				28A0AAE50D9B0CCF005BE974 /* iOctocat_Prefix.pch */,
 				6F7BC07C15C12E660012320A /* JLog.h */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -2740,15 +2745,6 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
-		6FB3CBE813977E4000CB0EAE /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				6FB3CBE913977E4000CB0EAE /* MainWindow-iphone.xib */,
-			);
-			name = iPhone;
-			path = ../IBFiles/iPhone;
-			sourceTree = "<group>";
-		};
 		6FB7FE9F0F7E2C3800E8D702 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -3079,11 +3075,6 @@
 			isa = PBXGroup;
 			children = (
 				8C3597821949A2EA0017DD39 /* MainNew.storyboard */,
-				8C3597711949A2CC0017DD39 /* group111_guyObj */,
-				8C3597721949A2CC0017DD39 /* group222_repoObj */,
-				8C3597731949A2CC0017DD39 /* group333_inspiredObj */,
-				8C3597741949A2CC0017DD39 /* group444_gistObj */,
-				8C3597751949A2CC0017DD39 /* group555_trendingObj */,
 				8C3597761949A2CC0017DD39 /* nh_baseViewController.h */,
 				8C3597771949A2CC0017DD39 /* nh_baseViewController.m */,
 				8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */,
@@ -3092,6 +3083,11 @@
 				8C35977B1949A2CC0017DD39 /* nh_mainRouteTabVC.m */,
 				8C35977C1949A2CC0017DD39 /* nh_menuViewController.h */,
 				8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */,
+				8C3597711949A2CC0017DD39 /* group111_guyObj */,
+				8C3597721949A2CC0017DD39 /* group222_repoObj */,
+				8C3597731949A2CC0017DD39 /* group333_inspiredObj */,
+				8C3597741949A2CC0017DD39 /* group444_gistObj */,
+				8C3597751949A2CC0017DD39 /* group555_trendingObj */,
 			);
 			path = NewHierarchy;
 			sourceTree = "<group>";
@@ -3341,12 +3337,7 @@
 		8C8C1EB1192E33830001D221 /* OldHierarchy */ = {
 			isa = PBXGroup;
 			children = (
-				6FB3CBE813977E4000CB0EAE /* iPhone */,
-				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
-				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
-				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
-				1D3623240D0F684500981E51 /* iOctocat.h */,
-				1D3623250D0F684500981E51 /* iOctocat.m */,
+				6FB3CBE913977E4000CB0EAE /* MainWindow-iphone.xib */,
 				6F1DC4A30F7E5D2200FCD26D /* View Controller */,
 				6F1DC52B0F7E725500FCD26D /* View Snippet */,
 			);
@@ -4264,7 +4255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* iOctocat.m in Sources */,
+				1D3623260D0F684500981E51 /* iOctocatDelegate.m in Sources */,
 				8C8C1EAE192E32FC0001D221 /* UIImage+REFrostedViewController.m in Sources */,
 				6F1DC6740F7E8E1900FCD26D /* IOCWebController.m in Sources */,
 				6FCE4D880F7FE16A00451D6E /* IOCMyEventsController.m in Sources */,
@@ -4465,7 +4456,7 @@
 				6F612483167D0410001A3E05 /* IOCMenuController.m in Sources */,
 				6F612485167D0410001A3E05 /* IOCWebController.m in Sources */,
 				6F612486167D0410001A3E05 /* IOCCommentController.m in Sources */,
-				6F612487167D0410001A3E05 /* iOctocat.m in Sources */,
+				6F612487167D0410001A3E05 /* iOctocatDelegate.m in Sources */,
 				6F612488167D0410001A3E05 /* IOCTextField.m in Sources */,
 				6F612489167D0410001A3E05 /* IOCUserObjectCell.m in Sources */,
 				6F61248A167D0410001A3E05 /* IOCEventCell.m in Sources */,
@@ -4582,7 +4573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FCAA42E167B52C800C816FA /* main.m in Sources */,
-				6FCAA42F167B52C800C816FA /* iOctocat.m in Sources */,
+				6FCAA42F167B52C800C816FA /* iOctocatDelegate.m in Sources */,
 				6FCAA430167B52C800C816FA /* IOCWebController.m in Sources */,
 				6FCAA431167B52C800C816FA /* IOCMyEventsController.m in Sources */,
 				6FCAA432167B52C800C816FA /* GHOrganization.m in Sources */,
