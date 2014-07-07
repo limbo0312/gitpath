@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1536" defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IOCBlobsController">
+            <connections>
+                <outlet property="actionButton" destination="89" id="93"/>
+                <outlet property="contentView" destination="10" id="74"/>
+                <outlet property="leftButton" destination="86" id="94"/>
+                <outlet property="popupView" destination="100" id="102"/>
+                <outlet property="rightButton" destination="91" id="95"/>
+                <outlet property="toolbar" destination="85" id="96"/>
+                <outlet property="view" destination="1" id="83"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <webView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="10">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <dataDetectorType key="dataDetectorTypes"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="20"/>
+                    </connections>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="85">
+                    <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="87"/>
+                        <barButtonItem enabled="NO" image="ToolbarLeft.png" style="plain" id="86">
+                            <connections>
+                                <action selector="leftButtonTapped:" destination="-1" id="98"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="88"/>
+                        <barButtonItem enabled="NO" style="plain" systemItem="action" id="89">
+                            <connections>
+                                <action selector="actionButtonTapped:" destination="-1" id="97"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="90"/>
+                        <barButtonItem enabled="NO" image="ToolbarRight.png" style="plain" id="91">
+                            <connections>
+                                <action selector="rightButtonTapped:" destination="-1" id="99"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="92"/>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+        <view opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" id="100">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No compatible app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="101">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="1" alpha="0.25" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <size key="shadowOffset" width="0.0" height="1"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ToolbarLeft.png" width="16" height="19"/>
+        <image name="ToolbarRight.png" width="16" height="19"/>
+    </resources>
+</document>
