@@ -1077,16 +1077,6 @@
 		6FF4D9791698E3AE00C235A0 /* MenuWatchedRepos.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9741698E3AE00C235A0 /* MenuWatchedRepos.png */; };
 		6FF4D97A1698E3AE00C235A0 /* MenuWatchedRepos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */; };
 		6FF4D97B1698E3AE00C235A0 /* MenuWatchedRepos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */; };
-		8C35977E1949A2CC0017DD39 /* nh_baseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597771949A2CC0017DD39 /* nh_baseViewController.m */; };
-		8C35977F1949A2CC0017DD39 /* nh_contentNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */; };
-		8C3597801949A2CC0017DD39 /* nh_mainRouteTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35977B1949A2CC0017DD39 /* nh_mainRouteTabVC.m */; };
-		8C3597811949A2CC0017DD39 /* nh_menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */; };
-		8C3597831949A2EA0017DD39 /* MainNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C3597821949A2EA0017DD39 /* MainNew.storyboard */; };
-		8C3597861949AE850017DD39 /* guyObjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597851949AE850017DD39 /* guyObjViewController.m */; };
-		8C3597891949AEAD0017DD39 /* repoObjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597881949AEAD0017DD39 /* repoObjViewController.m */; };
-		8C35978C1949AEC90017DD39 /* inspiredObjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35978B1949AEC90017DD39 /* inspiredObjViewController.m */; };
-		8C35978F1949AEE10017DD39 /* gistObjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35978E1949AEE10017DD39 /* gistObjViewController.m */; };
-		8C3597921949AEF30017DD39 /* trendingObjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597911949AEF30017DD39 /* trendingObjViewController.m */; };
 		8C3597D41949B02E0017DD39 /* EAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597951949B02E0017DD39 /* EAlertView.m */; };
 		8C3597D51949B02E0017DD39 /* egsFilter_KillNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597971949B02E0017DD39 /* egsFilter_KillNull.m */; };
 		8C3597D61949B02E0017DD39 /* CloudInsightSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35979A1949B02E0017DD39 /* CloudInsightSet.m */; };
@@ -1779,25 +1769,6 @@
 		6FF4D9681698E32400C235A0 /* MenuStarredRepos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuStarredRepos@2x.png"; sourceTree = "<group>"; };
 		6FF4D9741698E3AE00C235A0 /* MenuWatchedRepos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuWatchedRepos.png; sourceTree = "<group>"; };
 		6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuWatchedRepos@2x.png"; sourceTree = "<group>"; };
-		8C3597761949A2CC0017DD39 /* nh_baseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_baseViewController.h; sourceTree = "<group>"; };
-		8C3597771949A2CC0017DD39 /* nh_baseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nh_baseViewController.m; sourceTree = "<group>"; };
-		8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_contentNavVC.h; sourceTree = "<group>"; };
-		8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nh_contentNavVC.m; sourceTree = "<group>"; };
-		8C35977A1949A2CC0017DD39 /* nh_mainRouteTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_mainRouteTabVC.h; sourceTree = "<group>"; };
-		8C35977B1949A2CC0017DD39 /* nh_mainRouteTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nh_mainRouteTabVC.m; sourceTree = "<group>"; };
-		8C35977C1949A2CC0017DD39 /* nh_menuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_menuViewController.h; sourceTree = "<group>"; };
-		8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nh_menuViewController.m; sourceTree = "<group>"; };
-		8C3597821949A2EA0017DD39 /* MainNew.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainNew.storyboard; sourceTree = "<group>"; };
-		8C3597841949AE850017DD39 /* guyObjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guyObjViewController.h; sourceTree = "<group>"; };
-		8C3597851949AE850017DD39 /* guyObjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guyObjViewController.m; sourceTree = "<group>"; };
-		8C3597871949AEAD0017DD39 /* repoObjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = repoObjViewController.h; sourceTree = "<group>"; };
-		8C3597881949AEAD0017DD39 /* repoObjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = repoObjViewController.m; sourceTree = "<group>"; };
-		8C35978A1949AEC90017DD39 /* inspiredObjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inspiredObjViewController.h; sourceTree = "<group>"; };
-		8C35978B1949AEC90017DD39 /* inspiredObjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = inspiredObjViewController.m; sourceTree = "<group>"; };
-		8C35978D1949AEE10017DD39 /* gistObjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gistObjViewController.h; sourceTree = "<group>"; };
-		8C35978E1949AEE10017DD39 /* gistObjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gistObjViewController.m; sourceTree = "<group>"; };
-		8C3597901949AEF30017DD39 /* trendingObjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trendingObjViewController.h; sourceTree = "<group>"; };
-		8C3597911949AEF30017DD39 /* trendingObjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = trendingObjViewController.m; sourceTree = "<group>"; };
 		8C3597941949B02E0017DD39 /* EAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAlertView.h; sourceTree = "<group>"; };
 		8C3597951949B02E0017DD39 /* EAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAlertView.m; sourceTree = "<group>"; };
 		8C3597961949B02E0017DD39 /* egsFilter_KillNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = egsFilter_KillNull.h; sourceTree = "<group>"; };
@@ -1979,7 +1950,6 @@
 				1D3623240D0F684500981E51 /* iOctocatDelegate.h */,
 				1D3623250D0F684500981E51 /* iOctocatDelegate.m */,
 				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
-				8C3597701949A2CC0017DD39 /* NewHierarchy */,
 				8C8C1EB1192E33830001D221 /* OldHierarchy */,
 				8C8C1EBA192F4D040001D221 /* appTtoolKit */,
 				8C3597931949B02E0017DD39 /* egsToolkit */,
@@ -2269,8 +2239,8 @@
 		6F1DC4A30F7E5D2200FCD26D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8C8C1EBB192F54FD0001D221 /* menuLeft */,
 				6FAF9D2C15927A7A00997A28 /* Account VC */,
+				8C8C1EBB192F54FD0001D221 /* menuLeft */,
 				6FECA89E1590711F00878A74 /* Events VC */,
 				6FECA8A11590A27600878A74 /* Users and Orgs VC */,
 				6FECA89F1590A20200878A74 /* Repos VC */,
@@ -3088,77 +3058,6 @@
 			name = "baseObjSafely ";
 			sourceTree = "<group>";
 		};
-		8C3597701949A2CC0017DD39 /* NewHierarchy */ = {
-			isa = PBXGroup;
-			children = (
-				8C3597821949A2EA0017DD39 /* MainNew.storyboard */,
-				8C3597761949A2CC0017DD39 /* nh_baseViewController.h */,
-				8C3597771949A2CC0017DD39 /* nh_baseViewController.m */,
-				8C35977C1949A2CC0017DD39 /* nh_menuViewController.h */,
-				8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */,
-				8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */,
-				8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */,
-				8C35977A1949A2CC0017DD39 /* nh_mainRouteTabVC.h */,
-				8C35977B1949A2CC0017DD39 /* nh_mainRouteTabVC.m */,
-				8C3597711949A2CC0017DD39 /* tab111_guyObj */,
-				8C3597721949A2CC0017DD39 /* tab222_repoObj */,
-				8C3597731949A2CC0017DD39 /* tab333_inspiredObj */,
-				8C3597741949A2CC0017DD39 /* tab444_gistObj */,
-				8C3597751949A2CC0017DD39 /* tab555_trendingObj */,
-			);
-			path = NewHierarchy;
-			sourceTree = "<group>";
-		};
-		8C3597711949A2CC0017DD39 /* tab111_guyObj */ = {
-			isa = PBXGroup;
-			children = (
-				8C3597841949AE850017DD39 /* guyObjViewController.h */,
-				8C3597851949AE850017DD39 /* guyObjViewController.m */,
-			);
-			name = tab111_guyObj;
-			path = group111;
-			sourceTree = "<group>";
-		};
-		8C3597721949A2CC0017DD39 /* tab222_repoObj */ = {
-			isa = PBXGroup;
-			children = (
-				8C3597871949AEAD0017DD39 /* repoObjViewController.h */,
-				8C3597881949AEAD0017DD39 /* repoObjViewController.m */,
-			);
-			name = tab222_repoObj;
-			path = group222;
-			sourceTree = "<group>";
-		};
-		8C3597731949A2CC0017DD39 /* tab333_inspiredObj */ = {
-			isa = PBXGroup;
-			children = (
-				8C35978A1949AEC90017DD39 /* inspiredObjViewController.h */,
-				8C35978B1949AEC90017DD39 /* inspiredObjViewController.m */,
-			);
-			name = tab333_inspiredObj;
-			path = group333;
-			sourceTree = "<group>";
-		};
-		8C3597741949A2CC0017DD39 /* tab444_gistObj */ = {
-			isa = PBXGroup;
-			children = (
-				8C35978D1949AEE10017DD39 /* gistObjViewController.h */,
-				8C35978E1949AEE10017DD39 /* gistObjViewController.m */,
-			);
-			name = tab444_gistObj;
-			path = group444;
-			sourceTree = "<group>";
-		};
-		8C3597751949A2CC0017DD39 /* tab555_trendingObj */ = {
-			isa = PBXGroup;
-			children = (
-				8C3597901949AEF30017DD39 /* trendingObjViewController.h */,
-				8C3597911949AEF30017DD39 /* trendingObjViewController.m */,
-			);
-			name = tab555_trendingObj;
-			path = group555;
-			sourceTree = "<group>";
-		};
 		8C3597931949B02E0017DD39 /* egsToolkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -3743,7 +3642,6 @@
 				6F814CD816BF06B9006B6D0E /* UIActivityIndicatorPlaceholder.png in Resources */,
 				6F814CDC16BF095D006B6D0E /* LoadingError.png in Resources */,
 				6F814CDE16BF095D006B6D0E /* LoadingError@2x.png in Resources */,
-				8C3597831949A2EA0017DD39 /* MainNew.storyboard in Resources */,
 				6FEDE40E16E2A1A500459B5C /* ToolbarLeft.png in Resources */,
 				6FEDE41016E2A1A500459B5C /* ToolbarLeft@2x.png in Resources */,
 				6FEDE41216E2A1A500459B5C /* ToolbarRight.png in Resources */,
@@ -4289,10 +4187,8 @@
 				8C53B4D00FB0F20B00C3A8E0 /* IOCUsersController.m in Sources */,
 				8C3597E81949B02F0017DD39 /* UIImageView+startLoading.m in Sources */,
 				8C53B4D70FB0F32600C3A8E0 /* IOCUserObjectCell.m in Sources */,
-				8C35977E1949A2CC0017DD39 /* nh_baseViewController.m in Sources */,
 				8C3597D41949B02E0017DD39 /* EAlertView.m in Sources */,
 				6F358C5C0FB1EEC4004D2828 /* GHSearch.m in Sources */,
-				8C3597921949AEF30017DD39 /* trendingObjViewController.m in Sources */,
 				8C86E773190664E000E7224B /* innerConsole.m in Sources */,
 				6FB93A960FB2231E002B43AD /* IOCRepositoryCell.m in Sources */,
 				6F879AE80FB61C7A00EBD9BD /* GHUsers.m in Sources */,
@@ -4303,15 +4199,12 @@
 				6F0BEB4011108C9E00E95E5A /* GHBranches.m in Sources */,
 				6F0BEB58111090D300E95E5A /* GHBranch.m in Sources */,
 				6F797C5D1110E2BE007E5A8D /* IOCCommitController.m in Sources */,
-				8C3597811949A2CC0017DD39 /* nh_menuViewController.m in Sources */,
 				6F2C77291114F430002665DA /* IOCFilesController.m in Sources */,
-				8C35977F1949A2CC0017DD39 /* nh_contentNavVC.m in Sources */,
 				6FF09E65111589D600925109 /* IOCFilesCell.m in Sources */,
 				8C3597E31949B02F0017DD39 /* NSMutableDictionary+safelyWay.m in Sources */,
 				6F5E9ABD1119A96000752560 /* NSDate_IOCExtensions.m in Sources */,
 				6FE7D14611557E8C004B4D68 /* GHIssueComment.m in Sources */,
 				8C3597EB1949B02F0017DD39 /* UIView+perfectCircle.m in Sources */,
-				8C3597891949AEAD0017DD39 /* repoObjViewController.m in Sources */,
 				6FE7D1BE115622D1004B4D68 /* IOCCommentCell.m in Sources */,
 				8C3597EC1949B02F0017DD39 /* UIView+treeStruct.m in Sources */,
 				6FE7D2B511568951004B4D68 /* GHIssueComments.m in Sources */,
@@ -4322,7 +4215,6 @@
 				8C8C1EAB192E32FC0001D221 /* RECommonFunctions.m in Sources */,
 				8C3597ED1949B02F0017DD39 /* UIViewController+ios7match.m in Sources */,
 				6F7961AE132EC90D00C9446E /* GHResource.m in Sources */,
-				8C3597861949AE850017DD39 /* guyObjViewController.m in Sources */,
 				6F7961AF132EC90D00C9446E /* GHUser.m in Sources */,
 				6F9DD87B1334B99C00D1E35E /* GHOrganizations.m in Sources */,
 				6F9DD87E1334BDB200D1E35E /* NSURL_IOCExtensions.m in Sources */,
@@ -4371,7 +4263,6 @@
 				6FA132A01677415C001C0804 /* GHPullRequests.m in Sources */,
 				6F536BB716790B8A00B5FD53 /* IOCPullRequestController.m in Sources */,
 				8C3597D51949B02E0017DD39 /* egsFilter_KillNull.m in Sources */,
-				8C35978C1949AEC90017DD39 /* inspiredObjViewController.m in Sources */,
 				6F536BCE167A24AE00B5FD53 /* IOCIssuesController.m in Sources */,
 				6FC40F68168A037E0035927E /* GHCommits.m in Sources */,
 				6FC40F7F168BA7FD0035927E /* GHFiles.m in Sources */,
@@ -4380,7 +4271,6 @@
 				8C3597E91949B02F0017DD39 /* UITableViewCell+xibCell.m in Sources */,
 				6FF4D9551698D4B900C235A0 /* IOCRepositoriesController.m in Sources */,
 				6F1F399316A034D200C9E01B /* GHNotifications.m in Sources */,
-				8C3597801949A2CC0017DD39 /* nh_mainRouteTabVC.m in Sources */,
 				6F1F399816A034ED00C9E01B /* GHNotification.m in Sources */,
 				6FBA2A0216A4979A003F02A4 /* IOCDefaultsPersistence.m in Sources */,
 				6F26DB5016A6E1E700939D85 /* IOCNotificationCell.m in Sources */,
@@ -4390,7 +4280,6 @@
 				6F308A1416CD958200BA00A1 /* IOCTextView.m in Sources */,
 				6FA3816016E28986003293BD /* IOCNotificationsController.m in Sources */,
 				6FA3816516E2899E003293BD /* IOCSearchController.m in Sources */,
-				8C35978F1949AEE10017DD39 /* gistObjViewController.m in Sources */,
 				6FA3817216E28A0E003293BD /* IOCBlobsController.m in Sources */,
 				8C3597EE1949B02F0017DD39 /* webTextView.m in Sources */,
 				8C8C1EAC192E32FC0001D221 /* REFrostedContainerViewController.m in Sources */,

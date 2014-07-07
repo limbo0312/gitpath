@@ -302,6 +302,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 }
 
 - (void)setupAccounts {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	id currentData = [defaults objectForKey:kAccountsDefaultsKey];
     
@@ -323,8 +324,11 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 //main VCHierarchy
 - (void)setupSlidingViewController {
+    
     self.slidingViewController.anchorRightRevealAmount = 230;
-    self.slidingViewController.underLeftViewController = self.menuNavController;
+    
+    self.slidingViewController.underLeftViewController = self.menuNavController;//====左侧导航，
+    
 }
 
 - (BOOL)openURL:(NSURL *)url {
@@ -351,7 +355,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     }
 }
 
-#pragma mark Dropdowns
+#pragma mark Dropdowns====下拉 提示框：
 
 + (void)reportLoadingError:(NSString *)message {
 	[self reportError:@"Loading error" with:message];

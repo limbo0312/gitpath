@@ -210,7 +210,8 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
             }
             [self.menuNavController pushViewController:menuController animated:YES];
         } failure:^(GHAccount *account) {
-            [iOctocatDelegate reportError:@"Authentication failed" with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
+            [iOctocatDelegate reportError:@"Authentication failed"
+                                     with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
         }];
     }
 }
@@ -228,6 +229,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     }
 }
 
+//===当前 登录  账户 githubAccount
 - (GHUser *)currentUser {
 	return self.currentAccount.user;
 }

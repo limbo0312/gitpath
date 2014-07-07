@@ -17,6 +17,10 @@
 #import "ECSlidingViewController.h"
 
 
+/**
+ *  
+ */
+
 @interface IOCAccountsController () <IOCAccountFormControllerDelegate>
 @property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;
 @end
@@ -58,7 +62,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	self.navigationItem.rightBarButtonItem = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ECSlidingViewTopDidAnchorRight object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:ECSlidingViewTopDidAnchorRight
+                                                  object:nil];
 }
 
 - (void)menuMovedOff {

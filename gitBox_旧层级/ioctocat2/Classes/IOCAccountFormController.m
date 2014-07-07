@@ -1,5 +1,5 @@
 #import "IOCAccountFormController.h"
-#import "IOCAccountsController.h"
+//#import "IOCAccountsController.h"
 #import "IOCApiClient.h"
 #import "IOCTextField.h"
 #import "GHBasicClient.h"
@@ -36,6 +36,9 @@ typedef enum {
 @property(nonatomic,weak)IBOutlet GradientButton *removeButton;
 @end
 
+/**
+ *  新账号————添加 VC
+ */
 
 @implementation IOCAccountFormController
 
@@ -68,6 +71,10 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     self.accountFormView.hidden = self.accountType == IOCAccountTypeUnspecified;
     self.onePasswordButton.hidden = ![UIApplication.sharedApplication canOpenURL:self.onePasswordURL];
     self.passwordField.textRectSubtractOnRight = self.onePasswordButton.hidden ? 0.0f : self.onePasswordButton.frame.size.width;
+    
+    //---避免 ios7 view 上缩
+    
+    [self matching_iOS7_viewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
