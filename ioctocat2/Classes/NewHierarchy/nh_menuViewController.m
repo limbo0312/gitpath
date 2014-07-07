@@ -433,7 +433,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 5, 20, 1)] fill];
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 10, 20, 1)] fill];
 		
-		[[UIColor whiteColor] setFill];
+		[[UIColor blackColor] setFill];
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 1, 20, 2)] fill];
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 6,  20, 2)] fill];
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 11, 20, 2)] fill];

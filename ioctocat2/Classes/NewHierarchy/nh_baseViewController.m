@@ -22,11 +22,9 @@
     self.contentViewController = [MainSB_New instantiateViewControllerWithIdentifier:@"contentController_fake4indeti"];
     
     self.menuViewController = [MainSB_New instantiateViewControllerWithIdentifier:@"nh_menuViewController"];
+    
     [self setMenuViewSize:CGSizeMake(250, iheight_screen)];
     
-    
- 
-   
 }
  
 - (void)viewDidLoad

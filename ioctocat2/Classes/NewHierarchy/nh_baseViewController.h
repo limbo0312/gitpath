@@ -10,7 +10,7 @@
 #import "REFrostedViewController.h"
 
 /**
- *  左侧选中 个人球队
+ *  左侧选中:  github 功能区域。。。
  */
 
 @interface nh_baseViewController : REFrostedViewController
