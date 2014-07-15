@@ -28,7 +28,7 @@
 
 @interface IOCMenuController ()
 @property(nonatomic,strong)GHUser *user;
-@property(nonatomic,strong)NSArray *menu;
+@property(nonatomic,strong)NSArray *menu;//  导航菜单结构====》 从plist 放在这个 arr
 @property(nonatomic,assign)BOOL isObservingOrganizations;
 @property(nonatomic,strong)IBOutlet UIView *footerView;
 @property(nonatomic,weak)IBOutlet UILabel *versionLabel;
@@ -40,26 +40,51 @@
 static NSString *const GravatarKeyPath = kGravatarKeyPath;
 static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
+//===== key step  左侧导航vc ，代入userObj 进行初始化
 - (id)initWithUser:(GHUser *)user {
 	self = [self initWithNibName:@"Menu" bundle:nil];
 	if (self) {
 		NSString *menuPath = [[NSBundle mainBundle] pathForResource:@"Menu" ofType:@"plist"];
-		self.menu = [NSArray arrayWithContentsOfFile:menuPath];
-		self.user = user;
+        
+		self.menu = [NSArray arrayWithContentsOfFile:menuPath];// 导航菜单层级 结构
+        
+		self.user = user;// 当前user
+        
 		self.isObservingOrganizations = NO;
-		[self.user addObserver:self forKeyPath:GravatarKeyPath options:NSKeyValueObservingOptionNew context:nil];
-		[self.user addObserver:self forKeyPath:NotificationsCountKeyPath options:NSKeyValueObservingOptionNew context:nil];
+        
+		[self.user addObserver:self
+                    forKeyPath:GravatarKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+        
+		[self.user addObserver:self
+                    forKeyPath:NotificationsCountKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+        
         self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.user];
-	    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillAppear:) name:ECSlidingViewUnderLeftWillAppear object:nil];
+        
+	    [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(menuWillAppear:)
+                                                     name:ECSlidingViewUnderLeftWillAppear
+                                                   object:nil];
     }
 	return self;
 }
 
 - (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:ECSlidingViewUnderLeftWillAppear object:nil];
+    
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:ECSlidingViewUnderLeftWillAppear
+                                                  object:nil];
+    
 	[self removeOrganizationObservers];
-	[self.user removeObserver:self forKeyPath:GravatarKeyPath];
-	[self.user removeObserver:self forKeyPath:NotificationsCountKeyPath];
+    
+	[self.user removeObserver:self
+                   forKeyPath:GravatarKeyPath];
+    
+	[self.user removeObserver:self
+                   forKeyPath:NotificationsCountKeyPath];
 }
 
 - (void)menuWillAppear:(id)notification {
@@ -70,7 +95,9 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //==== 版本 号：
     self.versionLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    
     self.tableView.rowHeight = 44.0f;
     self.tableView.backgroundColor = self.darkBackgroundColor;
     self.tableView.separatorColor = self.lightBackgroundColor;
@@ -80,29 +107,44 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     self.tableView.contentInset = inset;
     // disable scroll-to-top for the menu, so that the main controller receives the event
     self.tableView.scrollsToTop = NO;
-    // open first view controller
+    
+#warning  // 打开第一个  “内容页VC”
+   
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight];
     
-#warning mainVC on top（right ）111
+    
     [self openViewController:self.initialViewController];
+    
     // load resources
     if (![self.initialViewController isKindOfClass:IOCNotificationsController.class]) {
+        
         [self.user.notifications loadWithSuccess:^(GHResource *instance, id data) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        }];
+            
+                                            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            
+                                            [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                                                                  withRowAnimation:UITableViewRowAnimationNone];
+                                        }];
     }
-    if (self.user.organizations.isUnloaded) {
+    
+    if (self.user.organizations.isUnloaded)
+    {
         [self removeOrganizationObservers];
+        
         // success is handled by the KVO hook
-        [self.user.organizations loadWithParams:nil start:nil success:^(GHResource *instance, id data) {
-            [self addOrganizationObservers];
-            NSIndexSet *sections = [NSIndexSet indexSetWithIndex:1];
-            [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
-        } failure:^(GHResource *instance, NSError *error) {
-            [iOctocatDelegate reportLoadingError:@"Could not load the organizations"];
-        }];
-    } else {
+        [self.user.organizations loadWithParams:nil
+                                          start:nil
+                                        success:^(GHResource *instance, id data) {
+                                            [self addOrganizationObservers];
+                                            NSIndexSet *sections = [NSIndexSet indexSetWithIndex:1];
+                                            [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
+                                        }
+                                        failure:^(GHResource *instance, NSError *error) {
+                                            [iOctocatDelegate reportLoadingError:@"Could not load the organizations"];
+                                        }];
+    }
+    else
+    {
         [self addOrganizationObservers];
     }
 }
@@ -113,16 +155,20 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     if (self.presentedViewController) return;
     [super viewWillDisappear:animated];
     CGFloat width = UIInterfaceOrientationIsPortrait(self.navigationController.interfaceOrientation) ? iOctocatDelegate.sharedInstance.window.frame.size.width : iOctocatDelegate.sharedInstance.window.frame.size.height;
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animateChange:2 animations:^{
-        CGRect viewFrame = self.navigationController.view.frame;
-        viewFrame.size.width = width;
-        self.navigationController.view.frame = viewFrame;
-        self.slidingViewController.underLeftWidthLayout = ECFullWidth;
-    } onComplete:^{
-        // this somehow does not seem to work, that's why we catch the anchor
-        // event via the notifications received in IOCAccountsController
-        self.slidingViewController.topViewController = nil;
-    }];
+    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight
+                                           animateChange:2
+                                              animations:^{
+                                                CGRect viewFrame = self.navigationController.view.frame;
+                                                viewFrame.size.width = width;
+                                                self.navigationController.view.frame = viewFrame;
+                                                self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+                                            }
+                                              onComplete:^{
+                                                // this somehow does not seem to work, that's why we catch the anchor
+                                                // event via the notifications received in IOCAccountsController
+                                                self.slidingViewController.topViewController = nil;
+                                            }];
 }
 
 - (void)addOrganizationObservers {

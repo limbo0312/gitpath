@@ -63,6 +63,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     [self setupAvatarCache];
     
     [self setupSlidingViewController];//main VCHierarchy
+    
     [self.window makeKeyAndVisible];
     
     // remote notifications
@@ -326,8 +327,8 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 //main VCHierarchy
 - (void)setupSlidingViewController {
-    self.slidingViewController.anchorRightRevealAmount = 230;
-    self.slidingViewController.underLeftViewController = self.menuNavController;
+    self.slidingViewController.anchorRightRevealAmount = 290;
+    self.slidingViewController.underLeftViewController = self.menuNavController;//====左侧导航 navVC
 }
 
 - (BOOL)openURL:(NSURL *)url {

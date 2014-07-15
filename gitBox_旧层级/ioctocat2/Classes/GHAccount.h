@@ -5,9 +5,9 @@
  */
 @interface GHAccount : NSObject <NSCoding>
 
-@property(nonatomic,readonly)GHUserObjectsRepository *userObjects;
-@property(nonatomic,strong)GHOAuthClient *apiClient;
-@property(nonatomic,strong)GHUser *user;
+@property(nonatomic,readonly)GHUserObjectsRepository *userObjects;// 仓库dataObj
+@property(nonatomic,strong)GHOAuthClient *apiClient;//=====================api auth key
+@property(nonatomic,strong)GHUser *user;// user dataObj
 @property(nonatomic,strong)NSString *login;
 @property(nonatomic,strong)NSString *endpoint;
 @property(nonatomic,strong)NSString *authToken;

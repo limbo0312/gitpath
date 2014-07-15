@@ -3,7 +3,15 @@
 
 @class GHUsers, GHOrganizations, GHNotifications, GHRepositories, GHRepository, GHEvents, GHGists, GHGist;
 
+/**
+ *  关键设计   这里 dataObj的  设计思路是 ：  把每一次请求当做资源，   ghResource  做为资源的跟  object。。  其余的继承于它
+ */
+
 @interface GHUser : GHResource
+
+/**
+ *  GHUser 账户 obj 都应该有哪一些  字段  ===profile 字段
+ */
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *login;
 @property(nonatomic,strong)NSString *email;

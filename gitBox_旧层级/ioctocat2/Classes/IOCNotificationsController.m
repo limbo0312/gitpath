@@ -45,6 +45,9 @@
 	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
     self.navigationItem.rightBarButtonItem.enabled = NO;
 	[self setupPullToRefresh];
+    
+    
+    //
 }
 
 - (void)viewWillAppear:(BOOL)animated {

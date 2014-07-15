@@ -3,6 +3,7 @@
 @class GHUser;
 
 @interface IOCMenuController : UITableViewController
+
 @property(nonatomic,strong)UIViewController *initialViewController;
 
 - (id)initWithUser:(GHUser *)user;

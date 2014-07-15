@@ -28,6 +28,8 @@
 
 @implementation IOCAccountsController
 
+#pragma mark --- life cycle  of  accountVC
+
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -49,7 +51,7 @@
         if (self.accounts.count == 0) {
             [self addAccount:nil];
         } else if (self.accounts.count == 1) {
-            [self authenticateAccountAtIndex:0];
+            [self authenticateAccountAtIndex:0];//========= key step github授权 登陆
         }
 	});
 }
@@ -182,18 +184,32 @@
 
 
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
+    
+    if (idx>=[self.accounts count]) {
+        //====不能越界 获取账号obj
+        DebugLog(@"err:不能越界 获取账号obj");
+    }
+    
+    
 	GHAccount *account = self.accounts[idx];
 	iOctocatDelegate.sharedInstance.currentAccount = account;
     
+    
+    //======key step 账号授权
 	[IOCAuthenticationService authenticateAccount:account
                                           success:^(GHAccount *account) {
                                               
+                                              // ==== 授权成功
                     iOctocatDelegate.sharedInstance.currentAccount = account;
+                                              
+                                              //====key step 授权成功 代入 userObj  初始化  左侧menuVC
                     IOCMenuController *menuController = [[IOCMenuController alloc] initWithUser:account.user];
+                                              
                     [self.navigationController pushViewController:menuController animated:YES];
     }
                                           failure:^(GHAccount *account) {
                                               
+                                              // ==== 授权失败
                     [iOctocatDelegate reportError:@"Authentication failed"
                                              with:@"Please ensure that you are connected to the internet and that your credentials are correct"];
                                                           

@@ -1,3 +1,6 @@
+
+
+
 @class GHAccount, GHResource, AFHTTPRequestOperation;
 
 typedef enum {
@@ -14,10 +17,15 @@ typedef void (^resourceFailure)(GHResource *instance, NSError *error);
 typedef void (^loadSuccess)(AFHTTPRequestOperation *operation, id data);
 typedef void (^loadFailure)(AFHTTPRequestOperation *operation, NSError *error);
 
+/**
+ *  GH netdataObj 的根资源  obj  包含了 ：  最根基的资源
+ */
+
 @interface GHResource : NSObject
-@property(nonatomic,strong)NSString *resourcePath;
-@property(nonatomic,strong)NSString *resourceContentType;
-@property(nonatomic,readonly)GHAccount *account;
+
+@property(nonatomic,strong)NSString *resourcePath;// 资源位置
+@property(nonatomic,strong)NSString *resourceContentType;//  资源类型
+@property(nonatomic,readonly)GHAccount *account;//=============所属账号
 @property(nonatomic,readonly)BOOL isNew;
 @property(nonatomic,readonly)BOOL isEmpty;
 @property(nonatomic,readonly)BOOL isFailed;
@@ -25,8 +33,8 @@ typedef void (^loadFailure)(AFHTTPRequestOperation *operation, NSError *error);
 @property(nonatomic,readonly)BOOL isLoaded;
 @property(nonatomic,readonly)BOOL isLoading;
 @property(nonatomic,readonly)BOOL isChanged;
-@property(nonatomic,readonly)loadSuccess onLoadSuccess;
-@property(nonatomic,readonly)loadFailure onLoadFailure;
+@property(nonatomic,readonly)loadSuccess onLoadSuccess;// 成功blok
+@property(nonatomic,readonly)loadFailure onLoadFailure;// 失败blok
 
 - (id)initWithPath:(NSString *)path;
 - (void)markAsUnloaded;
@@ -42,4 +50,8 @@ typedef void (^loadFailure)(AFHTTPRequestOperation *operation, NSError *error);
 - (void)saveWithParams:(NSDictionary *)values path:(NSString *)path method:(NSString *)method start:(resourceStart)start success:(resourceSuccess)success failure:(resourceFailure)failure;
 - (void)deleteWithStart:(resourceStart)start success:(resourceSuccess)success failure:(resourceFailure)failure;
 - (NSString *)resourceContentType;
+
+
 @end
+
+

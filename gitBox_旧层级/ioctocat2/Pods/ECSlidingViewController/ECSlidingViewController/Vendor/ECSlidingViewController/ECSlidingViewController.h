@@ -71,19 +71,19 @@ typedef enum {
 
  This view controller is typically a menu or top-level view that switches out the top view controller.
  */
-@property (nonatomic, strong) UIViewController *underLeftViewController;
+@property (nonatomic, strong) UIViewController *underLeftViewController;//===============左侧 导航 页面
 
 /** Returns the view controller that will be visible when the top view is slide to the left.
 
  This view controller is typically a supplemental view to the top view.
  */
-@property (nonatomic, strong) UIViewController *underRightViewController;
+@property (nonatomic, strong) UIViewController *underRightViewController;//==============右侧 展示内容 页面
 
 /** Returns the top view controller.
 
  This is the main view controller that is presented above the other view controllers.
  */
-@property (nonatomic, strong) UIViewController *topViewController;
+@property (nonatomic, strong) UIViewController *topViewController;//==========？？？？？顶层  vc
 
 /** Returns the number of points the top view is visible when the top view is anchored to the left side.
 
