@@ -327,7 +327,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 //main VCHierarchy
 - (void)setupSlidingViewController {
-    self.slidingViewController.anchorRightRevealAmount = 290;
+    self.slidingViewController.anchorRightRevealAmount = 320;
     self.slidingViewController.underLeftViewController = self.menuNavController;//====左侧导航 navVC
 }
 

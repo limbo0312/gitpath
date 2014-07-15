@@ -44,6 +44,9 @@
     self.navigationItem.title = @"Search";
 	self.navigationItem.titleView = self.searchControl;
 	self.navigationItem.rightBarButtonItem = nil;
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 #pragma mark Actions

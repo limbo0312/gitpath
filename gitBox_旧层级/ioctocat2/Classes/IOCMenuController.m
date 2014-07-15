@@ -382,6 +382,12 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	NSUInteger section = indexPath.section;
 	NSUInteger row = indexPath.row;
 	UIViewController *viewController = nil;
+    
+	/**
+	 *  -----> section ----> row
+     *
+     *  。。。。层级结构。。。。
+	 */
 	switch (section) {
 		case 0:
 			if (row == 0) {
@@ -394,7 +400,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			if (row == 0) {
 				viewController = [[IOCMyEventsController alloc] initWithUser:self.user];
 				viewController.title = @"My Events";
-			} else {
+			}
+            else {
 				GHOrganization *org = self.user.organizations[row - 1];
 				viewController = [[IOCEventsController alloc] initWithEvents:org.events];
 				viewController.title = org.login;
@@ -405,7 +412,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			if (row == 0) {
 				viewController = [[IOCUserController alloc] initWithUser:self.user];
 				viewController.title = @"My Profile";
-			} else if (row == 1) {
+			}
+            else if (row == 1) {
 				viewController = [[IOCOrganizationsController alloc] initWithOrganizations:self.user.organizations];
 				viewController.title = @"My Organizations";
 			}
@@ -445,13 +453,18 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			if (row == 0) {
 				viewController = [[IOCSearchController alloc] init];
 				viewController.title = @"Search";
-			} else if (row == 1) {
+			}
+            else if (row == 1) {
 #ifdef CONFIGURATION_Debug
                 GHRepository *repo = [[GHRepository alloc] initWithOwner:@"dennisreimann" andName:@"iOctocat"];
+                
                 viewController = [[IOCIssuesController alloc] initWithRepository:repo];
+                
                 viewController.title = @"Issues";
 #else
-                viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
+                //====反馈。。。。。  可以在以后使用邮件
+                
+                //viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
 #endif
 			}
 			break;
@@ -494,10 +507,17 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     return menuButtonImage;
 }
 
+//=== menu btn ...
 - (UIBarButtonItem *)toggleBarButtonItem {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:self.class.menuButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(toggleTopView)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:self.class.menuButtonImage
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(toggleTopView)];
+    
     item.accessibilityLabel = NSLocalizedString(@"Menu", nil);
     item.accessibilityHint = NSLocalizedString(@"Double-tap to reveal menu on the left. If you need to close the menu without choosing its item, find the menu button in top-right corner (slightly to the left) and double-tap it again.", nil);
+    
     return item;
 }
 

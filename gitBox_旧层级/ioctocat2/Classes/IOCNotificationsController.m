@@ -54,13 +54,23 @@
 	[self setupPullToRefresh];
     
     
-    //====>
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
 	[super viewWillAppear:animated];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-	if (!self.notificationsByRepository) [self rebuildByRepository];
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+	if (!self.notificationsByRepository)
+        [self rebuildByRepository];
+    
 	[self setupActions];
 }
 

@@ -4770,7 +4770,7 @@
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"${inherited}",
-					CONFIGURATION_Debug,
+					"CONFIGURATION_Debug=1",
 					"DEBUG=3",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info-Beta.plist";

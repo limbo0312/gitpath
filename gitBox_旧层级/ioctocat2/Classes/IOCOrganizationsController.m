@@ -7,6 +7,14 @@
 
 @implementation IOCOrganizationsController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
+}
+
 - (id)initWithOrganizations:(GHOrganizations *)organizations {
     return [super initWithCollection:organizations];
 }

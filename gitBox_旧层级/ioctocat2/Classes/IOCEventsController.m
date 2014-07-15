@@ -56,6 +56,9 @@
     [self setupInfiniteScrolling];
     [self refreshLastUpdate];
     [self displayEvents];
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

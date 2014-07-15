@@ -8,6 +8,14 @@
 
 @implementation IOCRepositoriesController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
+}
+
 - (id)initWithRepositories:(GHRepositories *)repos {
 	return [super initWithCollection:repos];
 }
