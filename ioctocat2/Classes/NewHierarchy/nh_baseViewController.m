@@ -25,6 +25,9 @@
     
     [self setMenuViewSize:CGSizeMake(250, iheight_screen)];
     
+    
+    
+    
 }
  
 - (void)viewDidLoad
