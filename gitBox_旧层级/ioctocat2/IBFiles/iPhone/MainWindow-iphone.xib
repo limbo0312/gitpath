@@ -77,5 +77,13 @@
                 </tableViewController>
             </viewControllers>
         </navigationController>
+        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="BpU-6t-b3Q">
+            <rect key="frame" x="0.0" y="0.0" width="161" height="29"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <segments>
+                <segment title="First"/>
+                <segment title="Second"/>
+            </segments>
+        </segmentedControl>
     </objects>
 </document>

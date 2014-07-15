@@ -29,6 +29,15 @@
 @implementation IOCAccountsController
 
 #pragma mark --- life cycle  of  accountVC
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //...
+    //do nnothing
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
@@ -48,7 +57,7 @@
     // create account if there is none, open account if there is only one
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-        if (self.accounts.count == 0) {
+        if (self.accounts.count == 0) {//===未有 账户登陆在历史中
             [self addAccount:nil];
         } else if (self.accounts.count == 1) {
             [self authenticateAccountAtIndex:0];//========= key step github授权 登陆

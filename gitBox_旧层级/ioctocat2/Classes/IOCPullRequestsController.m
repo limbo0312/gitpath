@@ -59,10 +59,14 @@
 
 #pragma mark Actions
 
+
 - (IBAction)switchChanged:(id)sender {
+    
 	[self displayCollection];
-	[self.tableView setContentOffset:CGPointZero animated:NO];
+	[self.tableView setContentOffset:CGPointZero
+                            animated:NO];
 	[self loadCollection];
+    
 }
 
 - (void)reloadPullRequests {

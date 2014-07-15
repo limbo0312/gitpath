@@ -62,6 +62,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
                        options:NSKeyValueObservingOptionNew
                        context:nil];
         
+        //====初始化： 我的时间timeline
+        
         self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.user];
         
 	    [[NSNotificationCenter defaultCenter] addObserver:self
@@ -88,8 +90,12 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 }
 
 - (void)menuWillAppear:(id)notification {
+    
+    
     UINavigationController *navController = (UINavigationController *)self.slidingViewController.topViewController;
+    
     UIViewController *viewController = navController.visibleViewController;
+    
     [viewController.view endEditing:YES];
 }
 
@@ -209,6 +215,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 // clean up the old state and push the given controller wrapped in a navigation controller.
 // in case the given view controller is already a navigation controller it used it directly.
+#warning 貌似这个是 navVC 的 关键打开 method
 - (void)openViewController:(UIViewController *)viewController {
     // unset the current navigation controller
 	UINavigationController *currentController = (UINavigationController *)self.slidingViewController.topViewController;
@@ -449,11 +456,17 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			}
 			break;
 	}
-	// Maybe push a controller
+    
+    
+    
+#warning  navVC 的 关键  切换 开关 ！！！！！！！
+    
 	if (viewController) {
 		[self openViewController:viewController];
 	}
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+	[tableView deselectRowAtIndexPath:indexPath
+                             animated:YES];
 }
 
 #pragma mark Toggle Button

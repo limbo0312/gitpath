@@ -24,10 +24,18 @@
 - (id)initWithUser:(GHUser *)user {
 	self = [super initWithCollection:nil];
 	if (self) {
-		NSString *openPath = [NSString stringWithFormat:kUserAuthenticatedIssuesFormat, kIssueStateOpen, kIssueFilterSubscribed, kIssueSortUpdated, 30];
-		NSString *closedPath = [NSString stringWithFormat:kUserAuthenticatedIssuesFormat, kIssueStateClosed, kIssueFilterSubscribed, kIssueSortUpdated, 30];
+		NSString *openPath = [NSString stringWithFormat:kUserAuthenticatedIssuesFormat,
+                                                          kIssueStateOpen,
+                                                          kIssueFilterSubscribed,
+                                                          kIssueSortUpdated, 30];
+		NSString *closedPath = [NSString stringWithFormat:kUserAuthenticatedIssuesFormat,
+                                                            kIssueStateClosed,
+                                                            kIssueFilterSubscribed,
+                                                            kIssueSortUpdated, 30];
+        
 		GHIssues *openIssues = [[GHIssues alloc] initWithResourcePath:openPath];
 		GHIssues *closedIssues = [[GHIssues alloc] initWithResourcePath:closedPath];
+        
 		self.objects = @[openIssues, closedIssues];
 	}
 	return self;

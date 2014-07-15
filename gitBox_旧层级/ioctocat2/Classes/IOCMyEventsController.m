@@ -50,23 +50,43 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.navigationItem.title = self.title;
-    // feed control
-    self.feedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"News", nil), NSLocalizedString(@"Activity", nil)]];
-	self.feedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    [self.feedControl addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    self.feedControl.frame = CGRectMake(self.feedControl.frame.origin.x - 20, self.feedControl.frame.origin.y, self.feedControl.frame.size.width + 40, self.feedControl.frame.size.height);
+    
+    // feed control==========>"News"    "Activity"
+    self.feedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"News", nil),
+                                                                   NSLocalizedString(@"Activity", nil)]];
+    
+//	self.feedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    
+    [self.feedControl addTarget:self
+                         action:@selector(switchChanged:)
+               forControlEvents:UIControlEventValueChanged];
+    
+    self.feedControl.frame = CGRectMake(self.feedControl.frame.origin.x - 20,
+                                        self.feedControl.frame.origin.y,
+                                        self.feedControl.frame.size.width + 40,
+                                        self.feedControl.frame.size.height);
+    
 	self.navigationItem.titleView = self.feedControl;
+    
 	// start loading the first feed
 	self.feedControl.selectedSegmentIndex = 0;
+    
+    
+    //===== 适配  ios7----match
+    
+    [self matching_iOS7_tableviewType];
 }
 
 #pragma mark Actions
+
+//切换=====>  "News"    "Activity"
 
 - (IBAction)switchChanged:(id)sender {
 	[self refreshLastUpdate];
 	[self.tableView setContentOffset:CGPointZero animated:NO];
 	[self displayEvents];
 	[self refreshIfRequired];
+    
     if (self.events.isLoading) {
         [self.tableView.pullToRefreshView startAnimating];
     }
