@@ -1123,6 +1123,7 @@
 		8C8C1EB3192E34C90001D221 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB2192E34C90001D221 /* ImageIO.framework */; };
 		8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB4192E34EC0001D221 /* CoreImage.framework */; };
 		8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB6192E35900001D221 /* Accelerate.framework */; };
+		8CE632271980C9380099A690 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE632261980C9380099A690 /* Images.xcassets */; };
 		8CE686760FB8C56700A3D625 /* GHForks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE686720FB8C56700A3D625 /* GHForks.m */; };
 		8CFBCFB30FAB8A6300A2C37A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFBCFB20FAB8A6300A2C37A /* CFNetwork.framework */; };
 		A0C19D01131973C300045E04 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C19D00131973C300045E04 /* MessageUI.framework */; };
@@ -1860,6 +1861,7 @@
 		8C8C1EB2192E34C90001D221 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8C8C1EB4192E34EC0001D221 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		8C8C1EB6192E35900001D221 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8CE632261980C9380099A690 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iOctocat/Images.xcassets; sourceTree = "<group>"; };
 		8CE686720FB8C56700A3D625 /* GHForks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GHForks.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8CE686730FB8C56700A3D625 /* GHForks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHForks.h; sourceTree = "<group>"; };
 		8CFBCFB20FAB8A6300A2C37A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1999,6 +2001,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8CE632261980C9380099A690 /* Images.xcassets */,
 				6FB3CBE513977DBC00CB0EAE /* iPad */,
 				6FB7FEA60F7E2C7500E8D702 /* IBFiles */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -3421,6 +3424,7 @@
 				6F797C7E1110E842007E5A8D /* Commit.xib in Resources */,
 				6F2C76EC1114EDEF002665DA /* file_added.png in Resources */,
 				6F2C76ED1114EDEF002665DA /* file_modified.png in Resources */,
+				8CE632271980C9380099A690 /* Images.xcassets in Resources */,
 				6F2C76EE1114EDEF002665DA /* file_removed.png in Resources */,
 				6F2C76EF1114EDEF002665DA /* file_renamed.png in Resources */,
 				6F5E9C7E1119D4AF00752560 /* ToolbarIssue.png in Resources */,
@@ -4614,8 +4618,10 @@
 			baseConfigurationReference = 0356A753731743C6B44D0C91 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Engels Lang (AV4MGYBNTP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinhong Wang (5RZ94L49KE)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4639,7 +4645,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "8ABB3E00-6691-4401-B4DF-579E7C148909";
+				PROVISIONING_PROFILE = "061383D0-E35C-470E-8DED-EC7F3F04FD2F";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4729,8 +4735,10 @@
 			baseConfigurationReference = 0356A753731743C6B44D0C91 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Engels Lang (AV4MGYBNTP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinhong Wang (5RZ94L49KE)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
@@ -4751,7 +4759,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "8ABB3E00-6691-4401-B4DF-579E7C148909";
+				PROVISIONING_PROFILE = "061383D0-E35C-470E-8DED-EC7F3F04FD2F";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
