@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-859" y="1836"/>
         </scene>
-        <!--View Controller-->
+        <!--AccountVC-->
         <scene sceneID="N5k-HM-snf">
             <objects>
-                <viewController id="ORj-sZ-BEV" sceneMemberID="viewController">
+                <viewController id="ORj-sZ-BEV" customClass="AccountVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RFF-H1-aR9"/>
                         <viewControllerLayoutGuide type="bottom" id="Brd-wq-LrL"/>
