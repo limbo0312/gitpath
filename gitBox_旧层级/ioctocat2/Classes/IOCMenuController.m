@@ -386,10 +386,11 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	/**
 	 *  -----> section ----> row
      *
-     *  。。。。层级结构。。。。
+     *  。。。。层级结构。。。。mainHerarchy  Architecture
 	 */
 	switch (section) {
 		case 0:
+            //----> Notifications
 			if (row == 0) {
 				viewController = [[IOCNotificationsController alloc] initWithNotifications:self.user.notifications];
 				viewController.title = @"Notifications";
@@ -397,10 +398,12 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			break;
 
 		case 1:
+            //----> 个人账号 feeds
 			if (row == 0) {
 				viewController = [[IOCMyEventsController alloc] initWithUser:self.user];
 				viewController.title = @"My Events";
 			}
+            //----> 组织账号 feeds
             else {
 				GHOrganization *org = self.user.organizations[row - 1];
 				viewController = [[IOCEventsController alloc] initWithEvents:org.events];
@@ -409,10 +412,12 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			break;
 			
 		case 2:
+            //----> 个人 profiles
 			if (row == 0) {
 				viewController = [[IOCUserController alloc] initWithUser:self.user];
 				viewController.title = @"My Profile";
 			}
+            //----> 组织 profiles 
             else if (row == 1) {
 				viewController = [[IOCOrganizationsController alloc] initWithOrganizations:self.user.organizations];
 				viewController.title = @"My Organizations";
@@ -420,36 +425,49 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			break;
 			
 		case 3:
+            //----> 个人 仓库repos
 			if (row == 0) {
 				viewController = [[IOCMyRepositoriesController alloc] initWithUser:self.user];
 				viewController.title = @"Personal Repos";
-			} else if (row == 1) {
+			}
+            //----> 组织 仓库repos
+            else if (row == 1) {
 				viewController = [[IOCOrganizationRepositoriesController alloc] initWithUser:self.user];
 				viewController.title = @"Organization Repos";
-			} else if (row == 2) {
+			}
+            //----> 观察中 仓库repos
+            else if (row == 2) {
 				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.user.watchedRepositories];
 				viewController.title = @"Watched Repos";
-			} else if (row == 3) {
+			}
+            //----> 标记星 仓库repos
+            else if (row == 3) {
 				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.user.starredRepositories];
 				viewController.title = @"Starred Repos";
-			} else if (row == 4) {
+			}
+            //---->  所有问题  repos
+            else if (row == 4) {
 				viewController = [[IOCIssuesController alloc] initWithUser:self.user];
 				viewController.title = @"My Issues";
 			}
 			break;
 			
 		case 4:
+            //-----> 个人的  gist
 			if (row == 0) {
 				viewController = [[IOCGistsController alloc] initWithGists:self.user.gists];
 				viewController.title = @"Personal Gists";
 				[(IOCGistsController *)viewController setHideUser:YES];
-			} else if (row == 1) {
+			}
+            //-----> 标星的  gist
+            else if (row == 1) {
 				viewController = [[IOCGistsController alloc] initWithGists:self.user.starredGists];
 				viewController.title = @"Starred Gists";
 			}
 			break;
 			
 		case 5:
+            //-----> github 搜索
 			if (row == 0) {
 				viewController = [[IOCSearchController alloc] init];
 				viewController.title = @"Search";

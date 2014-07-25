@@ -1077,6 +1077,9 @@
 		6FF4D9791698E3AE00C235A0 /* MenuWatchedRepos.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9741698E3AE00C235A0 /* MenuWatchedRepos.png */; };
 		6FF4D97A1698E3AE00C235A0 /* MenuWatchedRepos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */; };
 		6FF4D97B1698E3AE00C235A0 /* MenuWatchedRepos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */; };
+		8C23E42819824D920060B369 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C23E42719824D920060B369 /* Images.xcassets */; };
+		8C23E42B198250810060B369 /* icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C23E42A198250810060B369 /* icon_1024.png */; };
+		8C23E42C198250810060B369 /* icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C23E42A198250810060B369 /* icon_1024.png */; };
 		8C35977E1949A2CC0017DD39 /* nh_baseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597771949A2CC0017DD39 /* nh_baseViewController.m */; };
 		8C35977F1949A2CC0017DD39 /* nh_contentNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */; };
 		8C3597811949A2CC0017DD39 /* nh_menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */; };
@@ -1773,6 +1776,8 @@
 		6FF4D9681698E32400C235A0 /* MenuStarredRepos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuStarredRepos@2x.png"; sourceTree = "<group>"; };
 		6FF4D9741698E3AE00C235A0 /* MenuWatchedRepos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuWatchedRepos.png; sourceTree = "<group>"; };
 		6FF4D9751698E3AE00C235A0 /* MenuWatchedRepos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuWatchedRepos@2x.png"; sourceTree = "<group>"; };
+		8C23E42719824D920060B369 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iOctocat/Images.xcassets; sourceTree = "<group>"; };
+		8C23E42A198250810060B369 /* icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024.png; sourceTree = "<group>"; };
 		8C3597761949A2CC0017DD39 /* nh_baseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_baseViewController.h; sourceTree = "<group>"; };
 		8C3597771949A2CC0017DD39 /* nh_baseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nh_baseViewController.m; sourceTree = "<group>"; };
 		8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nh_contentNavVC.h; sourceTree = "<group>"; };
@@ -1999,6 +2004,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8C23E429198250810060B369 /* UI_snipet */,
 				6FDB4DE41621ABAF00AB11C3 /* Assets */,
 				6FB7FE9F0F7E2C3800E8D702 /* Images */,
 				2E88193316F8F8B300ACA2EB /* Sounds */,
@@ -2011,6 +2017,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8C23E42719824D920060B369 /* Images.xcassets */,
 				6FB3CBE513977DBC00CB0EAE /* iPad */,
 				6FB7FEA60F7E2C7500E8D702 /* IBFiles */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -3053,6 +3060,21 @@
 			name = "Issues VC";
 			sourceTree = "<group>";
 		};
+		8C23E429198250810060B369 /* UI_snipet */ = {
+			isa = PBXGroup;
+			children = (
+				8C23E42A198250810060B369 /* icon_1024.png */,
+			);
+			path = UI_snipet;
+			sourceTree = "<group>";
+		};
+		8C23E42D198250B80060B369 /* Account VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Account VC";
+			sourceTree = "<group>";
+		};
 		8C33330E1950353E007D6BA4 /* baseObjSafely  */ = {
 			isa = PBXGroup;
 			children = (
@@ -3080,6 +3102,7 @@
 				8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */,
 				8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */,
 				8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */,
+				8C23E42D198250B80060B369 /* Account VC */,
 			);
 			path = NewHierarchy;
 			sourceTree = "<group>";
@@ -3393,6 +3416,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = L94FR997ZV;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iOctocat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3422,6 +3450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F1DC39B0F7E52F000FCD26D /* Settings.bundle in Resources */,
+				8C23E42819824D920060B369 /* Images.xcassets in Resources */,
 				6F1DC5C50F7E7F4600FCD26D /* comment.png in Resources */,
 				6F1DC5C60F7E7F4600FCD26D /* CreateEvent.png in Resources */,
 				6F1DC5C70F7E7F4600FCD26D /* fork.png in Resources */,
@@ -3586,6 +3615,7 @@
 				6F3616C3166184200098AE4A /* ToolbarUserOn.png in Resources */,
 				6F3616C4166184200098AE4A /* ToolbarUserOn@2x.png in Resources */,
 				6F3616C5166184200098AE4A /* ToolbarUsersOn.png in Resources */,
+				8C23E42B198250810060B369 /* icon_1024.png in Resources */,
 				6F3616C6166184200098AE4A /* ToolbarUsersOn@2x.png in Resources */,
 				6F6399EA1662307E00BF2FF0 /* ToolbarWeb.png in Resources */,
 				6F6399EB1662307E00BF2FF0 /* ToolbarWeb@2x.png in Resources */,
@@ -4030,6 +4060,7 @@
 				6FEDE43D16E2A21C00459B5C /* GistPrivateOn@2x.png in Resources */,
 				6FEDE43F16E2A21C00459B5C /* GistPublic.png in Resources */,
 				6FEDE44116E2A21C00459B5C /* GistPublic@2x.png in Resources */,
+				8C23E42C198250810060B369 /* icon_1024.png in Resources */,
 				6FEDE44316E2A21C00459B5C /* GistPublicFork.png in Resources */,
 				6FEDE44516E2A21C00459B5C /* GistPublicFork@2x.png in Resources */,
 				6FEDE44716E2A21C00459B5C /* GistPublicForkOn.png in Resources */,
@@ -4644,6 +4675,8 @@
 			baseConfigurationReference = 0356A753731743C6B44D0C91 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Engels Lang (AV4MGYBNTP)";
 				COPY_PHASE_STRIP = NO;
@@ -4669,7 +4702,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "8ABB3E00-6691-4401-B4DF-579E7C148909";
+				PROVISIONING_PROFILE = "061383D0-E35C-470E-8DED-EC7F3F04FD2F";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4759,6 +4792,8 @@
 			baseConfigurationReference = 0356A753731743C6B44D0C91 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Engels Lang (AV4MGYBNTP)";
 				COPY_PHASE_STRIP = YES;
@@ -4781,7 +4816,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "8ABB3E00-6691-4401-B4DF-579E7C148909";
+				PROVISIONING_PROFILE = "061383D0-E35C-470E-8DED-EC7F3F04FD2F";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -12,10 +12,38 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="os6-1h-H51">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="ORj-sZ-BEV" kind="relationship" relationship="rootViewController" id="sVS-dA-FVQ"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hzn-wt-h51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-859" y="1836"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="N5k-HM-snf">
+            <objects>
+                <viewController id="ORj-sZ-BEV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RFF-H1-aR9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Brd-wq-LrL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kds-mf-moP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="icon_1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-Y4-qvz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.76470588235294112" green="0.88235294117647056" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0xh-ZP-3YY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imO-OP-Vht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-470" y="1836"/>
         </scene>
         <!--Nh menu View Controller-->
         <scene sceneID="n6J-fO-ARs">
@@ -86,6 +114,7 @@
     </scenes>
     <resources>
         <image name="MenuOctocat.png" width="25" height="25"/>
+        <image name="icon_1024.png" width="2048" height="2048"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
