@@ -207,6 +207,7 @@
 		4A13D8891984074200D40631 /* github20.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A13D8841984074200D40631 /* github20.png */; };
 		4A13D88D1984741300D40631 /* CellOfAccout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A13D88C1984741300D40631 /* CellOfAccout.m */; };
 		4A13D88F1984743E00D40631 /* CellOfAccout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A13D88E1984743E00D40631 /* CellOfAccout.xib */; };
+		4A13D89319854E7500D40631 /* innerDashboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A13D89219854E7500D40631 /* innerDashboardVC.m */; };
 		6F00F4A316B2864A0057F0FE /* Remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F00F4A216B2864A0057F0FE /* Remove@2x.png */; };
 		6F00F4A416B2864A0057F0FE /* Remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F00F4A216B2864A0057F0FE /* Remove@2x.png */; };
 		6F08799C1623635E00CE95D0 /* ToolbarGist.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F08799A1623635E00CE95D0 /* ToolbarGist.png */; };
@@ -1293,6 +1294,8 @@
 		4A13D88B1984741300D40631 /* CellOfAccout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellOfAccout.h; path = Classes/NewHierarchy/cellSnippet/CellOfAccout.h; sourceTree = SOURCE_ROOT; };
 		4A13D88C1984741300D40631 /* CellOfAccout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellOfAccout.m; path = Classes/NewHierarchy/cellSnippet/CellOfAccout.m; sourceTree = SOURCE_ROOT; };
 		4A13D88E1984743E00D40631 /* CellOfAccout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellOfAccout.xib; path = Classes/NewHierarchy/cellSnippet/CellOfAccout.xib; sourceTree = SOURCE_ROOT; };
+		4A13D89119854E7500D40631 /* innerDashboardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = innerDashboardVC.h; sourceTree = "<group>"; };
+		4A13D89219854E7500D40631 /* innerDashboardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = innerDashboardVC.m; sourceTree = "<group>"; };
 		67ECF03BCF254C88A027B814 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F00F4A216B2864A0057F0FE /* Remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Remove@2x.png"; sourceTree = "<group>"; };
 		6F08799A1623635E00CE95D0 /* ToolbarGist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarGist.png; sourceTree = "<group>"; };
@@ -2226,6 +2229,15 @@
 			name = cellOfAccount;
 			sourceTree = "<group>";
 		};
+		4A13D89019854DFF00D40631 /* Left Content VC */ = {
+			isa = PBXGroup;
+			children = (
+				4A13D89119854E7500D40631 /* innerDashboardVC.h */,
+				4A13D89219854E7500D40631 /* innerDashboardVC.m */,
+			);
+			path = "Left Content VC";
+			sourceTree = "<group>";
+		};
 		6F11AE2A16A35CAE002D9741 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -3144,6 +3156,7 @@
 				8C35977D1949A2CC0017DD39 /* nh_menuViewController.m */,
 				8C3597781949A2CC0017DD39 /* nh_contentNavVC.h */,
 				8C3597791949A2CC0017DD39 /* nh_contentNavVC.m */,
+				4A13D89019854DFF00D40631 /* Left Content VC */,
 				8C23E42D198250B80060B369 /* AccountVC */,
 			);
 			path = NewHierarchy;
@@ -4413,6 +4426,7 @@
 				2E27C38C17440568008B849C /* NSString_GHFMarkdown.m in Sources */,
 				2EA49A4117473FA500A33F4D /* IOCNotificationsSectionHeader.m in Sources */,
 				2E52B62F174E509D00F1294D /* NSMutableString_GHFMarkdown.m in Sources */,
+				4A13D89319854E7500D40631 /* innerDashboardVC.m in Sources */,
 				2E52B637174E584200F1294D /* NSMutableAttributedString_GHFMarkdown.m in Sources */,
 				2E1CCAFA17568795009C0400 /* GHTags.m in Sources */,
 				2E1CCAFF17568878009C0400 /* IOCTagsController.m in Sources */,

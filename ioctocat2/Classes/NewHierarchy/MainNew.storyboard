@@ -8,18 +8,41 @@
         <!--Nh content NavVC-->
         <scene sceneID="GZ9-9j-aj4">
             <objects>
-                <navigationController storyboardIdentifier="contentController_fake4indeti" wantsFullScreenLayout="YES" definesPresentationContext="YES" navigationBarHidden="YES" id="ZcS-m3-XOg" customClass="nh_contentNavVC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentController_fake4indeti" wantsFullScreenLayout="YES" definesPresentationContext="YES" id="ZcS-m3-XOg" customClass="nh_contentNavVC" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="os6-1h-H51">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="eWH-Yx-yiz">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="ORj-sZ-BEV" kind="relationship" relationship="rootViewController" id="sVS-dA-FVQ"/>
+                        <segue destination="Kwj-gB-2FS" kind="relationship" relationship="rootViewController" id="w6N-6a-X4k"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hzn-wt-h51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-859" y="1836"/>
+            <point key="canvasLocation" x="-797" y="1520"/>
+        </scene>
+        <!--Inner DashboardVC-->
+        <scene sceneID="N21-D7-PHK">
+            <objects>
+                <viewController id="Kwj-gB-2FS" customClass="innerDashboardVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yi7-jb-IHd"/>
+                        <viewControllerLayoutGuide type="bottom" id="h4X-Rp-ALM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2w3-RE-0dz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gi4-0m-4lo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oRe-Mj-rb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-280" y="1520"/>
         </scene>
         <!--AccountVC-->
         <scene sceneID="N5k-HM-snf">
@@ -30,7 +53,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Brd-wq-LrL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kds-mf-moP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="inspire your colorful codeMind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eb-uT-Vfb">
@@ -48,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mZN-O8-IH0">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -60,14 +83,14 @@
                         <color key="backgroundColor" red="0.34901960784313724" green="0.45098039215686275" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="0xh-ZP-3YY"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="mZN-O8-IH0" id="pkb-hG-tQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imO-OP-Vht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-426" y="1836"/>
+            <point key="canvasLocation" x="-1006" y="3046"/>
         </scene>
         <!--Nh menu View Controller-->
         <scene sceneID="n6J-fO-ARs">
@@ -113,7 +136,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-859" y="2666"/>
+            <point key="canvasLocation" x="-797" y="2262"/>
         </scene>
         <!--Nh base View Controller-->
         <scene sceneID="3JT-LQ-BiI">
