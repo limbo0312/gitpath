@@ -20,12 +20,12 @@
 @implementation UIImageView (startLoading)
 
 
-- (void)startAnimationEGS
+- (void)startAnimationEGS:(float)durationX
 {
     CABasicAnimation *animation =[CABasicAnimation animationWithKeyPath:@"transform" ];
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    animation.toValue =[NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, 0, 0, 1.0)];
-    animation.duration = 0.15;
+    animation.toValue =[NSValue valueWithCATransform3D:CATransform3DMakeRotation(-M_PI, 0, 0, 1.0)];
+    animation.duration = durationX;//0.15
     animation.cumulative = YES;
     animation.repeatCount = MAXFLOAT;
     [self.layer addAnimation:animation forKey:nil];
@@ -36,10 +36,10 @@
     [self.layer removeAllAnimations];
 }
 
-//+(instancetype)reedomIMG:(CGRect)frame
-//{
-//    return [[UIImageView alloc] initWithFrame:frame];
-//}
++(instancetype)reedomIMG:(CGRect)frame
+{
+    return [[UIImageView alloc] initWithFrame:frame];
+}
 @end
 
 

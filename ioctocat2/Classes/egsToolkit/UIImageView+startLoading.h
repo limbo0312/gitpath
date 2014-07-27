@@ -12,7 +12,7 @@
 
 @interface UIImageView (startLoading)
 
-- (void)startAnimationEGS;
+- (void)startAnimationEGS:(float)durationX;
 - (void)stopAnimationEGS;
 
 +(instancetype)reedomIMG:(CGRect)frame;

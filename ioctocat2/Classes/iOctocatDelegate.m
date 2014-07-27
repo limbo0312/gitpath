@@ -62,13 +62,13 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     
     [self setupAvatarCache];
     
-    [self setupSlidingViewController];//main VCHierarchy
-    [self.window makeKeyAndVisible];
+//    [self setupSlidingViewController];//main VCHierarchy
+//    [self.window makeKeyAndVisible];
     
     // remote notifications
-    NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (remoteNotification)
-        [self application:application didReceiveRemoteNotification:remoteNotification];
+//    NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//    if (remoteNotification)
+//        [self application:application didReceiveRemoteNotification:remoteNotification];
     
 
     

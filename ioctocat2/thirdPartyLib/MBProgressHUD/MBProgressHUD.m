@@ -480,7 +480,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.indicator =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"refresh_ic@2x.png"]];
         indicator.frame = CGRectMake(0,0, 25.0f, 25.0f);;
         
-		[(UIImageView *)indicator startAnimationEGS];
+		[(UIImageView *)indicator startAnimationEGS:0.25];
 		[self addSubview:indicator];
     }
 	else if (mode == MBProgressHUDModeDeterminate || mode == MBProgressHUDModeAnnularDeterminate) {

@@ -10,4 +10,8 @@
 
 @interface AccountVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *IB_redarAnimation;
+
+@property (weak,nonatomic) IBOutlet UITableView * tableView;
+
 @end
