@@ -89,18 +89,18 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     self.tableView.contentInset = inset;
     // disable scroll-to-top for the menu, so that the main controller receives the event
     self.tableView.scrollsToTop = NO;
-    // open first view controller
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight];
-    
-#warning mainVC on top（right ）111
-    [self openViewController:self.initialViewController];
-    // load resources
-    if (![self.initialViewController isKindOfClass:IOCNotificationsController.class]) {
-        [self.user.notifications loadWithSuccess:^(GHResource *instance, id data) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        }];
-    }
+//    // open first view controller
+//    [self.slidingViewController anchorTopViewOffScreenTo:ECRight];
+//    
+//#warning mainVC on top（right ）111
+//    [self openViewController:self.initialViewController];
+//    // load resources
+//    if (![self.initialViewController isKindOfClass:IOCNotificationsController.class]) {
+//        [self.user.notifications loadWithSuccess:^(GHResource *instance, id data) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        }];
+//    }
     if (self.user.organizations.isUnloaded) {
         [self removeOrganizationObservers];
         // success is handled by the KVO hook
@@ -122,16 +122,16 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     if (self.presentedViewController) return;
     [super viewWillDisappear:animated];
     CGFloat width = UIInterfaceOrientationIsPortrait(self.navigationController.interfaceOrientation) ? iOctocatDelegate.sharedInstance.window.frame.size.width : iOctocatDelegate.sharedInstance.window.frame.size.height;
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animateChange:2 animations:^{
-        CGRect viewFrame = self.navigationController.view.frame;
-        viewFrame.size.width = width;
-        self.navigationController.view.frame = viewFrame;
-        self.slidingViewController.underLeftWidthLayout = ECFullWidth;
-    } onComplete:^{
-        // this somehow does not seem to work, that's why we catch the anchor
-        // event via the notifications received in IOCAccountsController
-        self.slidingViewController.topViewController = nil;
-    }];
+//    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animateChange:2 animations:^{
+//        CGRect viewFrame = self.navigationController.view.frame;
+//        viewFrame.size.width = width;
+//        self.navigationController.view.frame = viewFrame;
+//        self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+//    } onComplete:^{
+//        // this somehow does not seem to work, that's why we catch the anchor
+//        // event via the notifications received in IOCAccountsController
+//        self.slidingViewController.topViewController = nil;
+//    }];
 }
 
 - (void)addOrganizationObservers {
@@ -189,7 +189,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     
 	// give the root view controller the toggle bar button item
 #warning 禁止menuBtn
-//    [(UIViewController *)navController.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
+    [(UIViewController *)navController.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
     
 #warning mainVC on top（right ）222
 	// set the navigation controller as the new top view and bring it on

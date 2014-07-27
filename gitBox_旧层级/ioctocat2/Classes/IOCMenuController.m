@@ -41,6 +41,7 @@ static NSString *const GravatarKeyPath = kGravatarKeyPath;
 static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 //===== key step  左侧导航vc ，代入userObj 进行初始化
+//==核心载入==
 - (id)initWithUser:(GHUser *)user {
 	self = [self initWithNibName:@"Menu" bundle:nil];
 	if (self) {
@@ -231,7 +232,9 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	navController.view.layer.shadowRadius = 5;
 	navController.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-	// give the root view controller the toggle bar button item
+
+// ======关键 leftBtn menu
+    
     [(UIViewController *)navController.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
     
 #warning mainVC on top（right ）222
