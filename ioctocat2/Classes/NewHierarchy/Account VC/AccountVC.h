@@ -14,4 +14,9 @@
 
 @property (weak,nonatomic) IBOutlet UITableView * tableView;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *IB_lblInspired;
+@property (weak, nonatomic) IBOutlet UILabel *IB_lblEGSDesign;
+
+
 @end

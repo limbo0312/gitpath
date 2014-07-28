@@ -37,7 +37,7 @@
 #import "nh_baseViewController.h"
 #import "nh_menuViewController.h"
 #import "nh_contentNavVC.h"
-
+#import "AccountVC.h"
 #define kSectionHeaderHeight 24.0f
 
 @interface nh_menuViewController ()
@@ -378,6 +378,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	NSInteger section = indexPath.section;
 	NSInteger row = indexPath.row;
 	NSArray *menu = self.menu[indexPath.section];
+    
 	if (section == 1) {
 		// object is either a user or an organization.
 		// both have gravatar, name and login properties.
@@ -395,6 +396,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 		}
 	}
 	cell.badgeLabel.text = (section == 0) ? [NSString stringWithFormat:@"%d", self.user.notifications.unreadCount]: nil;
+    
 	return cell;
 }
 
@@ -465,14 +467,35 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			if (row == 0) {
 				viewController = [[IOCSearchController alloc] init];
 				viewController.title = @"Search";
-			} else if (row == 1) {
-#ifdef CONFIGURATION_Debug
-                GHRepository *repo = [[GHRepository alloc] initWithOwner:@"dennisreimann" andName:@"iOctocat"];
-                viewController = [[IOCIssuesController alloc] initWithRepository:repo];
-                viewController.title = @"Issues";
-#else
-                viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
-#endif
+			}
+            else if (row == 1) {
+
+//=== 返回  账号 VC view
+                AccountVC *accoutVC = [MainSB_New instantiateViewControllerWithIdentifier:@"AccountVC_iden"];
+                
+                UINavigationController *navVC_accout = [[UINavigationController alloc] initWithRootViewController:accoutVC];
+                
+                nh_baseViewController *baseVC = (nh_baseViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                
+                nh_contentNavVC *currNavVC = (nh_contentNavVC *)baseVC.contentViewController;
+                
+                [navVC_accout setNavigationBarHidden:YES];
+                
+                [currNavVC presentViewController:navVC_accout
+                                        animated:YES
+                                      completion:^{}];
+                
+//                =========问题 反馈  old
+//#ifdef CONFIGURATION_Debug
+//                
+//                
+//                
+//                GHRepository *repo = [[GHRepository alloc] initWithOwner:@"dennisreimann" andName:@"iOctocat"];
+//                viewController = [[IOCIssuesController alloc] initWithRepository:repo];
+//                viewController.title = @"Issues";
+//#else
+//                viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
+//#endif
 			}
 			break;
 	}

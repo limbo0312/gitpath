@@ -36,6 +36,18 @@
 
 @implementation AccountVC
 
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    _IB_lblInspired.center = CGPointMake(self.view.center.x,
+                                         self.view.height-71);
+
+    _IB_lblEGSDesign.center = CGPointMake(self.view.center.x,
+                                         self.view.height-48);
+}
+
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
