@@ -10,17 +10,19 @@
 		self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 		self.imageView.layer.cornerRadius = 3;
 		self.imageView.layer.masksToBounds = YES;
+        self.imageView.tintColor =  [UIColor greenColor];//COLOR(179, 166, 161, 1);
         self.textLabel.font = [UIFont systemFontOfSize:15];
-		self.textLabel.textColor = [UIColor whiteColor];
+		self.textLabel.textColor = COLOR(179, 166, 161, 1);//[UIColor whiteColor];
+        
 		self.badgeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.badgeLabel.textAlignment = NSTextAlignmentCenter;
-		self.badgeLabel.textColor = [UIColor whiteColor];
+		self.badgeLabel.textColor = COLOR(179, 166, 161, 1);//[UIColor whiteColor];
 		self.badgeLabel.font = [UIFont systemFontOfSize:15];
 		self.badgeLabel.layer.cornerRadius = 15;
 		self.badgeLabel.text = nil;
         
-//        self.backgroundColor = [UIColor grayColor];
-        self.contentView.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];//COLOR(179, 166, 161, 1);//[UIColor grayColor];
 		[self addSubview:self.badgeLabel];
     }
     return self;
@@ -34,9 +36,11 @@
 	if (self.badgeLabel.text) {
 		[self.imageView setHidden:YES];
 		self.badgeLabel.frame = CGRectMake(7, 6, 30, 30);
-		self.badgeLabel.backgroundColor = [self.badgeLabel.text intValue] == 0 ?
-			self.badgeEmptyBackgroundColor :
-			self.badgeHighlightBackgroundColor;
+        
+        
+		self.badgeLabel.backgroundColor = [self.badgeLabel.text intValue] == 0 ? self.badgeEmptyBackgroundColor
+                                                                                :self.badgeHighlightBackgroundColor;
+        
 		[self.badgeLabel setHidden:NO];
 	} else {
 		[self.badgeLabel setHidden:YES];

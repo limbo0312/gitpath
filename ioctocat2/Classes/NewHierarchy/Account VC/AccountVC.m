@@ -64,8 +64,10 @@
     static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
         if (self.accounts.count == 0) {
+            //===自动添加：：：
             [self addAccount:nil];
         } else if (self.accounts.count == 1) {
+            //===自动登陆：：：
             [self authenticateAccountAtIndex:0];
         }
 	});
