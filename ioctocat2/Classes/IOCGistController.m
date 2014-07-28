@@ -77,6 +77,9 @@
                                                         [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Edit", nil) action:@selector(editComment:)],
                                                         [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Delete", nil) action:@selector(deleteComment:)]];
     [UIMenuController.sharedMenuController update];
+    
+//    //====>match ios7
+//    [self matching_iOS7_viewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

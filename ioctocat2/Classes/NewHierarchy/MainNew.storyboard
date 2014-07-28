@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXJ-5v-pje">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXJ-5v-pje">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Nh content NavVC-->
@@ -47,7 +47,7 @@
         <!--AccountVC-->
         <scene sceneID="N5k-HM-snf">
             <objects>
-                <viewController id="ORj-sZ-BEV" customClass="AccountVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountVC_iden" id="ORj-sZ-BEV" customClass="AccountVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RFF-H1-aR9"/>
                         <viewControllerLayoutGuide type="bottom" id="Brd-wq-LrL"/>
@@ -109,6 +109,7 @@
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="568"/>
                     <connections>
                         <outlet property="footerView" destination="Vjw-rN-mY9" id="X1y-0H-CH3"/>
                         <outlet property="versionLabel" destination="OOe-or-fBm" id="c8H-W1-hPf"/>

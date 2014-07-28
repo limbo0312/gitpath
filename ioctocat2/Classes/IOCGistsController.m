@@ -7,6 +7,14 @@
 
 @implementation IOCGistsController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
+}
+
 - (id)initWithGists:(GHGists *)gists {
 	self = [super initWithCollection:gists];
 	if (self) {

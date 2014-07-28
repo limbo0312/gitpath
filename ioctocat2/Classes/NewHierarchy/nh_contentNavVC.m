@@ -29,14 +29,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationBar.tintColor = COLOR(245, 162 , 62, 1);
+//    self.navigationBar.tintColor = COLOR(245, 162 , 62, 1);
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     // ======关键 leftBtn menu
+    [super viewWillAppear:YES];
     
-    [(UIViewController *)self.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
+    [self makeLeftMenuBtn];
+}
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:YES];
+    
 
 }
 
@@ -56,6 +62,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//== 生成 菜单按钮
+-(void)makeLeftMenuBtn
+{
+    [(UIViewController *)self.viewControllers[0] navigationItem].leftBarButtonItem = self.toggleBarButtonItem;
+}
 
 #pragma mark Toggle Button
 

@@ -176,6 +176,7 @@
 
 #pragma mark Actions
 
+//====编辑 账户  &&  创建账户
 - (void)editAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = (idx == NSNotFound) ? [[GHAccount alloc] initWithDict:@{}] : self.accounts[idx];
 	IOCAccountFormController *viewController = [[IOCAccountFormController alloc] initWithAccount:account andIndex:idx];

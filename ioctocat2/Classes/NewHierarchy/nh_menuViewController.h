@@ -24,5 +24,6 @@
 - (void)openNotificationsController;
 - (void)openNotificationControllerWithId:(NSInteger)notificationId url:(NSURL *)itemURL;
 
-
+//==== new type 4 dataObj User
+-(void)setupUserObj_info:(GHUser *)user;
 @end

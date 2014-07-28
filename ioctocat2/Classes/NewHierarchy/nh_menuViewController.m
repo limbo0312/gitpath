@@ -33,6 +33,10 @@
 #import "ECSlidingViewController.h"
 #import "IOCMenuCell.h"
 
+//=====
+#import "nh_baseViewController.h"
+#import "nh_menuViewController.h"
+#import "nh_contentNavVC.h"
 
 #define kSectionHeaderHeight 24.0f
 
@@ -62,6 +66,27 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillAppear:) name:ECSlidingViewUnderLeftWillAppear object:nil];
     }
 	return self;
+}
+
+//==== new type 4 dataObj User
+-(void)setupUserObj_info:(GHUser *)user
+{
+    NSString *menuPath = [[NSBundle mainBundle] pathForResource:@"Menu" ofType:@"plist"];
+    self.menu = [NSArray arrayWithContentsOfFile:menuPath];
+    self.user = user;
+    self.isObservingOrganizations = NO;
+    [self.user addObserver:self forKeyPath:GravatarKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    [self.user addObserver:self forKeyPath:NotificationsCountKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    
+    self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.user];
+    
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(menuWillAppear:)
+//                                                 name:ECSlidingViewUnderLeftWillAppear
+//                                               object:nil];
+    
+//    [self menuWillAppear:nil];
 }
 
 - (void)dealloc {
@@ -170,11 +195,49 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     return NO;
 }
 
-// clean up the old state and push the given controller wrapped in a navigation controller.
-// in case the given view controller is already a navigation controller it used it directly.
+//=== 新版： menuLeft 的导航中枢2  REFrostedViewController
+- (void)openViewController_RN2:(UIViewController *)viewController
+{
+    nh_baseViewController *baseVC = (nh_baseViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    nh_contentNavVC *currContentNav = (nh_contentNavVC *)baseVC.contentViewController;
+    
+	[currContentNav popToRootViewControllerAnimated:NO];
+	// prepare the new navigation controller
+//    UINavigationController *navController = nil;
+    if ([viewController isKindOfClass:UINavigationController.class]) {
+        currContentNav.viewControllers = [(UINavigationController *)viewController  viewControllers];
+    } else {
+        currContentNav.viewControllers = @[viewController];//[[UINavigationController alloc] initWithRootViewController:viewController];
+    }
+//	currContentNav.view.layer.shadowOpacity = 0.8f;
+//	currContentNav.view.layer.shadowRadius = 5;
+//	currContentNav.view.layer.shadowColor = [UIColor blackColor].CGColor;
+
+    //==保持  menu按钮 常驻
+    [currContentNav makeLeftMenuBtn];
+    
+#warning mainVC on top（right ）222
+	// set the navigation controller as the new top view and bring it on
+    [baseVC  hideMenuViewController];
+    
+    
+    [iOctocatDelegate.sharedInstance bringStatusViewToFront];
+    
+    
+}
+
+//=== 旧版： menuLeft 的导航中枢1  ECSlidingViewController lib
 - (void)openViewController:(UIViewController *)viewController {
+    
+    
+    //==== 该方法  应该被遗弃了 不应该进来
+    [EAlertView showWithMsg:@"该方法  应该被遗弃了 不应该进来   请检查"
+                      block:^(int btnIndex) {
+    }];
+    
     // unset the current navigation controller
 	UINavigationController *currentController = (UINavigationController *)self.slidingViewController.topViewController;
+    
 	[currentController popToRootViewControllerAnimated:NO];
 	// prepare the new navigation controller
     UINavigationController *navController = nil;
@@ -415,9 +478,11 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	}
 	// Maybe push a controller
 	if (viewController) {
-		[self openViewController:viewController];
+		[self openViewController_RN2:viewController];
 	}
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //=== 取消  选中状态
+//	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark Toggle Button

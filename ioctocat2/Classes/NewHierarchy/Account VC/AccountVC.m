@@ -25,6 +25,9 @@
 #import "UIImageView+startLoading.h"
 #import "UITableViewCell+xibCell.h"
 #import "CellOfAccout.h"
+#import "nh_baseViewController.h"
+#import "nh_menuViewController.h"
+
 
 @interface AccountVC () <IOCAccountFormControllerDelegate>
 @property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;
@@ -41,27 +44,39 @@
 //                                             selector:@selector(menuMovedOff)
 //                                                 name:ECSlidingViewTopDidAnchorRight
 //                                               object:nil];
-//    
-//    if (iOctocatDelegate.sharedInstance.currentAccount) {
-//		iOctocatDelegate.sharedInstance.currentAccount = nil;
-//	}
-//	[self handleAccountsChange];
-//	[self.tableView reloadData];
-//    
-//    [_IB_redarAnimation startAnimationEGS:0.85];
 //
-//    
-//    // create account if there is none, open account if there is only one
-//    static dispatch_once_t onceToken;
-//	dispatch_once(&onceToken, ^{
-//        if (self.accounts.count == 0) {
-//            [self addAccount:nil];
-//        } else if (self.accounts.count == 1) {
-//            [self authenticateAccountAtIndex:0];
-//        }
-//	});
+    
+    if (iOctocatDelegate.sharedInstance.currentAccount) {
+        //====不重新  授权
+        [self handleAccountsChange];
+        [self.tableView reloadData];
+        
+        return;
+        
+        //====重新  授权
+		iOctocatDelegate.sharedInstance.currentAccount = nil;
+	}
+	[self handleAccountsChange];
+	[self.tableView reloadData];
+ 
+    
+    // create account if there is none, open account if there is only one
+    static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+        if (self.accounts.count == 0) {
+            [self addAccount:nil];
+        } else if (self.accounts.count == 1) {
+            [self authenticateAccountAtIndex:0];
+        }
+	});
+    
+    //=== 不显示navBar
+    [self.navigationController setNavigationBarHidden:YES];
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)viewDidAppear:(BOOL)animated {
 
 #warning 暂时屏蔽 2
@@ -140,7 +155,11 @@
         // FIXME This is only here to stay compatible with old versions upgrading
         // to >= v1.8, because empty endpoints got deprecated with that update.
         // Should get removed once v1.9 gets released.
-		if (!endpoint || [endpoint ioc_isEmpty]) endpoint = kGitHubComURL;
+        
+        //====这里的 endpoint 指的是  baseURL
+		if (!endpoint || [endpoint ioc_isEmpty])
+            endpoint = kGitHubComURL;
+        
         // use hosts as key, because there might be slight differences in the full URL notation
         NSString *host = [[NSURL URLWithString:endpoint] host];
 		if (!self.accountsByEndpoint[host]) {
@@ -170,11 +189,17 @@
 
 #pragma mark Actions
 
+//====编辑 账户  &&  创建账户
 - (void)editAccountAtIndex:(NSUInteger)idx {
+    
 	GHAccount *account = (idx == NSNotFound) ? [[GHAccount alloc] initWithDict:@{}] : self.accounts[idx];
-	IOCAccountFormController *viewController = [[IOCAccountFormController alloc] initWithAccount:account andIndex:idx];
+    
+	IOCAccountFormController *viewController = [[IOCAccountFormController alloc] initWithAccount:account
+                                                                                        andIndex:idx];
 	viewController.delegate = self;
-	[self.navigationController pushViewController:viewController animated:YES];
+    
+	[self.navigationController pushViewController:viewController
+                                         animated:YES];
 }
 
 - (IBAction)toggleEditAccounts:(id)sender {
@@ -185,7 +210,7 @@
 	[self editAccountAtIndex:NSNotFound];
 }
 
-
+//===== key method  执行关键登陆授权
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = self.accounts[idx];
 	iOctocatDelegate.sharedInstance.currentAccount = account;
@@ -194,8 +219,25 @@
                                           success:^(GHAccount *account) {
                                               
                                               iOctocatDelegate.sharedInstance.currentAccount = account;
-                                              IOCMenuController *menuController = [[IOCMenuController alloc] initWithUser:account.user];
-                                              [self.navigationController pushViewController:menuController animated:YES];
+                                              
+                                              //====旧 的入口
+//                                              IOCMenuController *menuController = [[IOCMenuController alloc] initWithUser:account.user];
+//                                              [self.navigationController pushViewController:menuController animated:YES];
+                                              
+                                              //====新的  入口
+                                              nh_baseViewController *baseVC = (nh_baseViewController *)AppRoot_VC;
+                                              nh_menuViewController *menuVC = (nh_menuViewController *)baseVC.menuViewController;
+                                              
+                                              if ([menuVC isKindOfClass:[nh_menuViewController class]]) {
+                                                  [menuVC setupUserObj_info:account.user];
+                                              }
+                                              
+                                              [self.navigationController dismissViewControllerAnimated:YES
+                                                                                            completion:^{
+                                                                                            }];
+                                              
+                                              
+                                              
                                           }
                                           failure:^(GHAccount *account) {
                                               
@@ -277,8 +319,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//	NSUInteger idx = [self accountIndexFromIndexPath:indexPath];
-//	[self authenticateAccountAtIndex:idx];
+    
+    //=== 执行已经存在账户的授权
+    if (indexPath.row <= [self.accounts count]
+        &&[self.accounts count]!=0) {
+        NSUInteger idx = [self accountIndexFromIndexPath:indexPath];
+        [self authenticateAccountAtIndex:idx];
+    }
+    //====添加账户
+    else
+    {
+        [self addAccount:nil];
+    }
+    
+	
 }
 
 #pragma mark Editing

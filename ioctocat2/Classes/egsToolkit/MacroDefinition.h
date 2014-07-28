@@ -211,6 +211,7 @@ return self; \
 //EGS add 20130620
 #define APP_DELEGATE [[UIApplication sharedApplication] delegate]
 
+#define AppRoot_VC [UIApplication sharedApplication].keyWindow.rootViewController
 //==>便携使用 MBProgressHUD
 
 #import "MBProgressHUD.h"

@@ -10,4 +10,6 @@
 
 @interface nh_contentNavVC : UINavigationController
 
+//== 生成 菜单按钮
+-(void)makeLeftMenuBtn;
 @end

@@ -68,6 +68,9 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     self.accountFormView.hidden = self.accountType == IOCAccountTypeUnspecified;
     self.onePasswordButton.hidden = ![UIApplication.sharedApplication canOpenURL:self.onePasswordURL];
     self.passwordField.textRectSubtractOnRight = self.onePasswordButton.hidden ? 0.0f : self.onePasswordButton.frame.size.width;
+    
+    //---避免 ios7 view 上缩
+    [self matching_iOS7_viewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

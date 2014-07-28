@@ -7,6 +7,9 @@
 //
 
 #import "innerDashboardVC.h"
+#import "AccountVC.h"
+
+#import "iOctocatDelegate.h"
 
 @interface innerDashboardVC ()
 
@@ -28,7 +31,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+    //=====判断: 如果 未登陆  则调到账号页面
+    if (iOctocatDelegate.sharedInstance.currentAccount==nil) {
+        
+        AccountVC *accoutVC = [MainSB_New instantiateViewControllerWithIdentifier:@"AccountVC_iden"];
+        
+        UINavigationController *navVC_accout = [[UINavigationController alloc] initWithRootViewController:accoutVC];
+        
+        [self presentViewController:navVC_accout
+                           animated:NO
+                         completion:^{ }];
+    }
+    
+    
+    self.title = @"innerDashboardVC";
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

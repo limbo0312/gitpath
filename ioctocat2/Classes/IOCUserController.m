@@ -90,6 +90,9 @@
             self.isFollowing = isFollowing;
         }];
 	}
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

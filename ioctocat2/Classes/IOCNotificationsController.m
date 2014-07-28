@@ -41,16 +41,31 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MarkRead.png"] style:UIBarButtonItemStylePlain target:self action:@selector(markAllAsRead:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MarkRead.png"]
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(markAllAsRead:)];
+    
 	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    
 	[self setupPullToRefresh];
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-	if (!self.notificationsByRepository) [self rebuildByRepository];
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+	if (!self.notificationsByRepository)
+        [self rebuildByRepository];
+    
 	[self setupActions];
 }
 
@@ -58,6 +73,7 @@
 	[super viewDidAppear:animated];
 	[self refreshLastUpdate];
 	[self refreshIfRequired];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

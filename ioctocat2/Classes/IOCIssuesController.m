@@ -75,6 +75,9 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createIssue:)];
     }
 	self.issuesControl.selectedSegmentIndex = 0;
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 #pragma mark Actions

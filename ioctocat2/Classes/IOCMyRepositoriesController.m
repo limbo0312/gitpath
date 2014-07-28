@@ -44,6 +44,9 @@
 			[self.tableView reloadData];
 		}];
 	}
+    
+    //====>match ios7
+    [self matching_iOS7_tableviewType];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
