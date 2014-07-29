@@ -12,12 +12,16 @@
 
 @class GHUser;
 
-@interface nh_menuViewController : UITableViewController
+@interface nh_menuViewController : UIViewController
 
 @property(nonatomic,strong)IBOutlet UIView *footerView;
 @property(nonatomic,weak)IBOutlet UILabel *versionLabel;
 
+@property(nonatomic,weak)IBOutlet UITableView *tableView;
+
 @property(nonatomic,strong)UIViewController *initialViewController;
+
+@property (weak, nonatomic) IBOutlet UIView *IB_headerView;
 
 - (id)initWithUser:(GHUser *)user;
 - (BOOL)openViewControllerForGitHubURL:(NSURL *)url;

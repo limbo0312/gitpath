@@ -10,7 +10,7 @@
 		self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 		self.imageView.layer.cornerRadius = 3;
 		self.imageView.layer.masksToBounds = YES;
-        self.imageView.tintColor =  [UIColor greenColor];//COLOR(179, 166, 161, 1);
+//        self.imageView.tintColor =  [UIColor greenColor];//COLOR(179, 166, 161, 1);
         self.textLabel.font = [UIFont systemFontOfSize:15];
 		self.textLabel.textColor = COLOR(179, 166, 161, 1);//[UIColor whiteColor];
         

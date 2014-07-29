@@ -417,25 +417,36 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     return _statusWindow;
 }
 
-- (void)checkGitHubSystemStatus:(BOOL)isPhone report:(BOOL)report {
+- (void)checkGitHubSystemStatus:(BOOL)isPhone
+                         report:(BOOL)report {
+    
 	[GHSystemStatusService checkWithMajor:^(NSString *message) {
         if (isPhone) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent
+                                                        animated:YES];
+            
             self.statusView.backgroundColor = [UIColor redColor];
             self.statusWindow.hidden = NO;
         }
-        if (report) [iOctocatDelegate reportError:@"GitHub System Error" with:message];
+        if (report)
+            [iOctocatDelegate reportError:@"GitHub System Error" with:message];
     } minor:^(NSString *message) {
-        if (report) [iOctocatDelegate reportWarning:@"GitHub System Warning" with:message];
+        if (report)
+            [iOctocatDelegate reportWarning:@"GitHub System Warning" with:message];
+        
         if (isPhone) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent
+                                                        animated:YES];
+            
             self.statusView.backgroundColor = [UIColor yellowColor];
             self.statusWindow.hidden = NO;
         }
     } good:^(NSString *message) {
-        if (isPhone) [self resetStatusBar];
+        if (isPhone)
+            [self resetStatusBar];
     } failure:^(NSError *error) {
-        if (isPhone) [self resetStatusBar];
+        if (isPhone)
+            [self resetStatusBar];
     }];
 }
 

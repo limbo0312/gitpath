@@ -95,50 +95,59 @@
             <point key="canvasLocation" x="-1006" y="3046"/>
         </scene>
         <!--Nh menu View Controller-->
-        <scene sceneID="n6J-fO-ARs">
+        <scene sceneID="afl-U9-Ycp">
             <objects>
-                <viewController storyboardIdentifier="nh_menuViewController" id="Mp8-yS-Eh8" customClass="nh_menuViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nCq-na-yDP">
+                <viewController storyboardIdentifier="nh_menuViewController" id="igT-IH-QbH" customClass="nh_menuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ciZ-wL-Y3K"/>
+                        <viewControllerLayoutGuide type="bottom" id="CKy-73-W82"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Px9-mI-tBZ">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                        <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Mp8-yS-Eh8" id="dvq-wz-LuY"/>
-                            <outlet property="delegate" destination="Mp8-yS-Eh8" id="mue-IY-OP6"/>
-                        </connections>
-                    </tableView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-eL-s4F">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                                <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="igT-IH-QbH" id="vfD-Ui-rR3"/>
+                                    <outlet property="delegate" destination="igT-IH-QbH" id="poF-9k-vWb"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbB-hl-3an">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="github6.png" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-Ky-CZP">
+                                        <rect key="frame" x="106" y="35" width="38" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="insight your power" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKH-CF-I1B">
+                                        <rect key="frame" x="20" y="79" width="210" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.61176470589999998" green="0.70588235290000001" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.38039215686274508" green="0.43529411764705883" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41568627450000001" green="0.52156862749999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="250" height="568"/>
                     <connections>
-                        <outlet property="footerView" destination="Vjw-rN-mY9" id="X1y-0H-CH3"/>
-                        <outlet property="versionLabel" destination="OOe-or-fBm" id="c8H-W1-hPf"/>
-                        <outlet property="view" destination="nCq-na-yDP" id="2yd-39-iZ4"/>
+                        <outlet property="IB_headerView" destination="mbB-hl-3an" id="Trl-Yf-ddj"/>
+                        <outlet property="tableView" destination="5ZA-eL-s4F" id="Dev-7T-fhK"/>
+                        <outlet property="view" destination="Px9-mI-tBZ" id="KCs-tg-CIT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AeL-Hi-FTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view opaque="NO" contentMode="scaleToFill" id="Vjw-rN-mY9">
-                    <rect key="frame" x="0.0" y="0.0" width="250" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-or-fBm">
-                            <rect key="frame" x="50" y="12" width="250" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" image="MenuOctocat.png" translatesAutoresizingMaskIntoConstraints="NO" id="2GS-vS-xHF">
-                            <rect key="frame" x="9" y="9" width="25" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGx-yh-Xfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-854" y="2247"/>
+            <point key="canvasLocation" x="-825" y="2247"/>
         </scene>
         <!--Nh base View Controller-->
         <scene sceneID="3JT-LQ-BiI">
@@ -161,7 +170,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MenuOctocat.png" width="25" height="25"/>
+        <image name="github6.png" width="240" height="240"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

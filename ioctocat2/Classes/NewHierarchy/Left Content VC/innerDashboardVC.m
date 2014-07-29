@@ -45,7 +45,7 @@
     }
     
     
-    self.title = @"innerDashboardVC";
+    self.title = @"Insight Your Power";
     
 }
 

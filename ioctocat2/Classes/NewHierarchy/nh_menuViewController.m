@@ -107,13 +107,15 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     self.versionLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
     self.tableView.rowHeight = 44.0f;
 //    self.tableView.backgroundColor = self.darkBackgroundColor;
-//    self.tableView.separatorColor = self.lightBackgroundColor;
+//    self.tableView.separatorColor  = self.lightBackgroundColor;
 //    self.tableView.tableFooterView = self.footerView;
-    UIEdgeInsets inset = UIEdgeInsetsZero;
-    inset.bottom -= self.tableView.tableFooterView.frame.size.height;
+    UIEdgeInsets inset = UIEdgeInsetsMake(110, 0, 0, 0);
     self.tableView.contentInset = inset;
+    
     // disable scroll-to-top for the menu, so that the main controller receives the event
     self.tableView.scrollsToTop = NO;
+    
+    
 //    // open first view controller
 //    [self.slidingViewController anchorTopViewOffScreenTo:ECRight];
 //    
@@ -129,18 +131,29 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     if (self.user.organizations.isUnloaded) {
         [self removeOrganizationObservers];
         // success is handled by the KVO hook
-        [self.user.organizations loadWithParams:nil start:nil success:^(GHResource *instance, id data) {
+        [self.user.organizations loadWithParams:nil
+                                          start:nil
+                                        success:^(GHResource *instance, id data){
             [self addOrganizationObservers];
             NSIndexSet *sections = [NSIndexSet indexSetWithIndex:1];
-            [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
-        } failure:^(GHResource *instance, NSError *error) {
+            
+            [self.tableView reloadSections:sections
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+                                        failure:^(GHResource *instance, NSError *error){
+                                            
             [iOctocatDelegate reportLoadingError:@"Could not load the organizations"];
         }];
-    } else {
+    }
+    else {
         [self addOrganizationObservers];
     }
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+}
 - (void)viewWillDisappear:(BOOL)animated {
     // return immediately if this hook gets called when presenting a modal
     // view controller, because that is not the case we want to react to
@@ -350,8 +363,11 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
-    if (title == nil) return nil;
+    
+    NSString *title = [self tableView:tableView titleForHeaderInSection:section];//===自省式：提取section str
+    
+    if (title == nil)
+        return nil;
 	
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(10, 0, 300, kSectionHeaderHeight);
@@ -361,7 +377,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     label.text = title;
 	
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kSectionHeaderHeight)];
-	view.backgroundColor = self.lightBackgroundColor;
+	view.backgroundColor = COLOR(88, 115, 112, 1);//self.lightBackgroundColor;
+
     [view addSubview:label];
 	
     return view;
@@ -373,7 +390,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	if (!cell) {
 		cell = [[IOCMenuCell alloc] initWithReuseIdentifier:CellIdentifier];
 		cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
-		cell.selectedBackgroundView.backgroundColor = self.highlightBackgroundColor;
+		cell.selectedBackgroundView.backgroundColor =   COLOR(97, 111, 87, 1);//self.highlightBackgroundColor;
 	}
 	NSInteger section = indexPath.section;
 	NSInteger row = indexPath.row;
@@ -387,7 +404,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 		if (!image) image = [UIImage imageNamed:@"AvatarBackground32.png"];
 		cell.imageView.image = image;
 		cell.textLabel.text = object.login;
-	} else {
+	}
+    else {
 		NSDictionary *dict = menu[row];
 		NSString *imageName = [dict valueForKey:@"image"];
 		cell.textLabel.text = [dict valueForKey:@"title"];
@@ -396,6 +414,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 		}
 	}
 	cell.badgeLabel.text = (section == 0) ? [NSString stringWithFormat:@"%d", self.user.notifications.unreadCount]: nil;
+    
+    
     
 	return cell;
 }
