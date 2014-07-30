@@ -29,7 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationBar.tintColor = COLOR(88 , 115 , 112, 1);
+    self.navigationBar.tintColor = COLOR(74 , 77 , 105, 1);
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -43,7 +44,7 @@
 
     [super viewDidAppear:YES];
     
-
+    TREE_View(self.view);
 }
 
 - (void)didReceiveMemoryWarning

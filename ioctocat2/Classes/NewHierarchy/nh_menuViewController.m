@@ -425,7 +425,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	}
 	cell.badgeLabel.text = (section == 0) ? [NSString stringWithFormat:@"%d", self.user.notifications.unreadCount]: nil;
     
-    
+     
     
 	return cell;
 }

@@ -36,9 +36,22 @@
 }
 
 - (void)accessoryButtonTapped:(UIControl *)button withEvent:(UIEvent *)event {
-    UITableView *tableView = (UITableView *)self.superview;
-    NSIndexPath *indexPath = [tableView indexPathForCell:self];
-    [tableView.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+
+    UITableView *tableView  ;
+    
+    if (isIOS7_OR_LATER) {
+        tableView = (UITableView *)self.superview.superview;
+    }
+    else
+    {
+        tableView = (UITableView *)self.superview;
+    }
+
+    if ([tableView isKindOfClass:[UITableView class]]) {
+        NSIndexPath *indexPath = [tableView indexPathForCell:self];
+        [tableView.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+    }
+
 }
 
 - (void)setCustomBackgroundColor:(UIColor *)color {

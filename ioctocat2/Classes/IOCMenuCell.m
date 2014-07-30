@@ -10,7 +10,7 @@
 		self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 		self.imageView.layer.cornerRadius = 3;
 		self.imageView.layer.masksToBounds = YES;
-//        self.imageView.tintColor =  [UIColor greenColor];//COLOR(179, 166, 161, 1);
+
         self.textLabel.font = [UIFont systemFontOfSize:15];
 		self.textLabel.textColor = COLOR(154, 178, 189, 1);//[UIColor whiteColor];
         
@@ -33,18 +33,31 @@
 	CGRect textFrame = self.textLabel.frame;
 	textFrame.origin.x = 50;
 	self.textLabel.frame = textFrame;
+    
 	if (self.badgeLabel.text) {
 		[self.imageView setHidden:YES];
-		self.badgeLabel.frame = CGRectMake(7, 6, 30, 30);
+		self.badgeLabel.frame = CGRectMake(7, 6, 30, 30);  //7+15  6+15
+        CGPoint oldCenter = self.badgeLabel.center;
+        self.badgeLabel.frame = CGRectMake(7, 6, 21, 21);
+        self.badgeLabel.center = oldCenter;
         
+//		self.badgeLabel.backgroundColor = [self.badgeLabel.text intValue] == 0 ? self.badgeEmptyBackgroundColor
+//                                                                                :self.badgeHighlightBackgroundColor;
         
-		self.badgeLabel.backgroundColor = [self.badgeLabel.text intValue] == 0 ? self.badgeEmptyBackgroundColor
-                                                                                :self.badgeHighlightBackgroundColor;
+        self.badgeLabel.backgroundColor = COLOR(74, 77, 105, 1);
+        [self.badgeLabel MakeCircularBead];
         
 		[self.badgeLabel setHidden:NO];
-	} else {
+	}
+    else {
 		[self.badgeLabel setHidden:YES];
-		self.imageView.frame = CGRectMake(6, 6, 32, 32);
+		self.imageView.frame = CGRectMake(16, 16, 16, 16);//32-16   6+16
+        CGPoint oldCenter = self.imageView.center ;
+        self.imageView.frame = CGRectMake(16, 16, 21, 21);
+        self.imageView.center = oldCenter;
+        
+        
+        [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
 		[self.imageView setHidden:NO];
 	}
 }
