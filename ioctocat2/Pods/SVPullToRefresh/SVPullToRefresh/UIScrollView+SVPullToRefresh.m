@@ -292,7 +292,7 @@ static char UIScrollViewPullToRefreshView;
 
 - (SVPullToRefreshArrow *)arrow {
     if(!_arrow) {
-		_arrow = [[SVPullToRefreshArrow alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-54, 22, 48)];
+		_arrow = [[SVPullToRefreshArrow alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-54, 22, 48)];
         _arrow.backgroundColor = [UIColor clearColor];
 		[self addSubview:_arrow];
     }
@@ -302,6 +302,12 @@ static char UIScrollViewPullToRefreshView;
 - (UIActivityIndicatorView *)activityIndicatorView {
     if(!_activityIndicatorView) {
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+
+        _activityIndicatorView.tintColor = [UIColor colorWithRed:88/255
+                                                       green:115/255
+                                                        blue:112/255
+                                                       alpha:1];
+        
         _activityIndicatorView.hidesWhenStopped = YES;
         [self addSubview:_activityIndicatorView];
     }
@@ -490,11 +496,36 @@ static char UIScrollViewPullToRefreshView;
 @implementation SVPullToRefreshArrow
 @synthesize arrowColor;
 
-- (UIColor *)arrowColor {
-	if (arrowColor) return arrowColor;
-	return [UIColor grayColor]; // default Color
+//=== 自定义  指针
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        //====箭头 img
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        
+        imageV.image = [UIImage imageNamed:@"airplane-arrow.png"];
+        [imageV setContentMode:UIViewContentModeScaleAspectFit];
+        
+        [self addSubview:imageV];
+    }
+
+    return self;
 }
 
+
+- (UIColor *)arrowColor {
+	if (arrowColor)
+        return arrowColor;
+    
+	return [UIColor colorWithRed:97/255.0
+                           green:111/255.0
+                            blue:87/255.0
+                           alpha:1];//[UIColor grayColor]; // default Color
+}
+
+
+/*
 - (void)drawRect:(CGRect)rect {
 	CGContextRef c = UIGraphicsGetCurrentContext();
 	
@@ -558,4 +589,7 @@ static char UIScrollViewPullToRefreshView;
 	CGGradientRelease(alphaGradient);
 	CGColorSpaceRelease(colorSpace);
 }
+*/
+
+
 @end

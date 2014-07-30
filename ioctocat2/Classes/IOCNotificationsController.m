@@ -49,6 +49,7 @@
 	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
+    //====设置  下拉刷新的  配置
 	[self setupPullToRefresh];
     
     //====>match ios7
@@ -287,23 +288,30 @@
 	self.navigationItem.rightBarButtonItem.enabled = markAllReadEnabled;
 }
 
+//====设置  下拉刷新的  配置
 - (void)setupPullToRefresh {
 	__weak __typeof(&*self)weakSelf = self;
+    
 	[self.tableView addPullToRefreshWithActionHandler:^{
+        
         if (weakSelf.notifications.isLoading) {
             dispatch_async(dispatch_get_main_queue(),^ {
                 [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
             });
-        } else if (!weakSelf.notifications.canReload) {
+        }
+        else if (!weakSelf.notifications.canReload) {
             dispatch_async(dispatch_get_main_queue(),^ {
                 [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
             });
             NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Notifications currently can be reloaded every %d seconds", @"Notifications: Reload throttle message"), weakSelf.notifications.pollInterval];
             [iOctocatDelegate reportWarning:NSLocalizedString(@"Please wait", @"Notifications: Reload throttle title") with:message];
-        } else {
-            [weakSelf.notifications loadWithParams:nil start:^(GHResource *instance) {
+        }
+        else {
+            [weakSelf.notifications loadWithParams:nil
+                                             start:^(GHResource *instance) {
                 [weakSelf setupActions];
-            } success:^(GHResource *instance, id data) {
+            }
+                                           success:^(GHResource *instance, id data) {
                 [weakSelf refreshLastUpdate];
                 [weakSelf rebuildByRepository];
                 [weakSelf setupActions];
@@ -311,7 +319,8 @@
                     [weakSelf.tableView reloadData];
                     [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];
                 });
-            } failure:^(GHResource *instance, NSError *error) {
+            }
+                                           failure:^(GHResource *instance, NSError *error) {
                 dispatch_async(dispatch_get_main_queue(),^ {
                     [weakSelf.tableView reloadData];
                     [weakSelf.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:.25];

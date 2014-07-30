@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.navigationBar.tintColor = COLOR(245, 162 , 62, 1);
+    self.navigationBar.tintColor = COLOR(88 , 115 , 112, 1);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -98,7 +98,7 @@
 - (UIBarButtonItem *)toggleBarButtonItem {
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:self.class.menuButtonImage
-                                                             style:UIBarButtonItemStylePlain
+                                                             style:UIBarButtonItemStyleBordered
                                                             target:self
                                                             action:@selector(toggleLeftMenu)];
     

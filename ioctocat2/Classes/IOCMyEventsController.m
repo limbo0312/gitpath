@@ -64,7 +64,7 @@
                                         self.feedControl.frame.origin.y,
                                         self.feedControl.frame.size.width + 40,
                                         self.feedControl.frame.size.height);
-    
+//    self.feedControl.tintColor = COLOR(88, 115, 112, 1);
 	self.navigationItem.titleView = self.feedControl;
     
 	// start loading the first feed

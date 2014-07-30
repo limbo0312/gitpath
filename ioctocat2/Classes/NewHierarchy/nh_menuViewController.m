@@ -38,6 +38,8 @@
 #import "nh_menuViewController.h"
 #import "nh_contentNavVC.h"
 #import "AccountVC.h"
+#import "innerDashboardVC.h"
+
 #define kSectionHeaderHeight 24.0f
 
 @interface nh_menuViewController ()
@@ -87,6 +89,14 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 //                                               object:nil];
     
 //    [self menuWillAppear:nil];
+}
+
+- (IBAction)openInsightPower:(id)sender {
+    
+    innerDashboardVC *innerDashVC = [MainSB_New instantiateViewControllerWithIdentifier:@"innerDashboardVC_iden"];
+    
+    [self openViewController_RN2:innerDashVC];
+    
 }
 
 - (void)dealloc {
@@ -390,7 +400,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	if (!cell) {
 		cell = [[IOCMenuCell alloc] initWithReuseIdentifier:CellIdentifier];
 		cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
-		cell.selectedBackgroundView.backgroundColor =   COLOR(97, 111, 87, 1);//self.highlightBackgroundColor;
+		cell.selectedBackgroundView.backgroundColor =   COLOR(114, 150, 162, 1);//self.highlightBackgroundColor;
 	}
 	NSInteger section = indexPath.section;
 	NSInteger row = indexPath.row;

@@ -12,6 +12,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="os6-1h-H51">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="eWH-Yx-yiz">
                         <rect key="frame" x="0.0" y="416" width="320" height="44"/>
@@ -23,12 +24,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hzn-wt-h51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-797" y="1520"/>
+            <point key="canvasLocation" x="-911" y="1538"/>
         </scene>
         <!--Inner DashboardVC-->
         <scene sceneID="N21-D7-PHK">
             <objects>
-                <viewController id="Kwj-gB-2FS" customClass="innerDashboardVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="innerDashboardVC_iden" id="Kwj-gB-2FS" customClass="innerDashboardVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yi7-jb-IHd"/>
                         <viewControllerLayoutGuide type="bottom" id="h4X-Rp-ALM"/>
@@ -36,13 +37,13 @@
                     <view key="view" contentMode="scaleToFill" id="2w3-RE-0dz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.34901960780000002" green="0.45098039220000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.30196078430000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="gi4-0m-4lo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRe-Mj-rb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-280" y="1520"/>
+            <point key="canvasLocation" x="-388" y="1538"/>
         </scene>
         <!--AccountVC-->
         <scene sceneID="N5k-HM-snf">
@@ -92,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imO-OP-Vht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1006" y="3046"/>
+            <point key="canvasLocation" x="-918" y="2990"/>
         </scene>
         <!--Nh menu View Controller-->
         <scene sceneID="afl-U9-Ycp">
@@ -121,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="github6.png" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-Ky-CZP">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="github6.png" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-Ky-CZP">
                                         <rect key="frame" x="106" y="35" width="38" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
@@ -132,13 +133,24 @@
                                         <color key="textColor" red="0.61176470589999998" green="0.70588235290000001" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiw-0L-8A8">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openInsightPower:" destination="igT-IH-QbH" eventType="touchUpInside" id="Fak-sN-OzB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.38039215686274508" green="0.43529411764705883" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.41568627450000001" green="0.52156862749999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="568"/>
                     <connections>
                         <outlet property="IB_headerView" destination="mbB-hl-3an" id="Trl-Yf-ddj"/>
                         <outlet property="tableView" destination="5ZA-eL-s4F" id="Dev-7T-fhK"/>
@@ -147,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGx-yh-Xfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-825" y="2247"/>
+            <point key="canvasLocation" x="-911" y="2247"/>
         </scene>
         <!--Nh base View Controller-->
         <scene sceneID="3JT-LQ-BiI">

@@ -30,4 +30,8 @@
 
 //==== new type 4 dataObj User
 -(void)setupUserObj_info:(GHUser *)user;
+
+- (IBAction)openInsightPower:(id)sender;
+
+
 @end

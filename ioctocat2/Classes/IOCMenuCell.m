@@ -12,7 +12,7 @@
 		self.imageView.layer.masksToBounds = YES;
 //        self.imageView.tintColor =  [UIColor greenColor];//COLOR(179, 166, 161, 1);
         self.textLabel.font = [UIFont systemFontOfSize:15];
-		self.textLabel.textColor = COLOR(179, 166, 161, 1);//[UIColor whiteColor];
+		self.textLabel.textColor = COLOR(154, 178, 189, 1);//[UIColor whiteColor];
         
 		self.badgeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.badgeLabel.textAlignment = NSTextAlignmentCenter;

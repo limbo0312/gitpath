@@ -52,8 +52,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
-    [self setupPullToRefresh];
-    [self setupInfiniteScrolling];
+    
+    [self setupPullToRefresh];//======下拉刷新  setup4SV
+    [self setupInfiniteScrolling];//==上拉加载(wuxian） setup4SV
+    
     [self refreshLastUpdate];
     [self displayEvents];
     
@@ -62,8 +64,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
 	[super viewWillAppear:animated];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshIfRequired) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshIfRequired)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
