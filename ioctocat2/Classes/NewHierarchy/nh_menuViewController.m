@@ -246,7 +246,20 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     
     [iOctocatDelegate.sharedInstance bringStatusViewToFront];
     
-    
+    //======color tint>>>
+    {
+        TREE_View(currContentNav.view);
+        
+        UIView * xNavigationBar = [[currContentNav.view subviews] objectAtIndexSavely:1];//UINavigationBar
+        
+        UIView * xItemView = [[xNavigationBar subviews] objectAtIndexSavely:2];//UINavigationItemView
+        
+        UILabel *xLabl = [[xItemView subviews] objectAtIndexSavely:0];
+        
+        if ([xLabl isKindOfClass:[UILabel class]]) {
+            xLabl.textColor = COLOR(74, 77, 105, 1);
+        }
+    }
 }
 
 //=== 旧版： menuLeft 的导航中枢1  ECSlidingViewController lib
@@ -544,7 +557,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	static UIImage *menuButtonImage = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		UIGraphicsBeginImageContextWithOptions(CGSizeMake(20.f, 13.f), NO, 0.0f);
+		UIGraphicsBeginImageContextWithOptions(CGSizeMake(20.f, 15.f), NO, 0.0f);
 		
 		[[UIColor blackColor] setFill];
 		[[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 20, 1)] fill];

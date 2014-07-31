@@ -44,23 +44,7 @@
 
     [super viewDidAppear:YES];
     
-    TREE_View(self.view);
-    
-    
-    
-//    for (id ViewObj in [self.view subviews]) {
-//        
-//        if ([[[ViewObj class] description] isEqualToString:@"UINavigationItemView"]) {
-//            
-//            for (UIView *v_X in [ViewObj subviews]) {
-//                
-//                if ([v_X isKindOfClass:[UILabel class]]) {
-//                    
-//                    v_X.backgroundColor = COLOR(74, 77, 105, 1);
-//                }
-//            }
-//        }
-//    }
+ 
     
     
     UIView * xNavigationBar = [[self.view subviews] objectAtIndexSavely:1];//UINavigationBar

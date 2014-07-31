@@ -498,7 +498,7 @@ void SystemSoundCallback(SystemSoundID ssID, void *clientData) {
 #pragma mark Autorotation
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-	return UIInterfaceOrientationMaskAll;
+	return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

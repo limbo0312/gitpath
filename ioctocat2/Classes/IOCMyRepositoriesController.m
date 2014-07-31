@@ -34,24 +34,43 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.navigationItem.title = self.title ? self.title : NSLocalizedString(@"Personal Repos", nil);
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
+    
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                           target:self
+                                                                                           action:@selector(refresh:)];
 	if (self.user.repositories.isLoaded) {
 		[self displayRepositories];
-	} else {
-		[self.user.repositories loadWithParams:nil start:nil success:^(GHResource *instance, id data) {
+	}
+    else {
+        
+		[self.user.repositories loadWithParams:nil
+                                         start:nil
+                                       success:^(GHResource *instance, id data) {
 			[self displayRepositories];
-		} failure:^(GHResource *instance, NSError *error) {
+		}
+                                       failure:^(GHResource *instance, NSError *error) {
 			[self.tableView reloadData];
 		}];
 	}
     
     //====>match ios7
     [self matching_iOS7_tableviewType];
+    
+   
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+ 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    
+    
 	[super viewWillDisappear:animated];
+    
 	[SVProgressHUD dismiss];
+    
 }
 
 #pragma mark Helpers

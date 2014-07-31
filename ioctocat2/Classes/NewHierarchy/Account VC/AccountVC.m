@@ -242,13 +242,18 @@
                                               nh_baseViewController *baseVC = (nh_baseViewController *)AppRoot_VC;
                                               nh_menuViewController *menuVC = (nh_menuViewController *)baseVC.menuViewController;
                                               
-                                              if ([menuVC isKindOfClass:[nh_menuViewController class]]) {
+                                              if ([menuVC isKindOfClass:[nh_menuViewController class]]
+                                                  &&account.user!=nil) {
+                                                  
+                                                  
                                                   [menuVC setupUserObj_info:account.user];
+                                                  
+                                                  [self.navigationController dismissViewControllerAnimated:YES
+                                                                                                completion:^{
+                                                                                                }];
                                               }
                                               
-                                              [self.navigationController dismissViewControllerAnimated:YES
-                                                                                            completion:^{
-                                                                                            }];
+                                              
                                               
                                               
                                               
