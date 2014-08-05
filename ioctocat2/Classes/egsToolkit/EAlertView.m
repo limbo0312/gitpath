@@ -18,7 +18,10 @@
 @implementation EAlertView
 
 + (void)showWithMsg:(NSString *)msg block:(EAlertViewBlock)block{
-    EAlertView * alert = [[EAlertView alloc] initWithMsg:msg block:block];
+    EAlertView * alert = [[EAlertView alloc] initWithMsg:msg
+                                                        :@"YES"
+                                                        :@"NO"
+                                                   block:block];
     [alert show];
 }
 

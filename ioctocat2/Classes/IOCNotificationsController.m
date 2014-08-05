@@ -41,13 +41,15 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
+    //===
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MarkRead.png"]
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(markAllAsRead:)];
     
-//	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
-    self.navigationItem.rightBarButtonItem.enabled = YES;
+	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     //====设置  下拉刷新的  配置
 	[self setupPullToRefresh];
@@ -238,6 +240,9 @@
 			allReadCell.textLabel.text = NSLocalizedString(@"Inbox Zero, good job!", @"Notifications: Inbox Zero");
 			allReadCell.textLabel.textColor = [UIColor grayColor];
 			allReadCell.textLabel.textAlignment = NSTextAlignmentCenter;
+            
+            //==egs color
+            allReadCell.backgroundColor = COLOR(196, 225, 241, 1);
 		}
 		return allReadCell;
 	}
@@ -307,7 +312,7 @@
 // not know whether or not there are more notifications (which the user did not
 // see) - so don't make it possible to mark all as read in this case.
 - (void)setupActions {
-	BOOL markAllReadEnabled = self.resourceHasData && self.notifications.unreadCount < 50;
+	BOOL markAllReadEnabled = self.resourceHasData && self.notifications.unreadCount <= 50;
 	self.navigationItem.rightBarButtonItem.enabled = markAllReadEnabled;
 }
 

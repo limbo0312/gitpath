@@ -515,19 +515,40 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
             else if (row == 1) {
 
 //=== 返回  账号 VC view
-                AccountVC *accoutVC = [MainSB_New instantiateViewControllerWithIdentifier:@"AccountVC_iden"];
-                
-                UINavigationController *navVC_accout = [[UINavigationController alloc] initWithRootViewController:accoutVC];
-                
                 nh_baseViewController *baseVC = (nh_baseViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
                 
-                nh_contentNavVC *currNavVC = (nh_contentNavVC *)baseVC.contentViewController;
+                [EAlertView showWithMsg:@"are you sure logout ?"
+                                  block:^(int btnIndex) {
+                                      
+                                      if (btnIndex==0) {
+                                          
+                                          AccountVC *accoutVC = [MainSB_New instantiateViewControllerWithIdentifier:@"AccountVC_iden"];
+                                          
+                                          UINavigationController *navVC_accout = [[UINavigationController alloc] initWithRootViewController:accoutVC];
+                                          
+                                          nh_baseViewController *baseVC;
+                                          
+                                          for (UIWindow *winV in [UIApplication sharedApplication].windows ) {
+                                              
+                                              if ([winV.rootViewController isKindOfClass:[nh_baseViewController class]]) {
+                                                  baseVC = (nh_baseViewController *)winV.rootViewController;
+                                              }
+                                              
+                                          }
+                                          
+                                          
+                                          
+                                          nh_contentNavVC *currNavVC = (nh_contentNavVC *)baseVC.contentViewController;
+                                          
+                                          [navVC_accout setNavigationBarHidden:YES];
+                                          
+                                          [currNavVC presentViewController:navVC_accout
+                                                                  animated:YES
+                                                                completion:^{}];
+                                      }
+                                  }];
                 
-                [navVC_accout setNavigationBarHidden:YES];
                 
-                [currNavVC presentViewController:navVC_accout
-                                        animated:YES
-                                      completion:^{}];
                 
 //                =========问题 反馈  old
 //#ifdef CONFIGURATION_Debug
