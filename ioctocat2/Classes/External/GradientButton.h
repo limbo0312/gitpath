@@ -49,4 +49,5 @@
 - (void)useSimpleOrangeStyle;
 - (void)useGreenConfirmStyle;
 
+- (void)useSimple_GreenX_Style_EGS;
 @end

@@ -37,7 +37,10 @@
     if (btnWidth > maxWidth) btnWidth = maxWidth;
     GradientButton *button = [[GradientButton alloc] initWithFrame:CGRectMake(header.frame.size.width - btnWidth - btnMargin, btnMargin, btnWidth, btnHeight)];
     button.contentEdgeInsets = UIEdgeInsetsMake(2, 4, 2, 4);
-    button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin
+                            | UIViewAutoresizingFlexibleTopMargin
+                            | UIViewAutoresizingFlexibleBottomMargin;
+    
     button.titleLabel.font = btnFont;
     [button useDarkGithubStyle];
     button.cornerRadius = 3.f;

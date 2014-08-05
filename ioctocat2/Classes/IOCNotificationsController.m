@@ -46,8 +46,8 @@
                                                                              target:self
                                                                              action:@selector(markAllAsRead:)];
     
-	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+//	self.navigationItem.rightBarButtonItem.accessibilityLabel = NSLocalizedString(@"Mark all as read", nil);
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     
     //====设置  下拉刷新的  配置
 	[self setupPullToRefresh];
@@ -126,14 +126,22 @@
 }
 
 - (void)markAllAsRead:(id)sender {
-	[self.notifications markAllAsReadStart:^(GHResource *notifications) {
-		[self.notificationsByRepository removeAllObjects];
-		[self markedAllAsRead];
-	} success:^(GHResource *notifications, id data) {
-		[self refreshIfRequired];
-	} failure:^(GHResource *notifications, id data) {
-		[self refreshIfRequired];
-	}];
+    
+    [EAlertView showWithMsg:@"are you sure mark All as read?"
+                      block:^(int btnIndex) {
+                          if (btnIndex==0) {
+                              [self.notifications markAllAsReadStart:^(GHResource *notifications) {
+                                  [self.notificationsByRepository removeAllObjects];
+                                  [self markedAllAsRead];
+                              } success:^(GHResource *notifications, id data) {
+                                  [self refreshIfRequired];
+                              } failure:^(GHResource *notifications, id data) {
+                                  [self refreshIfRequired];
+                              }];
+                          }
+                      }];
+    
+	
 }
 
 - (void)markAllAsReadInSection:(GradientButton *)sender {
@@ -196,6 +204,21 @@
 		return nil;
 	} else {
 		IOCNotificationsSectionHeader *header = [IOCNotificationsSectionHeader headerForTableView:tableView title:title];
+        
+//        TREE_View(header);
+        //===egs color 配色
+        {
+            UIView *helperV = [[UIView alloc] initWithFrame:R_MAKE(0, 0, header.width, 40)];
+            helperV.backgroundColor  = COLOR(88, 115, 112, 1);
+            [header insertSubview:helperV belowSubview:header.titleButton];
+            
+            [header.markReadButton  useSimple_GreenX_Style_EGS];
+            
+            [header.titleButton setTitleColor:COLOR(246, 246, 246, 1)
+                                     forState:UIControlStateNormal];
+        }
+        
+        
         NSString *repoId = [self repoIdForSection:section];
         header.titleButton.identifierTag = repoId;
         header.markReadButton.identifierTag = repoId;

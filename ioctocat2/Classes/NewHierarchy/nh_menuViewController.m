@@ -248,17 +248,18 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     
     //======color tint>>>
     {
-        TREE_View(currContentNav.view);
-        
-        UIView * xNavigationBar = [[currContentNav.view subviews] objectAtIndexSavely:1];//UINavigationBar
-        
-        UIView * xItemView = [[xNavigationBar subviews] objectAtIndexSavely:2];//UINavigationItemView
-        
-        UILabel *xLabl = [[xItemView subviews] objectAtIndexSavely:0];
-        
-        if ([xLabl isKindOfClass:[UILabel class]]) {
-            xLabl.textColor = COLOR(74, 77, 105, 1);
+        if ([viewController isKindOfClass:[UITableViewController class]]) {
+            UITableViewController *tVC = (UITableViewController *)viewController;
+            
+            tVC.tableView.backgroundColor = COLOR(196, 225, 241, 1);
         }
+        else
+        {
+            DebugLog(@"%@",viewController);
+            
+        }
+        
+        
     }
 }
 

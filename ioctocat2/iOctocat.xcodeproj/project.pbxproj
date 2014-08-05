@@ -643,8 +643,6 @@
 		8C3597D71949B02E0017DD39 /* libCrittercism_v3_4_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C35979E1949B02E0017DD39 /* libCrittercism_v3_4_5.a */; };
 		8C3597D81949B02F0017DD39 /* libiOSHierarchyViewer_fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597A11949B02E0017DD39 /* libiOSHierarchyViewer_fat.a */; };
 		8C3597D91949B02F0017DD39 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597A31949B02E0017DD39 /* libTalkingData.a */; };
-		8C3597DA1949B02F0017DD39 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597A61949B02E0017DD39 /* libTestFlight.a */; };
-		8C3597DB1949B02F0017DD39 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597AB1949B02E0017DD39 /* libMobClickLibrary.a */; };
 		8C3597DF1949B02F0017DD39 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597B41949B02E0017DD39 /* Aspects.m */; };
 		8C3597E01949B02F0017DD39 /* NSArray+objectSavely.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597B71949B02E0017DD39 /* NSArray+objectSavely.m */; };
 		8C3597E11949B02F0017DD39 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597B91949B02E0017DD39 /* NSDate-Utilities.m */; };
@@ -1464,7 +1462,6 @@
 			files = (
 				8C3597FA1949B2370017DD39 /* CoreData.framework in Frameworks */,
 				8C3597F81949B22A0017DD39 /* CoreTelephony.framework in Frameworks */,
-				8C3597DA1949B02F0017DD39 /* libTestFlight.a in Frameworks */,
 				8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */,
 				8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */,
 				6F5E9B6E1119AD5B00752560 /* QuartzCore.framework in Frameworks */,
@@ -1483,7 +1480,6 @@
 				A0C19D01131973C300045E04 /* MessageUI.framework in Frameworks */,
 				8C3597D91949B02F0017DD39 /* libTalkingData.a in Frameworks */,
 				EF7248196E634C6AB69D25C9 /* libPods.a in Frameworks */,
-				8C3597DB1949B02F0017DD39 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3788,9 +3784,6 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Crittercism",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/TestFlightSDK2.0.2",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMAnalytics_Sdk_2.2.1.OpenUDID",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "91AED0BB-4182-491C-A7E2-725BD9F8A761";
@@ -3902,9 +3895,6 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Crittercism",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/TestFlightSDK2.0.2",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMAnalytics_Sdk_2.2.1.OpenUDID",
-					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/UMFeedback_iOS_1.41",
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "91AED0BB-4182-491C-A7E2-725BD9F8A761";

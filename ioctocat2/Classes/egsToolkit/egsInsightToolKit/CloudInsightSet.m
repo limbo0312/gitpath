@@ -11,10 +11,10 @@
 #import "Crittercism.h"//Crittercism 分析工具
 //#import <Parse/Parse.h>//parse 存储云工具
 
-#import "TestFlight.h"
+//#import "TestFlight.h"
 //#import <HockeySDK/HockeySDK.h>
 
-#import "MobClick.h"
+//#import "MobClick.h"
 //#import "UMFeedback.h"
 #import "iOSHierarchyViewer.h"
 
@@ -52,7 +52,7 @@
 +(void)startMobClick
 {
     //umeng 统计
-    [MobClick startWithAppkey:@"52e35d1d56240b8b8e07abfe"];//saidian    zuqiukong
+//    [MobClick startWithAppkey:@"52e35d1d56240b8b8e07abfe"];//saidian    zuqiukong
 }
 
 +(void)startMobFeedback
