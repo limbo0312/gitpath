@@ -47,6 +47,9 @@
     
     self.title = @"Insight Your Power";
     
+    
+    
+    
 }
 
 

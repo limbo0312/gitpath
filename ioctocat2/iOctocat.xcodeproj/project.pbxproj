@@ -166,7 +166,6 @@
 		6F182C87161C5E3600E705CF /* IOCGistsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F182C86161C5E3600E705CF /* IOCGistsController.m */; };
 		6F182C8A161CB77600E705CF /* IOCGistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F182C89161CB77600E705CF /* IOCGistController.m */; };
 		6F182C8C161CB7A100E705CF /* Gist.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F182C8B161CB7A100E705CF /* Gist.xib */; };
-		6F1DC39B0F7E52F000FCD26D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DC39A0F7E52F000FCD26D /* Settings.bundle */; };
 		6F1DC5C50F7E7F4600FCD26D /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DC5BE0F7E7F4600FCD26D /* comment.png */; };
 		6F1DC5C60F7E7F4600FCD26D /* CreateEvent.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DC5BF0F7E7F4600FCD26D /* CreateEvent.png */; };
 		6F1DC5C70F7E7F4600FCD26D /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F1DC5C00F7E7F4600FCD26D /* fork.png */; };
@@ -878,7 +877,6 @@
 		6F182C88161CB77600E705CF /* IOCGistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCGistController.h; sourceTree = "<group>"; };
 		6F182C89161CB77600E705CF /* IOCGistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOCGistController.m; sourceTree = "<group>"; };
 		6F182C8B161CB7A100E705CF /* Gist.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Gist.xib; path = IBFiles/Gist.xib; sourceTree = "<group>"; };
-		6F1DC39A0F7E52F000FCD26D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F1DC52E0F7E727C00FCD26D /* IOCEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCEventCell.h; sourceTree = "<group>"; };
 		6F1DC5BE0F7E7F4600FCD26D /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment.png; path = Images/Icons/comment.png; sourceTree = "<group>"; };
 		6F1DC5BF0F7E7F4600FCD26D /* CreateEvent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CreateEvent.png; path = Images/Icons/CreateEvent.png; sourceTree = "<group>"; };
@@ -1542,7 +1540,6 @@
 				6F48DB61166C03F900F8FF16 /* Unit Tests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				6F1DC39A0F7E52F000FCD26D /* Settings.bundle */,
 				0356A753731743C6B44D0C91 /* Pods.xcconfig */,
 			);
 			name = CustomTemplate;
@@ -3009,7 +3006,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F1DC39B0F7E52F000FCD26D /* Settings.bundle in Resources */,
 				8C23E42819824D920060B369 /* Images.xcassets in Resources */,
 				6F1DC5C50F7E7F4600FCD26D /* comment.png in Resources */,
 				6F1DC5C60F7E7F4600FCD26D /* CreateEvent.png in Resources */,
