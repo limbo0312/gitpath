@@ -11,6 +11,9 @@
 
 #import "iOctocatDelegate.h"
 
+#import "visualClient.h"
+#import "GHAccount.h"
+
 @interface innerDashboardVC ()
 
 @end
@@ -48,11 +51,18 @@
     self.title = @"Insight Your Power";
     
     
-    
-    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
 
+    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+                                                        :^(BOOL succ, id responseO) {
+                                                            
+                                                            DebugLog(@"%@",responseO);
+                                                        }];
+
+}
 
 - (void)didReceiveMemoryWarning
 {

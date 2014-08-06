@@ -681,6 +681,7 @@
 		8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB4192E34EC0001D221 /* CoreImage.framework */; };
 		8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB6192E35900001D221 /* Accelerate.framework */; };
 		8CCB8D0C19826D610095FC9E /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB8D0B19826D610095FC9E /* AccountVC.m */; };
+		8CD4F59419920AF800428EDB /* visualClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4F59319920AF800428EDB /* visualClient.m */; };
 		8CE686760FB8C56700A3D625 /* GHForks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE686720FB8C56700A3D625 /* GHForks.m */; };
 		8CF640761988C94100096F0E /* airplane-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF640751988C94100096F0E /* airplane-arrow.png */; };
 		8CF640781988CD1800096F0E /* cmd-Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF640771988CD1800096F0E /* cmd-Menu.png */; };
@@ -1441,6 +1442,8 @@
 		8C8C1EB6192E35900001D221 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8CCB8D0A19826D610095FC9E /* AccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountVC.h; sourceTree = "<group>"; };
 		8CCB8D0B19826D610095FC9E /* AccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountVC.m; sourceTree = "<group>"; };
+		8CD4F59219920AF800428EDB /* visualClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visualClient.h; path = apiVerb_group/visualClient.h; sourceTree = "<group>"; };
+		8CD4F59319920AF800428EDB /* visualClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = visualClient.m; path = apiVerb_group/visualClient.m; sourceTree = "<group>"; };
 		8CE686720FB8C56700A3D625 /* GHForks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GHForks.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8CE686730FB8C56700A3D625 /* GHForks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHForks.h; sourceTree = "<group>"; };
 		8CF640751988C94100096F0E /* airplane-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-arrow.png"; sourceTree = "<group>"; };
@@ -1514,7 +1517,7 @@
 				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
 				8C3597701949A2CC0017DD39 /* NewHierarchy */,
 				8C8C1EB1192E33830001D221 /* OldHierarchy */,
-				8C8C1EBA192F4D040001D221 /* appTtoolKit */,
+				8C8C1EBA192F4D040001D221 /* appToolKit */,
 				8C3597931949B02E0017DD39 /* egsToolkit */,
 			);
 			name = "Classes Group";
@@ -2877,15 +2880,16 @@
 			name = OldHierarchy;
 			sourceTree = "<group>";
 		};
-		8C8C1EBA192F4D040001D221 /* appTtoolKit */ = {
+		8C8C1EBA192F4D040001D221 /* appToolKit */ = {
 			isa = PBXGroup;
 			children = (
+				8CD4F59119920A1100428EDB /* apiVerb_group */,
 				2E11E70416FB13080012ACDA /* Services */,
 				6F1DC4410F7E5A7E00FCD26D /* Domain */,
 				6F5E9A971119A96000752560 /* Extensions */,
 				6F5E9AA21119A96000752560 /* External */,
 			);
-			name = appTtoolKit;
+			name = appToolKit;
 			sourceTree = "<group>";
 		};
 		8C8C1EBB192F54FD0001D221 /* menuLeft */ = {
@@ -2923,6 +2927,15 @@
 				6FF4D9541698D4B900C235A0 /* IOCRepositoriesController.m */,
 			);
 			name = Watched_Starred;
+			sourceTree = "<group>";
+		};
+		8CD4F59119920A1100428EDB /* apiVerb_group */ = {
+			isa = PBXGroup;
+			children = (
+				8CD4F59219920AF800428EDB /* visualClient.h */,
+				8CD4F59319920AF800428EDB /* visualClient.m */,
+			);
+			name = apiVerb_group;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3468,6 +3481,7 @@
 				8C3597D61949B02E0017DD39 /* CloudInsightSet.m in Sources */,
 				6FDC15210FC6BCA700089FB5 /* GHRepositories.m in Sources */,
 				6F0AEFBE100CF5DB00FB323E /* IOCTitleBodyFormController.m in Sources */,
+				8CD4F59419920AF800428EDB /* visualClient.m in Sources */,
 				6F0BEB4011108C9E00E95E5A /* GHBranches.m in Sources */,
 				6F0BEB58111090D300E95E5A /* GHBranch.m in Sources */,
 				6F797C5D1110E2BE007E5A8D /* IOCCommitController.m in Sources */,

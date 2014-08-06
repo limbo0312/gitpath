@@ -5,7 +5,7 @@
 
 @interface GHUser : GHResource
 @property(nonatomic,strong)NSString *name;
-@property(nonatomic,strong)NSString *login;
+@property(nonatomic,strong)NSString *login;//=====即是：username
 @property(nonatomic,strong)NSString *email;
 @property(nonatomic,strong)NSString *company;
 @property(nonatomic,strong)NSString *location;

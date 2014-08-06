@@ -25,6 +25,8 @@
 #import "innerConsole.h"
 #import "REFrostedViewController.h"
 #import "CloudInsightSet.h"
+//#import "visualClient.h"
+
 
 @interface iOctocatDelegate () <UIApplicationDelegate>
 @property(nonatomic,strong)NSMutableArray *accounts;
@@ -50,6 +52,12 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+//    [[visualClient shareClient] getV_visualizationDataBy:@"limbo0312"
+//                                                        :^(BOOL succ, id responseO) {
+//                                                            
+//                                                            DebugLog(@"%@",responseO);
+//                                                        }];
  
     [CloudInsightSet start_viewerHierarchy];
     

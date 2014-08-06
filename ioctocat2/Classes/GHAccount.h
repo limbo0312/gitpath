@@ -8,7 +8,7 @@
 @property(nonatomic,readonly)GHUserObjectsRepository *userObjects;
 @property(nonatomic,strong)GHOAuthClient *apiClient;
 @property(nonatomic,strong)GHUser *user;
-@property(nonatomic,strong)NSString *login;
+@property(nonatomic,strong)NSString *login;//=====即是：username
 @property(nonatomic,strong)NSString *endpoint;
 @property(nonatomic,strong)NSString *authToken;
 @property(nonatomic,strong)NSString *pushToken;
