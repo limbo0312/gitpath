@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface innerDashboardVC : UIViewController
+@interface innerDashboardVC : UITableViewController
+
+
 
 @end

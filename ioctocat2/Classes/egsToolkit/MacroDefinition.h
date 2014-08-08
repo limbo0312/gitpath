@@ -370,3 +370,7 @@ typedef enum SponiaMySaveType {
 
 #import "Reachability.h"
 #define isViaWifi  [[Reachability reachabilityWithHostname:@"www.baidu.com"] isReachableViaWiFi]
+
+
+#import "Chameleon.h"
+#define RamFlatColor [UIColor randomFlatColor]
