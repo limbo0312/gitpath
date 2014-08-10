@@ -16,6 +16,10 @@
 
 #import "cellOfDash.h"
 
+//==jbCart
+#import "JBBarChartViewController.h"
+#import "JBLineChartViewController.h"
+
 @interface innerDashboardVC ()
 
 @end
@@ -112,8 +116,14 @@
          cell = (cellOfDash *)[tableView dequeueReusableCellWithIdentifier:@"cellOfDash01"];
          
          if (!cell) {
+             JBBarChartViewController *barChartController = [[JBBarChartViewController alloc] init];
              cell = [cellOfDash xibCell_2pos];
+             
+             [cell addSubview:barChartController.view];
+             cell.frame = barChartController.view.bounds;
          }
+         
+         
      }
      else if (indexPath.row==2)
      {
@@ -121,8 +131,16 @@
          cell = (cellOfDash *)[tableView dequeueReusableCellWithIdentifier:@"cellOfDash02"];
          
          if (!cell) {
+             
+             JBLineChartViewController *lineChartController = [[JBLineChartViewController alloc] init];
+             
              cell = [cellOfDash xibCell_3pos];
+             
+             [cell addSubview:lineChartController.view];
+             cell.frame = lineChartController.view.bounds;
          }
+         
+         
      }
      
  

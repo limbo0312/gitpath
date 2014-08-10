@@ -46,8 +46,8 @@
         for (NSDictionary *task in enumerator) {
             NSRange markRange = [task[@"markRange"] rangeValue];
             BOOL checked = [task[@"checked"] boolValue];
-            NSString *mark = checked ? @"[x]" : @"[ ]";
-            [self replaceCharactersInRange:markRange withString:mark];
+            NSString *markX = checked ? @"[x]" : @"[ ]";
+            [self replaceCharactersInRange:markRange withString:markX];
         }
     }
 }

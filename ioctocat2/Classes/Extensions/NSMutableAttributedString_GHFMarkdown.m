@@ -73,9 +73,9 @@
             NSRange markRange = [task[@"markRange"] rangeValue];
             NSNumber *checked = task[@"checked"];
             BOOL done = [checked boolValue];
-            NSString *mark = done ? @"\U00002611" : @"\U000025FB";
+            NSString *markX = done ? @"\U00002611" : @"\U000025FB";
             [self addAttributes:@{@"GHFMarkdown_Task": checked} range:range];
-            [string replaceCharactersInRange:markRange withString:mark];
+            [string replaceCharactersInRange:markRange withString:markX];
         }
     }
 }
