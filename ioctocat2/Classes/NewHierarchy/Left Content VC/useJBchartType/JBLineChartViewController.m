@@ -128,8 +128,10 @@ NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
         
     self.lineChartView = [[JBLineChartView alloc] init];
     self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeight);
+    
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
+    
     self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
     self.lineChartView.backgroundColor = kJBColorLineChartBackground;
     

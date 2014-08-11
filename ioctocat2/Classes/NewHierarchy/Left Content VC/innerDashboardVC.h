@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface innerDashboardVC : UITableViewController
+@interface innerDashboardVC : UIViewController
 
 
+@property (weak, nonatomic) IBOutlet UIScrollView *IB_dataScrollView;
 
 @end

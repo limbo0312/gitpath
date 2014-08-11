@@ -56,6 +56,9 @@
     
     self.title = @"Insight Your Power";
     
+    //=====>init view Herarchy
+    
+    [self configureViewHerarchy];
     
 }
 
@@ -78,22 +81,53 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark -- main method
+-(void)configureViewHerarchy
 {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    //111===== lint skill insight  {0,0,320,370}
+    {
+        cellOfDash *cell;
+        
+        cell = [cellOfDash xibCell];
+        
+        [cell forceDataChart_skillInsight];
+        
+        [_IB_dataScrollView addSubview:cell];
+    }
+    
+
+
+    //222===== codeDesire insight  {0,370,320,560}
+    {
+        
+        JBBarChartViewController *barChartController = [[JBBarChartViewController alloc] init];
+        [self addChildViewController:barChartController];
+        
+        barChartController.view.frame = R_MAKE(0, 370, 320, barChartController.view.bounds.size.height);
+        
+        [_IB_dataScrollView addSubview:barChartController.view];
+    }
+    
+    
+    //333===== pullWill insight    {0,370+560,320,560}
+    {
+        
+        JBLineChartViewController *lineChartController = [[JBLineChartViewController alloc] init];
+        [self addChildViewController:lineChartController];
+        
+        lineChartController.view.frame = R_MAKE(0, 370+520, 320, lineChartController.view.bounds.size.height);
+        
+        [_IB_dataScrollView addSubview:lineChartController.view];
+    }
+    
+    
+    [_IB_dataScrollView setFrame:R_MAKE(0, 0, 320, self.view.height)];
+    
+    [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 3;
-}
+#pragma mark - Table  old
+
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
@@ -116,11 +150,7 @@
          cell = (cellOfDash *)[tableView dequeueReusableCellWithIdentifier:@"cellOfDash01"];
          
          if (!cell) {
-             JBBarChartViewController *barChartController = [[JBBarChartViewController alloc] init];
-             cell = [cellOfDash xibCell_2pos];
              
-             [cell addSubview:barChartController.view];
-             cell.frame = barChartController.view.bounds;
          }
          
          
@@ -155,58 +185,5 @@
     
     return cell.height;
 }
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Table view delegate
- 
- // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Navigation logic may go here, for example:
- // Create the next view controller.
- <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
- 
- // Pass the selected object to the new view controller.
- 
- // Push the view controller.
- [self.navigationController pushViewController:detailViewController animated:YES];
- }
- */
 @end

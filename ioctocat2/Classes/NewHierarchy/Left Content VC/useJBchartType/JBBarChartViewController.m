@@ -102,39 +102,51 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     self.view.backgroundColor = kJBColorBarChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
 
-    self.barChartView = [[JBBarChartView alloc] init];
-    self.barChartView.frame = CGRectMake(kJBBarChartViewControllerChartPadding, kJBBarChartViewControllerChartPadding, self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2), kJBBarChartViewControllerChartHeight);
-    self.barChartView.delegate = self;
-    self.barChartView.dataSource = self;
-    self.barChartView.headerPadding = kJBBarChartViewControllerChartHeaderPadding;
-    self.barChartView.minimumValue = 0.0f;
-    self.barChartView.backgroundColor = kJBColorBarChartBackground;
-    
-    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBBarChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2), kJBBarChartViewControllerChartHeaderHeight)];
-    headerView.titleLabel.text = [kJBStringLabelAverageMonthlyTemperature uppercaseString];
-    headerView.subtitleLabel.text = kJBStringLabel2012;
-    headerView.separatorColor = kJBColorBarChartHeaderSeparatorColor;
-    self.barChartView.headerView = headerView;
-    
-    JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kJBBarChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartFooterHeight * 0.5), self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2), kJBBarChartViewControllerChartFooterHeight)];
-    footerView.padding = kJBBarChartViewControllerChartFooterPadding;
-    footerView.leftLabel.text = [[self.monthlySymbols firstObject] uppercaseString];
-    footerView.leftLabel.textColor = [UIColor whiteColor];
-    footerView.rightLabel.text = [[self.monthlySymbols lastObject] uppercaseString];
-    footerView.rightLabel.textColor = [UIColor whiteColor];
-    self.barChartView.footerView = footerView;
-    
-    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.barChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.barChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
-    [self.view addSubview:self.informationView];
-
-    [self.view addSubview:self.barChartView];
-    [self.barChartView reloadData];
+    if (self.barChartView==nil) {
+        self.barChartView = [[JBBarChartView alloc] init];
+        self.barChartView.frame = CGRectMake(kJBBarChartViewControllerChartPadding,
+                                             kJBBarChartViewControllerChartPadding,
+                                             self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2),
+                                             kJBBarChartViewControllerChartHeight);
+        
+        self.barChartView.delegate = self;
+        self.barChartView.dataSource = self;
+        
+        self.barChartView.headerPadding = kJBBarChartViewControllerChartHeaderPadding;
+        self.barChartView.minimumValue = 0.0f;
+        self.barChartView.backgroundColor = kJBColorBarChartBackground;
+        
+        JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBBarChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2), kJBBarChartViewControllerChartHeaderHeight)];
+        headerView.titleLabel.text = [kJBStringLabelAverageMonthlyTemperature uppercaseString];
+        headerView.subtitleLabel.text = kJBStringLabel2012;
+        headerView.separatorColor = kJBColorBarChartHeaderSeparatorColor;
+        self.barChartView.headerView = headerView;
+        
+        JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kJBBarChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartFooterHeight * 0.5), self.view.bounds.size.width - (kJBBarChartViewControllerChartPadding * 2), kJBBarChartViewControllerChartFooterHeight)];
+        footerView.padding = kJBBarChartViewControllerChartFooterPadding;
+        footerView.leftLabel.text = [[self.monthlySymbols firstObject] uppercaseString];
+        footerView.leftLabel.textColor = [UIColor whiteColor];
+        footerView.rightLabel.text = [[self.monthlySymbols lastObject] uppercaseString];
+        footerView.rightLabel.textColor = [UIColor whiteColor];
+        self.barChartView.footerView = footerView;
+        
+        self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.barChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.barChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
+        
+        
+        [self.view addSubview:self.informationView];
+        
+        [self.view addSubview:self.barChartView];
+        [self.barChartView reloadData];
+        
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.barChartView setState:JBChartViewStateExpanded];
+    
+   
 }
 
 #pragma mark - JBBarChartViewDataSource
