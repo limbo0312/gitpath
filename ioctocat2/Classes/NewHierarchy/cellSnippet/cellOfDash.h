@@ -18,7 +18,7 @@
 
 
 
--(void)forceDataChart_skillInsight;
+//-(void)forceDataChart_skillInsight;
 -(void)forceDataChart_codeDesireInsight;
 -(void)forceDataChart_pushCountInsight;
 

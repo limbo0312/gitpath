@@ -29,7 +29,7 @@
         <!--Inner DashboardVC-->
         <scene sceneID="zdN-n0-rw9">
             <objects>
-                <viewController storyboardIdentifier="innerDashboardVC" id="50d-Wv-JK9" customClass="innerDashboardVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="innerDashboardVC_iden" id="50d-Wv-JK9" customClass="innerDashboardVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gsL-V2-dUj"/>
                         <viewControllerLayoutGuide type="bottom" id="GT0-fp-W8L"/>
@@ -51,9 +51,15 @@
                     <navigationItem key="navigationItem" id="7GW-1w-N1H"/>
                     <connections>
                         <outlet property="IB_dataScrollView" destination="N0S-AP-kGk" id="aCx-zS-izG"/>
+                        <outlet property="pieView" destination="NGW-UK-F8y" id="sfK-Tb-HYu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ape-Vt-B6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="NGW-UK-F8y" customClass="customPieView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.2901960784" green="0.30196078430000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-491" y="1538"/>
         </scene>
