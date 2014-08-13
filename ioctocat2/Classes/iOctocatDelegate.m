@@ -59,7 +59,12 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 //                                                            DebugLog(@"%@",responseO);
 //                                                        }];
  
-    [CloudInsightSet start_viewerHierarchy];
+#if DEBUG
+    [[innerConsole sharedConsole]  enableConsoleMode];
+    [[innerConsole sharedConsole]  open_swizzURLConnection];
+//    [CloudInsightSet start_viewerHierarchy];
+#endif
+    
     
     self.deviceToken = @"";
     [UIApplication.sharedApplication setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];

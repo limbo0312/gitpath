@@ -34,7 +34,8 @@
 //#import "NSString+Extensions.h"
 
 
-
+//==super hero
+#import "FLEXManager.h"
 
 @interface innerConsole() <UIActionSheetDelegate>
 
@@ -732,6 +733,16 @@ void exceptionHandler(NSException *exception)
 	if ([innerConsole sharedConsole].enabled && event.type == UIEventTypeTouches)
 	{
 		NSSet *touches = [event allTouches];
+        
+        
+        if ([touches count]==5) {
+            //=====呼唤  超级  hero
+            
+            [[FLEXManager sharedManager] showExplorer];
+            return;
+        }
+        
+        
 		if ([touches count] == (TARGET_IPHONE_SIMULATOR ? [innerConsole sharedConsole].simulatorTouchesToShow: [innerConsole sharedConsole].deviceTouchesToShow))
 		{
             BOOL allUp    = YES;
