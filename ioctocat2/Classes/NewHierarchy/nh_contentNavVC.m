@@ -8,7 +8,7 @@
 
 #import "nh_contentNavVC.h"
 #import "nh_baseViewController.h"
-
+#import "innerDashboardVC.h"
 @interface nh_contentNavVC ()
 
 @end
@@ -31,6 +31,11 @@
     
     self.navigationBar.tintColor = COLOR(74 , 77 , 105, 1);
 
+    if ([self.topViewController isKindOfClass:[innerDashboardVC class]]) {
+        
+        self.innerDash_fix = (innerDashboardVC *) self.topViewController;
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -39,6 +44,8 @@
     [super viewWillAppear:YES];
     
     [self makeLeftMenuBtn];
+    
+    self.navigationBar.tintColor = COLOR(74 , 77 , 105, 1);
 }
 - (void)viewDidAppear:(BOOL)animated {
 

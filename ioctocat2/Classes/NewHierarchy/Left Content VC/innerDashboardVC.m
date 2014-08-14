@@ -27,6 +27,13 @@
 @interface innerDashboardVC ()
 
 @property (nonatomic,strong)IBOutlet customPieView *pieView;
+@property (nonatomic,strong)NSMutableArray *mArrPieData;// lintData  合成图表的数据
+@property (nonatomic,strong)NSMutableArray *mArrElementPie ;//xPieElement arrIn
+
+//=====
+@property (nonatomic,strong)JBBarChartViewController *pullWillbarChart;
+
+
 @end
 
 @implementation innerDashboardVC{
@@ -46,6 +53,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.mArrPieData = [NSMutableArray new];
+    self.mArrElementPie = [NSMutableArray new];
     
     //=====>init view Herarchy
     [self configureViewHerarchy];
@@ -60,32 +69,43 @@
         [self presentViewController:navVC_accout
                            animated:NO
                          completion:^{
-                         
+                             
                          }];
     }
     
     
     self.title = @"Insight Your Power";
     
-    //=====拉取 data on OSRC生成器
-    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
-                                                        :^(BOOL succ) {
-                                                            
-                                                            if (succ) {
-                                                                //===do dataGet3arr drawChart
-                                                            };
-                                                        }];
     
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
-//    //====
-//    [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
-//    
-//    _IB_dataScrollView.scrollEnabled = YES;
+//    SHOW_PROGRESS(self.view);
+    //=====拉取 data on OSRC生成器
+    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+                                                        :^(BOOL succ) {
+                                                            
+                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                            
+                                                            if (succ) {
+                                                                //===do dataGet3arr drawChart
+                                                            };
+                                                            
+                                                            //===重新合成图表
+                                                            [self configureViewHerarchy];
+                                                            
+//                                                            dispatch_async(dispatch_get_main_queue(), ^{
+//                                                                HIDE_PROGRESS(self.view);
+//                                                            });
+                                                            
+                                                            
+                                                        }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,38 +114,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//==========key  method
-//===生成图表   合成dataVisual
-//
--(void)forceDataChart_skillInsight
-{
-    
-    for(int year = 2009; year <= 2014; year++){
-        
-        xPieElement* elem = [xPieElement pieElementWithValue:(5+arc4random()%8)
-                                                       color:RamFlatColor];
-        
-        
-        elem.title = [NSString stringWithFormat:@"%d year", year];
-        
-        [self.pieView.layer addValues:@[elem] animated:NO];
-    }
-    
-    //mutch easier do this with array outside
-    showPercent = NO;
-    self.pieView.layer.transformTitleBlock = ^(PieElement* elem, float percent){
-        
-        return [(xPieElement *)elem title];
-    };
-    
-    
-    self.pieView.frame = R_MAKE(0, 0, 320, 370);
-    
-    self.pieView.layer.showTitles = ShowTitlesAlways;
-    
-    [self.IB_dataScrollView addSubview:self.pieView];
 
-}
 
 #pragma mark -- main method
 -(void)configureViewHerarchy
@@ -138,33 +127,168 @@
 
     //222===== codeDesire insight  {0,370,320,560}
     {
-        
-        JBBarChartViewController *barChartController = [[JBBarChartViewController alloc] init];
-        [self addChildViewController:barChartController];
-        
-        barChartController.view.frame = R_MAKE(0, 370, 320, 520);
-        
-        [_IB_dataScrollView addSubview:barChartController.view];
-    }
-    
-    
-    //333===== pullWill insight    {0,370+560,320,560}
-    {
-        
         JBLineChartViewController *lineChartController = [[JBLineChartViewController alloc] init];
         [self addChildViewController:lineChartController];
         
         lineChartController.view.frame = R_MAKE(0, 370+520, 320, 520);
         
         [_IB_dataScrollView addSubview:lineChartController.view];
+        
     }
     
+    
+    //333===== pullWill insight    {0,370+560,320,560}
+    {
+        self.pullWillbarChart = [[JBBarChartViewController alloc] init];
+        [self addChildViewController:self.pullWillbarChart];
+        
+        self.pullWillbarChart.view.frame = R_MAKE(0, 370, 320, 520);
+        
+        [_IB_dataScrollView addSubview:self.pullWillbarChart.view];
+    }
+    
+    
+    
+    //====base setup 4 scrollView
     
     [_IB_dataScrollView setFrame:R_MAKE(0, 0, 320, self.view.height)];
     
     [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
     
     _IB_dataScrollView.frame =R_MAKE(0, 64, 320, self.view.height-64);
+}
+
+//==========key  method
+//===生成图表   合成dataVisual
+//
+-(void)forceDataChart_skillInsight
+{
+    
+    
+    //111=====data setIn road ====old
+    [self.mArrPieData removeAllObjects];
+    
+    if ([visualClient shareClient].lint_languagesTake_arr==nil) {
+        
+        for(int year = 2009; year <= 2014; year++){
+            
+            xPieElement* elem = [xPieElement pieElementWithValue:(5+arc4random()%8)
+                                                           color:RamFlatColor];
+            
+            
+            elem.title = [NSString stringWithFormat:@"%@", @"fakeData"];
+            
+            [self.pieView.layer addValues:@[elem] animated:NO];
+            
+            [self.mArrElementPie addObject:elem];
+        }
+        
+    }
+    
+    
+    
+    
+    
+    //222====
+    if ([visualClient shareClient].lint_languagesTake_arr!=nil) {
+        
+        //===clear pie data
+        [self.pieView.layer deleteValues:self.mArrElementPie
+                                animated:YES];
+        
+        //===计算合成。。。 lintPie pic
+        [self makeLintArrData];
+        
+       
+        [self.mArrElementPie removeAllObjects];
+        //===使用合成 后的data
+        for (NSDictionary *dicX in self.mArrPieData) {
+            
+            xPieElement* elem = [xPieElement pieElementWithValue:[[dicX objectForKeyOrNil:@"percent"] targetFloatValue]
+                                                           color:RamFlatColor];
+            
+            
+            elem.title = [NSString stringWithFormat:@"%@", [dicX objectForKeyOrNil:@"language"]];
+            
+            [self.pieView.layer addValues:@[elem] animated:NO];
+            
+            [self.mArrElementPie addObject:elem];
+        }
+        
+    }
+     
+    
+    //333==== helper setup
+    showPercent = YES;
+    self.pieView.layer.transformTitleBlock = ^(PieElement* elem, float percent){
+        
+        return [(xPieElement *)elem title];
+        
+    };
+    
+    
+    self.pieView.frame = R_MAKE(0, 0, 320, 370);
+    self.pieView.layer.showTitles = ShowTitlesAlways;
+    [self.IB_dataScrollView addSubview:self.pieView];
+    
+}
+
+
+-(void)makeLintArrData
+{
+    DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+    
+    //====取得  基本数据
+    NSMutableArray *arrLimit10 = [NSMutableArray new];
+    
+    if ([[visualClient shareClient].lint_languagesTake_arr count]<=10) {
+        
+        //===小于10
+        arrLimit10 = [NSMutableArray arrayWithArray:[visualClient shareClient].lint_languagesTake_arr];
+        
+    }
+    else
+    {
+        for (NSDictionary *dicX in [visualClient shareClient].lint_languagesTake_arr) {
+            
+            [arrLimit10 addObject:[NSMutableDictionary dictionaryWithDictionary:dicX]];
+            
+            //===只取前10个。
+            if ([arrLimit10 count]==10)
+                break;
+            
+        }
+    }
+    
+    
+    //====计算基本数据  百分比
+    int coutTotal = 0;
+    
+    
+    //==1
+    for (NSDictionary *dicX in arrLimit10) {
+        
+        coutTotal = coutTotal + [[dicX objectForKeyOrNil:@"count"] targetIntValue];
+        
+    }
+    
+    //==2
+    [self.mArrPieData removeAllObjects];
+    
+    for (NSDictionary *dicX in arrLimit10) {
+        
+        int currInt = [[dicX objectForKeyOrNil:@"count"] targetIntValue];
+        
+        double  percertX  =   (double)((double)currInt/(double)coutTotal);
+        
+        NSMutableDictionary *mDic = [NSMutableDictionary dictionaryWithDictionary:dicX];
+        
+        [mDic setObject:@(percertX) forKey:@"percent"];
+        
+        [self.mArrPieData addObject:mDic];
+    }
+    
+    DebugLog(@"%@",self.mArrPieData);
 }
 
 

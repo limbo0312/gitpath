@@ -93,7 +93,11 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 - (IBAction)openInsightPower:(id)sender {
     
-    innerDashboardVC *innerDashVC = [MainSB_New instantiateViewControllerWithIdentifier:@"innerDashboardVC_iden"];
+    nh_baseViewController *baseVC = (nh_baseViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    nh_contentNavVC *navContent = (nh_contentNavVC *)baseVC.contentViewController;
+    
+    innerDashboardVC *innerDashVC = navContent.innerDash_fix;
     
     [self openViewController_RN2:innerDashVC];
     

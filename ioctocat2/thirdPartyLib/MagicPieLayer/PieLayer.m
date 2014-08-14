@@ -56,8 +56,7 @@ static NSString * const _animationValuesKey = @"animationValues";
 }
 @property (nonatomic, strong) UIFont* font;
 @property (nonatomic, strong, readwrite) NSArray* values;
-// present while performing animations
-@property (nonatomic, strong) NSArray* presentValues;
+
 
 @property (nonatomic, strong) NSMutableArray* deletingIndexes;
 @property (nonatomic, assign) BOOL isFakeAngleAnimation;
@@ -105,9 +104,10 @@ static NSString * const _animationValuesKey = @"animationValues";
     self.minRadius = 0;
     self.startAngle = 0.0;
     self.endAngle = 360.0;
-    self.animationDuration = 0.6;
+    self.animationDuration = 0.10;
     self.showTitles = ShowTitlesNever;
     self.font = [UIFont systemFontOfSize:11];
+    
     if ([self respondsToSelector:@selector(setContentsScale:)]){
         self.contentsScale = [[UIScreen mainScreen] scale];
     }
@@ -517,7 +517,9 @@ static NSString * const _animationValuesKey = @"animationValues";
 - (void)drawValuesText:(CGContextRef)ctx sumValues:(float)sum
 {
     NSArray *values = self.presentValues?: self.values;
-    CGContextSetShadowWithColor(ctx, CGSizeMake(0,1), 3, [UIColor blackColor].CGColor);
+    
+    //===阴影 设置 esg note
+//    CGContextSetShadowWithColor(ctx, CGSizeMake(0,1), 3, COLOR(246, 246, 246, 1).CGColor);
     
     float angleStart = self.startAngle * M_PI / 180.0;
     float angleInterval = (self.endAngle - self.startAngle) * M_PI / 180.0;
@@ -529,17 +531,25 @@ static NSString * const _animationValuesKey = @"animationValues";
             angleStart = angleEnd;
             continue;
         }
-        UIColor* color = elem.color?: [UIColor blackColor];
+        UIColor* color =COLOR(246, 246, 246, 1);// elem.color?: COLOR(246, 246, 246, 1);
         color = [color colorWithAlphaComponent:elem.titleAlpha];
+        
         CGContextSetFillColorWithColor(ctx, color.CGColor);
         
         float angle = (angleStart + angleEnd) / 2.0;
         float percent = 0.0;
         if(sum != 0.0)
             percent = 100.0 * elem.val / sum;
+        
         NSString* text = self.transformTitleBlock? self.transformTitleBlock(elem, percent) : [NSString stringWithFormat:@"%.2f", elem.val];
+        
         float radius = self.maxRadius + elem.centrOffset;
-        [self drawText:text angle:-angle radius:radius context:ctx];
+        
+        //===each pie's title  egs note
+        [self drawText:text
+                 angle:-angle
+                radius:radius
+               context:ctx];
         
         angleStart = angleEnd;
     }

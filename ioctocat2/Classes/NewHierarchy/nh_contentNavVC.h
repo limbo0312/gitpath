@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class innerDashboardVC;
+
 @interface nh_contentNavVC : UINavigationController
+
+@property (nonatomic,strong) innerDashboardVC *innerDash_fix;
 
 //== 生成 菜单按钮
 -(void)makeLeftMenuBtn;

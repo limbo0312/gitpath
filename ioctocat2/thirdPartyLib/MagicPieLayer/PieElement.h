@@ -26,6 +26,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface PieElement : NSObject <NSCopying>
 
 + (instancetype)pieElementWithValue:(float)val color:(UIColor*)color;
@@ -36,5 +38,7 @@
 @property (nonatomic, strong) UIColor* color;
 @property (nonatomic, assign) float centrOffset;
 @property (nonatomic, assign) BOOL showTitle;//default NO
+
+
 
 @end

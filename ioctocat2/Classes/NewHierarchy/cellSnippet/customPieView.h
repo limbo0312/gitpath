@@ -12,7 +12,7 @@
 #import "PieLayer.h"
 
 
-@class PieLayer;
+//@class PieLayer;
 
 @interface customPieView : UIView
 

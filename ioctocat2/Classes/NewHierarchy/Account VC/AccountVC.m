@@ -224,7 +224,8 @@
 	[self editAccountAtIndex:NSNotFound];
 }
 
-//===== key method  执行关键登陆授权
+//===== key method:  执行关键登陆授权
+
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = self.accounts[idx];
 	iOctocatDelegate.sharedInstance.currentAccount = account;

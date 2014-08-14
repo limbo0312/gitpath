@@ -47,6 +47,9 @@ typedef enum ShowTitles
 @property (nonatomic, assign) float animationDuration;//default 0.6
 @property (nonatomic, assign) ShowTitle showTitles;//defaul ShowTitleNever
 
+// present while performing animations
+@property (nonatomic, strong) NSArray* presentValues;//====open it 
+
 @property (nonatomic, copy) NSString*(^transformTitleBlock)(PieElement* val, float percent);
 
 - (void)setMaxRadius:(float)maxRadius minRadius:(float)minRadius animated:(BOOL)isAnimated;

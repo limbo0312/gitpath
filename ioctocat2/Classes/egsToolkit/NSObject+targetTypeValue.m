@@ -40,5 +40,22 @@
     return YES;
 }
 
+-(float)targetFloatValue
+{
+    if ([self isKindOfClass:[NSNull class]]) {
+        return NullDataType;
+    }
+    
+    if ([self isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)self floatValue];
+    }
+    
+    if ([self isKindOfClass:[NSString class]]) {
+        return  [(NSString *)self floatValue];
+    }
+    
+    
+    return 0;
+}
 
 @end

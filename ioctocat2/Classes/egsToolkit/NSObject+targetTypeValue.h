@@ -17,6 +17,8 @@
 
 -(NSInteger)targetIntValue;
 
+-(float)targetFloatValue;
+
 -(BOOL)targetBoolValue;
 
 @end
