@@ -139,12 +139,17 @@
     
     //333===== pullWill insight    {0,370+560,320,560}
     {
-        self.pullWillbarChart = [[JBBarChartViewController alloc] init];
-        [self addChildViewController:self.pullWillbarChart];
-        
-        self.pullWillbarChart.view.frame = R_MAKE(0, 370, 320, 520);
-        
-        [_IB_dataScrollView addSubview:self.pullWillbarChart.view];
+        if (self.pullWillbarChart==nil) {
+            
+            self.pullWillbarChart = [[JBBarChartViewController alloc] init];
+            [self addChildViewController:self.pullWillbarChart];
+            
+            self.pullWillbarChart.view.frame = R_MAKE(0, 370, 320, 520);
+            
+            [_IB_dataScrollView addSubview:self.pullWillbarChart.view];
+            
+            
+        }
     }
     
     
@@ -158,9 +163,7 @@
     _IB_dataScrollView.frame =R_MAKE(0, 64, 320, self.view.height-64);
 }
 
-//==========key  method
-//===生成图表   合成dataVisual
-//
+#pragma mark ==== 生成图表  lint skill insight
 -(void)forceDataChart_skillInsight
 {
     
@@ -291,6 +294,9 @@
     DebugLog(@"%@",self.mArrPieData);
 }
 
+#pragma mark ==== 生成图表   codeDesire insight
 
+
+#pragma mark ==== 生成图表   pullWill insight
 
 @end
