@@ -10,4 +10,8 @@
 
 @interface JBBarChartViewController : JBBaseChartViewController
 
+
+//===egs add
+-(void)setupData2pushCount:(id)dataObj;
+
 @end

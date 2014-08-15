@@ -151,9 +151,12 @@
 //程序的本地化,引用国际化的文件
 #define MyLocal(x, ...) NSLocalizedString(x, nil)
 
-//G－C－D
-#define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
-#define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)
+//G－C－D~~~~~~~~~~  常用GCD
+#define BACK_BLK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+
+#define DATA_BLK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+
+#define MAIN_UI_Blok(block) dispatch_async(dispatch_get_main_queue(),block)
 
 //NSUserDefaults 实例化
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]

@@ -36,9 +36,31 @@
 
 
 -(void)getV_visualizationDataBy:(NSString *)userName
+                               :(BOOL)forceUpdate
                                :(visualData)blok
 {
-
+    //===cache for each userName（key）
+    NSDictionary *cacheDic = USER_PLIST_GETdic(userName);
+    if (cacheDic!=nil) {
+        //===划属 数据
+        self.lint_languagesTake_arr = [[cacheDic objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"languages"];
+        
+        self.codeD_weekEvent_arr = [[cacheDic objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"events"];
+        
+        self.push_repositories_arr = [cacheDic objectForKeyOrNil:@"repositories"];
+        
+        blok(YES);
+        if (!forceUpdate) {
+            
+            return;
+        }
+        else
+            ;//go on update
+    }
+    
+    
+    
+    //===real netVerb
     [innerVerb getPath:[NSString stringWithFormat:@"%@.json",userName]
             parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -48,9 +70,15 @@
                    //===划属 数据
                    self.lint_languagesTake_arr = [[responseObject objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"languages"];
                    
-                   self.codeD_weekAction_arr = [[responseObject objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"week"];
+                   self.codeD_weekEvent_arr = [[responseObject objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"events"];
                    
                    self.push_repositories_arr = [responseObject objectForKeyOrNil:@"repositories"];
+                   
+                   
+                   DATA_BLK(^{
+                       USER_PLIST_Set(responseObject, userName);
+                   });
+                   
                    
                    blok(YES);
                }

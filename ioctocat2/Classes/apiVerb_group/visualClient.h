@@ -18,7 +18,7 @@ typedef void(^visualData)(BOOL succ);
 //111===skill insight====>擅长区域
 @property (nonatomic,strong) NSArray *lint_languagesTake_arr;
 //222===codeDesire insight====>代码热情
-@property (nonatomic,strong) NSArray *codeD_weekAction_arr;
+@property (nonatomic,strong) NSArray *codeD_weekEvent_arr;
 //333===pushCount insight====>参与力度
 @property (nonatomic,strong) NSArray *push_repositories_arr;
 
@@ -26,6 +26,7 @@ typedef void(^visualData)(BOOL succ);
 +(visualClient *)shareClient;
 
 -(void)getV_visualizationDataBy:(NSString *)userName
+                               :(BOOL)forceUpdate
                                :(visualData)blok;
 
 

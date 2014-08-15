@@ -49,7 +49,9 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
         _leftLabel.shadowColor = [UIColor blackColor];
         _leftLabel.shadowOffset = CGSizeMake(0, 1);
         _leftLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_leftLabel];
+        
+        //egs 暂时不用横向 symbol
+//        [self addSubview:_leftLabel];
         
         _rightLabel = [[UILabel alloc] init];
         _rightLabel.adjustsFontSizeToFitWidth = YES;
@@ -58,7 +60,9 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
         _rightLabel.shadowColor = [UIColor blackColor];
         _rightLabel.shadowOffset = CGSizeMake(0, 1);
         _rightLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_rightLabel];
+        
+        //egs 暂时不用横向 symbol
+//        [self addSubview:_rightLabel];
     }
     return self;
 }

@@ -10,4 +10,7 @@
 
 @interface JBAreaChartViewController : JBBaseChartViewController
 
+//===egs add
+-(void)setupData2codeD:(id)objData;
+
 @end

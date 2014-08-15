@@ -2065,13 +2065,13 @@
 		4ABFB7DE19975EEB00BA87ED /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4ABFB7E319975F0C00BA87ED /* JBChartListViewController.h */,
+				4ABFB7E419975F0C00BA87ED /* JBChartListViewController.m */,
 				4ABFB7D119975EC700BA87ED /* base */,
 				4ABFB7DF19975F0C00BA87ED /* JBAreaChartViewController.h */,
 				4ABFB7E019975F0C00BA87ED /* JBAreaChartViewController.m */,
 				4ABFB7E119975F0C00BA87ED /* JBBarChartViewController.h */,
 				4ABFB7E219975F0C00BA87ED /* JBBarChartViewController.m */,
-				4ABFB7E319975F0C00BA87ED /* JBChartListViewController.h */,
-				4ABFB7E419975F0C00BA87ED /* JBChartListViewController.m */,
 				4ABFB7E519975F0C00BA87ED /* JBLineChartViewController.h */,
 				4ABFB7E619975F0C00BA87ED /* JBLineChartViewController.m */,
 			);

@@ -18,7 +18,7 @@
 
 //==jbCart
 #import "JBBarChartViewController.h"
-#import "JBLineChartViewController.h"
+#import "JBAreaChartViewController.h"
 
 //==pie chart
 #import "customPieView.h"
@@ -32,7 +32,7 @@
 
 //=====
 @property (nonatomic,strong)JBBarChartViewController *pullWillbarChart;
-
+@property (nonatomic,strong)JBAreaChartViewController *codeDbarChart;
 
 @end
 
@@ -85,11 +85,12 @@
 //    SHOW_PROGRESS(self.view);
     //=====拉取 data on OSRC生成器
     [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+                                                        :NO
                                                         :^(BOOL succ) {
                                                             
                                                             DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
-                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
-                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].codeD_weekEvent_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].push_repositories_arr);
                                                             
                                                             if (succ) {
                                                                 //===do dataGet3arr drawChart
@@ -127,13 +128,18 @@
 
     //222===== codeDesire insight  {0,370,320,560}
     {
-        JBLineChartViewController *lineChartController = [[JBLineChartViewController alloc] init];
-        [self addChildViewController:lineChartController];
+        if (self.codeDbarChart==nil) {
+            
+            self.codeDbarChart = [[JBAreaChartViewController alloc] init];
+            [self addChildViewController:self.codeDbarChart];
+            
+            self.codeDbarChart.view.frame = R_MAKE(0, 370, 320, 520);
+            
+            [_IB_dataScrollView addSubview:self.codeDbarChart.view];
+        }
         
-        lineChartController.view.frame = R_MAKE(0, 370+520, 320, 520);
-        
-        [_IB_dataScrollView addSubview:lineChartController.view];
-        
+        //==data setIn
+        [self.codeDbarChart setupData2codeD:[visualClient shareClient].codeD_weekEvent_arr];
     }
     
     
@@ -144,12 +150,14 @@
             self.pullWillbarChart = [[JBBarChartViewController alloc] init];
             [self addChildViewController:self.pullWillbarChart];
             
-            self.pullWillbarChart.view.frame = R_MAKE(0, 370, 320, 520);
+            self.pullWillbarChart.view.frame = R_MAKE(0, 370+520, 320, 520);
             
             [_IB_dataScrollView addSubview:self.pullWillbarChart.view];
             
-            
         }
+        
+        //===data setIn
+        [self.pullWillbarChart  setupData2pushCount:[visualClient shareClient].push_repositories_arr];
     }
     
     

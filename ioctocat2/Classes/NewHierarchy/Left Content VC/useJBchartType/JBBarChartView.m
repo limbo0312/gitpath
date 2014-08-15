@@ -216,6 +216,7 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
         }
         self.barViews = [NSArray arrayWithArray:mutableBarViews];
     };
+
     
     /*
      * Creates a vertical selection view for touch events
@@ -509,9 +510,14 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
     
     if (animated)
     {
-        [UIView animateWithDuration:kJBChartViewDefaultAnimationDuration delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.verticalSelectionView.alpha = self.verticalSelectionViewVisible ? 1.0 : 0.0;
-        } completion:nil];
+        [UIView animateWithDuration:kJBChartViewDefaultAnimationDuration
+                              delay:0.0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             
+                             self.verticalSelectionView.alpha = self.verticalSelectionViewVisible ? 1.0 : 0.0;
+                         }
+                         completion:nil];
     }
     else
     {
@@ -521,7 +527,8 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
 
 - (void)setVerticalSelectionViewVisible:(BOOL)verticalSelectionViewVisible
 {
-    [self setVerticalSelectionViewVisible:verticalSelectionViewVisible animated:NO];
+    [self setVerticalSelectionViewVisible:verticalSelectionViewVisible
+                                 animated:NO];
 }
 
 - (void)setShowsVerticalSelection:(BOOL)showsVerticalSelection

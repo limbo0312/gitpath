@@ -53,7 +53,9 @@ static UIColor *kJBLineChartFooterViewDefaultSeparatorColor = nil;
         _leftLabel.textAlignment = NSTextAlignmentLeft;
         _leftLabel.textColor = [UIColor whiteColor];
         _leftLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_leftLabel];
+        
+        //EGS 暂时不用
+//        [self addSubview:_leftLabel];
         
         _rightLabel = [[UILabel alloc] init];
         _rightLabel.adjustsFontSizeToFitWidth = YES;
@@ -61,7 +63,9 @@ static UIColor *kJBLineChartFooterViewDefaultSeparatorColor = nil;
         _rightLabel.textAlignment = NSTextAlignmentRight;
         _rightLabel.textColor = [UIColor whiteColor];
         _rightLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_rightLabel];
+        
+        //EGS 暂时不用        
+//        [self addSubview:_rightLabel];
     }
     return self;
 }
