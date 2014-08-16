@@ -34,6 +34,9 @@
 @property (nonatomic,strong)JBBarChartViewController *pullWillbarChart;
 @property (nonatomic,strong)JBAreaChartViewController *codeDbarChart;
 
+
+
+
 @end
 
 @implementation innerDashboardVC{
@@ -57,7 +60,7 @@
     self.mArrElementPie = [NSMutableArray new];
     
     //=====>init view Herarchy
-    [self configureViewHerarchy];
+    [self configureViewHerarchy:nil];
     
     //=====判断: 如果 未登陆  则调到账号页面
     if (iOctocatDelegate.sharedInstance.currentAccount==nil) {
@@ -84,9 +87,10 @@
 {
 //    SHOW_PROGRESS(self.view);
     //=====拉取 data on OSRC生成器
+    if (_isSelf)
     [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
                                                         :NO
-                                                        :^(BOOL succ) {
+                                                        :^(BOOL succ, id responseObj) {
                                                             
                                                             DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
                                                             DebugLog(@"%@",[visualClient shareClient].codeD_weekEvent_arr);
@@ -97,7 +101,7 @@
                                                             };
                                                             
                                                             //===重新合成图表
-                                                            [self configureViewHerarchy];
+                                                            [self configureViewHerarchy:responseObj];
                                                             
 //                                                            dispatch_async(dispatch_get_main_queue(), ^{
 //                                                                HIDE_PROGRESS(self.view);
@@ -105,7 +109,8 @@
                                                             
                                                             
                                                         }];
-    
+    else
+        [self configureViewHerarchy:nil];
     
 }
 
@@ -118,11 +123,29 @@
 
 
 #pragma mark -- main method
--(void)configureViewHerarchy
+-(void)configureViewHerarchy:(id)responseObj
 {
+    if (responseObj) {
+        
+        self.lint_arr = [[responseObj objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"languages"];
+        
+        self.codeD_arr = [[responseObj objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"events"];
+        
+        self.push_arr = [responseObj objectForKeyOrNil:@"repositories"];
+    }
+    else
+    {
+        //==insight  some guyGeeker
+        if (self.lint_arr==nil) {
+            return;
+        }
+    
+    }
+    
+    
     //111===== lint skill insight  {0,0,320,370}
     {
-        [self forceDataChart_skillInsight];
+        [self forceDataChart_skillInsight:self.lint_arr];
     }
     
 
@@ -139,7 +162,7 @@
         }
         
         //==data setIn
-        [self.codeDbarChart setupData2codeD:[visualClient shareClient].codeD_weekEvent_arr];
+        [self.codeDbarChart setupData2codeD:self.codeD_arr];
     }
     
     
@@ -157,7 +180,7 @@
         }
         
         //===data setIn
-        [self.pullWillbarChart  setupData2pushCount:[visualClient shareClient].push_repositories_arr];
+        [self.pullWillbarChart  setupData2pushCount:self.push_arr];
     }
     
     
@@ -172,14 +195,14 @@
 }
 
 #pragma mark ==== 生成图表  lint skill insight
--(void)forceDataChart_skillInsight
+-(void)forceDataChart_skillInsight:(NSArray *)arrLint
 {
     
     
     //111=====data setIn road ====old
     [self.mArrPieData removeAllObjects];
     
-    if ([visualClient shareClient].lint_languagesTake_arr==nil) {
+    if (arrLint==nil) {
         
         for(int year = 2009; year <= 2014; year++){
             
@@ -201,14 +224,14 @@
     
     
     //222====
-    if ([visualClient shareClient].lint_languagesTake_arr!=nil) {
+    if (arrLint!=nil) {
         
         //===clear pie data
         [self.pieView.layer deleteValues:self.mArrElementPie
                                 animated:YES];
         
         //===计算合成。。。 lintPie pic
-        [self makeLintArrData];
+        [self makeLintArrData:arrLint];
         
        
         [self.mArrElementPie removeAllObjects];
@@ -245,14 +268,14 @@
 }
 
 
--(void)makeLintArrData
+-(void)makeLintArrData:(NSArray *)arrLint
 {
-    DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+    DebugLog(@"%@",arrLint);
     
     //====取得  基本数据
     NSMutableArray *arrLimit10 = [NSMutableArray new];
     
-    if ([[visualClient shareClient].lint_languagesTake_arr count]<=10) {
+    if ([arrLint count]<=10) {
         
         //===小于10
         arrLimit10 = [NSMutableArray arrayWithArray:[visualClient shareClient].lint_languagesTake_arr];
@@ -260,7 +283,7 @@
     }
     else
     {
-        for (NSDictionary *dicX in [visualClient shareClient].lint_languagesTake_arr) {
+        for (NSDictionary *dicX in arrLint) {
             
             [arrLimit10 addObject:[NSMutableDictionary dictionaryWithDictionary:dicX]];
             
@@ -302,9 +325,5 @@
     DebugLog(@"%@",self.mArrPieData);
 }
 
-#pragma mark ==== 生成图表   codeDesire insight
-
-
-#pragma mark ==== 生成图表   pullWill insight
 
 @end

@@ -49,7 +49,7 @@
         
         self.push_repositories_arr = [cacheDic objectForKeyOrNil:@"repositories"];
         
-        blok(YES);
+        blok(YES,cacheDic);
         if (!forceUpdate) {
             
             return;
@@ -80,13 +80,13 @@
                    });
                    
                    
-                   blok(YES);
+                   blok(YES,responseObject);
                }
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    
                    DebugLog(@"%@",error);
                    
-                   blok(NO);
+                   blok(NO,nil);
                }];
 
 }

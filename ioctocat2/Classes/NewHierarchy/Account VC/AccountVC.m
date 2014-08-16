@@ -25,9 +25,11 @@
 #import "UIImageView+startLoading.h"
 #import "UITableViewCell+xibCell.h"
 #import "CellOfAccout.h"
+
 #import "nh_baseViewController.h"
 #import "nh_menuViewController.h"
-
+#import "nh_contentNavVC.h"
+#import "innerDashboardVC.h"
 
 @interface AccountVC () <IOCAccountFormControllerDelegate>
 @property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;
@@ -242,6 +244,10 @@
                                               //====新的  入口
                                               nh_baseViewController *baseVC = (nh_baseViewController *)AppRoot_VC;
                                               nh_menuViewController *menuVC = (nh_menuViewController *)baseVC.menuViewController;
+                                              nh_contentNavVC *navVC = (nh_contentNavVC *)baseVC.contentViewController;
+                                              
+                                              innerDashboardVC *innerDash = (innerDashboardVC *)navVC.topViewController;
+                                              innerDash.isSelf = YES ;//标识，初始化 是自己的 powerMap
                                               
                                               if ([menuVC isKindOfClass:[nh_menuViewController class]]
                                                   &&account.user!=nil) {

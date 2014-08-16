@@ -11,9 +11,12 @@
 #import "AFHTTPClient.h"
 
 
-typedef void(^visualData)(BOOL succ);
+typedef void(^visualData)(BOOL succ, id responseObj);
 
 @interface visualClient : AFHTTPClient
+
+
+//=======当前登录者 个人区域=========
 
 //111===skill insight====>擅长区域
 @property (nonatomic,strong) NSArray *lint_languagesTake_arr;

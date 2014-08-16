@@ -20,9 +20,12 @@
 #import "IOCResourceStatusCell.h"
 #import "IOCRepositoriesController.h"
 
+//egs add
+#import "visualClient.h"
+#import "innerDashboardVC.h"
 
 @interface IOCUserController () <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
-@property(nonatomic,strong)GHUser *user;
+@property(nonatomic,strong)GHUser *user;//====当前userVC 的userObj
 @property(nonatomic,readonly)GHUser *currentUser;
 @property(nonatomic,strong)IOCResourceStatusCell *userStatusCell;
 @property(nonatomic,strong)IOCResourceStatusCell *reposStatusCell;
@@ -73,17 +76,21 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.navigationItem.title = self.title ? self.title : self.user.login;
+    
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActions:)];
+    
 	self.userStatusCell = [[IOCResourceStatusCell alloc] initWithResource:self.user name:NSLocalizedString(@"user", nil)];
 	self.reposStatusCell = [[IOCResourceStatusCell alloc] initWithResource:self.user.repositories name:NSLocalizedString(@"repositories", nil)];
 	self.organizationsStatusCell = [[IOCResourceStatusCell alloc] initWithResource:self.user.organizations name:NSLocalizedString(@"organizations", nil)];
 	[self displayUser];
+    
 	// header
 	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
 	self.tableHeaderView.backgroundColor = background;
 	self.tableView.tableHeaderView = self.tableHeaderView;
 	self.gravatarView.layer.cornerRadius = 3;
 	self.gravatarView.layer.masksToBounds = YES;
+    
 	// check following state
 	if (!self.isProfile) {
         [self.currentUser checkUserFollowing:self.user usingBlock:^(BOOL isFollowing) {
@@ -93,6 +100,9 @@
     
     //====>match ios7
     [self matching_iOS7_tableviewType];
+    
+    //====>egs 添加 insight Btn
+    //xib add
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -319,4 +329,39 @@
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)action_insightHisPower:(id)sender {
+    
+    SHOW_PROGRESS(self.view);
+    
+    [[visualClient shareClient] getV_visualizationDataBy:self.user.login
+                                                        :YES
+                                                        :^(BOOL succ, id responseObj) {
+                                                           
+                                                            if (succ) {
+                                                                innerDashboardVC *innerDash = [MainSB_New instantiateViewControllerWithIdentifier:@"innerDashboardVC_iden"];
+                                                                
+                                                                innerDash.lint_arr = [[responseObj objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"languages"];
+                                                                
+                                                                innerDash.codeD_arr = [[responseObj objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"events"];
+                                                                
+                                                                innerDash.push_arr = [responseObj objectForKeyOrNil:@"repositories"];
+                                                                
+                                                                innerDash.isSelf = NO;
+                                                                
+                                                                innerDash.title = [NSString stringWithFormat:@"%@ PowerMap",self.user.login];
+                                                                
+                                                                dispatch_barrier_async(dispatch_get_main_queue(), ^{
+                                                                    
+                                                                    HIDE_PROGRESS(self.view);
+                                                                    
+                                                                    [self.navigationController pushViewController:innerDash
+                                                                                                         animated:YES];
+                                                                
+                                                                });
+                                                                
+                                                            }
+                                                            
+                                                        }];
+    
+}
 @end
