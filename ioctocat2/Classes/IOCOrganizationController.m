@@ -69,8 +69,8 @@
 	self.membersStatusCell = [[IOCResourceStatusCell alloc] initWithResource:self.organization.publicMembers name:NSLocalizedString(@"members", nil)];
 	[self displayOrganization];
 	// header
-	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
-	self.tableHeaderView.backgroundColor = background;
+//	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
+//	self.tableHeaderView.backgroundColor = background;
 	self.tableView.tableHeaderView = self.tableHeaderView;
 	self.gravatarView.layer.cornerRadius = 3;
 	self.gravatarView.layer.masksToBounds = YES;

@@ -250,12 +250,12 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     
     [iOctocatDelegate.sharedInstance bringStatusViewToFront];
     
-    //======color tint>>>
+    //======color tint>>>整体性 处理
     {
         if ([viewController isKindOfClass:[UITableViewController class]]) {
             UITableViewController *tVC = (UITableViewController *)viewController;
             
-            tVC.tableView.backgroundColor = COLOR(196, 225, 241, 1);
+            tVC.tableView.backgroundColor = COLOR(246, 246, 246, 1);
         }
         else
         {

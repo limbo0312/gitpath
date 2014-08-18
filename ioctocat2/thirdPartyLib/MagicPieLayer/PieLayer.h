@@ -60,4 +60,7 @@ typedef enum ShowTitles
 //you can redefine draw elements
 - (void)drawElement:(PieElement*)elem context:(CGContextRef)ctx;
 
+//open it egs
+- (void)pieElementUpdate;
+- (void)pieElementWillAnimateUpdate;
 @end

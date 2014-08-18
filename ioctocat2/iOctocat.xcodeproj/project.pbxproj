@@ -680,6 +680,8 @@
 		8C3597F61949B1250017DD39 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597F51949B1250017DD39 /* Reachability.m */; };
 		8C3597F81949B22A0017DD39 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597F71949B22A0017DD39 /* CoreTelephony.framework */; };
 		8C3597FA1949B2370017DD39 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597F91949B2370017DD39 /* CoreData.framework */; };
+		8C4A1D8519A1B1D000DE6D5F /* refresh_ic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A1D8419A1B1CF00DE6D5F /* refresh_ic@2x.png */; };
+		8C4A1D8719A1B40F00DE6D5F /* study@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A1D8619A1B40F00DE6D5F /* study@2x.png */; };
 		8C53B4D00FB0F20B00C3A8E0 /* IOCUsersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C53B4CF0FB0F20B00C3A8E0 /* IOCUsersController.m */; };
 		8C53B4D70FB0F32600C3A8E0 /* IOCUserObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C53B4D60FB0F32600C3A8E0 /* IOCUserObjectCell.m */; };
 		8C6A99E80FABD01500A99483 /* GHIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A99E70FABD01500A99483 /* GHIssue.m */; };
@@ -1527,6 +1529,8 @@
 		8C3597F51949B1250017DD39 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8C3597F71949B22A0017DD39 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8C3597F91949B2370017DD39 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8C4A1D8419A1B1CF00DE6D5F /* refresh_ic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_ic@2x.png"; sourceTree = "<group>"; };
+		8C4A1D8619A1B40F00DE6D5F /* study@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "study@2x.png"; sourceTree = "<group>"; };
 		8C53B4CE0FB0F20B00C3A8E0 /* IOCUsersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCUsersController.h; sourceTree = "<group>"; };
 		8C53B4CF0FB0F20B00C3A8E0 /* IOCUsersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOCUsersController.m; sourceTree = "<group>"; };
 		8C53B4D50FB0F32600C3A8E0 /* IOCUserObjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCUserObjectCell.h; sourceTree = "<group>"; };
@@ -3008,7 +3012,9 @@
 				4A13D8841984074200D40631 /* github20.png */,
 				4A13D86F1984003600D40631 /* github6.png */,
 				4A13D8561983A8CB00D40631 /* explore_redar_s@2x.png */,
+				8C4A1D8419A1B1CF00DE6D5F /* refresh_ic@2x.png */,
 				4A13D8541983A50C00D40631 /* githubAvatar.png */,
+				8C4A1D8619A1B40F00DE6D5F /* study@2x.png */,
 				8CF640771988CD1800096F0E /* cmd-Menu.png */,
 				8CF640751988C94100096F0E /* airplane-arrow.png */,
 			);
@@ -3858,6 +3864,7 @@
 				6F11AE4A16A36048002D9741 /* TypeCommit@2x.png in Resources */,
 				6F11AE4C16A36048002D9741 /* TypeCommitOn.png in Resources */,
 				6F11AE4E16A36048002D9741 /* TypeCommitOn@2x.png in Resources */,
+				8C4A1D8519A1B1D000DE6D5F /* refresh_ic@2x.png in Resources */,
 				6F26DB5A16A6F3C600939D85 /* Remove.png in Resources */,
 				6FCD1B5716AC26AA00D843EA /* Forks.png in Resources */,
 				6FCD1B5916AC26AA00D843EA /* Forks@2x.png in Resources */,
@@ -3881,6 +3888,7 @@
 				6FEDE43C16E2A21C00459B5C /* GistPrivateOn@2x.png in Resources */,
 				6FEDE43E16E2A21C00459B5C /* GistPublic.png in Resources */,
 				6FEDE44016E2A21C00459B5C /* GistPublic@2x.png in Resources */,
+				8C4A1D8719A1B40F00DE6D5F /* study@2x.png in Resources */,
 				6FEDE44216E2A21C00459B5C /* GistPublicFork.png in Resources */,
 				4A13D8861984074200D40631 /* github17.png in Resources */,
 				6FEDE44416E2A21C00459B5C /* GistPublicFork@2x.png in Resources */,

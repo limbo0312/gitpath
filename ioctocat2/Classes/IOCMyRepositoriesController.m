@@ -149,8 +149,11 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
     NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+    
     return (title == nil) ? nil : [IOCTableViewSectionHeader headerForTableView:tableView title:title];
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

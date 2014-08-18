@@ -34,7 +34,8 @@
 @property (nonatomic,strong)JBBarChartViewController *pullWillbarChart;
 @property (nonatomic,strong)JBAreaChartViewController *codeDbarChart;
 
-
+//=====
+@property (nonatomic,strong) UILabel * lbl_lintSkill;
 
 
 @end
@@ -60,7 +61,7 @@
     self.mArrElementPie = [NSMutableArray new];
     
     //=====>init view Herarchy
-    [self configureViewHerarchy:nil];
+//    [self configureViewHerarchy:nil];
     
     //=====判断: 如果 未登陆  则调到账号页面
     if (iOctocatDelegate.sharedInstance.currentAccount==nil) {
@@ -77,9 +78,10 @@
     }
     
     
-    self.title = @"Insight Your Power";
-    
-    
+    //===右侧 按键  强制刷新
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                           target:self
+                                                                                           action:@selector(refreshForce)];
     
 }
 
@@ -88,29 +90,45 @@
 //    SHOW_PROGRESS(self.view);
     //=====拉取 data on OSRC生成器
     if (_isSelf)
-    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
-                                                        :NO
-                                                        :^(BOOL succ, id responseObj) {
-                                                            
-                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
-                                                            DebugLog(@"%@",[visualClient shareClient].codeD_weekEvent_arr);
-                                                            DebugLog(@"%@",[visualClient shareClient].push_repositories_arr);
-                                                            
-                                                            if (succ) {
-                                                                //===do dataGet3arr drawChart
-                                                            };
-                                                            
-                                                            //===重新合成图表
-                                                            [self configureViewHerarchy:responseObj];
-                                                            
-//                                                            dispatch_async(dispatch_get_main_queue(), ^{
-//                                                                HIDE_PROGRESS(self.view);
-//                                                            });
-                                                            
-                                                            
-                                                        }];
+    {
+        self.title = @"Your Power Map";
+        
+        [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+                                                            :NO
+                                                            :NO
+                                                            :^(BOOL succ, id responseObj) {
+                                                                
+                                                                DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                                DebugLog(@"%@",[visualClient shareClient].codeD_weekEvent_arr);
+                                                                DebugLog(@"%@",[visualClient shareClient].push_repositories_arr);
+                                                                
+                                                                if (succ) {
+                                                                    //===do dataGet3arr drawChart
+                                                                };
+                                                                
+                                                                //===重新合成图表
+                                                                [self configureViewHerarchy:responseObj];
+                                                                
+                                                                //                                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                                //                                                                HIDE_PROGRESS(self.view);
+                                                                //                                                            });
+                                                                
+                                                                
+                                                            }];
+    }
+        
+
     else
-        [self configureViewHerarchy:nil];
+    {
+        if ([_lint_arr count]!=0
+            ||[_codeD_arr count]!=0
+            ||[_push_arr count]!=0) {
+            
+            [self configureViewHerarchy:nil];
+        }
+
+    }
+
     
 }
 
@@ -137,7 +155,9 @@
     {
         //==insight  some guyGeeker
         if (self.lint_arr==nil) {
-            return;
+//            return;
+            //==lint 1
+            
         }
     
     }
@@ -145,7 +165,9 @@
     
     //111===== lint skill insight  {0,0,320,370}
     {
-        [self forceDataChart_skillInsight:self.lint_arr];
+        if ([self.lint_arr count]!=0) {
+            [self forceDataChart_skillInsight:self.lint_arr];
+        }
     }
     
 
@@ -191,18 +213,22 @@
     
     [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
     
-    _IB_dataScrollView.frame =R_MAKE(0, 64, 320, self.view.height-64);
+//    _IB_dataScrollView.frame =R_MAKE(0, 0, 320, self.view.height-64);
 }
 
 #pragma mark ==== 生成图表  lint skill insight
 -(void)forceDataChart_skillInsight:(NSArray *)arrLint
 {
     
-    
     //111=====data setIn road ====old
     [self.mArrPieData removeAllObjects];
     
     if (arrLint==nil) {
+        
+        //===clear pie data
+        if (self.mArrElementPie)
+        [self.pieView.layer deleteValues:self.mArrElementPie
+                                animated:YES];
         
         for(int year = 2009; year <= 2014; year++){
             
@@ -210,7 +236,7 @@
                                                            color:RamFlatColor];
             
             
-            elem.title = [NSString stringWithFormat:@"%@", @"fakeData"];
+            elem.title = [NSString stringWithFormat:@"%@", @"lint--X"];
             
             [self.pieView.layer addValues:@[elem] animated:NO];
             
@@ -218,8 +244,6 @@
         }
         
     }
-    
-    
     
     
     
@@ -265,8 +289,47 @@
     self.pieView.layer.showTitles = ShowTitlesAlways;
     [self.IB_dataScrollView addSubview:self.pieView];
     
+    
+    //===标题lable
+    {
+        if (_lbl_lintSkill==nil) {
+            
+            _lbl_lintSkill = [[UILabel alloc] initWithFrame:R_MAKE(0, 0, 320, 44)];
+            
+            _lbl_lintSkill.numberOfLines = 1;
+            _lbl_lintSkill.adjustsFontSizeToFitWidth = YES;
+            _lbl_lintSkill.textAlignment = NSTextAlignmentCenter;
+            _lbl_lintSkill.font = kJBFontHeaderTitle;
+            _lbl_lintSkill.textColor = COLOR(183, 227, 227, 1);
+            _lbl_lintSkill.shadowColor = [UIColor blackColor];
+            _lbl_lintSkill.shadowOffset = CGSizeMake(0, 1);
+            _lbl_lintSkill.backgroundColor = [UIColor clearColor];
+            
+            _lbl_lintSkill.text = [@"language insight" uppercaseString];
+            
+            
+            [self.IB_dataScrollView  addSubview:_lbl_lintSkill];
+        }
+        else
+        {
+            [self.IB_dataScrollView bringSubviewToFront:_lbl_lintSkill];
+        }
+    }
+    
+    
+    //===延迟三秒   draw
+    [self performSelector:@selector(reDrawPieChart)
+               withObject:nil
+               afterDelay:1.5];
 }
 
+-(void)reDrawPieChart
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.pieView.layer  pieElementWillAnimateUpdate];    
+    });
+
+}
 
 -(void)makeLintArrData:(NSArray *)arrLint
 {
@@ -323,6 +386,37 @@
     }
     
     DebugLog(@"%@",self.mArrPieData);
+}
+
+#pragma  mark --- private helper method
+-(void)refreshForce
+{
+    SHOW_PROGRESS(self.view);
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+                                                        :YES
+                                                        :YES
+                                                        :^(BOOL succ, id responseObj) {
+                                                            
+                                                            DebugLog(@"%@",[visualClient shareClient].lint_languagesTake_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].codeD_weekEvent_arr);
+                                                            DebugLog(@"%@",[visualClient shareClient].push_repositories_arr);
+                                                            
+                                                            if (succ) {
+                                                                //===do dataGet3arr drawChart
+                                                            };
+                                                            
+                                                            //===重新合成图表
+                                                            [self configureViewHerarchy:responseObj];
+                                                            
+                                                            self.navigationItem.rightBarButtonItem.enabled = YES;
+                                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                                HIDE_PROGRESS(self.view);
+                                                            });
+                                                            
+                                                            
+                                                        }];
 }
 
 

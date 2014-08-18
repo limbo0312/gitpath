@@ -85,8 +85,8 @@
 	[self displayUser];
     
 	// header
-	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
-	self.tableHeaderView.backgroundColor = background;
+//	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
+//	self.tableHeaderView.backgroundColor = background;
 	self.tableView.tableHeaderView = self.tableHeaderView;
 	self.gravatarView.layer.cornerRadius = 3;
 	self.gravatarView.layer.masksToBounds = YES;
@@ -331,13 +331,23 @@
 
 - (IBAction)action_insightHisPower:(id)sender {
     
+    //====disable
+    UIButton *btn = (UIButton *)sender;
+    btn.enabled = NO;
+    
+    
     SHOW_PROGRESS(self.view);
     
     [[visualClient shareClient] getV_visualizationDataBy:self.user.login
-                                                        :YES
+                                                        :NO
+                                                        :NO
                                                         :^(BOOL succ, id responseObj) {
                                                            
-                                                            if (succ) {
+                                                            btn.enabled = YES;
+                                                            
+                                                            if (succ
+                                                                &&[self.navigationController.topViewController isKindOfClass:[self class]]) {
+                                                                
                                                                 innerDashboardVC *innerDash = [MainSB_New instantiateViewControllerWithIdentifier:@"innerDashboardVC_iden"];
                                                                 
                                                                 innerDash.lint_arr = [[responseObj objectForKeyOrNil:@"usage"] objectForKeyOrNil:@"languages"];
@@ -359,6 +369,18 @@
                                                                 
                                                                 });
                                                                 
+                                                            }
+                                                            else
+                                                            {
+                                                                dispatch_barrier_async(dispatch_get_main_queue(), ^{
+                                                                    
+                                                                    HIDE_PROGRESS(self.view);
+                                                                    
+                                                                });
+                                                                
+                                                                [EAlertView showWithMsg:@"oh, Not enough information for this guy."
+                                                                                  block:^(int btnIndex) {
+                                                                                  }];
                                                             }
                                                             
                                                         }];

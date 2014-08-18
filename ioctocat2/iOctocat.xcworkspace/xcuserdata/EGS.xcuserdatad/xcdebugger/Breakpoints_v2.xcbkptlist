@@ -367,8 +367,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
             endingLineNumber = "190"
-            landmarkName = "-accountIndexFromIndexPath:"
-            landmarkType = "5">
+            landmarkName = "@implementation AccountVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -425,12 +425,12 @@
                   symbolName = "__48-[IOCNotificationsController setupPullToRefresh]_block_invoke320"
                   moduleName = "iOctocat"
                   urlString = "file:///Users/EGS/EGScodeLib/Github/gitBox/ioctocat2/Classes/IOCNotificationsController.m"
-                  timestampString = "429791120.757288"
+                  timestampString = "430050877.58885"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "352"
                   endingLineNumber = "352"
-                  offsetFromSymbolStart = "88">
+                  offsetFromSymbolStart = "68">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -439,12 +439,12 @@
                   symbolName = "__48-[IOCNotificationsController setupPullToRefresh]_block_invoke_2321"
                   moduleName = "iOctocat"
                   urlString = "file:///Users/EGS/EGScodeLib/Github/gitBox/ioctocat2/Classes/IOCNotificationsController.m"
-                  timestampString = "429791120.757496"
+                  timestampString = "430050877.589381"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "353"
                   endingLineNumber = "353"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "10">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -472,12 +472,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/apiVerb_group/visualClient.m"
-            timestampString = "429767746.787473"
+            timestampString = "430050542.632274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-getV_visualizationDataBy:::"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-getV_visualizationDataBy::::"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -488,12 +488,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/apiVerb_group/visualClient.m"
-            timestampString = "429767746.787473"
+            timestampString = "430050542.632274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-getV_visualizationDataBy:::"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-getV_visualizationDataBy::::"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -772,31 +772,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429696009.416658"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "@implementation innerDashboardVC"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429696009.416658"
+            timestampString = "430039448.207866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-initWithNibName:bundle:"
             landmarkType = "5">
          </BreakpointContent>
@@ -824,12 +808,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429696009.416658"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -888,12 +872,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429769751.874299"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "-forceDataChart_skillInsight"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-configureViewHerarchy:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -904,28 +888,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429769751.874299"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "-makeLintArrData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429769751.874299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "-forceDataChart_skillInsight"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "-makeLintArrData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -942,22 +910,6 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "-initFakeData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429767485.324814"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1000,12 +952,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/apiVerb_group/visualClient.m"
-            timestampString = "429768067.340491"
+            timestampString = "430050542.632274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-getV_visualizationDataBy:::"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-getV_visualizationDataBy::::"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1016,12 +968,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
-            timestampString = "429769751.874299"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-configureViewHerarchy"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-configureViewHerarchy:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1092,48 +1044,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/useJBchartType/JBAreaChartViewController.m"
-            timestampString = "429790934.705364"
+            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-lineChartView:didSelectLineAtIndex:horizontalIndex:touchPoint:"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "-forceDataChart_skillInsight:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/useJBchartType/JBAreaChartViewController.m"
-            timestampString = "429791169.150858"
+            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-lineChartView:didSelectLineAtIndex:horizontalIndex:touchPoint:"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "-forceDataChart_skillInsight:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Classes/NewHierarchy/Left Content VC/useJBchartType/JBAreaChartViewController.m"
-            timestampString = "429791170.353131"
+            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
+            timestampString = "430050222.445899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-lineChartView:didSelectLineAtIndex:horizontalIndex:touchPoint:"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-configureViewHerarchy:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
+            timestampString = "430050222.445899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "-forceDataChart_skillInsight:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/NewHierarchy/Left Content VC/innerDashboardVC.m"
+            timestampString = "430050222.445899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "-reDrawPieChart"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Classes/apiVerb_group/visualClient.m"
+            timestampString = "430050519.53931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-getV_visualizationDataBy::::"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -30,6 +30,7 @@ typedef void(^visualData)(BOOL succ, id responseObj);
 
 -(void)getV_visualizationDataBy:(NSString *)userName
                                :(BOOL)forceUpdate
+                               :(BOOL)noUseCache
                                :(visualData)blok;
 
 

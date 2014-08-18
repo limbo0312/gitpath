@@ -207,7 +207,7 @@
 	} else {
 		IOCNotificationsSectionHeader *header = [IOCNotificationsSectionHeader headerForTableView:tableView title:title];
         
-//        TREE_View(header);
+
         //===egs color 配色
         {
             UIView *helperV = [[UIView alloc] initWithFrame:R_MAKE(0, 0, header.width, 40)];

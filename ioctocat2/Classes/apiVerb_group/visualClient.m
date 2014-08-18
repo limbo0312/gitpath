@@ -7,6 +7,8 @@
 //
 
 #import "visualClient.h"
+#import "iOctocatDelegate.h"
+#import "GHAccount.h"
 
 #define kOSRC_APIVer1 @"http://osrc.dfm.io/"
 
@@ -37,6 +39,7 @@
 
 -(void)getV_visualizationDataBy:(NSString *)userName
                                :(BOOL)forceUpdate
+                               :(BOOL)noUseCache
                                :(visualData)blok
 {
     //===cache for each userName（key）
@@ -49,7 +52,9 @@
         
         self.push_repositories_arr = [cacheDic objectForKeyOrNil:@"repositories"];
         
-        blok(YES,cacheDic);
+        if (!noUseCache)
+            blok(YES,cacheDic);
+        
         if (!forceUpdate) {
             
             return;

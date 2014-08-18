@@ -85,8 +85,8 @@ static NSString *const BranchCellIdentifier = @"BranchCell";
 	self.branchesStatusCell = [[IOCResourceStatusCell alloc] initWithResource:self.repository.branches name:NSLocalizedString(@"branches", nil)];
 	[self displayRepository];
 	// header
-	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
-	self.tableHeaderView.backgroundColor = background;
+//	UIColor *background = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HeadBackground80.png"]];
+//	self.tableHeaderView.backgroundColor = background;
 	self.tableView.tableHeaderView = self.tableHeaderView;
 	// check starring state
 	[self.currentUser checkRepositoryStarring:self.repository usingBlock:^(BOOL isStarring) {

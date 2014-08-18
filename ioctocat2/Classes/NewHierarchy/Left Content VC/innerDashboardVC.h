@@ -18,6 +18,8 @@
 
 @property (nonatomic,assign) BOOL isSelf;
 
+@property (nonatomic,strong) NSString *currLoginName;
+
 //====当前insight guy dataInfo
 
 //111===skill insight====>擅长区域
