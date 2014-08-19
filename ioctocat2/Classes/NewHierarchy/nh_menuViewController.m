@@ -177,7 +177,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 -(void)viewDidAppear:(BOOL)animated
 {
     DebugLog(@"%@",self.tableView);
-    //===配置 frame 信息
+    //===配置 frame 信息  key
     self.view.frame = R_MAKE(self.view.xOrigin, self.view.yOrigin, self.view.width, [UIScreen mainScreen].bounds.size.height);
     self.tableView.frame = [self.view bounds];
 }
