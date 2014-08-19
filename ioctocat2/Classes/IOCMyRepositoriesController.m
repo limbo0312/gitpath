@@ -123,13 +123,22 @@
 #pragma mark Actions
 
 - (IBAction)refresh:(id)sender {
-	if (self.user.repositories.isLoading) return;
-	[self.user.repositories loadWithParams:nil start:^(GHResource *instance) {
+	if (self.user.repositories.isLoading)
+        return;
+    
+	[self.user.repositories loadWithParams:nil
+                                     start:^(GHResource *instance) {
 		instance.isEmpty ? [self.tableView reloadData] : [SVProgressHUD showWithStatus:NSLocalizedString(@"Reloading", @"Progress HUD hint: Reloading")];
-	} success:^(GHResource *instance, id data) {
+                                         
+//        instance.isEmpty ? [self.tableView reloadData] : SHOW_PROGRESS(self.view);
+	}
+                                   success:^(GHResource *instance, id data) {
 		[SVProgressHUD dismiss];
+//                                       HIDE_PROGRESS(self.view);
+                                       
 		[self displayRepositories];
-	} failure:^(GHResource *instance, NSError *error) {
+	}
+                                   failure:^(GHResource *instance, NSError *error) {
 		instance.isEmpty ? [self.tableView reloadData] : [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Reloading failed", @"Progress HUD hint: Reloading failed")];
 	}];
 }

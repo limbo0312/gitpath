@@ -34,6 +34,7 @@
     if ([self.topViewController isKindOfClass:[innerDashboardVC class]]) {
         
         self.innerDash_fix = (innerDashboardVC *) self.topViewController;
+        self.innerDash_fix.isSelf = YES ;//标识，初始化 是自己的 powerMap
     }
     
 }

@@ -78,7 +78,7 @@
     }
     
     
-    //===右侧 按键  强制刷新
+    //===右侧 按键  强制刷新------> 可以只针对 登录用户
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                            target:self
                                                                                            action:@selector(refreshForce)];
@@ -209,11 +209,11 @@
     
     //====base setup 4 scrollView
     
-    [_IB_dataScrollView setFrame:R_MAKE(0, 0, 320, self.view.height)];
+//    [_IB_dataScrollView setFrame:R_MAKE(0, 0, 320, self.view.height)];
     
-    [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
+    if (_IB_dataScrollView.contentSize.height!=370+520+520)
+        [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
     
-//    _IB_dataScrollView.frame =R_MAKE(0, 0, 320, self.view.height-64);
 }
 
 #pragma mark ==== 生成图表  lint skill insight
@@ -285,9 +285,13 @@
     };
     
     
-    self.pieView.frame = R_MAKE(0, 0, 320, 370);
-    self.pieView.layer.showTitles = ShowTitlesAlways;
-    [self.IB_dataScrollView addSubview:self.pieView];
+    if (self.pieView.superview != self.IB_dataScrollView) {
+        
+        self.pieView.frame = R_MAKE(0, 0, 320, 370);
+        self.pieView.layer.showTitles = ShowTitlesAlways;
+        [self.IB_dataScrollView addSubview:self.pieView];
+    }
+    
     
     
     //===标题lable
@@ -320,7 +324,7 @@
     //===延迟三秒   draw
     [self performSelector:@selector(reDrawPieChart)
                withObject:nil
-               afterDelay:1.5];
+               afterDelay:0.5];
 }
 
 -(void)reDrawPieChart
@@ -391,10 +395,12 @@
 #pragma  mark --- private helper method
 -(void)refreshForce
 {
-    SHOW_PROGRESS(self.view);
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-    [[visualClient shareClient] getV_visualizationDataBy:iOctocatDelegate.sharedInstance.currentAccount.login
+    SHOW_PROGRESS(self.view);
+    
+    
+    [[visualClient shareClient] getV_visualizationDataBy:self.currLoginName
                                                         :YES
                                                         :YES
                                                         :^(BOOL succ, id responseObj) {

@@ -39,6 +39,8 @@
 #import "nh_contentNavVC.h"
 #import "AccountVC.h"
 #import "innerDashboardVC.h"
+#import "iOctocatDelegate.h"
+#import "GHAccount.h"
 
 #define kSectionHeaderHeight 24.0f
 
@@ -98,6 +100,9 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     nh_contentNavVC *navContent = (nh_contentNavVC *)baseVC.contentViewController;
     
     innerDashboardVC *innerDashVC = navContent.innerDash_fix;
+    
+    innerDashVC.currLoginName = iOctocatDelegate.sharedInstance.currentAccount.login;
+    innerDashVC.isSelf = YES ;//标识，初始化 是自己的 powerMap
     
     [self openViewController_RN2:innerDashVC];
     
@@ -162,7 +167,21 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
     else {
         [self addOrganizationObservers];
     }
+    
+
+    
 }
+-(void)viewWillAppear:(BOOL)animated
+{ 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    DebugLog(@"%@",self.tableView);
+    //===配置 frame 信息
+    self.view.frame = R_MAKE(self.view.xOrigin, self.view.yOrigin, self.view.width, [UIScreen mainScreen].bounds.size.height);
+    self.tableView.frame = [self.view bounds];
+}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];

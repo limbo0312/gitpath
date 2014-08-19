@@ -62,7 +62,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 #if DEBUG
     [[innerConsole sharedConsole]  enableConsoleMode];
     [[innerConsole sharedConsole]  open_swizzURLConnection];
-//    [CloudInsightSet start_viewerHierarchy];
+    [CloudInsightSet start_viewerHierarchy];
 #endif
     
     

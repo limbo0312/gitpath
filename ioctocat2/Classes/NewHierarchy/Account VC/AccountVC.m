@@ -248,6 +248,7 @@
                                               
                                               innerDashboardVC *innerDash = (innerDashboardVC *)navVC.topViewController;
                                               innerDash.isSelf = YES ;//标识，初始化 是自己的 powerMap
+                                              innerDash.currLoginName = iOctocatDelegate.sharedInstance.currentAccount.login;
                                               
                                               if ([menuVC isKindOfClass:[nh_menuViewController class]]
                                                   &&account.user!=nil) {

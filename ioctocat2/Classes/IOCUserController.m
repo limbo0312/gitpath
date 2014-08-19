@@ -357,6 +357,7 @@
                                                                 innerDash.push_arr = [responseObj objectForKeyOrNil:@"repositories"];
                                                                 
                                                                 innerDash.isSelf = NO;
+                                                                innerDash.currLoginName = self.user.login;//====某个geeker
                                                                 
                                                                 innerDash.title = [NSString stringWithFormat:@"%@ PowerMap",self.user.login];
                                                                 
