@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSString* title;
 
+//===egs add
+@property (nonatomic,strong) NSString *count;
 @end

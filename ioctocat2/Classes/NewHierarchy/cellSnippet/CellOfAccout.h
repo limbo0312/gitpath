@@ -11,5 +11,6 @@
 @interface CellOfAccout : UITableViewCell
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *IB_imgV00;
 
 @end

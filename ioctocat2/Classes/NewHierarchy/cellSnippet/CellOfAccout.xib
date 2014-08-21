@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,10 +17,6 @@
                         <rect key="frame" x="141" y="9" width="38" height="38"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="explore_redar_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="xRT-Sf-oSj">
-                        <rect key="frame" x="131" y="-1" width="58" height="58"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hemingway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY8-Uw-Rpd">
                         <rect key="frame" x="55" y="46" width="210" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,6 +27,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.34901960780000002" green="0.45098039220000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="IB_imgV00" destination="b0J-jb-O8s" id="Rv0-Rz-pnP"/>
+            </connections>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOfAccout2" id="c33-CK-nBc" customClass="CellOfAccout">
             <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
@@ -41,10 +40,6 @@
                 <subviews>
                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="github6.png" translatesAutoresizingMaskIntoConstraints="NO" id="B3X-4q-gqW">
                         <rect key="frame" x="141" y="9" width="38" height="38"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="explore_redar_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="cnX-Fv-9tu">
-                        <rect key="frame" x="131" y="-1" width="58" height="58"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hemingway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw9-CX-O7c">
@@ -58,7 +53,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.34901960780000002" green="0.45098039220000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOfAccout3" id="Anm-VQ-4Hf" customClass="CellOfAccout">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOfAccout3" rowHeight="402" id="Anm-VQ-4Hf" customClass="CellOfAccout">
             <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Anm-VQ-4Hf" id="tSn-2Y-8d2">
@@ -68,10 +63,12 @@
                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="github17.png" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-jb-O8s">
                         <rect key="frame" x="141" y="9" width="38" height="38"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="explore_redar_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="3lX-UQ-Aek">
-                        <rect key="frame" x="131" y="-1" width="58" height="58"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.43529411759999997" green="0.63921568630000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hemingway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PX-QC-jaF">
                         <rect key="frame" x="55" y="46" width="210" height="21"/>
@@ -93,10 +90,6 @@
                 <subviews>
                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="github19.png" translatesAutoresizingMaskIntoConstraints="NO" id="MIM-1M-9S5">
                         <rect key="frame" x="145" y="9" width="38" height="38"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="explore_redar_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-jc-wUK">
-                        <rect key="frame" x="135" y="-1" width="58" height="58"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hemingway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTV-9u-hm6">
@@ -121,10 +114,6 @@
                         <rect key="frame" x="143" y="9" width="38" height="38"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </imageView>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="explore_redar_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="cF1-cG-C1o">
-                        <rect key="frame" x="133" y="-1" width="58" height="58"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hemingway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwk-qr-8yH">
                         <rect key="frame" x="57" y="46" width="210" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -138,7 +127,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="explore_redar_s.png" width="63" height="63"/>
         <image name="github16.png" width="240" height="240"/>
         <image name="github17.png" width="240" height="240"/>
         <image name="github19.png" width="240" height="240"/>

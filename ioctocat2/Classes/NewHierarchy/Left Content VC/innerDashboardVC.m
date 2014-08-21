@@ -36,6 +36,7 @@
 
 //=====
 @property (nonatomic,strong) UILabel * lbl_lintSkill;
+@property (nonatomic,strong) UILabel * lbl_lintCount;
 
 
 @end
@@ -268,6 +269,8 @@
             
             elem.title = [NSString stringWithFormat:@"%@", [dicX objectForKeyOrNil:@"language"]];
             
+            elem.count = [NSString stringWithFormat:@"%@", [dicX objectForKeyOrNil:@"count"]];
+            
             [self.pieView.layer addValues:@[elem] animated:NO];
             
             [self.mArrElementPie addObject:elem];
@@ -285,6 +288,18 @@
     };
     
     
+    __block innerDashboardVC *selfWeak = self;
+    
+    self.pieView.blok = ^(PieElement* elem){
+        
+        //====main 线程 ui
+        dispatch_async(dispatch_get_main_queue(), ^{
+        
+            //====disc
+            selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@"total hint %@",[(xPieElement *)elem count]];
+        });
+    };
+    
     if (self.pieView.superview != self.IB_dataScrollView) {
         
         self.pieView.frame = R_MAKE(0, 0, 320, 370);
@@ -298,25 +313,52 @@
     {
         if (_lbl_lintSkill==nil) {
             
-            _lbl_lintSkill = [[UILabel alloc] initWithFrame:R_MAKE(0, 0, 320, 44)];
+            _lbl_lintSkill = ({
             
-            _lbl_lintSkill.numberOfLines = 1;
-            _lbl_lintSkill.adjustsFontSizeToFitWidth = YES;
-            _lbl_lintSkill.textAlignment = NSTextAlignmentCenter;
-            _lbl_lintSkill.font = kJBFontHeaderTitle;
-            _lbl_lintSkill.textColor = COLOR(183, 227, 227, 1);
-            _lbl_lintSkill.shadowColor = [UIColor blackColor];
-            _lbl_lintSkill.shadowOffset = CGSizeMake(0, 1);
-            _lbl_lintSkill.backgroundColor = [UIColor clearColor];
+                UILabel *lbl = [[UILabel alloc] initWithFrame:R_MAKE(0, 0, 320, 44)];
+                
+                lbl.numberOfLines = 1;
+                lbl.adjustsFontSizeToFitWidth = YES;
+                lbl.textAlignment = NSTextAlignmentCenter;
+                lbl.font = kJBFontHeaderTitle;
+                lbl.textColor = COLOR(183, 227, 227, 1);
+                lbl.shadowColor = [UIColor blackColor];
+                lbl.shadowOffset = CGSizeMake(0, 1);
+                lbl.backgroundColor = [UIColor clearColor];
+                
+                lbl.text = [@"language insight" uppercaseString];
+                
+                
+                [self.IB_dataScrollView  addSubview:lbl];
+                
+                lbl;
+            });
             
-            _lbl_lintSkill.text = [@"language insight" uppercaseString];
-            
-            
-            [self.IB_dataScrollView  addSubview:_lbl_lintSkill];
+            _lbl_lintCount = ({
+                
+                UILabel *lbl = [[UILabel alloc] initWithFrame:R_MAKE(0, 310, 320, 44)];
+                
+                lbl.numberOfLines = 1;
+                lbl.adjustsFontSizeToFitWidth = YES;
+                lbl.textAlignment = NSTextAlignmentCenter;
+                lbl.font = kJBFontHeaderSubtitle;
+                lbl.textColor = COLOR(183, 227, 227, 1);
+                lbl.shadowColor = [UIColor blackColor];
+                lbl.shadowOffset = CGSizeMake(0, 1);
+                lbl.backgroundColor = [UIColor clearColor];
+                
+                lbl.text = @"";
+                
+                
+                [self.IB_dataScrollView  addSubview:lbl];
+                
+                lbl;
+            });
         }
         else
         {
             [self.IB_dataScrollView bringSubviewToFront:_lbl_lintSkill];
+            [self.IB_dataScrollView bringSubviewToFront:_lbl_lintCount];
         }
     }
     

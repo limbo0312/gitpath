@@ -83,6 +83,10 @@
             elem.centrOffset = tappedElem==elem? 20 : 0;
         }
     }];
+    
+    
+    //====>返回选中了 那个 element；
+    _blok(tappedElem);
 }
 
 @end

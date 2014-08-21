@@ -82,12 +82,15 @@
             [self addAccount:nil];
         } else if (self.accounts.count == 1) {
             //===自动登陆：：：
-            [self authenticateAccountAtIndex:0];
+//            [self authenticateAccountAtIndex:0];
         }
 	});
     
     //=== 不显示navBar
     [self.navigationController setNavigationBarHidden:YES];
+    
+    
+
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
@@ -99,6 +102,10 @@
     
 //	[super viewDidAppear:animated];
 //	self.navigationItem.rightBarButtonItem = (self.accounts.count > 0) ? self.editButtonItem : nil;
+    
+    //==== helper lbl
+    _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
+    _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -327,6 +334,7 @@
     CellOfAccout *cell ;
     if (indexPath.row==0) {
          cell = [CellOfAccout xibCell];
+        [cell.IB_imgV00 setTintColor:RamFlatColor];
     }
     if (indexPath.row==1) {
          cell = [CellOfAccout xibCell_2pos];

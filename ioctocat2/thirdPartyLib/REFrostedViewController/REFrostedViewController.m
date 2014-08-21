@@ -202,7 +202,10 @@
         if (REUIKitIsFlatMode() && !self.blurTintColor) {
             self.blurTintColor = [UIColor colorWithWhite:1 alpha:0.75f];
         }
-        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+//        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
+        self.containerViewController.screenshotImage = [[[UIApplication sharedApplication].keyWindow re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
     }
         
     [self re_displayController:self.containerViewController frame:self.contentViewController.view.frame];
@@ -215,7 +218,10 @@
 - (void)hideMenuViewControllerWithCompletionHandler:(void(^)(void))completionHandler
 {
     if (!self.liveBlur) {
-        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+//        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
+        self.containerViewController.screenshotImage = [[[UIApplication sharedApplication].keyWindow re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
         [self.containerViewController refreshBackgroundImage];
     }
     [self.containerViewController hideWithCompletionHandler:completionHandler];
@@ -224,7 +230,10 @@
 - (void)resizeMenuViewControllerToSize:(CGSize)size
 {
     if (!self.liveBlur) {
-        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+//        self.containerViewController.screenshotImage = [[self.contentViewController.view re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
+        self.containerViewController.screenshotImage = [[[UIApplication sharedApplication].keyWindow re_screenshot] re_applyBlurWithRadius:self.blurRadius tintColor:self.blurTintColor saturationDeltaFactor:self.blurSaturationDeltaFactor maskImage:nil];
+        
         [self.containerViewController refreshBackgroundImage];
     }
     [self.containerViewController resizeToSize:size];

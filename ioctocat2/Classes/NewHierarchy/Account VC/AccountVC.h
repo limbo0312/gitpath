@@ -15,6 +15,7 @@
 @property (weak,nonatomic) IBOutlet UITableView * tableView;
 
 
+//==  helper LBL  
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblInspired;
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblEGSDesign;
 
