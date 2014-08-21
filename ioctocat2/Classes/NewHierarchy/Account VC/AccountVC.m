@@ -334,7 +334,22 @@
     CellOfAccout *cell ;
     if (indexPath.row==0) {
          cell = [CellOfAccout xibCell];
-        [cell.IB_imgV00 setTintColor:RamFlatColor];
+//        [cell.IB_imgV00 setTintColor:RamFlatColor];
+        
+        UIImageView *imgV = [[UIImageView alloc] initWithImage:IMAGE(@"github16.png")];
+        
+        imgV.contentMode = UIViewContentModeScaleToFill;
+        imgV.frame = R_MAKE(0, 0, 58, 50);
+        
+        UIBarButtonItem *barBtnView = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"github16.png")
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:nil
+                                                                      action:nil];
+        
+        barBtnView.tintColor = COLOR(155, 126, 12, 1);
+        
+        [cell addSubview:barBtnView.customView];
+        
     }
     if (indexPath.row==1) {
          cell = [CellOfAccout xibCell_2pos];
