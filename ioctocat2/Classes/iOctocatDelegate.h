@@ -8,7 +8,7 @@
 @property(nonatomic,strong)NSString *deviceToken;
 @property(nonatomic,strong)IBOutlet UIWindow *window;
 
-@property(nonatomic,readonly)NSMutableArray *accounts;//账户名字
+@property(nonatomic,readonly)NSMutableArray *accounts;//已经登录的账户信息  list
 
 + (instancetype)sharedInstance;
 + (void)reportWarning:(NSString *)title with:(NSString *)message;

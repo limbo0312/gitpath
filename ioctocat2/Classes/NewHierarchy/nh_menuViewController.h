@@ -23,6 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *IB_headerView;
 
+@property (weak, nonatomic) IBOutlet UIView *IB_catBgColor;
+
+
 - (id)initWithUser:(GHUser *)user;
 - (BOOL)openViewControllerForGitHubURL:(NSURL *)url;
 - (void)openNotificationsController;

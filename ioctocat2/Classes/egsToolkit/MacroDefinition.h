@@ -378,4 +378,6 @@ typedef enum SponiaMySaveType {
 #import "Chameleon.h"
 #define RamFlatColor [UIColor randomFlatColor]
 
+#define RamFlatColor_Shade(x) [UIColor colorWithRandomFlatColorOfShadeStyle:x]
+
 #import "JBConstants.h"

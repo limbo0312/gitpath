@@ -32,7 +32,11 @@
 #import "innerDashboardVC.h"
 
 @interface AccountVC () <IOCAccountFormControllerDelegate>
-@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;
+
+@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;//  old  dataAccount  dic
+
+@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint_X;//  new  dataAccount
+
 @end
 
 
@@ -71,6 +75,7 @@
 		iOctocatDelegate.sharedInstance.currentAccount = nil;
 	}
 	[self handleAccountsChange];
+    
 	[self.tableView reloadData];
  
     
@@ -120,6 +125,9 @@
 
 //====真实已登录的  账户 list
 - (NSMutableArray *)accounts {
+    
+    DebugLog(@"%@",iOctocatDelegate.sharedInstance.accounts);
+    
     return iOctocatDelegate.sharedInstance.accounts;
 }
 
@@ -332,38 +340,11 @@
 //	return cell;
     
     CellOfAccout *cell ;
-    if (indexPath.row==0) {
-         cell = [CellOfAccout xibCell];
-//        [cell.IB_imgV00 setTintColor:RamFlatColor];
-        
-        UIImageView *imgV = [[UIImageView alloc] initWithImage:IMAGE(@"github16.png")];
-        
-        imgV.contentMode = UIViewContentModeScaleToFill;
-        imgV.frame = R_MAKE(0, 0, 58, 50);
-        
-        UIBarButtonItem *barBtnView = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"github16.png")
-                                                                       style:UIBarButtonItemStylePlain
-                                                                      target:nil
-                                                                      action:nil];
-        
-        barBtnView.tintColor = COLOR(155, 126, 12, 1);
-        
-        [cell addSubview:barBtnView.customView];
-        
-    }
-    if (indexPath.row==1) {
-         cell = [CellOfAccout xibCell_2pos];
-    }
-    if (indexPath.row==2) {
-         cell = [CellOfAccout xibCell_3pos];
-    }
-    if (indexPath.row==3) {
-         cell = [CellOfAccout xibCell_4pos];
-    }
-    if (indexPath.row==4) {
-         cell = [CellOfAccout xibCell_5pos];
-    }
     
+     cell = [CellOfAccout xibCell];
+    
+    cell.IB_bgView.backgroundColor = RamFlatColor_Shade(0);
+    cell.IB_lblName.textColor = cell.IB_bgView.backgroundColor;
     
     return cell;
     

@@ -11,6 +11,9 @@
 @interface CellOfAccout : UITableViewCell
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *IB_imgV00;
+
+
+@property (weak, nonatomic) IBOutlet UIView *IB_bgView;
+@property (weak, nonatomic) IBOutlet UILabel *IB_lblName;
 
 @end

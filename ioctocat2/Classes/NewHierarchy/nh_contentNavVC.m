@@ -9,6 +9,8 @@
 #import "nh_contentNavVC.h"
 #import "nh_baseViewController.h"
 #import "innerDashboardVC.h"
+#import "nh_menuViewController.h"
+
 @interface nh_contentNavVC ()
 
 @end
@@ -152,10 +154,14 @@
 #pragma mark private method
 -(void)toggleLeftMenu
 {
-    UIViewController *isBaseVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    nh_baseViewController *isBaseVC = (nh_baseViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     
     if ([isBaseVC isKindOfClass:[nh_baseViewController  class]]) {
-        [(nh_baseViewController *)isBaseVC presentMenuViewController];
+        [isBaseVC presentMenuViewController];
+        
+        nh_menuViewController *isMenuVC = (nh_menuViewController *)isBaseVC.menuViewController;
+        
+        isMenuVC.IB_catBgColor.backgroundColor = RamFlatColor_Shade(0);
     }
 }
 
