@@ -117,8 +117,6 @@
                                                                 
                                                             }];
     }
-        
-
     else
     {
         if ([_lint_arr count]!=0
@@ -152,7 +150,7 @@
         
         self.push_arr = [responseObj objectForKeyOrNil:@"repositories"];
     }
-    else
+    else// nil  其他家伙的  powerMap
     {
         //==insight  some guyGeeker
         if (self.lint_arr==nil) {
@@ -296,7 +294,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
         
             //====disc
-            selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@"total hint %@",[(xPieElement *)elem count]];
+            if ([(xPieElement *)elem count]>0) {
+                selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@"total hint %@",[(xPieElement *)elem count]];                
+            }
+            else
+            {
+                selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@""];
+            }
+
         });
     };
     
@@ -305,6 +310,7 @@
         self.pieView.frame = R_MAKE(0, 0, 320, 370);
         self.pieView.layer.showTitles = ShowTitlesAlways;
         [self.IB_dataScrollView addSubview:self.pieView];
+        
     }
     
     

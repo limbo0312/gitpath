@@ -333,6 +333,9 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 			}
 		}
 	}
+    
+    //====起始配置 account arr
+    DebugLog(@"%@",self.accounts);
 }
 
 //main VCHierarchy

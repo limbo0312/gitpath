@@ -11,6 +11,12 @@
 #import "innerDashboardVC.h"
 #import "nh_menuViewController.h"
 
+//===
+#import "iOctocatDelegate.h"
+#import "GHAccount.h"
+#import "GHUser.h"
+
+
 @interface nh_contentNavVC ()
 
 @end
@@ -161,7 +167,16 @@
         
         nh_menuViewController *isMenuVC = (nh_menuViewController *)isBaseVC.menuViewController;
         
+        
+        //====配置menuVC  的 headerView
         isMenuVC.IB_catBgColor.backgroundColor = RamFlatColor_Shade(0);
+        isMenuVC.IB_visualThisGuy.textColor = isMenuVC.IB_catBgColor.backgroundColor;
+        isMenuVC.IB_visualThisGuy.text = [NSString stringWithFormat:@"Visualise %@",iOctocatDelegate.sharedInstance.currentAccount.user.login];
+        
+        [isMenuVC.IB_realAvarImg MakePerfectCircle];
+        [isMenuVC.IB_realAvarImg setImageWithURL_SD:iOctocatDelegate.sharedInstance.currentAccount.user.gravatarURL
+                                   placeholderImage:iOctocatDelegate.sharedInstance.currentAccount.user.gravatar];
+        
     }
 }
 

@@ -381,3 +381,6 @@ typedef enum SponiaMySaveType {
 #define RamFlatColor_Shade(x) [UIColor colorWithRandomFlatColorOfShadeStyle:x]
 
 #import "JBConstants.h"
+
+//SDWEB  main use 
+#import "UIImageView+WebCache.h"

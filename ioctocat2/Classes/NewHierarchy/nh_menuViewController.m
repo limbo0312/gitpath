@@ -45,7 +45,8 @@
 #define kSectionHeaderHeight 24.0f
 
 @interface nh_menuViewController ()
-@property(nonatomic,strong)GHUser *user;
+
+@property(nonatomic,strong)GHUser *currUser;
 @property(nonatomic,strong)NSArray *menu;
 @property(nonatomic,assign)BOOL isObservingOrganizations;
 
@@ -62,11 +63,14 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	if (self) {
 		NSString *menuPath = [[NSBundle mainBundle] pathForResource:@"Menu" ofType:@"plist"];
 		self.menu = [NSArray arrayWithContentsOfFile:menuPath];
-		self.user = user;
+		self.currUser = user;
 		self.isObservingOrganizations = NO;
-		[self.user addObserver:self forKeyPath:GravatarKeyPath options:NSKeyValueObservingOptionNew context:nil];
-		[self.user addObserver:self forKeyPath:NotificationsCountKeyPath options:NSKeyValueObservingOptionNew context:nil];
-        self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.user];
+		[self.currUser addObserver:self forKeyPath:GravatarKeyPath
+                           options:NSKeyValueObservingOptionNew
+                           context:nil];
+		[self.currUser addObserver:self
+                        forKeyPath:NotificationsCountKeyPath options:NSKeyValueObservingOptionNew context:nil];
+        self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.currUser];
 	    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillAppear:) name:ECSlidingViewUnderLeftWillAppear object:nil];
     }
 	return self;
@@ -77,13 +81,31 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 {
     NSString *menuPath = [[NSBundle mainBundle] pathForResource:@"Menu" ofType:@"plist"];
     self.menu = [NSArray arrayWithContentsOfFile:menuPath];
-    self.user = user;
+    self.currUser = user;
     self.isObservingOrganizations = NO;
-    [self.user addObserver:self forKeyPath:GravatarKeyPath options:NSKeyValueObservingOptionNew context:nil];
-    [self.user addObserver:self forKeyPath:NotificationsCountKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    [self.currUser addObserver:self
+                    forKeyPath:GravatarKeyPath
+                       options:NSKeyValueObservingOptionNew context:nil];
+    [self.currUser addObserver:self
+                    forKeyPath:NotificationsCountKeyPath
+                       options:NSKeyValueObservingOptionNew context:nil];
     
-    self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.user];
+    self.initialViewController = nil;
+    self.initialViewController = [[IOCMyEventsController alloc] initWithUser:self.currUser];
     
+    
+    //====配置menuVC  的 headerView
+    if (self.IB_catBgColor) {
+        
+        self.IB_catBgColor.backgroundColor = RamFlatColor_Shade(0);
+        self.IB_visualThisGuy.textColor = self.IB_catBgColor.backgroundColor;
+        self.IB_visualThisGuy.text = [NSString stringWithFormat:@"Visualise %@",iOctocatDelegate.sharedInstance.currentAccount.user.login];
+        
+        [self.IB_realAvarImg MakePerfectCircle];
+        [self.IB_realAvarImg setImageWithURL_SD:iOctocatDelegate.sharedInstance.currentAccount.user.gravatarURL
+                                   placeholderImage:iOctocatDelegate.sharedInstance.currentAccount.user.gravatar];
+        
+    }
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(menuWillAppear:)
@@ -111,8 +133,8 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:ECSlidingViewUnderLeftWillAppear object:nil];
 	[self removeOrganizationObservers];
-	[self.user removeObserver:self forKeyPath:GravatarKeyPath];
-	[self.user removeObserver:self forKeyPath:NotificationsCountKeyPath];
+	[self.currUser removeObserver:self forKeyPath:GravatarKeyPath];
+	[self.currUser removeObserver:self forKeyPath:NotificationsCountKeyPath];
 }
 
 - (void)menuWillAppear:(id)notification {
@@ -142,15 +164,15 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 //    [self openViewController:self.initialViewController];
 //    // load resources
 //    if (![self.initialViewController isKindOfClass:IOCNotificationsController.class]) {
-//        [self.user.notifications loadWithSuccess:^(GHResource *instance, id data) {
+//        [self.currUser.notifications loadWithSuccess:^(GHResource *instance, id data) {
 //            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 //        }];
 //    }
-    if (self.user.organizations.isUnloaded) {
+    if (self.currUser.organizations.isUnloaded) {
         [self removeOrganizationObservers];
         // success is handled by the KVO hook
-        [self.user.organizations loadWithParams:nil
+        [self.currUser.organizations loadWithParams:nil
                                           start:nil
                                         success:^(GHResource *instance, id data){
             [self addOrganizationObservers];
@@ -168,11 +190,14 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
         [self addOrganizationObservers];
     }
     
-
     
 }
 -(void)viewWillAppear:(BOOL)animated
-{ 
+{
+    DebugLog(@"viewAppear");
+    
+    
+    [self.tableView reloadData];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -207,7 +232,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 - (void)addOrganizationObservers {
 	if (self.isObservingOrganizations) return;
-	for (GHOrganization *org in self.user.organizations.items) {
+	for (GHOrganization *org in self.currUser.organizations.items) {
 		[org addObserver:self forKeyPath:GravatarKeyPath options:NSKeyValueObservingOptionNew context:nil];
 	}
 	self.isObservingOrganizations = YES;
@@ -215,7 +240,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 
 - (void)removeOrganizationObservers {
 	if (!self.isObservingOrganizations) return;
-	for (GHOrganization *org in self.user.organizations.items) {
+	for (GHOrganization *org in self.currUser.organizations.items) {
 		[org removeObserver:self forKeyPath:GravatarKeyPath];
 	}
 	self.isObservingOrganizations = NO;
@@ -281,8 +306,6 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
             DebugLog(@"%@",viewController);
             
         }
-        
-        
     }
 }
 
@@ -326,7 +349,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 }
 
 - (void)openNotificationsController {
-    IOCNotificationsController *viewController = [[IOCNotificationsController alloc] initWithNotifications:self.user.notifications];
+    IOCNotificationsController *viewController = [[IOCNotificationsController alloc] initWithNotifications:self.currUser.notifications];
     if (self.isViewLoaded) {
         [self openViewController:viewController];
     } else {
@@ -338,7 +361,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 // notifications controller, so that the user can pop back to that context.
 // also marks the notificaton as read.
 - (void)openNotificationControllerWithId:(NSInteger)notificationId url:(NSURL *)subjectURL {
-    GHNotifications *notifications = self.user.notifications;
+    GHNotifications *notifications = self.currUser.notifications;
     [notifications loadWithSuccess:^(GHResource *instance, id data) {
         // load notificatons in advance, so that we can mark the accessed
         // notification as read, so that it is marked when going back
@@ -391,7 +414,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rowCount = [self.menu[section] count];
 	if (section == 1) {
-		rowCount += self.user.organizations.count;
+		rowCount += self.currUser.organizations.count;
 	}
 	return rowCount;
 }
@@ -446,7 +469,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	if (section == 1) {
 		// object is either a user or an organization.
 		// both have gravatar, name and login properties.
-		GHUser *object = (row == 0) ? self.user : self.user.organizations[row - 1];
+		GHUser *object = (row == 0) ? self.currUser : self.currUser.organizations[row - 1];
 		UIImage *image = object.gravatar;
 		if (!image) image = [UIImage imageNamed:@"AvatarBackground32.png"];
 		cell.imageView.image = image;
@@ -460,7 +483,7 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Menu%@.png", imageName]];
 		}
 	}
-	cell.badgeLabel.text = (section == 0) ? [NSString stringWithFormat:@"%d", self.user.notifications.unreadCount]: nil;
+	cell.badgeLabel.text = (section == 0) ? [NSString stringWithFormat:@"%d", self.currUser.notifications.unreadCount]: nil;
     
      
     
@@ -474,17 +497,17 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 	switch (section) {
             case 0:
 			if (row == 0) {
-				viewController = [[IOCNotificationsController alloc] initWithNotifications:self.user.notifications];
+				viewController = [[IOCNotificationsController alloc] initWithNotifications:self.currUser.notifications];
 				viewController.title = @"Notifications";
 			}
 			break;
             
             case 1:
 			if (row == 0) {
-				viewController = [[IOCMyEventsController alloc] initWithUser:self.user];
+				viewController = [[IOCMyEventsController alloc] initWithUser:self.currUser];
 				viewController.title = @"My Events";
 			} else {
-				GHOrganization *org = self.user.organizations[row - 1];
+				GHOrganization *org = self.currUser.organizations[row - 1];
 				viewController = [[IOCEventsController alloc] initWithEvents:org.events];
 				viewController.title = org.login;
 			}
@@ -492,40 +515,40 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 			
             case 2:
 			if (row == 0) {
-				viewController = [[IOCUserController alloc] initWithUser:self.user];
+				viewController = [[IOCUserController alloc] initWithUser:self.currUser];
 				viewController.title = @"My Profile";
 			} else if (row == 1) {
-				viewController = [[IOCOrganizationsController alloc] initWithOrganizations:self.user.organizations];
+				viewController = [[IOCOrganizationsController alloc] initWithOrganizations:self.currUser.organizations];
 				viewController.title = @"My Organizations";
 			}
 			break;
 			
             case 3:
 			if (row == 0) {
-				viewController = [[IOCMyRepositoriesController alloc] initWithUser:self.user];
+				viewController = [[IOCMyRepositoriesController alloc] initWithUser:self.currUser];
 				viewController.title = @"Personal Repos";
 			} else if (row == 1) {
-				viewController = [[IOCOrganizationRepositoriesController alloc] initWithUser:self.user];
+				viewController = [[IOCOrganizationRepositoriesController alloc] initWithUser:self.currUser];
 				viewController.title = @"Organization Repos";
 			} else if (row == 2) {
-				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.user.watchedRepositories];
+				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.currUser.watchedRepositories];
 				viewController.title = @"Watched Repos";
 			} else if (row == 3) {
-				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.user.starredRepositories];
+				viewController = [[IOCRepositoriesController alloc] initWithRepositories:self.currUser.starredRepositories];
 				viewController.title = @"Starred Repos";
 			} else if (row == 4) {
-				viewController = [[IOCIssuesController alloc] initWithUser:self.user];
+				viewController = [[IOCIssuesController alloc] initWithUser:self.currUser];
 				viewController.title = @"My Issues";
 			}
 			break;
 			
             case 4:
 			if (row == 0) {
-				viewController = [[IOCGistsController alloc] initWithGists:self.user.gists];
+				viewController = [[IOCGistsController alloc] initWithGists:self.currUser.gists];
 				viewController.title = @"Personal Gists";
 				[(IOCGistsController *)viewController setHideUser:YES];
 			} else if (row == 1) {
-				viewController = [[IOCGistsController alloc] initWithGists:self.user.starredGists];
+				viewController = [[IOCGistsController alloc] initWithGists:self.currUser.starredGists];
 				viewController.title = @"Starred Gists";
 			}
 			break;

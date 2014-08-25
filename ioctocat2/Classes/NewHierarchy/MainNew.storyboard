@@ -170,6 +170,10 @@
                                             <action selector="openInsightPower:" destination="igT-IH-QbH" eventType="touchUpInside" id="Fak-sN-OzB"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mad-KE-3pf">
+                                        <rect key="frame" x="109" y="38" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -181,6 +185,8 @@
                     <connections>
                         <outlet property="IB_catBgColor" destination="ghn-hH-ZvP" id="lQz-9b-caW"/>
                         <outlet property="IB_headerView" destination="mbB-hl-3an" id="Trl-Yf-ddj"/>
+                        <outlet property="IB_realAvarImg" destination="Mad-KE-3pf" id="hsu-tZ-wXc"/>
+                        <outlet property="IB_visualThisGuy" destination="BKH-CF-I1B" id="5vP-LM-w7h"/>
                         <outlet property="tableView" destination="5ZA-eL-s4F" id="Dev-7T-fhK"/>
                         <outlet property="view" destination="Px9-mI-tBZ" id="KCs-tg-CIT"/>
                     </connections>

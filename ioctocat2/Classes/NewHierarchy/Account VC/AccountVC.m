@@ -198,9 +198,12 @@
 		}
 		[self.accountsByEndpoint[host] addObject:account];
 	}
+    
 	// update UI
 	self.navigationItem.rightBarButtonItem = (self.accounts.count > 0) ? self.editButtonItem : nil;
-	if (self.accounts.count == 0) self.editing = NO;
+    
+	if (self.accounts.count == 0)
+        self.editing = NO;
 }
 
 - (NSUInteger)accountIndexFromIndexPath:(NSIndexPath *)indexPath {
@@ -261,9 +264,23 @@
                                               nh_menuViewController *menuVC = (nh_menuViewController *)baseVC.menuViewController;
                                               nh_contentNavVC *navVC = (nh_contentNavVC *)baseVC.contentViewController;
                                               
-                                              innerDashboardVC *innerDash = (innerDashboardVC *)navVC.topViewController;
-                                              innerDash.isSelf = YES ;//标识，初始化 是自己的 powerMap
-                                              innerDash.currLoginName = iOctocatDelegate.sharedInstance.currentAccount.login;
+                                              id innerDash = navVC.topViewController;
+                                              
+                                              if ([innerDash isKindOfClass:[innerDashboardVC class]]) {
+                                                  //标识，初始化 是自己的 powerMap
+                                                  innerDashboardVC *innerDash_Yes = (innerDashboardVC *)innerDash;
+                                                  innerDash_Yes.isSelf = YES ;
+                                                  innerDash_Yes.currLoginName = iOctocatDelegate.sharedInstance.currentAccount.login;
+                                              }
+                                              else
+                                              {
+                                                  //====新用户切换，都从 innerDash 开始
+                                                  navVC.innerDash_fix.isSelf = YES ;//标识，初始化 是自己的 powerMap
+                                                  navVC.innerDash_fix.currLoginName = iOctocatDelegate.sharedInstance.currentAccount.login;
+                                                  
+                                                  [navVC setViewControllers:@[navVC.innerDash_fix]];
+                                              }
+
                                               
                                               if ([menuVC isKindOfClass:[nh_menuViewController class]]
                                                   &&account.user!=nil) {
@@ -303,8 +320,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 5;
-//	return [[self accountsInSection:section] count];
+//    return 5;
+    
+//	return   [[self accountsInSection:section] count];
+    
+    NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
+    
+    return  [self.accountsByEndpoint[host] count]+1; //已经存有的账号 +   add Btn
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -346,15 +368,40 @@
     cell.IB_bgView.backgroundColor = RamFlatColor_Shade(0);
     cell.IB_lblName.textColor = cell.IB_bgView.backgroundColor;
     
+    //===account Obj setup===
+    NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
+    NSArray *githubAccArr = self.accountsByEndpoint[host];
+    
+    GHAccount *account = [githubAccArr objectAtIndexSavely:indexPath.row];
+    if (account) {
+        //配置已经账号 list
+        
+        [cell setupAccout:account
+                         :NO];
+    }
+    else
+    {//===配置  add Account btn
+        [cell setupAccout:nil
+                         :YES];
+    }
+    
+    
+    
+    
     return cell;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //===account Obj setup===
+    NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
+    NSArray *githubAccArr = self.accountsByEndpoint[host];
+    
+    GHAccount *account = [githubAccArr objectAtIndexSavely:indexPath.row];
+    
     //=== 执行已经存在账户的授权
-    if (indexPath.row <= [self.accounts count]
-        &&[self.accounts count]!=0) {
+    if (account) {
         NSUInteger idx = [self accountIndexFromIndexPath:indexPath];
         [self authenticateAccountAtIndex:idx];
     }
