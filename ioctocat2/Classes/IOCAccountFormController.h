@@ -13,4 +13,8 @@
 @property(nonatomic,weak)id<IOCAccountFormControllerDelegate> delegate;
 
 - (id)initWithAccount:(GHAccount *)account andIndex:(NSUInteger)idx;
+
+//===选中登陆类型
+- (IBAction)selectAccountType:(UIButton *)sender ;
+
 @end

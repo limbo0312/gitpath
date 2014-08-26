@@ -68,4 +68,36 @@
     [_IB_realAvartar MakePerfectCircle];
 }
 
+//====自动布局  cell detail
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    //===禁止滑动
+    id scrolV = [[self subviews] objectAtIndexSavely:0];
+    if ([NSStringFromClass([scrolV class]) isEqualToString:@"UITableViewCellScrollView"]) {
+        
+        UIScrollView *scrollV = (UIScrollView *)scrolV;
+        scrollV.scrollEnabled = NO ;
+        
+        scrollV.backgroundColor = [UIColor clearColor];
+    }
+    
+    
+    for (UIView *subview in [[[self subviews] objectAtIndexSavely:0] subviews]) {
+        
+        DebugLog(@"%@",NSStringFromClass([subview class]));
+        
+        //===删除按钮字号减小 111
+        if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
+            
+            id lblX = [[[[subview  subviews]objectAtIndexSavely:0]  subviews] objectAtIndexSavely:0];
+            if ([lblX isKindOfClass:[UILabel class]]) {
+                UILabel *lbl = (UILabel *)lblX;
+                lbl.font = [UIFont systemFontOfSize:12];
+            }
+        }
+        
+    }
+}
 @end

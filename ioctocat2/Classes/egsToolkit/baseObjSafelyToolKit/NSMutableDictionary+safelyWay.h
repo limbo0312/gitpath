@@ -12,4 +12,8 @@
 
 //====避免set 入 nil
 -(void)setObjectSafely:(id)anObject forKey:(id<NSCopying>)aKey;
+
+ 
+
+
 @end

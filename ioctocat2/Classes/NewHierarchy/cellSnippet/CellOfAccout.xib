@@ -42,6 +42,7 @@
                 </subviews>
                 <color key="backgroundColor" red="0.34901960780000002" green="0.45098039220000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.50196078430000002" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="IB_bgView" destination="sAi-fO-6dx" id="LmV-GU-UmN"/>
                 <outlet property="IB_lblName" destination="0PX-QC-jaF" id="mKL-xR-TOy"/>

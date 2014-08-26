@@ -76,6 +76,10 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [iOctocatDelegate.sharedInstance addObserver:self forKeyPath:DeviceTokenKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    
+    
+    //==隐藏 navBar...  egs add
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -193,8 +197,12 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     UIViewAnimationOptions flip = self.accountType == IOCAccountTypeGitHubCom ?
         UIViewAnimationOptionTransitionFlipFromRight :
         UIViewAnimationOptionTransitionFlipFromLeft;
+    
     UIViewAnimationOptions opts = (UIViewAnimationOptionShowHideTransitionViews | flip);
-    [UIView transitionFromView:self.accountTypeView toView:self.accountFormView duration:0.4f options:opts completion:nil];
+    
+    [UIView transitionFromView:self.accountTypeView
+                        toView:self.accountFormView
+                      duration:0.4f options:opts completion:nil];
 	
     if (self.accountType == IOCAccountTypeGitHubCom) {
         [self.loginField becomeFirstResponder];

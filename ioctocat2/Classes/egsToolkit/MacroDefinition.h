@@ -384,3 +384,15 @@ typedef enum SponiaMySaveType {
 
 //SDWEB  main use 
 #import "UIImageView+WebCache.h"
+
+
+
+//==>safely helper
+#import "NSObject+safelyOrNil.h"
+#import "NSDictionary+safelyWay.h"
+#import "NSArray+objectSavely.h"
+#import "NSMutableDictionary+safelyWay.h"
+#import "NSMutableArray+objectSavely.h"
+#import "egsFilter_KillNull.h"//
+
+

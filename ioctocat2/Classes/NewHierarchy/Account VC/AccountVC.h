@@ -14,9 +14,13 @@
 @property (weak,nonatomic) IBOutlet UITableView * tableView;
 
 
-//==  helper LBL  
+//==  IB  group
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblInspired;
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblEGSDesign;
 
+@property (weak, nonatomic) IBOutlet UISwitch *IB_autoLogin;
+@property (weak, nonatomic) IBOutlet UILabel *IB_helperLblAuto;
+
+@property (weak, nonatomic) IBOutlet UIButton *IB_editBtn;
 
 @end

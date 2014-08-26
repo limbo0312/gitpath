@@ -35,9 +35,14 @@
 
 @property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint;//  old  dataAccount  dic
 
-@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint_X;//  new  dataAccount
+//@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint_X;//  new  dataAccount
 
 @end
+
+
+//===account Obj setup===
+#define kGithubAccArr_Inner  ((NSMutableArray *)self.accountsByEndpoint[[[NSURL URLWithString:@"http://github.com"] host]])
+
 
 
 @implementation AccountVC
@@ -45,6 +50,8 @@
 
 -(void)viewDidLoad
 {
+
+    
     [super viewDidLoad];
     
     _IB_lblInspired.center = CGPointMake(self.view.center.x,
@@ -93,9 +100,23 @@
     
     //=== 不显示navBar
     [self.navigationController setNavigationBarHidden:YES];
-    
+    self.navigationController.navigationBar.tintColor = COLOR(74 , 77 , 105, 1);
     
 
+    //===IB group 放置到view 外面
+    {
+        
+        _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                           [UIScreen mainScreen].bounds.size.height+30);
+        
+        _IB_helperLblAuto.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                               [UIScreen mainScreen].bounds.size.height+30);
+        
+    }
+
+    
+
+    
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
@@ -111,12 +132,45 @@
     //==== helper lbl
     _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
     _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
+    
+    [self performSelector:@selector(animationMake4Lbl)
+               withObject:nil
+               afterDelay:1.0];
+}
+
+-(void)animationMake4Lbl
+{
+    
+    
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         
+                         if (_IB_lblInspired.center.y != [UIScreen mainScreen].bounds.size.height-50)
+                         {
+                             _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
+                             _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
+                         }
+                         
+                         
+                         _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                                            [UIScreen mainScreen].bounds.size.height-110);
+                         
+                         _IB_helperLblAuto.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                                                [UIScreen mainScreen].bounds.size.height-80);
+                     }];
+    
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	self.navigationItem.rightBarButtonItem = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ECSlidingViewTopDidAnchorRight object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:ECSlidingViewTopDidAnchorRight
+                                                  object:nil];
 }
 
 - (void)menuMovedOff {
@@ -194,7 +248,7 @@
         // use hosts as key, because there might be slight differences in the full URL notation
         NSString *host = [[NSURL URLWithString:endpoint] host];
 		if (!self.accountsByEndpoint[host]) {
-			self.accountsByEndpoint[host] = [NSMutableArray array];
+			self.accountsByEndpoint[host] = [NSMutableArray array];//========可变mArr
 		}
 		[self.accountsByEndpoint[host] addObject:account];
 	}
@@ -232,8 +286,25 @@
                                                                                         andIndex:idx];
 	viewController.delegate = self;
     
+    //=== helper method
+    {
+        [viewController view];
+        
+        [viewController selectAccountType:({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+            btn.tag = 1 ;
+            btn;
+        })];
+    }
+    
+    //==隐藏 navBar...  egs add
+//    [self.navigationController setNavigationBarHidden:YES];
+    
+    
 	[self.navigationController pushViewController:viewController
                                          animated:YES];
+    
+    
 }
 
 - (IBAction)toggleEditAccounts:(id)sender {
@@ -326,7 +397,7 @@
     
     NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
     
-    return  [self.accountsByEndpoint[host] count]+1; //已经存有的账号 +   add Btn
+    return  [kGithubAccArr_Inner count]+1; //已经存有的账号 +   add Btn
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -372,10 +443,10 @@
     NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
     NSArray *githubAccArr = self.accountsByEndpoint[host];
     
-    GHAccount *account = [githubAccArr objectAtIndexSavely:indexPath.row];
+    GHAccount *account = [kGithubAccArr_Inner objectAtIndexSavely:indexPath.row];
+    
     if (account) {
         //配置已经账号 list
-        
         [cell setupAccout:account
                          :NO];
     }
@@ -383,6 +454,10 @@
     {//===配置  add Account btn
         [cell setupAccout:nil
                          :YES];
+        
+        //==固定颜色
+        cell.IB_bgView.backgroundColor = [UIColor flatBlackColor];
+        cell.IB_lblName.textColor = cell.IB_bgView.backgroundColor;
     }
     
     
@@ -416,10 +491,85 @@
 
 #pragma mark Editing
 
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-//
+//是否允许：编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DebugLog(@"can edit row at %d",indexPath.row);
+    if (indexPath.row < [kGithubAccArr_Inner count]) {
+        return YES;
+    }
+    
+    return NO;
+    
+}
+//单元格返回的编辑风格，包括删除 添加 和 默认  和不可编辑三种风格
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+//===删除 action
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        
+        //===删除 obj
+        [self.tableView beginUpdates];
+        
+        [kGithubAccArr_Inner removeObjectAtIndex:indexPath.row];
+        
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath]
+                             withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+        [self.tableView endUpdates];
+        
+        
+    }
+    
+}
+
+//===是否允许移动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    DebugLog(@"can move row at %d",indexPath.row);
+    
+    if (indexPath.row < [kGithubAccArr_Inner count]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+//===移动操作
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    DebugLog(@"sourceIndexPath %d",sourceIndexPath.row);
+    DebugLog(@"destinationIndexPath %d",destinationIndexPath.row);
+    
+    
+    if (sourceIndexPath.row != destinationIndexPath.row
+        &&destinationIndexPath.row != [kGithubAccArr_Inner count]+1-1
+        &&sourceIndexPath.row != [kGithubAccArr_Inner count]+1-1)
+    {
+        //    需要的移动行
+        NSInteger fromRow = [sourceIndexPath row];
+        //    获取移动某处的位置
+        NSInteger toRow = [destinationIndexPath row];
+        //    从数组中读取需要移动行的数据
+        id object = [kGithubAccArr_Inner objectAtIndex:fromRow];
+        //    在数组中移动需要移动的行的数据
+        [kGithubAccArr_Inner removeObjectAtIndex:fromRow];
+        //    把需要移动的单元格数据在数组中，移动到想要移动的数据前面
+        [kGithubAccArr_Inner insertObjectSafely:object atIndex:toRow];
+        
+        //===update account arr
+        
+    }
+    
+    [tableView reloadData];
+}
+
 //- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return NO;
 //}
@@ -447,4 +597,26 @@
 //    return sourceIndexPath;
 //}
 
+
+#pragma mark -- main method --
+- (IBAction)action_edit:(id)sender {
+    
+    UIButton *btnSelf = (UIButton *)sender;
+    
+    if ([btnSelf.titleLabel.text isEqualToString:@"edit"]) {
+        
+        [btnSelf setTitle:@"done" forState:UIControlStateNormal];
+        
+        [self.tableView setEditing:YES animated:YES];
+    }
+    else if ([btnSelf.titleLabel.text isEqualToString:@"done"])
+    {
+        [btnSelf setTitle:@"edit" forState:UIControlStateNormal];
+        
+        [self.tableView setEditing:NO animated:YES];
+        
+//        [self.tableView reloadData];//设定 mainTeam
+    }
+    
+}
 @end
