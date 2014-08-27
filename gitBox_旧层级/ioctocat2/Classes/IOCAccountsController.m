@@ -285,8 +285,8 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromPath toIndexPath:(NSIndexPath *)toPath {
     if (toPath.row != fromPath.row) {
-        [self.accounts ioc_moveObjectFromIndex:fromPath.row toIndex:toPath.row];
-        [self handleAccountsChange];
+        [self.accounts ioc_moveObjectFromIndex:fromPath.row toIndex:toPath.row];//mArr 的移动
+        [self handleAccountsChange];//保存更改 save
     }
 }
 

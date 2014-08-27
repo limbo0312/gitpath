@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountVC : UIViewController
+@interface AccountVC : UIViewController<UIActionSheetDelegate>
 
 
 @property (weak,nonatomic) IBOutlet UITableView * tableView;
@@ -22,5 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *IB_helperLblAuto;
 
 @property (weak, nonatomic) IBOutlet UIButton *IB_editBtn;
+
+
+//====授权  最新  save  那个
+- (void)authenticateAccountAtIndex_Last;
 
 @end

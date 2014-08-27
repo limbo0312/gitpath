@@ -37,6 +37,8 @@
 
 //@property(nonatomic,strong)NSMutableDictionary *accountsByEndpoint_X;//  new  dataAccount
 
+@property (nonatomic,assign)NSInteger indexWaitAction;
+//@property(nonatomic,strong)NSIndexPath *indexPathWaitAction;
 @end
 
 
@@ -54,11 +56,11 @@
     
     [super viewDidLoad];
     
-    _IB_lblInspired.center = CGPointMake(self.view.center.x,
-                                         self.view.height-71);
-
-    _IB_lblEGSDesign.center = CGPointMake(self.view.center.x,
-                                         self.view.height-48);
+    
+    _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                         [UIScreen mainScreen].bounds.size.height-50);
+    _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                          [UIScreen mainScreen].bounds.size.height-30);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,8 +100,7 @@
         }
 	});
     
-    //=== 不显示navBar
-    [self.navigationController setNavigationBarHidden:YES];
+    
     self.navigationController.navigationBar.tintColor = COLOR(74 , 77 , 105, 1);
     
 
@@ -115,15 +116,28 @@
     }
 
     
-
-    
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO];
+    //===IB group 放置到view 外面
+    {
+        _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                           [UIScreen mainScreen].bounds.size.height+30);
+        
+        _IB_helperLblAuto.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                               [UIScreen mainScreen].bounds.size.height+30);
+        
+        //==== helper lbl
+        _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
+        _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
+    }
+    
 }
 - (void)viewDidAppear:(BOOL)animated {
 
+    //=== 不显示navBar
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
 #warning 暂时屏蔽 2
     
 //	[super viewDidAppear:animated];
@@ -133,9 +147,11 @@
     _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
     _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
     
+    
+    
     [self performSelector:@selector(animationMake4Lbl)
                withObject:nil
-               afterDelay:1.0];
+               afterDelay:0.5];
 }
 
 -(void)animationMake4Lbl
@@ -143,7 +159,7 @@
     
     
     
-    [UIView animateWithDuration:0.25
+    [UIView animateWithDuration:0.5
                      animations:^{
                          
                          if (_IB_lblInspired.center.y != [UIScreen mainScreen].bounds.size.height-50)
@@ -154,10 +170,10 @@
                          
                          
                          _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
-                                                            [UIScreen mainScreen].bounds.size.height-110);
+                                                            [UIScreen mainScreen].bounds.size.height-85);
                          
                          _IB_helperLblAuto.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
-                                                                [UIScreen mainScreen].bounds.size.height-80);
+                                                                [UIScreen mainScreen].bounds.size.height-63);
                      }];
     
     
@@ -203,13 +219,20 @@
 	}
 }
 
-- (void)removeAccountAtIndex:(NSUInteger)idx callback:(void (^)(NSUInteger idx))callback {
-    if (idx == NSNotFound) return;
+- (void)removeAccountAtIndex:(NSUInteger)idx
+                    callback:(void (^)(NSUInteger idx))callback {
+    
+    if (idx == NSNotFound)
+        return;
+    
     GHAccount *account = [self.accounts objectAtIndex:idx];
     [IOCDefaultsPersistence removeAccount:account];
     [self.accounts removeObjectAtIndex:idx];
+    
 	[self handleAccountsChange];
-    if (callback) callback(idx);
+    
+    if (callback)
+        callback(idx);
 }
 
 - (NSUInteger)indexOfAccountWithLogin:(NSString *)login endpoint:(NSString *)endpoint {
@@ -316,6 +339,10 @@
 }
 
 //===== key method:  执行关键登陆授权
+- (void)authenticateAccountAtIndex_Last
+{
+    [self authenticateAccountAtIndex:[self.accounts count]-1];
+}
 
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = self.accounts[idx];
@@ -397,7 +424,7 @@
     
     NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
     
-    return  [kGithubAccArr_Inner count]+1; //已经存有的账号 +   add Btn
+    return  [self.accounts count]+1; //已经存有的账号 +   add Btn
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -440,15 +467,20 @@
     cell.IB_lblName.textColor = cell.IB_bgView.backgroundColor;
     
     //===account Obj setup===
-    NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
-    NSArray *githubAccArr = self.accountsByEndpoint[host];
+//    NSString *host = [[NSURL URLWithString:@"http://github.com"] host];
+//    NSArray *githubAccArr = self.accountsByEndpoint[host];
     
-    GHAccount *account = [kGithubAccArr_Inner objectAtIndexSavely:indexPath.row];
+    GHAccount *account = [self.accounts objectAtIndexSavely:indexPath.row];//[self.accounts objectAtIndexSavely:indexPath.row];
     
     if (account) {
         //配置已经账号 list
         [cell setupAccout:account
                          :NO];
+        
+        if (indexPath.row==0)
+            cell.IB_autoFlag.hidden = NO ;
+        else
+            cell.IB_autoFlag.hidden = YES ;
     }
     else
     {//===配置  add Account btn
@@ -458,6 +490,7 @@
         //==固定颜色
         cell.IB_bgView.backgroundColor = [UIColor flatBlackColor];
         cell.IB_lblName.textColor = cell.IB_bgView.backgroundColor;
+        cell.IB_autoFlag.hidden = YES ;
     }
     
     
@@ -495,7 +528,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DebugLog(@"can edit row at %d",indexPath.row);
-    if (indexPath.row < [kGithubAccArr_Inner count]) {
+    if (indexPath.row < [self.accounts count]) {
         return YES;
     }
     
@@ -511,19 +544,26 @@
 //===删除 action
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         
         //===删除 obj
         [self.tableView beginUpdates];
         
-        [kGithubAccArr_Inner removeObjectAtIndex:indexPath.row];
+//        [self.accounts removeObjectAtIndex:self.indexWaitAction];
+        
+        [self removeAccountAtIndex:indexPath.row
+                          callback:^(NSUInteger idx) {
+                              
+                          }];
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath]
-                             withRowAnimation:UITableViewRowAnimationLeft];
-        
+                              withRowAnimation:UITableViewRowAnimationLeft];
         
         [self.tableView endUpdates];
         
+       
         
     }
     
@@ -534,7 +574,7 @@
     
     DebugLog(@"can move row at %d",indexPath.row);
     
-    if (indexPath.row < [kGithubAccArr_Inner count]) {
+    if (indexPath.row < [self.accounts count]) {
         return YES;
     }
     
@@ -549,19 +589,22 @@
     
     
     if (sourceIndexPath.row != destinationIndexPath.row
-        &&destinationIndexPath.row != [kGithubAccArr_Inner count]+1-1
-        &&sourceIndexPath.row != [kGithubAccArr_Inner count]+1-1)
+        &&destinationIndexPath.row != [self.accounts count]+1-1
+        &&sourceIndexPath.row != [self.accounts count]+1-1)
     {
-        //    需要的移动行
-        NSInteger fromRow = [sourceIndexPath row];
-        //    获取移动某处的位置
-        NSInteger toRow = [destinationIndexPath row];
-        //    从数组中读取需要移动行的数据
-        id object = [kGithubAccArr_Inner objectAtIndex:fromRow];
-        //    在数组中移动需要移动的行的数据
-        [kGithubAccArr_Inner removeObjectAtIndex:fromRow];
-        //    把需要移动的单元格数据在数组中，移动到想要移动的数据前面
-        [kGithubAccArr_Inner insertObjectSafely:object atIndex:toRow];
+//        //    需要的移动行
+//        NSInteger fromRow = [sourceIndexPath row];
+//        //    获取移动某处的位置
+//        NSInteger toRow = [destinationIndexPath row];
+//        //    从数组中读取需要移动行的数据
+//        id object = [self.accounts objectAtIndex:fromRow];
+//        //    在数组中移动需要移动的行的数据
+//        [self.accounts removeObjectAtIndex:fromRow];
+//        //    把需要移动的单元格数据在数组中，移动到想要移动的数据前面
+//        [self.accounts insertObjectSafely:object atIndex:toRow];
+        
+        [self.accounts ioc_moveObjectFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];//mArr 的移动
+        [self handleAccountsChange];//保存更改 save
         
         //===update account arr
         
@@ -619,4 +662,6 @@
     }
     
 }
+
+
 @end

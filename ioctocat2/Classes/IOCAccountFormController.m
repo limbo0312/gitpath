@@ -11,6 +11,9 @@
 #import "SVProgressHUD.h"
 #import "GHAccount.h"
 
+//====add
+#import "AccountVC.h"
+
 typedef enum {
 	IOCAccountTypeUnspecified = 0,
 	IOCAccountTypeGitHubCom   = 1,
@@ -71,26 +74,39 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     
     //---避免 ios7 view 上缩
     [self matching_iOS7_viewType];
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [iOctocatDelegate.sharedInstance addObserver:self forKeyPath:DeviceTokenKeyPath options:NSKeyValueObservingOptionNew context:nil];
     
+    [super viewWillAppear:animated];
+    
+    [iOctocatDelegate.sharedInstance addObserver:self
+                                      forKeyPath:DeviceTokenKeyPath
+                                         options:NSKeyValueObservingOptionNew
+                                         context:nil];
     
     //==隐藏 navBar...  egs add
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [iOctocatDelegate.sharedInstance removeObserver:self forKeyPath:DeviceTokenKeyPath];
+    
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    
+    //==隐藏 navBar...  egs add
+//    [self.navigationController setNavigationBarHidden:YES];
+    
     [self.view endEditing:NO];
 }
+
 
 #pragma mark Helpers
 
@@ -137,7 +153,9 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 }
 
 - (void)saveAccount {
-	[self.delegate updateAccount:self.account atIndex:self.index callback:^(NSUInteger idx) {
+	[self.delegate updateAccount:self.account
+                         atIndex:self.index
+                        callback:^(NSUInteger idx) {
 		self.index = idx;
         [self prepareForm];
 	}];
@@ -211,21 +229,39 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     }
 }
 
+- (IBAction)action_backNav:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 - (IBAction)saveAccount:(id)sender {
+    
+    //====移除 输入  响应
+    [self.view endEditing:NO];
+    
 	NSString *login = self.loginValue;
 	NSString *endpoint = self.endpointValue;
 	NSString *password = self.passwordValue;
+    
     NSUInteger accountIdx = self.delegate ? [self.delegate indexOfAccountWithLogin:login endpoint:endpoint] : NSNotFound;
+    
 	if ([endpoint ioc_isEmpty] || [login ioc_isEmpty] || [password ioc_isEmpty]) {
 		[iOctocatDelegate reportError:@"Validation failed" with:@"Please enter the domain, your login and password"];
 		return;
-	} else if (accountIdx != self.index) {
+	}
+    else if (accountIdx != self.index) {
         [iOctocatDelegate reportError:@"Duplicate account" with:@"This account already exists"];
 		return;
     }
+    
 	NSArray	*scopes = @[@"user", @"repo", @"gist", @"notifications"];
 	[SVProgressHUD showWithStatus:@"Authenticating" maskType:SVProgressHUDMaskTypeGradient];
-	[self.apiClient saveAuthorizationWithNote:AuthNote scopes:scopes success:^(id json) {
+    
+	[self.apiClient saveAuthorizationWithNote:AuthNote
+                                       scopes:scopes
+                                      success:^(id json) {
+                                          
 		[SVProgressHUD showSuccessWithStatus:@"Authenticated"];
         [self.view endEditing:NO];
 		// update
@@ -233,13 +269,24 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 		self.account.endpoint = endpoint;
 		self.account.authToken = [json ioc_stringForKey:@"token"];
 		[self saveAccount];
-        [self.apiClient findAuthorizationWithNote:PushNote success:^(id json) {
-            NSString *pushToken = [json ioc_stringForKey:@"token"];
-            [self checkPushStateForPushToken:pushToken];
-        } failure:^(NSError *error) {
-            [self checkPushStateForPushToken:@""];
-        }];
-	} failure:^(NSError *error) {
+                     
+                                          
+        //====重要：授权并且登陆
+        [self popBack_and_loginLast];
+                                          
+
+        //====push token get ave
+//        [self.apiClient findAuthorizationWithNote:PushNote
+//                                          success:^(id json) {
+//                                              
+//            NSString *pushToken = [json ioc_stringForKey:@"token"];
+////            [self checkPushStateForPushToken:pushToken];
+//        }
+//                                          failure:^(NSError *error) {
+////            [self checkPushStateForPushToken:@""];
+//        }];
+	}
+                                      failure:^(NSError *error) {
 		[SVProgressHUD showErrorWithStatus:@"Authentication failed"];
 	}];
 }
@@ -335,5 +382,30 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
     if (textField == self.passwordField) [self saveAccount:nil];
 	return YES;
 }
+
+#pragma mark --- egs add
+-(void)popBack_and_loginLast
+{
+    
+    
+    //====popNav back
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    //====
+    for (UIViewController *vcX in [self.navigationController viewControllers]) {
+        
+        DebugLog(@"%@",vcX);
+        if ([vcX isKindOfClass:[AccountVC class]]) {
+            AccountVC *baseFirstAcc = (AccountVC *)vcX;
+            
+            [baseFirstAcc authenticateAccountAtIndex_Last];
+            
+        }
+        
+    }
+    
+}
+
+
 
 @end

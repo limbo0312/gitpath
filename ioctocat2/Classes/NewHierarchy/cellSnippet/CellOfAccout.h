@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *IB_realAvartar;
 
+@property (weak, nonatomic) IBOutlet UIImageView *IB_autoFlag;
+
 -(void)setupAccout:(GHAccount *)accObj
                   :(BOOL)makeAddBtn;
 

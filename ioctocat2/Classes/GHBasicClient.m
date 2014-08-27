@@ -58,23 +58,33 @@
 // eventually existing one can be updated. it is important to look that up
 // first, so that existing authorizations can be shared across the users
 // devices, so that one does not have to create an authorization per device.
-- (void)saveAuthorizationWithNote:(NSString *)note scopes:(NSArray *)scopes success:(void (^)(id json))success failure:(void (^)(NSError *error))failure {
-	[self findAuthorizationWithNote:note success:^(id json) {
+- (void)saveAuthorizationWithNote:(NSString *)note
+                           scopes:(NSArray *)scopes
+                          success:(void (^)(id json))success
+                          failure:(void (^)(NSError *error))failure {
+    
+	[self findAuthorizationWithNote:note
+                            success:^(id json) {
 		NSInteger authId = [json ioc_integerForKey:@"id"];
 		NSString *path = authId ? [NSString stringWithFormat:kAuthorizationFormat, authId] : kAuthorizationsFormat;
 		NSString *method = authId ? kRequestMethodPatch : kRequestMethodPost;
 		NSDictionary *params = @{@"scopes": scopes, @"note": note, @"note_url": @"http://ioctocat.com"};
 		NSMutableURLRequest *request = [self requestWithMethod:method path:path parameters:params];
+                                
 		D3JLog(@"Save authorization: %@ (%@)\n\nData:\n%@\n", path, method, params);
-		AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id json) {
+                                
+		AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id json) {
 			D3JLog(@"Saving authorization finished: %@", json);
 			if (success) success(json);
-		} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id json) {
+		}
+                                                                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id json) {
 			D3JLog(@"Saving authorization failed: %@", error);
 			if (failure) failure(error);
 		}];
 		[operation start];
-	} failure:^(NSError *error) {
+	}
+                            failure:^(NSError *error) {
 		if (failure) failure(error);
 	}];
 }

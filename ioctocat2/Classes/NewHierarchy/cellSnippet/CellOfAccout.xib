@@ -39,11 +39,16 @@
                         <rect key="frame" x="144" y="12" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="cwX-3f-59a">
+                        <rect key="frame" x="196" y="9" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.34901960780000002" green="0.45098039220000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94901960780000005" green="0.50196078430000002" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="IB_autoFlag" destination="cwX-3f-59a" id="Wnm-v4-bFK"/>
                 <outlet property="IB_bgView" destination="sAi-fO-6dx" id="LmV-GU-UmN"/>
                 <outlet property="IB_lblName" destination="0PX-QC-jaF" id="mKL-xR-TOy"/>
                 <outlet property="IB_realAvartar" destination="AsI-So-SuT" id="z7u-49-a2h"/>
@@ -52,5 +57,6 @@
     </objects>
     <resources>
         <image name="cat_green.png" width="120" height="120"/>
+        <image name="flag.png" width="32" height="32"/>
     </resources>
 </document>

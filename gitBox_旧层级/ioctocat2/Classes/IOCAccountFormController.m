@@ -261,22 +261,38 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
 }
 
 - (IBAction)removeAccount:(id)sender {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove account" otherButtonTitles:nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Remove account"
+                                                    otherButtonTitles:nil];
 	[actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
 	if (buttonIndex == 0) {
-        if (self.hasDeviceToken && self.hasPushToken) {
-            [IOCApiClient.sharedInstance disablePushNotificationsForDevice:self.deviceToken accessToken:self.account.pushToken success:^(id json) {
-                [self.delegate removeAccountAtIndex:self.index callback:^(NSUInteger idx) {
+        
+        if (self.hasDeviceToken && self.hasPushToken)
+        {
+            [IOCApiClient.sharedInstance disablePushNotificationsForDevice:self.deviceToken
+                                                               accessToken:self.account.pushToken
+                                                                   success:^(id json) {
+                [self.delegate removeAccountAtIndex:self.index
+                                           callback:^(NSUInteger idx) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }];
-            } failure:^(NSError *error) {
-                [iOctocatDelegate reportError:@"Removing account failed" with:@"Could not unregister push notifications, therefore cannot remove the account. Please try again later."];
+            }
+                                                                   failure:^(NSError *error) {
+                                                                       
+                [iOctocatDelegate reportError:@"Removing account failed"
+                                         with:@"Could not unregister push notifications, therefore cannot remove the account. Please try again later."];
 			}];
-        } else {
-            [self.delegate removeAccountAtIndex:self.index callback:^(NSUInteger idx) {
+        }
+        else
+        {
+            [self.delegate removeAccountAtIndex:self.index
+                                       callback:^(NSUInteger idx) {
                 [self.navigationController popViewControllerAnimated:YES];
             }];
         }

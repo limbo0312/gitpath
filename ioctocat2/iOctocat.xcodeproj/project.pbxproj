@@ -500,6 +500,12 @@
 		8C3597F61949B1250017DD39 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3597F51949B1250017DD39 /* Reachability.m */; };
 		8C3597F81949B22A0017DD39 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597F71949B22A0017DD39 /* CoreTelephony.framework */; };
 		8C3597FA1949B2370017DD39 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3597F91949B2370017DD39 /* CoreData.framework */; };
+		8C3F8FFD19ADCC1100978355 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F8FFC19ADCC1100978355 /* arrow-left.png */; };
+		8C3F8FFE19ADCC1100978355 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F8FFC19ADCC1100978355 /* arrow-left.png */; };
+		8C3F900119ADCDFB00978355 /* sign_in_input_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F8FFF19ADCDFB00978355 /* sign_in_input_box@2x.png */; };
+		8C3F900219ADCDFB00978355 /* sign_in_input_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F8FFF19ADCDFB00978355 /* sign_in_input_box@2x.png */; };
+		8C3F900319ADCDFB00978355 /* sign_in_green_save_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F900019ADCDFB00978355 /* sign_in_green_save_button@2x.png */; };
+		8C3F900419ADCDFB00978355 /* sign_in_green_save_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3F900019ADCDFB00978355 /* sign_in_green_save_button@2x.png */; };
 		8C4A1D8519A1B1D000DE6D5F /* refresh_ic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A1D8419A1B1CF00DE6D5F /* refresh_ic@2x.png */; };
 		8C4A1D8719A1B40F00DE6D5F /* study@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C4A1D8619A1B40F00DE6D5F /* study@2x.png */; };
 		8C53B4D00FB0F20B00C3A8E0 /* IOCUsersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C53B4CF0FB0F20B00C3A8E0 /* IOCUsersController.m */; };
@@ -536,6 +542,8 @@
 		8C8C1EB3192E34C90001D221 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB2192E34C90001D221 /* ImageIO.framework */; };
 		8C8C1EB5192E34ED0001D221 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB4192E34EC0001D221 /* CoreImage.framework */; };
 		8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8C1EB6192E35900001D221 /* Accelerate.framework */; };
+		8CB3E1CB19ADDFE4004C60EF /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3E1CA19ADDFE3004C60EF /* flag@2x.png */; };
+		8CB3E1CC19ADDFE4004C60EF /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3E1CA19ADDFE3004C60EF /* flag@2x.png */; };
 		8CB4242E19AC3EEE00AAC400 /* egsFilter_KillNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242119AC3EEE00AAC400 /* egsFilter_KillNull.m */; };
 		8CB4242F19AC3EEE00AAC400 /* NSArray+objectSavely.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242319AC3EEE00AAC400 /* NSArray+objectSavely.m */; };
 		8CB4243019AC3EEE00AAC400 /* NSDictionary+safelyWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242519AC3EEE00AAC400 /* NSDictionary+safelyWay.m */; };
@@ -1931,6 +1939,9 @@
 		8C3597F51949B1250017DD39 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8C3597F71949B22A0017DD39 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8C3597F91949B2370017DD39 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8C3F8FFC19ADCC1100978355 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
+		8C3F8FFF19ADCDFB00978355 /* sign_in_input_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_input_box@2x.png"; sourceTree = "<group>"; };
+		8C3F900019ADCDFB00978355 /* sign_in_green_save_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_green_save_button@2x.png"; sourceTree = "<group>"; };
 		8C4A1D8419A1B1CF00DE6D5F /* refresh_ic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_ic@2x.png"; sourceTree = "<group>"; };
 		8C4A1D8619A1B40F00DE6D5F /* study@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "study@2x.png"; sourceTree = "<group>"; };
 		8C53B4CE0FB0F20B00C3A8E0 /* IOCUsersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCUsersController.h; sourceTree = "<group>"; };
@@ -1997,6 +2008,7 @@
 		8C8C1EB2192E34C90001D221 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8C8C1EB4192E34EC0001D221 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		8C8C1EB6192E35900001D221 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8CB3E1CA19ADDFE3004C60EF /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag@2x.png"; sourceTree = "<group>"; };
 		8CB4242019AC3EEE00AAC400 /* egsFilter_KillNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = egsFilter_KillNull.h; sourceTree = "<group>"; };
 		8CB4242119AC3EEE00AAC400 /* egsFilter_KillNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = egsFilter_KillNull.m; sourceTree = "<group>"; };
 		8CB4242219AC3EEE00AAC400 /* NSArray+objectSavely.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+objectSavely.h"; sourceTree = "<group>"; };
@@ -3455,7 +3467,11 @@
 		8C23E429198250810060B369 /* UI_snipet */ = {
 			isa = PBXGroup;
 			children = (
+				8C3F8FFF19ADCDFB00978355 /* sign_in_input_box@2x.png */,
+				8C3F900019ADCDFB00978355 /* sign_in_green_save_button@2x.png */,
+				8C3F8FFC19ADCC1100978355 /* arrow-left.png */,
 				8CBA8DFC19A72B4F00E0980F /* cat_green.png */,
+				8CB3E1CA19ADDFE3004C60EF /* flag@2x.png */,
 				8CBA8DFD19A72B4F00E0980F /* cat_purple.png */,
 				4A13D8801984074200D40631 /* github16.png */,
 				4A13D8811984074200D40631 /* github17.png */,
@@ -4111,6 +4127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3F900319ADCDFB00978355 /* sign_in_green_save_button@2x.png in Resources */,
 				8C23E42819824D920060B369 /* Images.xcassets in Resources */,
 				6F1DC5C50F7E7F4600FCD26D /* comment.png in Resources */,
 				6F1DC5C60F7E7F4600FCD26D /* CreateEvent.png in Resources */,
@@ -4256,6 +4273,7 @@
 				6FAF8791165AD63900248E11 /* ir_black.css in Resources */,
 				6FAF8792165AD63900248E11 /* magula.css in Resources */,
 				6FAF8793165AD63900248E11 /* monokai.css in Resources */,
+				8CB3E1CB19ADDFE4004C60EF /* flag@2x.png in Resources */,
 				6FAF8796165AD63900248E11 /* rainbow.css in Resources */,
 				6FAF8799165AD63900248E11 /* solarized_dark.css in Resources */,
 				6FAF879A165AD63900248E11 /* solarized_light.css in Resources */,
@@ -4283,6 +4301,7 @@
 				6F3616C5166184200098AE4A /* ToolbarUsersOn.png in Resources */,
 				6F3616C6166184200098AE4A /* ToolbarUsersOn@2x.png in Resources */,
 				6F6399EA1662307E00BF2FF0 /* ToolbarWeb.png in Resources */,
+				8C3F8FFD19ADCC1100978355 /* arrow-left.png in Resources */,
 				6F6399EB1662307E00BF2FF0 /* ToolbarWeb@2x.png in Resources */,
 				6F6399EC1662307E00BF2FF0 /* ToolbarWebOn.png in Resources */,
 				8CD4F59F1994A88900428EDB /* cellOfDash.xib in Resources */,
@@ -4426,6 +4445,7 @@
 				2EC346B21714AE5600B2366F /* PointerDownRight@2x.png in Resources */,
 				2EC346B41714AE5600B2366F /* PointerUpLeft.png in Resources */,
 				2EC346B61714AE5600B2366F /* PointerUpLeft@2x.png in Resources */,
+				8C3F900119ADCDFB00978355 /* sign_in_input_box@2x.png in Resources */,
 				2E5D54FA171A00530046086D /* Button1P.png in Resources */,
 				2E5D54FC171A00530046086D /* Button1P@2x.png in Resources */,
 				2EEB19B5171C979A0058CF68 /* docco.css in Resources */,
@@ -4584,6 +4604,7 @@
 				8CBA8C2919A7254100E0980F /* CellBackground@2x.png in Resources */,
 				8CBA8C2A19A7254100E0980F /* arta.css in Resources */,
 				8CBA8C2B19A7254100E0980F /* ascetic.css in Resources */,
+				8C3F900219ADCDFB00978355 /* sign_in_input_box@2x.png in Resources */,
 				8CBA8C2C19A7254100E0980F /* dark.css in Resources */,
 				8CBA8C2D19A7254100E0980F /* default.css in Resources */,
 				8CBA8C2E19A7254100E0980F /* far.css in Resources */,
@@ -4627,6 +4648,7 @@
 				8CBA8C5419A7254100E0980F /* ToolbarPullRequest.png in Resources */,
 				8CBA8C5519A7254100E0980F /* ToolbarPullRequest@2x.png in Resources */,
 				8CBA8C5619A7254100E0980F /* ToolbarPullRequestOn.png in Resources */,
+				8C3F8FFE19ADCC1100978355 /* arrow-left.png in Resources */,
 				8CBA8C5719A7254100E0980F /* ToolbarPullRequestOn@2x.png in Resources */,
 				8CBA8C5819A7254100E0980F /* ToolbarWiki.png in Resources */,
 				8CBA8C5919A7254100E0980F /* ToolbarWiki@2x.png in Resources */,
@@ -4647,6 +4669,7 @@
 				8CBA8C6819A7254100E0980F /* MenuOrgRepos@2x.png in Resources */,
 				8CBA8C6919A7254100E0980F /* MenuOrgs.png in Resources */,
 				8CBA8C6A19A7254100E0980F /* MenuOrgs@2x.png in Resources */,
+				8CB3E1CC19ADDFE4004C60EF /* flag@2x.png in Resources */,
 				8CBA8C6B19A7254100E0980F /* MenuProfile.png in Resources */,
 				8CBA8C6C19A7254100E0980F /* MenuProfile@2x.png in Resources */,
 				8CBA8C6D19A7254100E0980F /* MenuSearch.png in Resources */,
@@ -4665,6 +4688,7 @@
 				8CBA8C7A19A7254100E0980F /* commits.png in Resources */,
 				8CBA8C7B19A7254100E0980F /* commits@2x.png in Resources */,
 				8CBA8C7C19A7254100E0980F /* files.png in Resources */,
+				8C3F900419ADCDFB00978355 /* sign_in_green_save_button@2x.png in Resources */,
 				8CBA8C7D19A7254100E0980F /* files@2x.png in Resources */,
 				8CBA8C7E19A7254100E0980F /* Default-568h@2x.png in Resources */,
 				8CBA8C7F19A7254100E0980F /* Default-Landscape@2x~ipad.png in Resources */,

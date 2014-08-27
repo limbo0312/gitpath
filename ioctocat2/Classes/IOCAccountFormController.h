@@ -17,4 +17,7 @@
 //===选中登陆类型
 - (IBAction)selectAccountType:(UIButton *)sender ;
 
+
+- (IBAction)action_backNav:(id)sender;
+
 @end
