@@ -8,9 +8,13 @@
 
 #import "JBBaseChartViewController.h"
 
+@class JBChartInformationView;
 @interface JBAreaChartViewController : JBBaseChartViewController
 
 //===egs add
 -(void)setupData2codeD:(id)objData;
+
+//egs open public
+@property (nonatomic, strong) JBChartInformationView *informationView;
 
 @end

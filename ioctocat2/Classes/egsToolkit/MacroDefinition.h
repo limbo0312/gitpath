@@ -327,6 +327,8 @@ return self; \
 #define USER_PLIST_GETstr(idX)         [[NSUserDefaults standardUserDefaults] stringForKey:idX];\
                                        [[NSUserDefaults standardUserDefaults] synchronize];
 
+#define USER_PLIST_GETbool(idX)         [[NSUserDefaults standardUserDefaults] boolForKey:idX];\
+                                        [[NSUserDefaults standardUserDefaults] synchronize];
 
 //--------end
 //#import "AppDelegate.h"

@@ -32,7 +32,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 @interface JBBarChartViewController () <JBBarChartViewDelegate, JBBarChartViewDataSource>
 
 @property (nonatomic, strong) JBBarChartView *barChartView;
-@property (nonatomic, strong) JBChartInformationView *informationView;
+
 @property (nonatomic, strong) NSMutableArray *chartData;
 @property (nonatomic, strong) NSMutableArray *symbolsData;
 
@@ -180,12 +180,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 {
     NSNumber *valueNumber = [self.chartData objectAtIndex:index];
     
-//    [self.informationView setValueText:[NSString stringWithFormat:kJBStringLabelDegreesFahrenheit, [valueNumber intValue], kJBStringLabelDegreeSymbol]
-//                              unitText:nil];
-//    
-//    [self.informationView setTitleText:kJBStringLabelWorldwideAverage];
-//    [self.informationView setHidden:NO
-//                           animated:YES];
+ 
     
     [self.informationView setValueText:[NSString stringWithFormat:@"%@",valueNumber]
                               unitText:nil];
@@ -197,8 +192,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     [self setTooltipVisible:YES
                    animated:YES
                atTouchPoint:touchPoint];
-    
-//    [self.tooltipView setText:[[self.symbolsData objectAtIndex:index] uppercaseString]];
+     
     
      [self.tooltipView setText:[NSString stringWithFormat:@"%@",valueNumber]];
 }

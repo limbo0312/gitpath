@@ -8,10 +8,13 @@
 
 #import "JBBaseChartViewController.h"
 
+@class JBChartInformationView;
 @interface JBBarChartViewController : JBBaseChartViewController
 
 
 //===egs add
 -(void)setupData2pushCount:(id)dataObj;
+
+@property (nonatomic, strong) JBChartInformationView *informationView;
 
 @end

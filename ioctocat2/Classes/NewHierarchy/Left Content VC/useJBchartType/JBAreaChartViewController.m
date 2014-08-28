@@ -38,7 +38,7 @@ NSString * const kJBAreaChartViewControllerNavButtonViewKey = @"view";
 @interface JBAreaChartViewController () <JBLineChartViewDelegate, JBLineChartViewDataSource>
 
 @property (nonatomic, strong) JBLineChartView *lineChartView;
-@property (nonatomic, strong) JBChartInformationView *informationView;
+
 
 @property (nonatomic, strong) NSMutableArray *chartData;
 @property (nonatomic, strong) NSMutableArray *symbolsData;//====fix week A B C。。。

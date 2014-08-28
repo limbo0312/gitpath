@@ -8,6 +8,9 @@
 
 #import "JBBaseChartViewController.h"
 
+@class JBChartInformationView;
 @interface JBLineChartViewController : JBBaseChartViewController
+
+@property (nonatomic, strong) JBChartInformationView *informationView;
 
 @end

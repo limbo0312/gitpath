@@ -45,33 +45,25 @@
 //===account Obj setup===
 #define kGithubAccArr_Inner  ((NSMutableArray *)self.accountsByEndpoint[[[NSURL URLWithString:@"http://github.com"] host]])
 
-
+#define kSetFlag_autoLoginBol @"Auto_Login_flag"// 自动登录
 
 @implementation AccountVC
 
 
 -(void)viewDidLoad
 {
-
-    
     [super viewDidLoad];
     
     
-    _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
-                                         [UIScreen mainScreen].bounds.size.height-50);
-    _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
-                                          [UIScreen mainScreen].bounds.size.height-30);
+    BOOL bolAuto = USER_PLIST_GETbool(kSetFlag_autoLoginBol);
+    
+    self.IB_autoLogin.on = bolAuto;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-#warning 暂时屏蔽 1
-//	[[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(menuMovedOff)
-//                                                 name:ECSlidingViewTopDidAnchorRight
-//                                               object:nil];
-//
     
     if (iOctocatDelegate.sharedInstance.currentAccount) {
         //====不重新  授权
@@ -94,9 +86,12 @@
         if (self.accounts.count == 0) {
             //===自动添加：：：
             [self addAccount:nil];
-        } else if (self.accounts.count == 1) {
+        } else if (self.accounts.count >= 1) {
+            
             //===自动登陆：：：
-//            [self authenticateAccountAtIndex:0];
+            if (self.IB_autoLogin.on)
+                [self authenticateAccountAtIndex:0];
+            
         }
 	});
     
@@ -106,6 +101,12 @@
 
     //===IB group 放置到view 外面
     {
+        //==== helper lbl
+        _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                             [UIScreen mainScreen].bounds.size.height+30);
+        
+        _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                              [UIScreen mainScreen].bounds.size.height+30);
         
         _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
                                            [UIScreen mainScreen].bounds.size.height+30);
@@ -143,40 +144,41 @@
 //	[super viewDidAppear:animated];
 //	self.navigationItem.rightBarButtonItem = (self.accounts.count > 0) ? self.editButtonItem : nil;
     
-    //==== helper lbl
-    _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
-    _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
-    
-    
     
     [self performSelector:@selector(animationMake4Lbl)
                withObject:nil
-               afterDelay:0.5];
+               afterDelay:0.4];
 }
 
 -(void)animationMake4Lbl
 {
     
-    
-    
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.35
                      animations:^{
                          
-                         if (_IB_lblInspired.center.y != [UIScreen mainScreen].bounds.size.height-50)
-                         {
-                             _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-50);
-                             _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height-30);
-                         }
-                         
-                         
                          _IB_autoLogin.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
-                                                            [UIScreen mainScreen].bounds.size.height-85);
+                                                            [UIScreen mainScreen].bounds.size.height-86);
+                     }];
+    [UIView animateWithDuration:0.5
+                     animations:^{
                          
                          _IB_helperLblAuto.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
                                                                 [UIScreen mainScreen].bounds.size.height-63);
                      }];
-    
-    
+    [UIView animateWithDuration:0.65
+                     animations:^{
+                         
+                         _IB_lblInspired.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                                              [UIScreen mainScreen].bounds.size.height-50);
+                         
+                     }];
+    [UIView animateWithDuration:0.8
+                     animations:^{
+                         
+                         _IB_lblEGSDesign.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,
+                                                               [UIScreen mainScreen].bounds.size.height-30);
+                         
+                     }];
     
 }
 
@@ -277,7 +279,7 @@
 	}
     
 	// update UI
-	self.navigationItem.rightBarButtonItem = (self.accounts.count > 0) ? self.editButtonItem : nil;
+//	self.navigationItem.rightBarButtonItem = (self.accounts.count > 0) ? self.editButtonItem : nil;
     
 	if (self.accounts.count == 0)
         self.editing = NO;
@@ -341,8 +343,12 @@
 //===== key method:  执行关键登陆授权
 - (void)authenticateAccountAtIndex_Last
 {
+    USER_PLIST_Set(@(YES), kSetFlag_autoLoginBol);
+    
     [self authenticateAccountAtIndex:[self.accounts count]-1];
 }
+
+
 
 - (void)authenticateAccountAtIndex:(NSUInteger)idx {
 	GHAccount *account = self.accounts[idx];
@@ -564,7 +570,17 @@
         [self.tableView endUpdates];
         
        
-        
+        if (indexPath.row==0
+            &&[self.accounts count]>0) {
+            CellOfAccout *cell = (CellOfAccout *)[tableView cellForRowAtIndexPath:indexPath];
+            cell.IB_autoFlag.hidden = NO;
+        }
+        else if (indexPath.row==0
+                 &&[self.accounts count]==0)
+        {
+            self.IB_autoLogin.on = NO;
+            USER_PLIST_Set(@(NO), kSetFlag_autoLoginBol);
+        }
     }
     
 }
@@ -610,7 +626,10 @@
         
     }
     
-    [tableView reloadData];
+    
+        //====更新 移动row
+        [self.tableView reloadData];
+    
 }
 
 //- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -658,10 +677,23 @@
         
         [self.tableView setEditing:NO animated:YES];
         
-//        [self.tableView reloadData];//设定 mainTeam
     }
     
 }
 
+- (IBAction)action_autoLogin:(id)sender {
 
+    UISwitch *swi = (UISwitch *)sender;
+    
+    if ([self.accounts count]>0) {
+        
+        BOOL newBol = swi.on;
+        
+        USER_PLIST_Set(@(newBol), kSetFlag_autoLoginBol);
+        
+        
+    }
+    else
+        swi.on = NO;
+}
 @end

@@ -23,6 +23,11 @@
 //==pie chart
 #import "customPieView.h"
 #import "xPieElement.h"
+#import "JBChartInformationView.h"
+
+//===curr User following 。。。
+#import "IOCUsersController.h"
+#import "GHUser.h"
 
 @interface innerDashboardVC ()
 
@@ -34,6 +39,8 @@
 @property (nonatomic,strong)JBBarChartViewController *pullWillbarChart;
 @property (nonatomic,strong)JBAreaChartViewController *codeDbarChart;
 
+@property (nonatomic,strong)UIButton * moreInsightFollow;//审视 more guy
+@property (nonatomic,strong)IOCUsersController *currUserFollowingVC;
 //=====
 @property (nonatomic,strong) UILabel * lbl_lintSkill;
 @property (nonatomic,strong) UILabel * lbl_lintCount;
@@ -131,6 +138,17 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //=====切换是图标 复位
+    [_pullWillbarChart.informationView setHidden:YES animated:YES];
+    [_codeDbarChart.informationView setHidden:YES animated:YES];
+    [_pullWillbarChart setTooltipVisible:NO];
+    [_codeDbarChart setTooltipVisible:NO];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -204,14 +222,43 @@
         [self.pullWillbarChart  setupData2pushCount:self.push_arr];
     }
     
-    
+    //444=====insight some guy your following
+    {
+        if (self.moreInsightFollow==nil) {
+            
+            self.moreInsightFollow = ({
+                
+                UIButton *makeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                
+                makeBtn.frame = R_MAKE(0, 370+520+520, 320, 35);
+                
+                makeBtn.backgroundColor = [UIColor clearColor];
+                
+                makeBtn.titleLabel.font =  [UIFont fontWithName:@"HelveticaNeue-Bold" size:12];
+                
+                
+                [makeBtn setTintColor:COLOR(24, 246, 246, 1)];
+                
+                [makeBtn setTitle:@"Insight more ... "
+                         forState:UIControlStateNormal];
+                
+                [makeBtn addTarget:self
+                            action:@selector(insightFollowingGuy)
+                  forControlEvents:UIControlEventTouchUpInside];
+                
+                makeBtn;
+            
+            });
+            
+             [_IB_dataScrollView addSubview:self.moreInsightFollow];
+            
+        }
+        
+    }
     
     //====base setup 4 scrollView
-    
-//    [_IB_dataScrollView setFrame:R_MAKE(0, 0, 320, self.view.height)];
-    
-    if (_IB_dataScrollView.contentSize.height!=370+520+520)
-        [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520)];
+    if (_IB_dataScrollView.contentSize.height != 370+520+520+35)
+        [_IB_dataScrollView setContentSize:CGSizeMake(320, 370+520+520+35)];
     
 }
 
@@ -295,7 +342,7 @@
         
             //====disc
             if ([(xPieElement *)elem count]>0) {
-                selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@"total hint %@",[(xPieElement *)elem count]];                
+                selfWeak.lbl_lintCount.text = [NSString stringWithFormat:@"total hit %@",[(xPieElement *)elem count]];
             }
             else
             {
@@ -473,5 +520,18 @@
                                                         }];
 }
 
+-(void)insightFollowingGuy
+{
+    if (self.navigationController) {
+        DebugLog(@"存在 nav VC ");
+        
+        self.currUserFollowingVC = nil;
+        self.currUserFollowingVC = [[IOCUsersController alloc] initWithUsers:iOctocatDelegate.sharedInstance.currentAccount.user.following];
+        
+        
+        [self.navigationController pushViewController:self.currUserFollowingVC
+                                             animated:YES];
+    }
+}
 
 @end
