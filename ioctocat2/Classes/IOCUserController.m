@@ -379,9 +379,12 @@
                                                                     
                                                                 });
                                                                 
-                                                                [EAlertView showWithMsg:@"oh, Not enough information for this guy."
-                                                                                  block:^(int btnIndex) {
-                                                                                  }];
+                                                                if (responseObj==nil) {
+                                                                    [EAlertView showWithMsg:@"oh, Not enough information for this guy."
+                                                                                      block:^(int btnIndex) {
+                                                                                      }];
+                                                                }
+
                                                             }
                                                             
                                                         }];

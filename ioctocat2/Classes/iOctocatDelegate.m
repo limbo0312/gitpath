@@ -53,11 +53,6 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-//    [[visualClient shareClient] getV_visualizationDataBy:@"limbo0312"
-//                                                        :^(BOOL succ, id responseO) {
-//                                                            
-//                                                            DebugLog(@"%@",responseO);
-//                                                        }];
  
 #if DEBUG
     [[innerConsole sharedConsole]  enableConsoleMode];
@@ -83,7 +78,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 //    if (remoteNotification)
 //        [self application:application didReceiveRemoteNotification:remoteNotification];
     
-
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     return YES;
 }

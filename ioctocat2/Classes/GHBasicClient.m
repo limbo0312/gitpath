@@ -68,7 +68,9 @@
 		NSInteger authId = [json ioc_integerForKey:@"id"];
 		NSString *path = authId ? [NSString stringWithFormat:kAuthorizationFormat, authId] : kAuthorizationsFormat;
 		NSString *method = authId ? kRequestMethodPatch : kRequestMethodPost;
-		NSDictionary *params = @{@"scopes": scopes, @"note": note, @"note_url": @"http://ioctocat.com"};
+		NSDictionary *params = @{@"scopes": scopes,
+                                 @"note": note,
+                                 @"note_url": @"http://ioctocat.com"};
 		NSMutableURLRequest *request = [self requestWithMethod:method path:path parameters:params];
                                 
 		D3JLog(@"Save authorization: %@ (%@)\n\nData:\n%@\n", path, method, params);

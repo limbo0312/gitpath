@@ -18,11 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblInspired;
 @property (weak, nonatomic) IBOutlet UILabel *IB_lblEGSDesign;
 
-@property (weak, nonatomic) IBOutlet UILabel *IB_helperLblAuto;
-
 @property (weak, nonatomic) IBOutlet UIButton *IB_editBtn;
 
 @property (weak, nonatomic) IBOutlet UISwitch *IB_autoLogin;
+@property (weak, nonatomic) IBOutlet UILabel *IB_helperLblAuto;
 
 //====授权  最新  save  那个
 - (void)authenticateAccountAtIndex_Last;

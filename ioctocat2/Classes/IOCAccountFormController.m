@@ -327,7 +327,8 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
                 [iOctocatDelegate reportError:@"Removing account failed" with:@"Could not unregister push notifications, therefore cannot remove the account. Please try again later."];
 			}];
         } else {
-            [self.delegate removeAccountAtIndex:self.index callback:^(NSUInteger idx) {
+            [self.delegate removeAccountAtIndex:self.index
+                                       callback:^(NSUInteger idx) {
                 [self.navigationController popViewControllerAnimated:YES];
             }];
         }

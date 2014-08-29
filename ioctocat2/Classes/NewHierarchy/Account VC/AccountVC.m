@@ -180,6 +180,10 @@
                          
                      }];
     
+    //=======temp for shotScreen
+//    _IB_editBtn.hidden = YES;
+//    _IB_autoLogin.hidden = YES;
+//    _IB_helperLblAuto.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -487,6 +491,10 @@
             cell.IB_autoFlag.hidden = NO ;
         else
             cell.IB_autoFlag.hidden = YES ;
+        
+        //===temp 4 shotScreen
+//        cell.IB_realAvartar.hidden = YES;
+//        cell.IB_lblName.text = @"GitColor";
     }
     else
     {//===配置  add Account btn

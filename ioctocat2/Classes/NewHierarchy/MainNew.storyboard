@@ -121,6 +121,7 @@
                         <color key="backgroundColor" red="0.34901960784313724" green="0.45098039215686275" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="0xh-ZP-3YY"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>

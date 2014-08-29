@@ -1150,6 +1150,29 @@
 		8CD4F5BE1994BAC000428EDB /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4F5B81994BAC000428EDB /* NSArray+Chameleon.m */; };
 		8CD4F5BF1994BAC000428EDB /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4F5BA1994BAC000428EDB /* UIColor+Chameleon.m */; };
 		8CD4F5C01994BAC000428EDB /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4F5BC1994BAC000428EDB /* UIViewController+Chameleon.m */; };
+		8CD652B619B09038003EDD16 /* egsFilter_KillNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242119AC3EEE00AAC400 /* egsFilter_KillNull.m */; };
+		8CD652B719B090D8003EDD16 /* NSArray+objectSavely.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242319AC3EEE00AAC400 /* NSArray+objectSavely.m */; };
+		8CD652B819B090DB003EDD16 /* NSDictionary+safelyWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242519AC3EEE00AAC400 /* NSDictionary+safelyWay.m */; };
+		8CD652B919B090DE003EDD16 /* NSMutableArray+objectSavely.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242719AC3EEE00AAC400 /* NSMutableArray+objectSavely.m */; };
+		8CD652BA19B090E0003EDD16 /* NSMutableDictionary+safelyWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242919AC3EEE00AAC400 /* NSMutableDictionary+safelyWay.m */; };
+		8CD652BB19B090E3003EDD16 /* NSObject+safelyOrNil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242B19AC3EEE00AAC400 /* NSObject+safelyOrNil.m */; };
+		8CD652BC19B090E6003EDD16 /* NSObject+targetTypeValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4242D19AC3EEE00AAC400 /* NSObject+targetTypeValue.m */; };
+		8CD652BD19B09131003EDD16 /* cat_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CBA8DFC19A72B4F00E0980F /* cat_green.png */; };
+		8CD652BE19B09131003EDD16 /* cat_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CBA8DFD19A72B4F00E0980F /* cat_purple.png */; };
+		8CD652BF19B09183003EDD16 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C619AAEA5900D156F2 /* UIImageView+WebCache.m */; };
+		8CD652C019B091A5003EDD16 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21AA19AAEA5900D156F2 /* MKAnnotationView+WebCache.m */; };
+		8CD652C119B091A5003EDD16 /* NSData+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21AC19AAEA5900D156F2 /* NSData+GIF.m */; };
+		8CD652C219B091A5003EDD16 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21AE19AAEA5900D156F2 /* SDImageCache.m */; };
+		8CD652C319B091A5003EDD16 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21B119AAEA5900D156F2 /* SDWebImageCompat.m */; };
+		8CD652C419B091A5003EDD16 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21B319AAEA5900D156F2 /* SDWebImageDecoder.m */; };
+		8CD652C519B091A5003EDD16 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21B519AAEA5900D156F2 /* SDWebImageDownloader.m */; };
+		8CD652C619B091A5003EDD16 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21B719AAEA5900D156F2 /* SDWebImageDownloaderOperation.m */; };
+		8CD652C719B091A5003EDD16 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21B919AAEA5900D156F2 /* SDWebImageManager.m */; };
+		8CD652C819B091A5003EDD16 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21BC19AAEA5900D156F2 /* SDWebImagePrefetcher.m */; };
+		8CD652C919B091A5003EDD16 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21BE19AAEA5900D156F2 /* UIButton+WebCache.m */; };
+		8CD652CA19B091A5003EDD16 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C019AAEA5900D156F2 /* UIImage+GIF.m */; };
+		8CD652CB19B091A5003EDD16 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C219AAEA5900D156F2 /* UIImage+MultiFormat.m */; };
+		8CD652CC19B091A5003EDD16 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C419AAEA5900D156F2 /* UIImage+WebP.m */; };
 		8CE557F9199A218800906110 /* FLEXArgumentInputColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE55790199A218800906110 /* FLEXArgumentInputColorView.m */; };
 		8CE557FA199A218800906110 /* FLEXArgumentInputFontsPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE55792199A218800906110 /* FLEXArgumentInputFontsPickerView.m */; };
 		8CE557FB199A218800906110 /* FLEXArgumentInputFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE55794199A218800906110 /* FLEXArgumentInputFontView.m */; };
@@ -4500,6 +4523,7 @@
 				8CBA8BC119A7254100E0980F /* file_added.png in Resources */,
 				8CBA8BC219A7254100E0980F /* file_modified.png in Resources */,
 				8CBA8BC319A7254100E0980F /* file_removed.png in Resources */,
+				8CD652BE19B09131003EDD16 /* cat_purple.png in Resources */,
 				8CBA8BC419A7254100E0980F /* file_renamed.png in Resources */,
 				8CBA8BC519A7254100E0980F /* ToolbarIssue.png in Resources */,
 				8CBA8BC619A7254100E0980F /* ToolbarUser.png in Resources */,
@@ -4797,6 +4821,7 @@
 				8CBA8CE619A7254100E0980F /* submodule.png in Resources */,
 				8CBA8CE719A7254100E0980F /* submodule@2x.png in Resources */,
 				8CBA8CE819A7254100E0980F /* tag.png in Resources */,
+				8CD652BD19B09131003EDD16 /* cat_green.png in Resources */,
 				8CBA8CE919A7254100E0980F /* tag@2x.png in Resources */,
 				8CBA8CEA19A7254100E0980F /* star.png in Resources */,
 				8CBA8CEB19A7254100E0980F /* star@2x.png in Resources */,
@@ -5146,6 +5171,7 @@
 				8CBA8CFB19A7254100E0980F /* IOCUserController.m in Sources */,
 				8CBA8CFC19A7254100E0980F /* JBBaseViewController.m in Sources */,
 				8CBA8CFD19A7254100E0980F /* IOCLabeledCell.m in Sources */,
+				8CD652B819B090DB003EDD16 /* NSDictionary+safelyWay.m in Sources */,
 				8CBA8CFE19A7254100E0980F /* IOCGravatarService.m in Sources */,
 				8CBA8CFF19A7254100E0980F /* JBChartView.m in Sources */,
 				8CBA8D0019A7254100E0980F /* IOCRepositoryController.m in Sources */,
@@ -5156,10 +5182,13 @@
 				8CBA8D0519A7254100E0980F /* FLEXToolbarItem.m in Sources */,
 				8CBA8D0619A7254100E0980F /* IOCEventCell.m in Sources */,
 				8CBA8D0719A7254100E0980F /* FLEXFieldEditorViewController.m in Sources */,
+				8CD652C519B091A5003EDD16 /* SDWebImageDownloader.m in Sources */,
 				8CBA8D0819A7254100E0980F /* FLEXViewExplorerViewController.m in Sources */,
+				8CD652C719B091A5003EDD16 /* SDWebImageManager.m in Sources */,
 				8CBA8D0919A7254100E0980F /* GHCommit.m in Sources */,
 				8CBA8D0A19A7254100E0980F /* FLEXFileBrowserTableViewController.m in Sources */,
 				8CBA8D0B19A7254100E0980F /* GHIssue.m in Sources */,
+				8CD652C019B091A5003EDD16 /* MKAnnotationView+WebCache.m in Sources */,
 				8CBA8D0C19A7254100E0980F /* GHIssues.m in Sources */,
 				8CBA8D0D19A7254100E0980F /* GTMStackTrace.m in Sources */,
 				8CBA8D0E19A7254100E0980F /* IOCIssueObjectCell.m in Sources */,
@@ -5206,6 +5235,7 @@
 				8CBA8D3919A7254100E0980F /* FLEXArgumentInputStringView.m in Sources */,
 				8CBA8D3A19A7254100E0980F /* UIView+treeStruct.m in Sources */,
 				8CBA8D3B19A7254100E0980F /* FLEXWindow.m in Sources */,
+				8CD652CA19B091A5003EDD16 /* UIImage+GIF.m in Sources */,
 				8CBA8D3C19A7254100E0980F /* JBChartTableCell.m in Sources */,
 				8CBA8D3D19A7254100E0980F /* FLEXLibrariesTableViewController.m in Sources */,
 				8CBA8D3E19A7254100E0980F /* CellOfAccout.m in Sources */,
@@ -5213,6 +5243,7 @@
 				8CBA8D4019A7254100E0980F /* FLEXRuntimeUtility.m in Sources */,
 				8CBA8D4119A7254100E0980F /* NSString_IOCExtensions.m in Sources */,
 				8CBA8D4419A7254100E0980F /* FLEXHierarchyTableViewCell.m in Sources */,
+				8CD652BB19B090E3003EDD16 /* NSObject+safelyOrNil.m in Sources */,
 				8CBA8D4519A7254100E0980F /* FLEXArgumentInputStructView.m in Sources */,
 				8CBA8D4619A7254100E0980F /* JBChartListViewController.m in Sources */,
 				8CBA8D4719A7254100E0980F /* IOCCommentController.m in Sources */,
@@ -5224,6 +5255,7 @@
 				8CBA8D4D19A7254100E0980F /* NSURL_IOCExtensions.m in Sources */,
 				8CBA8D4E19A7254100E0980F /* IOCOrganizationsController.m in Sources */,
 				8CBA8D4F19A7254100E0980F /* IOCOrganizationController.m in Sources */,
+				8CD652C119B091A5003EDD16 /* NSData+GIF.m in Sources */,
 				8CBA8D5019A7254100E0980F /* GradientButton.m in Sources */,
 				8CBA8D5119A7254100E0980F /* GHRepoComment.m in Sources */,
 				8CBA8D5219A7254100E0980F /* GHRepoComments.m in Sources */,
@@ -5231,6 +5263,8 @@
 				8CBA8D5419A7254100E0980F /* IOCAccountsController.m in Sources */,
 				8CBA8D5519A7254100E0980F /* GHAccount.m in Sources */,
 				8CBA8D5619A7254100E0980F /* JBBaseTableViewController.m in Sources */,
+				8CD652C219B091A5003EDD16 /* SDImageCache.m in Sources */,
+				8CD652B719B090D8003EDD16 /* NSArray+objectSavely.m in Sources */,
 				8CBA8D5719A7254100E0980F /* JBChartTooltipTipView.m in Sources */,
 				8CBA8D5819A7254100E0980F /* FLEXArgumentInputColorView.m in Sources */,
 				8CBA8D5919A7254100E0980F /* PieLayer.m in Sources */,
@@ -5238,6 +5272,7 @@
 				8CBA8D5B19A7254100E0980F /* IOCAccountFormController.m in Sources */,
 				8CBA8D5C19A7254100E0980F /* NSString+Extensions.m in Sources */,
 				8CBA8D5D19A7254100E0980F /* NSMutableArray_IOCExtensions.m in Sources */,
+				8CD652B619B09038003EDD16 /* egsFilter_KillNull.m in Sources */,
 				8CBA8D5E19A7254100E0980F /* NSDictionary_IOCExtensions.m in Sources */,
 				8CBA8D5F19A7254100E0980F /* GHReadme.m in Sources */,
 				8CBA8D6019A7254100E0980F /* GHGist.m in Sources */,
@@ -5249,6 +5284,7 @@
 				8CBA8D6619A7254100E0980F /* Aspects.m in Sources */,
 				8CBA8D6719A7254100E0980F /* IOCGistsController.m in Sources */,
 				8CBA8D6819A7254100E0980F /* IOCGistController.m in Sources */,
+				8CD652CB19B091A5003EDD16 /* UIImage+MultiFormat.m in Sources */,
 				8CBA8D6919A7254100E0980F /* FLEXArgumentInputView.m in Sources */,
 				8CBA8D6A19A7254100E0980F /* JBBaseNavigationController.m in Sources */,
 				8CBA8D6B19A7254100E0980F /* GHGistComment.m in Sources */,
@@ -5258,6 +5294,7 @@
 				8CBA8D6F19A7254100E0980F /* GHBlob.m in Sources */,
 				8CBA8D7119A7254100E0980F /* GHTag.m in Sources */,
 				8CBA8D7219A7254100E0980F /* GHRef.m in Sources */,
+				8CD652C919B091A5003EDD16 /* UIButton+WebCache.m in Sources */,
 				8CBA8D7319A7254100E0980F /* FLEXArgumentInputFontView.m in Sources */,
 				8CBA8D7419A7254100E0980F /* ChameleonStatusBar.m in Sources */,
 				8CBA8D7519A7254100E0980F /* IOCTreeController.m in Sources */,
@@ -5270,6 +5307,7 @@
 				8CBA8D7C19A7254100E0980F /* GHEvent.m in Sources */,
 				8CBA8D7D19A7254100E0980F /* IOCEventsController.m in Sources */,
 				8CBA8D7E19A7254100E0980F /* FLEXDefaultsExplorerViewController.m in Sources */,
+				8CD652C619B091A5003EDD16 /* SDWebImageDownloaderOperation.m in Sources */,
 				8CBA8D7F19A7254100E0980F /* GHPullRequest.m in Sources */,
 				8CBA8D8019A7254100E0980F /* NSDate-Utilities.m in Sources */,
 				8CBA8D8119A7254100E0980F /* JBChartTooltipView.m in Sources */,
@@ -5295,8 +5333,10 @@
 				8CBA8D9519A7254100E0980F /* FLEXArrayExplorerViewController.m in Sources */,
 				8CBA8D9619A7254100E0980F /* GHPullRequests.m in Sources */,
 				8CBA8D9719A7254100E0980F /* FLEXFileBrowserSearchOperation.m in Sources */,
+				8CD652B919B090DE003EDD16 /* NSMutableArray+objectSavely.m in Sources */,
 				8CBA8D9819A7254100E0980F /* IOCPullRequestController.m in Sources */,
 				8CBA8D9A19A7254100E0980F /* IOCIssuesController.m in Sources */,
+				8CD652BC19B090E6003EDD16 /* NSObject+targetTypeValue.m in Sources */,
 				8CBA8D9B19A7254100E0980F /* GHCommits.m in Sources */,
 				8CBA8D9C19A7254100E0980F /* GHFiles.m in Sources */,
 				8CBA8D9D19A7254100E0980F /* UIViewController+REFrostedViewController.m in Sources */,
@@ -5312,6 +5352,7 @@
 				8CBA8DA719A7254100E0980F /* IOCTableViewSectionHeader.m in Sources */,
 				8CBA8DA819A7254100E0980F /* Reachability.m in Sources */,
 				8CBA8DA919A7254100E0980F /* IOCTextView.m in Sources */,
+				8CD652CC19B091A5003EDD16 /* UIImage+WebP.m in Sources */,
 				8CBA8DAA19A7254100E0980F /* FLEXUtility.m in Sources */,
 				8CBA8DAB19A7254100E0980F /* IOCNotificationsController.m in Sources */,
 				8CBA8DAC19A7254100E0980F /* IOCSearchController.m in Sources */,
@@ -5319,6 +5360,7 @@
 				8CBA8DAE19A7254100E0980F /* IOCBlobsController.m in Sources */,
 				8CBA8DAF19A7254100E0980F /* webTextView.m in Sources */,
 				8CBA8DB019A7254100E0980F /* FLEXArgumentInputNotSupportedView.m in Sources */,
+				8CD652C419B091A5003EDD16 /* SDWebImageDecoder.m in Sources */,
 				8CBA8DB119A7254100E0980F /* REFrostedContainerViewController.m in Sources */,
 				8CBA8DB219A7254100E0980F /* IOCCodeController.m in Sources */,
 				8CBA8DB319A7254100E0980F /* PieElement.m in Sources */,
@@ -5338,15 +5380,18 @@
 				8CBA8DC119A7254100E0980F /* GHLabel.m in Sources */,
 				8CBA8DC219A7254100E0980F /* GHMilestone.m in Sources */,
 				8CBA8DC319A7254100E0980F /* GHLabels.m in Sources */,
+				8CD652BF19B09183003EDD16 /* UIImageView+WebCache.m in Sources */,
 				8CBA8DC419A7254100E0980F /* FLEXArgumentInputSwitchView.m in Sources */,
 				8CBA8DC519A7254100E0980F /* GHMilestones.m in Sources */,
 				8CBA8DC619A7254100E0980F /* GHSubmodule.m in Sources */,
 				8CBA8DC719A7254100E0980F /* NSString_GHFMarkdown.m in Sources */,
 				8CBA8DC819A7254100E0980F /* IOCNotificationsSectionHeader.m in Sources */,
+				8CD652C819B091A5003EDD16 /* SDWebImagePrefetcher.m in Sources */,
 				8CBA8DC919A7254100E0980F /* NSMutableString_GHFMarkdown.m in Sources */,
 				8CBA8DCA19A7254100E0980F /* innerDashboardVC.m in Sources */,
 				8CBA8DCB19A7254100E0980F /* FLEXImagePreviewViewController.m in Sources */,
 				8CBA8DCC19A7254100E0980F /* NSMutableAttributedString_GHFMarkdown.m in Sources */,
+				8CD652BA19B090E0003EDD16 /* NSMutableDictionary+safelyWay.m in Sources */,
 				8CBA8DCD19A7254100E0980F /* GHTags.m in Sources */,
 				8CBA8DCE19A7254100E0980F /* IOCTagsController.m in Sources */,
 				8CBA8DCF19A7254100E0980F /* IOCUtil.m in Sources */,
@@ -5359,6 +5404,7 @@
 				8CBA8DD619A7254100E0980F /* FLEXArgumentInputTextView.m in Sources */,
 				8CBA8DD719A7254100E0980F /* GHFMarkdown.m in Sources */,
 				8CBA8DD819A7254100E0980F /* IOCMilestoneSelectionController.m in Sources */,
+				8CD652C319B091A5003EDD16 /* SDWebImageCompat.m in Sources */,
 				8CBA8DD919A7254100E0980F /* FLEXArgumentInputViewFactory.m in Sources */,
 				8CBA8DDA19A7254100E0980F /* UIViewController+Chameleon.m in Sources */,
 				8CBA8DDB19A7254100E0980F /* MBProgressHUD.m in Sources */,
@@ -5381,8 +5427,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5392,6 +5438,7 @@
 					"${inherited}",
 					"CONFIGURATION_$(CONFIGURATION)",
 					"DEBUG=3",
+					"GitColorProVer=1",
 				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
@@ -5403,7 +5450,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s i386";
 			};
@@ -5439,14 +5486,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"${inherited}",
 					"CONFIGURATION_$(CONFIGURATION)",
+					"GitColorProVer=1",
 				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
@@ -5458,7 +5506,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
 				);
 				PRODUCT_NAME = iOctocat;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s i386";
 			};
@@ -5472,8 +5520,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5483,6 +5531,7 @@
 					"${inherited}",
 					"CONFIGURATION_$(CONFIGURATION)",
 					"DEBUG=3",
+					"GitColorLiteVer=1",
 				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "GitColor-Pro copy-Info.plist";
@@ -5494,7 +5543,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
 				);
 				PRODUCT_NAME = "GitColor-Pro copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "79a9964d-1b5e-4adb-9e4c-dfed30ba9f49";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s i386";
 			};
@@ -5508,14 +5557,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"${inherited}",
 					"CONFIGURATION_$(CONFIGURATION)",
+					"GitColorLiteVer=1",
 				);
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "GitColor-Pro copy-Info.plist";
@@ -5527,7 +5577,7 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
 				);
 				PRODUCT_NAME = "GitColor-Pro copy";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "79a9964d-1b5e-4adb-9e4c-dfed30ba9f49";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s i386";
 			};

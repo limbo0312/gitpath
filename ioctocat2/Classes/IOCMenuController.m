@@ -394,11 +394,11 @@ static NSString *const NotificationsCountKeyPath = @"notifications.unreadCount";
 				viewController.title = @"Search";
 			} else if (row == 1) {
 #ifdef CONFIGURATION_Debug
-                GHRepository *repo = [[GHRepository alloc] initWithOwner:@"dennisreimann" andName:@"iOctocat"];
-                viewController = [[IOCIssuesController alloc] initWithRepository:repo];
-                viewController.title = @"Issues";
+//                GHRepository *repo = [[GHRepository alloc] initWithOwner:@"dennisreimann" andName:@"iOctocat"];
+//                viewController = [[IOCIssuesController alloc] initWithRepository:repo];
+//                viewController.title = @"Issues";
 #else
-                viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
+//                viewController = [[BITHockeyManager sharedHockeyManager].feedbackManager feedbackListViewController:NO];
 #endif
 			}
 			break;
