@@ -9,7 +9,7 @@
 #import "CloudInsightSet.h"
 #import "TalkingData.h" //talkingdata 统计
 #import "Crittercism.h"//Crittercism 分析工具
-//#import <Parse/Parse.h>//parse 存储云工具
+#import <Parse/Parse.h>//parse 存储云工具
 
 //#import "TestFlight.h"
 //#import <HockeySDK/HockeySDK.h>
@@ -23,20 +23,60 @@
 #pragma mark - 注册消息 推送  方式
 + (void)startJPush
 {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert |
-                                                                           UIRemoteNotificationTypeSound |
-                                                                           UIRemoteNotificationTypeBadge)];
+//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert |
+//                                                                           UIRemoteNotificationTypeSound |
+//                                                                           UIRemoteNotificationTypeBadge)];
 }
 
 #pragma mark app启动的辅助工具
-
-
+/*
++(void)startParse
+{
+    // ****************************************************************************
+    // Parse 云端数据使用初始化
+    // ****************************************************************************
+    [Parse setApplicationId:@"EAaUj3RDJKUkplN9a3GT29UDgqOVuy5ulTA7N5ix"
+                  clientKey:@"eOX8EhwnMi1rGD3qAZd11HeeWAk3sUEaLd23vzs7"];//GitColor
+    
+    //add============添加装机记录。。。user
+	{
+        [[PFInstallation  currentInstallation] setObject:[[UIDevice currentDevice] name]
+                                                  forKey:@"USER_DeviceName"];
+        [[PFInstallation  currentInstallation] saveInBackground];
+	}
+    
+    //add=============登入次数统计///user
+    {
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^(void) {
+            
+            NSString * countSTR = [[PFInstallation  currentInstallation] objectForKey:@"USER_CheckTime"] ;
+            NSInteger countINT = [countSTR intValue];
+            if (countINT == 0)
+                countINT = 1;
+            else
+                countINT++;
+            
+            [[PFInstallation  currentInstallation] setObject:[NSString stringWithFormat:@"%d",countINT]
+                                                      forKey:@"USER_CheckTime"];
+            [[PFInstallation  currentInstallation] saveInBackground];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Any further UI updates (always on main thread)
+            });
+        });
+    }
+}
+*/
 +(void)startCrittercism
 {
     // ****************************************************************************
     //  Crittercism 云端bug报告统计
     // ****************************************************************************
-    [Crittercism enableWithAppID:@"52e11c6146b7c24db0000002"];//saidian  zuqiukong
+    [Crittercism enableWithAppID:@"54020cf9d478bc3211000002"];//bugsence
+    
+    [Crittercism setUsername:[[UIDevice currentDevice] name]];
 }
 
 +(void)startTalkingData
@@ -44,8 +84,8 @@
     // ****************************************************************************
     // talkingdata 云端用户使用情况分析
     // ****************************************************************************
-    [TalkingData  sessionStarted:@"D4CDFDBC309C3974226F33E152465A95"//BALL
-                   withChannelId:@"zuqiukong"];
+    [TalkingData  sessionStarted:@"D5FFE0940F74AAEC4813A71304843CFD"//gitcolor
+                   withChannelId:@"AppStore"];
 }
 
 

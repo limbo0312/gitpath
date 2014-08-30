@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>GitColorPro</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -33,8 +33,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>SBUsesNetwork</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

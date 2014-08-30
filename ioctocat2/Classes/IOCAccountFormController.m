@@ -299,7 +299,7 @@ static NSString *const DeviceTokenKeyPath = @"deviceToken";
             // in case there is no device token yet, we have to ask the
             // users permissions to receive remote notifications first
             self.wantsPushNeedsDeviceToken = YES;
-            [iOctocatDelegate.sharedInstance registerForRemoteNotifications];
+//            [iOctocatDelegate.sharedInstance registerForRemoteNotifications];
         } else if ([self.loginValue ioc_isEmpty] || [self.passwordValue ioc_isEmpty]) {
 			[iOctocatDelegate reportError:@"Credentials required" with:@"Please enter your login and password"];
 			[self.pushSwitch setOn:NO animated:YES];

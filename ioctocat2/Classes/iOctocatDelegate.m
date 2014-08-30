@@ -52,7 +52,10 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
+    //====1.5 CloudInsightSet
+//    [CloudInsightSet startParse];
+    [CloudInsightSet startTalkingData];
+    [CloudInsightSet startCrittercism];
  
 #if DEBUG
     [[innerConsole sharedConsole]  enableConsoleMode];
@@ -118,8 +121,13 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 
 #pragma mark Remote Notifications
 
+//===禁止推送功能
+/*
+
 - (void)registerForRemoteNotifications {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                                           UIRemoteNotificationTypeSound |
+                                                                           UIRemoteNotificationTypeAlert)];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -222,6 +230,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
         }];
     }
 }
+*/
 
 #pragma mark Users
 
@@ -333,7 +342,9 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     DebugLog(@"%@",self.accounts);
 }
 
-//main VCHierarchy
+//main VCHierarchy  遗弃
+
+/*
 - (void)setupSlidingViewController {
     
     self.slidingViewController.anchorRightRevealAmount = 230;
@@ -341,6 +352,7 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
     self.slidingViewController.underLeftViewController = self.menuNavController;//====左侧导航，
     
 }
+*/
 
 - (BOOL)openURL:(NSURL *)url {
     UIViewController *menuController = self.menuNavController.topViewController;
@@ -359,11 +371,14 @@ static NSString *const MigratedAvatarCacheDefaultsKey = @"migratedAvatarCache";
 }
 
 - (void)syncDeviceInformationWithServer {
-    if ([IOCDefaultsPersistence grantedRemoteNotificationsPermission]) {
-        // Reregister for remote notifications so that we always deal
-        // with fresh data like the current device token and badge
-        [self registerForRemoteNotifications];
-    }
+
+//====禁止 pushSync
+    
+//    if ([IOCDefaultsPersistence grantedRemoteNotificationsPermission]) {
+//        // Reregister for remote notifications so that we always deal
+//        // with fresh data like the current device token and badge
+//        [self registerForRemoteNotifications];
+//    }
 }
 
 #pragma mark Dropdowns====下拉 提示框：

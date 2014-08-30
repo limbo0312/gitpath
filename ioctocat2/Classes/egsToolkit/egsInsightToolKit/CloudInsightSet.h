@@ -16,7 +16,7 @@
 }
 
 /*启动：parse  云端数据存储*/
-//-(void)startParse;
++(void)startParse;
 
 + (void)startJPush;
 

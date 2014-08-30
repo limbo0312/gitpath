@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GitColor-Lite.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>iOctocat Beta.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>6FCAA318167B52C800C816FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8CBA8BA319A7254100E0980F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -94,6 +94,11 @@
 		4A13D88D1984741300D40631 /* CellOfAccout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A13D88C1984741300D40631 /* CellOfAccout.m */; };
 		4A13D88F1984743E00D40631 /* CellOfAccout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A13D88E1984743E00D40631 /* CellOfAccout.xib */; };
 		4A13D89319854E7500D40631 /* innerDashboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A13D89219854E7500D40631 /* innerDashboardVC.m */; };
+		4A242CB219B23EF600C9B2F7 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A242CB119B23EF600C9B2F7 /* libz.1.1.3.dylib */; };
+		4A242CB619B2405600C9B2F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A242CB519B2405600C9B2F7 /* CoreLocation.framework */; };
+		4A242CB719B2408E00C9B2F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7C21D519AAED4000D156F2 /* MapKit.framework */; };
+		4A7D04A219B25CFA000C529F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D04A119B25CFA000C529F /* Social.framework */; };
+		4ABDF01419B247B1003123D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A242CB519B2405600C9B2F7 /* CoreLocation.framework */; };
 		4ABFB7DA19975EDF00BA87ED /* JBBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABFB7D319975EDE00BA87ED /* JBBaseChartViewController.m */; };
 		4ABFB7DB19975EDF00BA87ED /* JBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABFB7D519975EDE00BA87ED /* JBBaseNavigationController.m */; };
 		4ABFB7DC19975EDF00BA87ED /* JBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABFB7D719975EDE00BA87ED /* JBBaseTableViewController.m */; };
@@ -528,7 +533,6 @@
 		8C7C21D219AAEA5900D156F2 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C219AAEA5900D156F2 /* UIImage+MultiFormat.m */; };
 		8C7C21D319AAEA5900D156F2 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C419AAEA5900D156F2 /* UIImage+WebP.m */; };
 		8C7C21D419AAEA5900D156F2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C21C619AAEA5900D156F2 /* UIImageView+WebCache.m */; };
-		8C7C21D619AAED4000D156F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7C21D519AAED4000D156F2 /* MapKit.framework */; };
 		8C7C21D719AAED4800D156F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7C21D519AAED4000D156F2 /* MapKit.framework */; };
 		8C86E772190664E000E7224B /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C86E76C190664E000E7224B /* GTMStackTrace.m */; };
 		8C86E773190664E000E7224B /* innerConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C86E76F190664E000E7224B /* innerConsole.m */; };
@@ -1371,6 +1375,11 @@
 		4A13D88E1984743E00D40631 /* CellOfAccout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellOfAccout.xib; path = Classes/NewHierarchy/cellSnippet/CellOfAccout.xib; sourceTree = SOURCE_ROOT; };
 		4A13D89119854E7500D40631 /* innerDashboardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = innerDashboardVC.h; sourceTree = "<group>"; };
 		4A13D89219854E7500D40631 /* innerDashboardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = innerDashboardVC.m; sourceTree = "<group>"; };
+		4A242CAF19B23D9000C9B2F7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4A242CB119B23EF600C9B2F7 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		4A242CB319B23F2700C9B2F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4A242CB519B2405600C9B2F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4A7D04A119B25CFA000C529F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4ABFB7CC19975EBE00BA87ED /* JBColorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBColorConstants.h; sourceTree = "<group>"; };
 		4ABFB7CD19975EBE00BA87ED /* JBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBConstants.h; sourceTree = "<group>"; };
 		4ABFB7CE19975EBE00BA87ED /* JBFontConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBFontConstants.h; sourceTree = "<group>"; };
@@ -2196,7 +2205,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C7C21D619AAED4000D156F2 /* MapKit.framework in Frameworks */,
+				4A242CB719B2408E00C9B2F7 /* MapKit.framework in Frameworks */,
+				4A242CB619B2405600C9B2F7 /* CoreLocation.framework in Frameworks */,
+				4A242CB219B23EF600C9B2F7 /* libz.1.1.3.dylib in Frameworks */,
 				8C3597FA1949B2370017DD39 /* CoreData.framework in Frameworks */,
 				8C3597F81949B22A0017DD39 /* CoreTelephony.framework in Frameworks */,
 				8C8C1EB7192E35900001D221 /* Accelerate.framework in Frameworks */,
@@ -2224,6 +2235,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7D04A219B25CFA000C529F /* Social.framework in Frameworks */,
+				4ABDF01419B247B1003123D3 /* CoreLocation.framework in Frameworks */,
 				8C7C21D719AAED4800D156F2 /* MapKit.framework in Frameworks */,
 				8CBA8DE219A7254100E0980F /* CoreData.framework in Frameworks */,
 				8CBA8DE319A7254100E0980F /* CoreTelephony.framework in Frameworks */,
@@ -2255,10 +2268,10 @@
 			isa = PBXGroup;
 			children = (
 				29B97316FDCFA39411CA2CEA /* main.m */,
-				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
-				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
 				1D3623240D0F684500981E51 /* iOctocatDelegate.h */,
 				1D3623250D0F684500981E51 /* iOctocatDelegate.m */,
+				6FAE3437165B6FD300C3502A /* IOCApplication.h */,
+				6FAE3438165B6FD300C3502A /* IOCApplication.m */,
 				6FA512F11332659000C16D95 /* IOCAppConstants.h */,
 				8C3597701949A2CC0017DD39 /* NewHierarchy */,
 				8C8C1EB1192E33830001D221 /* OldHierarchy */,
@@ -2324,6 +2337,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A7D04A119B25CFA000C529F /* Social.framework */,
+				4A242CB519B2405600C9B2F7 /* CoreLocation.framework */,
+				4A242CB319B23F2700C9B2F7 /* StoreKit.framework */,
+				4A242CB119B23EF600C9B2F7 /* libz.1.1.3.dylib */,
+				4A242CAF19B23D9000C9B2F7 /* AVFoundation.framework */,
 				8C7C21D519AAED4000D156F2 /* MapKit.framework */,
 				8C3597F91949B2370017DD39 /* CoreData.framework */,
 				8C3597F71949B22A0017DD39 /* CoreTelephony.framework */,
@@ -4122,6 +4140,9 @@
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = SZJMV5D737;
 					};
+					8CBA8BA319A7254100E0980F = {
+						DevelopmentTeam = SZJMV5D737;
+					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iOctocat" */;
@@ -5430,6 +5451,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/MesonNN/EGSgitStation/gitBox/ioctocat2/thirdPartyLib,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5448,6 +5473,24 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Crittercism",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
@@ -5489,6 +5532,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/MesonNN/EGSgitStation/gitBox/ioctocat2/thirdPartyLib,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5504,6 +5551,24 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Crittercism",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
@@ -5523,6 +5588,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/MesonNN/EGSgitStation/gitBox/ioctocat2/thirdPartyLib,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5542,6 +5611,25 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
 				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "GitColor-Pro copy";
 				PROVISIONING_PROFILE = "79a9964d-1b5e-4adb-9e4c-dfed30ba9f49";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5560,6 +5648,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: mingwei liang (SZJMV5D737)";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/MesonNN/EGSgitStation/gitBox/ioctocat2/thirdPartyLib,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOctocat_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5575,6 +5667,25 @@
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Crittercism",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/Hierarchy.Viewer.1.4.7",
 					"$(PROJECT_DIR)/Classes/egsToolkit/egsInsightToolKit/talkingdata",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "GitColor-Pro copy";
 				PROVISIONING_PROFILE = "79a9964d-1b5e-4adb-9e4c-dfed30ba9f49";
