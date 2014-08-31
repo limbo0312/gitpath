@@ -5491,6 +5491,7 @@
 					SystemConfiguration,
 					"-framework",
 					UIKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
@@ -5569,6 +5570,7 @@
 					SystemConfiguration,
 					"-framework",
 					UIKit,
+					"-ObjC",
 				);
 				PRODUCT_NAME = iOctocat;
 				PROVISIONING_PROFILE = "5118cc94-a24c-41be-bb54-2b4f0e6f2ffe";
