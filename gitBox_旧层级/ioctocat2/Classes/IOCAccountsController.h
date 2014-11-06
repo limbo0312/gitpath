@@ -1,6 +1,0 @@
-
-
-@interface IOCAccountsController : UITableViewController
-
-
-@end
